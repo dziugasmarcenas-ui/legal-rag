@@ -52,10 +52,11 @@ learn exactly how well it works and where it fails.
 | Field | Value |
 |---|---|
 | Source | *Lietuvos Respublikos darbo kodeksas* |
-| Act number | XII-2603 |
-| Consolidated edition valid from | `NOT YET RECORDED — read off source document` |
-| Consolidated edition valid to | `NOT YET RECORDED — read off source document` |
-| Retrieved from | e-TAR (`NOT YET RECORDED`) |
+| Approving act | XII-2603 (the Code is annexed to it, not identical to it) |
+| Published | TAR 2016-09-19, i. k. 2016-23709 |
+| Consolidated edition valid from | **2026-06-07** |
+| Consolidated edition valid to | **2026-10-31** |
+| Retrieved from | e-TAR, act id `f6d686707e7011e6b969d7ae07280e89`, retrieved 2026-08-20 |
 | Articles parsed | `NOT YET PARSED` |
 | Coverage | `NOT YET DETERMINED` |
 
