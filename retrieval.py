@@ -1,3 +1,4 @@
+import config
 import json
 import os
 import sys
@@ -67,9 +68,7 @@ def retrieve(question, k=5):
     and return the k best articles.
     """
 
-    client = voyageai.Client(
-        api_key=os.environ["VOYAGE_API_KEY"]
-    )
+    client = voyageai.Client(api_key=config.require("VOYAGE_API_KEY"))
 
     # Turn the user's question into a 1024-number embedding
     embedded = client.embed(
