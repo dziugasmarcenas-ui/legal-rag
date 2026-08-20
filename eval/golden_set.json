@@ -1,0 +1,212 @@
+[
+  {
+    "id": 1,
+    "question": "Bandomasis jau eina ketvirtą mėnesį. Kiek išvis darbdavys gali laikyti bandomajam?",
+    "expected_articles": ["36"],
+    "answerable": true,
+    "verified_note": "checked DK article 36; probation may not exceed 3 months, excluding specified absences"
+  },
+  {
+    "id": 2,
+    "question": "Pasirašiau darbo sutartį, bet joje nėra parašyta, kur tiksliai mano darbo vieta. Ar taip gali būti?",
+    "expected_articles": ["34", "44"],
+    "answerable": true,
+    "verified_note": "DK 34 makes the workplace an essential contract condition; DK 44 requires information about the place where work is performed"
+  },
+  {
+    "id": 3,
+    "question": "Vadovė nori mane perkelti dirbti į kitą miestą, o aš nesutinku. Ar gali tiesiog pakeisti darbo vietą be mano sutikimo?",
+    "expected_articles": ["45"],
+    "answerable": true,
+    "verified_note": "checked DK article 45; transfer to another locality at the employer's initiative requires the employee's written consent"
+  },
+  {
+    "id": 4,
+    "question": "Jau trečią kartą duoda terminuotą sutartį tai pačiai pozicijai, tarp jų buvo tik kelių savaičių tarpai. Bendrai taip dirbu virš 2 metų. Ar čia galima?",
+    "expected_articles": ["68"],
+    "answerable": true,
+    "verified_note": "checked DK article 68; successive fixed-term contracts for the same function generally have a 2-year combined maximum, with gaps up to 2 months treated as successive"
+  },
+  {
+    "id": 5,
+    "question": "Dirbu 12 valandų pamainą ir po 8 valandų vėl liepia ateiti į darbą. Ar tiek poilsio užtenka?",
+    "expected_articles": ["114", "122"],
+    "answerable": true,
+    "verified_note": "DK 114 sets maximum working-time limits and DK 122 sets minimum daily and weekly rest requirements"
+  },
+  {
+    "id": 6,
+    "question": "Dirbu pamainomis ir vakar vakare pakeitė grafiką, kad šiandien turiu ateiti į darbą. Ar grafiką galima taip keisti paskutinę minutę?",
+    "expected_articles": ["115"],
+    "answerable": true,
+    "verified_note": "checked DK article 115; it regulates work-shift schedules, their notification and changes"
+  },
+  {
+    "id": 7,
+    "question": "Po darbo sako dar dvi valandas pasilikti, nes nespėjom visko padaryti. Ar gali liepti be mano sutikimo ir kaip už tas valandas turi mokėti?",
+    "expected_articles": ["119", "144"],
+    "answerable": true,
+    "verified_note": "DK 119 regulates when overtime may be ordered and when consent is required; DK 144 sets increased overtime pay"
+  },
+  {
+    "id": 8,
+    "question": "Rytoj valstybinė šventė, bet šiandien dirbam įprastas 8 valandas. Ar diena prieš šventę neturėtų būti trumpesnė?",
+    "expected_articles": ["112"],
+    "answerable": true,
+    "verified_note": "checked DK article 112; working time on the eve of a public holiday is generally shortened by one hour"
+  },
+  {
+    "id": 9,
+    "question": "Dirbu 5 dienas per savaitę. Kiek apmokamų laisvų dienų per metus man priklauso?",
+    "expected_articles": ["126"],
+    "answerable": true,
+    "verified_note": "checked DK article 126; the standard minimum is 20 working days per year for a 5-day working week"
+  },
+  {
+    "id": 10,
+    "question": "Išeinu iš darbo ir dar turiu 8 nepanaudotas atostogų dienas. Jos tiesiog dingsta ar už jas turi sumokėti?",
+    "expected_articles": ["127"],
+    "answerable": true,
+    "verified_note": "checked DK article 127; on termination unused annual leave may be compensated in money subject to the Code's rules"
+  },
+  {
+    "id": 11,
+    "question": "Atostogos prasideda pirmadienį, o penktadienį dar negavau pinigų už jas. Kada darbdavys turi juos pervesti?",
+    "expected_articles": ["130"],
+    "answerable": true,
+    "verified_note": "checked DK article 130; it specifies when annual-leave pay must be paid and what happens if payment is delayed"
+  },
+  {
+    "id": 12,
+    "question": "Vadovas sako, kad atostogas galiu imti tik po savaitę. Ar man nepriklauso bent kartą pasiimti dviejų savaičių iš eilės?",
+    "expected_articles": ["128"],
+    "answerable": true,
+    "verified_note": "checked DK article 128; at least one part of annual leave must normally meet the Code's minimum continuous-leave requirement"
+  },
+  {
+    "id": 13,
+    "question": "Už gegužę algą darbdavys žada sumokėti tik liepos vidury. Ar gali atlyginimą taip vėluoti?",
+    "expected_articles": ["146", "147"],
+    "answerable": true,
+    "verified_note": "DK 146 regulates salary payment deadlines and DK 147 regulates consequences of delayed employment-related payments"
+  },
+  {
+    "id": 14,
+    "question": "Per Jonines dirbau visą pamainą. Ar už tokią dieną turi mokėti daugiau negu paprastai?",
+    "expected_articles": ["123", "144"],
+    "answerable": true,
+    "verified_note": "DK 123 identifies public holidays and DK 144 sets the increased rate for work performed on a public holiday"
+  },
+  {
+    "id": 15,
+    "question": "Darbdavys nuo algos nuskaičiavo 100 eurų už sugadintą prekę, nors aš nieko nesutikau mokėti. Ar jis gali taip tiesiog nuskaičiuoti?",
+    "expected_articles": ["150", "151", "156"],
+    "answerable": true,
+    "verified_note": "DK 150 governs deductions from wages, DK 151 sets the basis for employment-related liability, and DK 156 governs recovery of employee-caused damage from wages"
+  },
+  {
+    "id": 16,
+    "question": "Darbdavys niekada neduoda algalapio, tik įkrenta pinigai į sąskaitą. Ar jis neprivalo parodyti, už ką tiksliai man sumokėjo ir kiek valandų suskaičiavo?",
+    "expected_articles": ["148"],
+    "answerable": true,
+    "verified_note": "checked DK article 148; the employer must provide information about calculated and paid salary and the employee's worked time"
+  },
+  {
+    "id": 17,
+    "question": "Noriu išeiti iš darbo savo noru. Ar tikrai turiu dar 20 dienų atidirbti?",
+    "expected_articles": ["55"],
+    "answerable": true,
+    "verified_note": "checked DK article 55; ordinary resignation by the employee generally requires 20 calendar days' written notice"
+  },
+  {
+    "id": 18,
+    "question": "Jau du mėnesius normaliai nemoka algos. Ar galiu dėl to išeiti greičiau ir ar man priklausytų išeitinė?",
+    "expected_articles": ["56"],
+    "answerable": true,
+    "verified_note": "checked DK article 56; prolonged non-payment of the full salary is one of the important reasons allowing employee-initiated termination with shorter notice and severance"
+  },
+  {
+    "id": 19,
+    "question": "Įmonė naikina mano poziciją ir sako, kad mane atleis. Kiek laiko prieš tai turi įspėti ir kokia išeitinė priklauso?",
+    "expected_articles": ["57"],
+    "answerable": true,
+    "verified_note": "checked DK article 57; it covers employer-initiated dismissal without employee fault, including redundancy, notice periods and severance"
+  },
+  {
+    "id": 20,
+    "question": "Prieš kelis mėnesius gavau įspėjimą už pavėlavimą, dabar vėl pavėlavau. Ar už antrą kartą gali iškart atleisti be išeitinės?",
+    "expected_articles": ["58"],
+    "answerable": true,
+    "verified_note": "checked DK article 58; it regulates termination for employee fault, including repeated breaches and the required procedure"
+  },
+  {
+    "id": 21,
+    "question": "Esu nėščia, o darbe dabar mažina etatus. Ar mane gali atleisti kaip ir kitus darbuotojus?",
+    "expected_articles": ["57", "61"],
+    "answerable": true,
+    "verified_note": "DK 57 contains redundancy rules while DK 61 contains special restrictions on terminating employment with pregnant employees and other protected employees"
+  },
+  {
+    "id": 22,
+    "question": "Turiu vieną 8 metų vaiką. Ar dėl vaiko man priklauso kokia papildoma laisva diena nuo darbo?",
+    "expected_articles": ["138"],
+    "answerable": true,
+    "verified_note": "checked current DK article 138; an employee raising one child under 12 is entitled to one additional paid rest day every 3 months or equivalent reduced working time"
+  },
+  {
+    "id": 23,
+    "question": "Grįžtu į darbą po vaiko priežiūros ir sako, kad mano senos vietos nebėra, siūlo prastesnes pareigas už mažesnę algą. Ar gali taip?",
+    "expected_articles": ["131", "134"],
+    "answerable": true,
+    "verified_note": "DK 134 regulates childcare leave and DK 131 guarantees return after targeted leave to the same or an equivalent position on no less favourable conditions, including pay"
+  },
+  {
+    "id": 24,
+    "question": "Darbdavys liko skolingas apie 700 eurų algos ir nesumoka. Kur man dėl to kreiptis ir kiek laiko turiu?",
+    "expected_articles": ["216", "217", "220"],
+    "answerable": true,
+    "verified_note": "DK 216 identifies the bodies hearing labour disputes, DK 217 sets their competence, and DK 220 regulates referral of rights disputes to the Labour Disputes Commission and court, including time limits"
+  },
+  {
+    "id": 25,
+    "question": "Atleido prieš maždaug 6 savaites, o tik dabar supratau, kad galėjo atleisti neteisėtai. Ar dar ne per vėlu ginčyti atleidimą?",
+    "expected_articles": ["220"],
+    "answerable": true,
+    "verified_note": "checked DK article 220; dismissal disputes have a shorter application deadline than the general deadline and the article also addresses missed deadlines"
+  },
+  {
+    "id": 26,
+    "question": "Jei dabar mane atleistų ir gaudavau 1800 eurų ant popieriaus, kiek tiksliai per mėnesį gaučiau bedarbio išmokos?",
+    "expected_articles": [],
+    "answerable": false,
+    "verified_note": "unemployment benefit eligibility and amount are governed by unemployment social insurance legislation and Sodra rules, not by the Labour Code"
+  },
+  {
+    "id": 27,
+    "question": "Jeigu sutartyje alga 2500 eurų bruto, kiek nuo jos turi nuskaičiuoti GPM ir kiek man turi likti į rankas?",
+    "expected_articles": [],
+    "answerable": false,
+    "verified_note": "income tax rates and NPD calculations are governed by the Gyventojų pajamų mokesčio įstatymas and related tax rules, not by the Labour Code"
+  },
+  {
+    "id": 28,
+    "question": "Jeigu 10 metų dirbu ir gaunu apie 2000 eurų ant popieriaus, kiek per tą laiką susikaupia pensijos stažo ir pensijos taškų?",
+    "expected_articles": [],
+    "answerable": false,
+    "verified_note": "pension insurance record and pension accounting points are determined by state social insurance pension legislation, not by the Labour Code"
+  },
+  {
+    "id": 29,
+    "question": "Sandėlyje žiemą būna apie 11 laipsnių. Kokia minimali temperatūra darbo vietoje yra leidžiama pagal įstatymus?",
+    "expected_articles": [],
+    "answerable": false,
+    "verified_note": "the Labour Code establishes general health and safety rights but detailed workplace thermal-environment values are set outside it, including hygiene norm HN 69:2003"
+  },
+  {
+    "id": 30,
+    "question": "Darbo ginčų komisiją jau praėjau ir dabar noriu kreiptis į teismą. Kokia turi būti ieškinio forma, kokius dokumentus pridėti ir kaip jį pateikti per e.teismas?",
+    "expected_articles": [],
+    "answerable": false,
+    "verified_note": "the Labour Code covers the route from a labour dispute to court, but detailed civil claim form, filing requirements and court procedure are governed by civil procedure rules rather than the Labour Code"
+  }
+]
