@@ -10,14 +10,14 @@ and model, the vectors are reused and no API call is made.
 
 import hashlib
 import json
-import os
-import sys
 
 from datetime import datetime, timezone
 from pathlib import Path
 
 import numpy as np
 import voyageai
+
+import config
 
 MODEL = "voyage-3"
 BATCH_SIZE = 64
@@ -84,13 +84,7 @@ def main():
         print(f"vectors already current: {matrix.shape} -- no API call made")
         return
 
-    api_key = os.environ.get("VOYAGE_API_KEY")
-    if not api_key:
-        sys.exit(
-            "VOYAGE_API_KEY is not set.\n"
-            "Export it in this shell, then run this script again:\n"
-            "    export VOYAGE_API_KEY='...'"
-        )
+    api_key = config.require("VOYAGE_API_KEY")
 
     print(f"embedding {len(texts)} articles with {MODEL}...")
     client = voyageai.Client(api_key=api_key)
