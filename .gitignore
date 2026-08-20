@@ -1,15 +1,5 @@
-# Python
 venv/
-__pycache__/
-*.py[cod]
-.pytest_cache/
-
-# Secrets
-.env
-.env.*
-
-# macOS
 .DS_Store
-
-# Embedding cache (regenerable, and large)
-embeddings/*.npy
+.env
+__pycache__/
+*.pyc
