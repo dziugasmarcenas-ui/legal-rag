@@ -120,9 +120,10 @@ Chosen operating point: `NOT YET CHOSEN` — pending the hour-13.5 failure analy
 
 **The score ranges overlap completely.** Answerable questions score 0.3573&ndash;0.5627
 at rank 1; unanswerable ones score 0.3246&ndash;0.6050. One unanswerable question
-outscores every answerable one, so no threshold separates the two sets cleanly and
-4 of 5 is the ceiling on correct refusal. This is a limitation of using an absolute
-similarity score as a confidence signal, not a tuning problem.
+outscores every answerable one, so **no single absolute-similarity threshold provides
+useful separation**: catching the fifth unsupported query would require a threshold
+that also rejects every answerable query in the benchmark. This is a limitation of
+using an absolute similarity score as a confidence signal, not a tuning problem.
 
 ---
 
