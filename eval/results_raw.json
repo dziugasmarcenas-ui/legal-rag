@@ -1,0 +1,670 @@
+{
+  "key": {
+    "golden_hash": "aca238241f5555bbae794a6c750c275768e880272afc5ed135bbe015faa119b3",
+    "corpus_fingerprint": "b34eada0528d1f08cf14515fe5c823b8c2bd939058256c136e85756b622663e0",
+    "embedding_model": "voyage-3"
+  },
+  "results": [
+    {
+      "id": 1,
+      "question": "Bandomasis jau eina ketvirtą mėnesį. Kiek išvis darbdavys gali laikyti bandomajam?",
+      "answerable": true,
+      "expected": [
+        "36"
+      ],
+      "retrieved": [
+        "36",
+        "68",
+        "67",
+        "61",
+        "69"
+      ],
+      "scores": [
+        0.476025,
+        0.471254,
+        0.434386,
+        0.414026,
+        0.400532
+      ]
+    },
+    {
+      "id": 2,
+      "question": "Pasirašiau darbo sutartį, bet joje nėra parašyta, kur tiksliai mano darbo vieta. Ar taip gali būti?",
+      "answerable": true,
+      "expected": [
+        "34",
+        "44"
+      ],
+      "retrieved": [
+        "34",
+        "33",
+        "12",
+        "89",
+        "8"
+      ],
+      "scores": [
+        0.460139,
+        0.411209,
+        0.392535,
+        0.377818,
+        0.374345
+      ]
+    },
+    {
+      "id": 3,
+      "question": "Vadovė nori mane perkelti dirbti į kitą miestą, o aš nesutinku. Ar gali tiesiog pakeisti darbo vietą be mano sutikimo?",
+      "answerable": true,
+      "expected": [
+        "45"
+      ],
+      "retrieved": [
+        "45",
+        "46",
+        "105",
+        "33",
+        "32"
+      ],
+      "scores": [
+        0.525732,
+        0.369757,
+        0.355425,
+        0.354778,
+        0.349736
+      ]
+    },
+    {
+      "id": 4,
+      "question": "Jau trečią kartą duoda terminuotą sutartį tai pačiai pozicijai, tarp jų buvo tik kelių savaičių tarpai. Bendrai taip dirbu virš 2 metų. Ar čia galima?",
+      "answerable": true,
+      "expected": [
+        "68"
+      ],
+      "retrieved": [
+        "68",
+        "70",
+        "67",
+        "69",
+        "72"
+      ],
+      "scores": [
+        0.519632,
+        0.423491,
+        0.411193,
+        0.408813,
+        0.405014
+      ]
+    },
+    {
+      "id": 5,
+      "question": "Dirbu 12 valandų pamainą ir po 8 valandų vėl liepia ateiti į darbą. Ar tiek poilsio užtenka?",
+      "answerable": true,
+      "expected": [
+        "114",
+        "122"
+      ],
+      "retrieved": [
+        "122",
+        "118",
+        "114",
+        "138",
+        "121"
+      ],
+      "scores": [
+        0.50234,
+        0.424874,
+        0.399388,
+        0.390806,
+        0.384794
+      ]
+    },
+    {
+      "id": 6,
+      "question": "Dirbu pamainomis ir vakar vakare pakeitė grafiką, kad šiandien turiu ateiti į darbą. Ar grafiką galima taip keisti paskutinę minutę?",
+      "answerable": true,
+      "expected": [
+        "115"
+      ],
+      "retrieved": [
+        "116",
+        "115",
+        "94",
+        "45",
+        "110"
+      ],
+      "scores": [
+        0.471867,
+        0.435237,
+        0.373801,
+        0.361419,
+        0.343672
+      ]
+    },
+    {
+      "id": 7,
+      "question": "Po darbo sako dar dvi valandas pasilikti, nes nespėjom visko padaryti. Ar gali liepti be mano sutikimo ir kaip už tas valandas turi mokėti?",
+      "answerable": true,
+      "expected": [
+        "119",
+        "144"
+      ],
+      "retrieved": [
+        "119",
+        "116",
+        "35",
+        "114",
+        "121"
+      ],
+      "scores": [
+        0.502626,
+        0.435826,
+        0.423056,
+        0.420141,
+        0.405268
+      ]
+    },
+    {
+      "id": 8,
+      "question": "Rytoj valstybinė šventė, bet šiandien dirbam įprastas 8 valandas. Ar diena prieš šventę neturėtų būti trumpesnė?",
+      "answerable": true,
+      "expected": [
+        "112"
+      ],
+      "retrieved": [
+        "112",
+        "123",
+        "114",
+        "144",
+        "122"
+      ],
+      "scores": [
+        0.440091,
+        0.428664,
+        0.382777,
+        0.380231,
+        0.374838
+      ]
+    },
+    {
+      "id": 9,
+      "question": "Dirbu 5 dienas per savaitę. Kiek apmokamų laisvų dienų per metus man priklauso?",
+      "answerable": true,
+      "expected": [
+        "126"
+      ],
+      "retrieved": [
+        "126",
+        "128",
+        "127",
+        "123",
+        "137"
+      ],
+      "scores": [
+        0.536968,
+        0.494349,
+        0.494031,
+        0.487547,
+        0.46237
+      ]
+    },
+    {
+      "id": 10,
+      "question": "Išeinu iš darbo ir dar turiu 8 nepanaudotas atostogų dienas. Jos tiesiog dingsta ar už jas turi sumokėti?",
+      "answerable": true,
+      "expected": [
+        "127"
+      ],
+      "retrieved": [
+        "127",
+        "130",
+        "129",
+        "125",
+        "137"
+      ],
+      "scores": [
+        0.494244,
+        0.467296,
+        0.446513,
+        0.432543,
+        0.427785
+      ]
+    },
+    {
+      "id": 11,
+      "question": "Atostogos prasideda pirmadienį, o penktadienį dar negavau pinigų už jas. Kada darbdavys turi juos pervesti?",
+      "answerable": true,
+      "expected": [
+        "130"
+      ],
+      "retrieved": [
+        "147",
+        "14",
+        "146",
+        "130",
+        "65"
+      ],
+      "scores": [
+        0.487097,
+        0.472152,
+        0.459402,
+        0.450047,
+        0.434184
+      ]
+    },
+    {
+      "id": 12,
+      "question": "Vadovas sako, kad atostogas galiu imti tik po savaitę. Ar man nepriklauso bent kartą pasiimti dviejų savaičių iš eilės?",
+      "answerable": true,
+      "expected": [
+        "128"
+      ],
+      "retrieved": [
+        "137",
+        "138",
+        "126",
+        "128",
+        "129"
+      ],
+      "scores": [
+        0.479902,
+        0.46855,
+        0.435698,
+        0.427668,
+        0.426409
+      ]
+    },
+    {
+      "id": 13,
+      "question": "Už gegužę algą darbdavys žada sumokėti tik liepos vidury. Ar gali atlyginimą taip vėluoti?",
+      "answerable": true,
+      "expected": [
+        "146",
+        "147"
+      ],
+      "retrieved": [
+        "147",
+        "220",
+        "219",
+        "232",
+        "150"
+      ],
+      "scores": [
+        0.488202,
+        0.410874,
+        0.404249,
+        0.394513,
+        0.387854
+      ]
+    },
+    {
+      "id": 14,
+      "question": "Per Jonines dirbau visą pamainą. Ar už tokią dieną turi mokėti daugiau negu paprastai?",
+      "answerable": true,
+      "expected": [
+        "123",
+        "144"
+      ],
+      "retrieved": [
+        "144",
+        "123",
+        "114",
+        "118",
+        "219"
+      ],
+      "scores": [
+        0.462115,
+        0.40161,
+        0.381528,
+        0.372889,
+        0.362542
+      ]
+    },
+    {
+      "id": 15,
+      "question": "Darbdavys nuo algos nuskaičiavo 100 eurų už sugadintą prekę, nors aš nieko nesutikau mokėti. Ar jis gali taip tiesiog nuskaičiuoti?",
+      "answerable": true,
+      "expected": [
+        "150",
+        "151",
+        "156"
+      ],
+      "retrieved": [
+        "156",
+        "150",
+        "217",
+        "219",
+        "154"
+      ],
+      "scores": [
+        0.474103,
+        0.454381,
+        0.429949,
+        0.400528,
+        0.394754
+      ]
+    },
+    {
+      "id": 16,
+      "question": "Darbdavys niekada neduoda algalapio, tik įkrenta pinigai į sąskaitą. Ar jis neprivalo parodyti, už ką tiksliai man sumokėjo ir kiek valandų suskaičiavo?",
+      "answerable": true,
+      "expected": [
+        "148"
+      ],
+      "retrieved": [
+        "148",
+        "120",
+        "150",
+        "140",
+        "146"
+      ],
+      "scores": [
+        0.562664,
+        0.488562,
+        0.463902,
+        0.462519,
+        0.429844
+      ]
+    },
+    {
+      "id": 17,
+      "question": "Noriu išeiti iš darbo savo noru. Ar tikrai turiu dar 20 dienų atidirbti?",
+      "answerable": true,
+      "expected": [
+        "55"
+      ],
+      "retrieved": [
+        "64",
+        "110",
+        "59",
+        "65",
+        "14"
+      ],
+      "scores": [
+        0.427493,
+        0.420382,
+        0.419145,
+        0.418433,
+        0.416824
+      ]
+    },
+    {
+      "id": 18,
+      "question": "Jau du mėnesius normaliai nemoka algos. Ar galiu dėl to išeiti greičiau ir ar man priklausytų išeitinė?",
+      "answerable": true,
+      "expected": [
+        "56"
+      ],
+      "retrieved": [
+        "56",
+        "50",
+        "60",
+        "62",
+        "218"
+      ],
+      "scores": [
+        0.402255,
+        0.395487,
+        0.384162,
+        0.383307,
+        0.366564
+      ]
+    },
+    {
+      "id": 19,
+      "question": "Įmonė naikina mano poziciją ir sako, kad mane atleis. Kiek laiko prieš tai turi įspėti ir kokia išeitinė priklauso?",
+      "answerable": true,
+      "expected": [
+        "57"
+      ],
+      "retrieved": [
+        "64",
+        "57",
+        "59",
+        "62",
+        "218"
+      ],
+      "scores": [
+        0.512355,
+        0.486529,
+        0.461683,
+        0.447438,
+        0.445374
+      ]
+    },
+    {
+      "id": 20,
+      "question": "Prieš kelis mėnesius gavau įspėjimą už pavėlavimą, dabar vėl pavėlavau. Ar už antrą kartą gali iškart atleisti be išeitinės?",
+      "answerable": true,
+      "expected": [
+        "58"
+      ],
+      "retrieved": [
+        "58",
+        "147",
+        "57",
+        "59",
+        "56"
+      ],
+      "scores": [
+        0.371321,
+        0.318722,
+        0.318343,
+        0.314307,
+        0.30588
+      ]
+    },
+    {
+      "id": 21,
+      "question": "Esu nėščia, o darbe dabar mažina etatus. Ar mane gali atleisti kaip ir kitus darbuotojus?",
+      "answerable": true,
+      "expected": [
+        "57",
+        "61"
+      ],
+      "retrieved": [
+        "61",
+        "110",
+        "57",
+        "218",
+        "63"
+      ],
+      "scores": [
+        0.481622,
+        0.460199,
+        0.427779,
+        0.422709,
+        0.412297
+      ]
+    },
+    {
+      "id": 22,
+      "question": "Turiu vieną 8 metų vaiką. Ar dėl vaiko man priklauso kokia papildoma laisva diena nuo darbo?",
+      "answerable": true,
+      "expected": [
+        "138"
+      ],
+      "retrieved": [
+        "138",
+        "137",
+        "134",
+        "133",
+        "123"
+      ],
+      "scores": [
+        0.441579,
+        0.427404,
+        0.404614,
+        0.394382,
+        0.392253
+      ]
+    },
+    {
+      "id": 23,
+      "question": "Grįžtu į darbą po vaiko priežiūros ir sako, kad mano senos vietos nebėra, siūlo prastesnes pareigas už mažesnę algą. Ar gali taip?",
+      "answerable": true,
+      "expected": [
+        "131",
+        "134"
+      ],
+      "retrieved": [
+        "45",
+        "33",
+        "218",
+        "106",
+        "40"
+      ],
+      "scores": [
+        0.438993,
+        0.427615,
+        0.396384,
+        0.395246,
+        0.38727
+      ]
+    },
+    {
+      "id": 24,
+      "question": "Darbdavys liko skolingas apie 700 eurų algos ir nesumoka. Kur man dėl to kreiptis ir kiek laiko turiu?",
+      "answerable": true,
+      "expected": [
+        "216",
+        "217",
+        "220"
+      ],
+      "retrieved": [
+        "147",
+        "50",
+        "220",
+        "15",
+        "16"
+      ],
+      "scores": [
+        0.439407,
+        0.438089,
+        0.434964,
+        0.429439,
+        0.417598
+      ]
+    },
+    {
+      "id": 25,
+      "question": "Atleido prieš maždaug 6 savaites, o tik dabar supratau, kad galėjo atleisti neteisėtai. Ar dar ne per vėlu ginčyti atleidimą?",
+      "answerable": true,
+      "expected": [
+        "220"
+      ],
+      "retrieved": [
+        "220",
+        "218",
+        "16",
+        "260",
+        "150"
+      ],
+      "scores": [
+        0.357285,
+        0.329425,
+        0.326678,
+        0.299889,
+        0.296089
+      ]
+    },
+    {
+      "id": 26,
+      "question": "Jei dabar mane atleistų ir gaudavau 1800 eurų ant popieriaus, kiek tiksliai per mėnesį gaučiau bedarbio išmokos?",
+      "answerable": false,
+      "expected": [],
+      "retrieved": [
+        "139",
+        "147",
+        "218",
+        "64",
+        "140"
+      ],
+      "scores": [
+        0.355148,
+        0.354613,
+        0.352951,
+        0.351216,
+        0.349944
+      ]
+    },
+    {
+      "id": 27,
+      "question": "Jeigu sutartyje alga 2500 eurų bruto, kiek nuo jos turi nuskaičiuoti GPM ir kiek man turi likti į rankas?",
+      "answerable": false,
+      "expected": [],
+      "retrieved": [
+        "218",
+        "139",
+        "140",
+        "33",
+        "156"
+      ],
+      "scores": [
+        0.397524,
+        0.380578,
+        0.371958,
+        0.361664,
+        0.352824
+      ]
+    },
+    {
+      "id": 28,
+      "question": "Jeigu 10 metų dirbu ir gaunu apie 2000 eurų ant popieriaus, kiek per tą laiką susikaupia pensijos stažo ir pensijos taškų?",
+      "answerable": false,
+      "expected": [],
+      "retrieved": [
+        "179",
+        "140",
+        "148",
+        "127",
+        "68"
+      ],
+      "scores": [
+        0.324572,
+        0.306376,
+        0.305912,
+        0.304395,
+        0.301537
+      ]
+    },
+    {
+      "id": 29,
+      "question": "Sandėlyje žiemą būna apie 11 laipsnių. Kokia minimali temperatūra darbo vietoje yra leidžiama pagal įstatymus?",
+      "answerable": false,
+      "expected": [],
+      "retrieved": [
+        "141",
+        "117",
+        "122",
+        "158",
+        "3"
+      ],
+      "scores": [
+        0.411573,
+        0.402678,
+        0.386415,
+        0.382839,
+        0.382646
+      ]
+    },
+    {
+      "id": 30,
+      "question": "Darbo ginčų komisiją jau praėjau ir dabar noriu kreiptis į teismą. Kokia turi būti ieškinio forma, kokius dokumentus pridėti ir kaip jį pateikti per e.teismas?",
+      "answerable": false,
+      "expected": [],
+      "retrieved": [
+        "223",
+        "231",
+        "226",
+        "227",
+        "225"
+      ],
+      "scores": [
+        0.60497,
+        0.602132,
+        0.565035,
+        0.547525,
+        0.547438
+      ]
+    }
+  ]
+}

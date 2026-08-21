@@ -89,9 +89,9 @@ are measured separately here on purpose.
 
 | Metric | Baseline | After fix |
 |---|---|---|
-| Recall@1 | `NOT YET MEASURED` | `NOT YET MEASURED` |
-| Recall@3 | `NOT YET MEASURED` | `NOT YET MEASURED` |
-| Recall@5 | `NOT YET MEASURED` | `NOT YET MEASURED` |
+| Recall@1 | **0.720** (18/25) | `NOT YET MEASURED` |
+| Recall@3 | **0.840** (21/25) | `NOT YET MEASURED` |
+| Recall@5 | **0.920** (23/25) | `NOT YET MEASURED` |
 
 ### Abstention benchmark
 
@@ -99,8 +99,8 @@ Run over both answerable and unanswerable questions.
 
 | Metric | Baseline | After fix |
 |---|---|---|
-| Unanswerable correctly refused | `NOT YET MEASURED` | `NOT YET MEASURED` |
-| Answerable falsely refused | `NOT YET MEASURED` | `NOT YET MEASURED` |
+| Unanswerable correctly refused | **0.800** (4/5) | `NOT YET MEASURED` |
+| Answerable falsely refused | **0.720** (18/25) | `NOT YET MEASURED` |
 
 > The abstention benchmark is **exploratory**: the golden set contains only
 > ~5 unanswerable questions. Sample size is stated so the number is not
@@ -112,11 +112,17 @@ The operating point is chosen from this sweep, not assumed.
 
 | Threshold | Unanswerable correctly refused | Answerable falsely refused |
 |---|---|---|
-| 0.40 | `NOT YET MEASURED` | `NOT YET MEASURED` |
-| 0.50 | `NOT YET MEASURED` | `NOT YET MEASURED` |
-| 0.60 | `NOT YET MEASURED` | `NOT YET MEASURED` |
+| 0.40 | 0.600 (3/5) | 0.080 (2/25) |
+| 0.50 | 0.800 (4/5) | 0.720 (18/25) &larr; deployed |
+| 0.60 | 0.800 (4/5) | 1.000 (25/25) |
 
-Chosen operating point: `NOT YET CHOSEN`
+Chosen operating point: `NOT YET CHOSEN` — pending the hour-13.5 failure analysis.
+
+**The score ranges overlap completely.** Answerable questions score 0.3573&ndash;0.5627
+at rank 1; unanswerable ones score 0.3246&ndash;0.6050. One unanswerable question
+outscores every answerable one, so no threshold separates the two sets cleanly and
+4 of 5 is the ceiling on correct refusal. This is a limitation of using an absolute
+similarity score as a confidence signal, not a tuning problem.
 
 ---
 
