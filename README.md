@@ -91,9 +91,36 @@ are measured separately here on purpose.
 
 | Metric | Baseline | After fix |
 |---|---|---|
-| Recall@1 | **0.720** (18/25) | `NOT YET MEASURED` |
-| Recall@3 | **0.840** (21/25) | `NOT YET MEASURED` |
-| Recall@5 | **0.920** (23/25) | `NOT YET MEASURED` |
+| Recall@1 | 0.720 (18/25) | **0.880** (22/25) |
+| Recall@3 | 0.840 (21/25) | **0.920** (23/25) |
+| Recall@5 | 0.920 (23/25) | 0.920 (23/25) |
+
+### The one change, and why it was that one
+
+Failure analysis over the seven Recall@1 failures found a dominant pattern:
+**mechanism-first retrieval**. The embedding reliably reaches the right legal
+neighbourhood but underweights the qualifier that decides which article inside it
+governs -- who is acting, why, which subtype. Article 64 (*notice, generally*)
+outranked article 57 (*redundancy*); article 147 (*late wage payment*) outranked
+both article 130 (*holiday pay*) and the dispute-resolution articles.
+
+Recall@1 0.720 against Recall@5 0.920 pointed the same way: candidate generation
+is strong, ordering is weak.
+
+So exactly one thing changed -- **the same five candidates were reordered by a
+cross-encoder reranker** (`voyage rerank-2.5`). The corpus, chunking, embeddings,
+golden set and its labels were untouched, and the candidates were taken from the
+cached baseline retrieval rather than re-retrieved.
+
+`Recall@5` acts as the experiment's control: reordering five items cannot change
+whether the correct article is among them. It held at 0.920, so nothing else
+leaked in.
+
+Four questions improved (ranks 4→1, 4→1, 2→1, 3→1), none regressed. Two questions
+did **not** improve -- their correct articles were never in the candidate set, and
+a reranker cannot retrieve what retrieval missed. That limit is the useful part of
+the result: it separates a ranking failure from a candidate-generation failure
+with evidence rather than assertion.
 
 ### Abstention benchmark
 
