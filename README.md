@@ -128,8 +128,8 @@ Run over both answerable and unanswerable questions.
 
 | Metric | Baseline | After fix |
 |---|---|---|
-| Unanswerable correctly refused | **0.800** (4/5) | `NOT YET MEASURED` |
-| Answerable falsely refused | **0.720** (18/25) | `NOT YET MEASURED` |
+| Unanswerable correctly refused | 0.800 (4/5) | **0.800** (4/5) |
+| Answerable falsely refused | 0.720 (18/25) | **0.000** (0/25) |
 
 > The abstention benchmark is **exploratory**: the golden set contains only
 > ~5 unanswerable questions. Sample size is stated so the number is not
@@ -137,24 +137,42 @@ Run over both answerable and unanswerable questions.
 
 ### Confidence threshold
 
-The operating point is chosen from this sweep, not assumed.
+The abstention signal was changed, not just retuned. Both candidates were swept
+against the same frozen set.
 
-| Threshold | Unanswerable correctly refused | Answerable falsely refused |
-|---|---|---|
-| 0.40 | 0.600 (3/5) | 0.080 (2/25) |
-| 0.50 | 0.800 (4/5) | 0.720 (18/25) &larr; deployed |
-| 0.60 | 0.800 (4/5) | 1.000 (25/25) |
+| Signal | Best threshold | Unanswerable refused | Answerable falsely refused |
+|---|---|---|---|
+| Cosine similarity | 0.40 | 0.600 (3/5) | 0.080 (2/25) |
+| **Cross-encoder relevance** | **0.54** | **0.800 (4/5)** | **0.000 (0/25)** |
 
-Chosen operating point: `NOT YET CHOSEN` — pending the hour-13.5 failure analysis.
+Cosine could not separate the two sets at all -- answerable questions scored
+0.3573&ndash;0.5627 and unanswerable ones 0.3246&ndash;0.6050, overlapping completely.
+Reranker relevance leaves a gap: every answerable question scores at least
+**0.5938**, and four of five unanswerable ones score at most **0.4902**. The
+operating point is the midpoint of that gap (~0.05 margin either side) rather
+than an edge value.
 
-**The score ranges overlap completely.** Answerable questions score 0.3573&ndash;0.5627
-at rank 1; unanswerable ones score 0.3246&ndash;0.6050. One unanswerable question
-outscores every answerable one, so **no single absolute-similarity threshold provides
-useful separation**: catching the fifth unsupported query would require a threshold
-that also rejects every answerable query in the benchmark. This is a limitation of
-using an absolute similarity score as a confidence signal, not a tuning problem.
+Reranker relevance is **not** a calibrated probability. It is a different score
+on a different scale, evaluated empirically here rather than assumed to mean
+anything in particular.
 
----
+**Chosen operating point: 0.54 on cross-encoder relevance.**
+
+**The one unanswerable question that defeats both signals is instructive.** q30
+asks what form a court claim must take, which documents to attach and how to
+file it electronically. The reranker scores article 231 (*Darbo ginčo
+nagrinėjimas teisme*) at **0.8008** -- and it is right that the article is
+relevant, because 231 governs taking a dispute to court. What it cannot know is
+that 231 explicitly delegates procedure to the Code of Civil Procedure. The
+retrieved article is topically correct and still does not contain the answer.
+**Relevance and answerability are different questions**, and no relevance
+threshold closes that gap.
+
+**Honest limitation.** The threshold was selected on the same 30-question set the
+result is reported against, so 0.000 false refusal is an **in-sample** figure,
+not a held-out estimate. With only five unanswerable questions, the abstention
+result is exploratory. A held-out set of unanswerable questions is the first
+thing to add next.
 
 ## Methodology and integrity notes
 
@@ -200,7 +218,40 @@ The v1 prototype is preserved in this repository's first commit.
 
 ## Limitations
 
-`NOT YET WRITTEN — see hour 17.5`
+**Diacritics.** Retrieval is sensitive to missing Lithuanian diacritics, and the
+golden set cannot detect this because it is written in correct orthography.
+Measured directly:
+
+| Question | With diacritics | Without |
+|---|---|---|
+| dismissal notice | 64 (0.81), **57** (0.79), 59 (0.75) | 64 (0.66), 36 (0.53), 41 (0.36) |
+| maternity leave | **132** (0.94), 133 (0.66) | **132** (0.91), 133 (0.68) |
+
+`nestumo` still resolves to `nėštumo`, but `ispeti` and `pozicija` together are
+enough to lose article 57 entirely. Real users type without diacritics often.
+The fix (normalising both corpus and query, or indexing both forms) is a second
+retrieval change and was deliberately not made inside the one-change experiment.
+
+**The abstention threshold is in-sample.** It was chosen on the same 30 questions
+it is reported against, and there are only five unanswerable ones. A de-accented
+query outside that distribution was answered at 0.578, just over the 0.54 gate,
+on retrieval that had already gone wrong -- the generation step refused it
+anyway (`atsakymo į jūsų klausimą nėra`), which is defence in depth rather than a
+working gate.
+
+**Two retrieval failures remain.** q17 (employee-initiated resignation) and q23
+(return from childcare leave) never place the correct article in the top five, so
+reranking cannot reach them. These are candidate-generation failures and would
+need a different intervention.
+
+**Relevance is not answerability.** q30 asks about civil-procedure filing
+requirements; the reranker correctly scores article 231 highly because 231 does
+govern taking a dispute to court, but 231 delegates procedure to the CPK. No
+relevance threshold distinguishes "this article is about your topic" from "this
+article answers your question".
+
+**Scope.** One consolidated edition of one code. No case law, no ministerial
+regulations, no collective agreements. Not legal advice.
 
 ---
 

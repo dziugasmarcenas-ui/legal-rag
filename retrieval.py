@@ -61,11 +61,48 @@ def top_k(scores, k):
     return ordered[:k]
 
 
-def retrieve(question, k=5):
+RERANK_MODEL = "rerank-2.5"
+
+
+def rerank(question, results, client):
+    """
+    Reorder candidates with a cross-encoder.
+
+    The embedding model encodes the question and the article separately, so it
+    compares two summaries of meaning. A reranker reads the question and one
+    article TOGETHER and scores that pair, which is why it can tell a generic
+    procedural article from the situation-specific one that actually governs.
+
+    This only reorders the candidates it is given. It cannot retrieve an article
+    that embedding search missed.
+    """
+
+    documents = [r["title"] + "\n" + r["text"] for r in results]
+    ranking = client.rerank(question, documents, model=RERANK_MODEL)
+
+    ordered = []
+    for item in ranking.results:
+        result = dict(results[item.index])
+        result["rerank_score"] = float(item.relevance_score)
+        ordered.append(result)
+
+    return ordered
+
+
+def retrieve(question, k=5, use_rerank=True):
     """
     Turn a text question into an embedding,
     compare it against the corpus,
     and return the k best articles.
+
+    Two scores come back on every result, deliberately named rather than a
+    single ambiguous "score":
+
+      cosine_score  how close the question and article vectors are
+      rerank_score  how relevant the cross-encoder judged the pair
+
+    They are different quantities on different scales. Collapsing them into one
+    field would make it impossible to tell which one any threshold refers to.
     """
 
     client = voyageai.Client(api_key=config.require("VOYAGE_API_KEY"))
@@ -96,8 +133,12 @@ def retrieve(question, k=5):
             "citation": article["citation"],
             "title": article["title"],
             "text": article["text"],
-            "score": float(scores[row]),
+            "cosine_score": float(scores[row]),
+            "rerank_score": None,
         })
+
+    if use_rerank:
+        results = rerank(question, results, client)
 
     return results
 
@@ -110,9 +151,10 @@ if __name__ == "__main__":
             'Usage: python retrieval.py "your question here"'
         )
 
-    for result in retrieve(question, k=3):
+    for result in retrieve(question, k=5):
+        rr = result["rerank_score"]
         print(
-            f"{result['score']:.4f}  "
+            f"rerank {rr:.4f}  cos {result['cosine_score']:.4f}  "
             f"article {result['citation']}: "
             f"{result['title']}"
         )

@@ -84,13 +84,15 @@ def health():
         "edition_from": retrieval.SIDECAR["edition_from"],
         "edition_to": retrieval.SIDECAR["edition_to"],
         "threshold": gate.THRESHOLD,
+        "rerank_model": retrieval.RERANK_MODEL,
     }
 
 
 @app.post("/chat")
 def chat(request: ChatRequest):
     results = retrieval.retrieve(request.question, k=TOP_K)
-    confidence = results[0]["score"] if results else 0.0
+    # report the same quantity the gate decides on, never a different one
+    confidence = max((r[gate.SIGNAL] for r in results), default=0.0)
 
     # Sources are attached whether or not we answer, so a refusal still shows
     # what was considered and at what score. Refusing invisibly is not honest.
@@ -99,7 +101,8 @@ def chat(request: ChatRequest):
             "article": r["article"],
             "citation": r["citation"],
             "title": r["title"],
-            "score": round(r["score"], 4),
+            "cosine_score": round(r["cosine_score"], 4),
+            "rerank_score": round(r["rerank_score"], 4) if r["rerank_score"] is not None else None,
         }
         for r in results
     ]
@@ -114,6 +117,7 @@ def chat(request: ChatRequest):
             ),
             "sources": sources,
             "confidence": round(confidence, 4),
+            "confidence_signal": "max_" + gate.SIGNAL,
             "refused": True,
         }
 
@@ -129,6 +133,7 @@ def chat(request: ChatRequest):
             "error": "answer_generation_unavailable",
             "sources": sources,
             "confidence": round(confidence, 4),
+            "confidence_signal": "max_" + gate.SIGNAL,
             "refused": False,
         }
 
@@ -137,5 +142,6 @@ def chat(request: ChatRequest):
         "answer": answer,
         "sources": sources,
         "confidence": round(confidence, 4),
+        "confidence_signal": "max_" + gate.SIGNAL,
         "refused": False,
     }
