@@ -1,0 +1,38 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          pip install pytest
+
+      - name: Metric unit tests
+        run: pytest tests/ -q
+
+      # Gate A and Gate C run against committed data and need no API keys.
+      # A failing gate fails the build, which is the whole point of a gate.
+      - name: Gate A -- corpus integrity
+        run: python check_corpus.py
+
+      - name: Gate C -- golden set frozen and unchanged
+        run: python check_goldenset.py
+
+      - name: Verify the app imports without network access
+        run: python -c "import parse_corpus, retrieval, gate, metrics" 
+        env:
+          PYTHONPATH: .:eval
