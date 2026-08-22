@@ -58,6 +58,7 @@ learn exactly how well it works and where it fails.
 | Published | TAR 2016-09-19, i. k. 2016-23709 |
 | Consolidated edition valid from | **2026-06-07** |
 | Consolidated edition valid to | **2026-10-31** |
+| Live | https://legal-rag-production-fac6.up.railway.app |
 | Retrieved from | e-TAR, act id `f6d686707e7011e6b969d7ae07280e89`, retrieved 2026-08-20 |
 | Articles parsed | **257** |
 | Coverage | Complete Code, all four parts. Articles 1-260, less repealed 85-88, plus 72¹ |
@@ -254,6 +255,20 @@ article answers your question".
 regulations, no collective agreements. Not legal advice.
 
 ---
+
+## Live
+
+**https://legal-rag-production-fac6.up.railway.app**
+
+```bash
+curl -s https://legal-rag-production-fac6.up.railway.app/health
+curl -s -X POST https://legal-rag-production-fac6.up.railway.app/chat \
+  -H 'Content-Type: application/json' \
+  -d '{"question":"Kiek dienų kasmetinių atostogų man priklauso per metus?"}'
+```
+
+Deployed on Railway from this repository's Dockerfile. Credentials live in the
+platform's environment, never in the image or the repo.
 
 ## Running it
 
