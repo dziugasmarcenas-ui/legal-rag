@@ -257,7 +257,51 @@ regulations, no collective agreements. Not legal advice.
 
 ## Running it
 
-`NOT YET WRITTEN`
+### Locally
+
+```bash
+python -m venv venv && venv/bin/pip install -r requirements.txt
+cp .env.example .env      # then fill in both keys
+venv/bin/uvicorn main:app --port 8000
+```
+
+### In a container
+
+```bash
+docker build -t legal-rag .
+docker run -p 8000:8000 --env-file .env legal-rag
+```
+
+The image carries the parsed corpus and the vectors, so it needs no embedding
+key at boot and serves exactly the vectors the evaluation was run against. The
+build fails rather than the first request if the corpus and vectors ever ship
+out of step:
+
+```
+RUN python -c "import retrieval; assert retrieval.VECTORS.shape[0] == len(retrieval.ARTICLES)"
+```
+
+### Asking it something
+
+```bash
+curl -s -X POST localhost:8000/chat -H 'Content-Type: application/json' \
+  -d '{"question":"Kiek dienų kasmetinių atostogų man priklauso per metus?"}'
+```
+
+```json
+{
+  "answer": "...",
+  "sources": [{"article": "126", "citation": "126", "title": "...",
+               "cosine_score": 0.537, "rerank_score": 0.828}],
+  "confidence": 0.8281,
+  "confidence_signal": "max_rerank_score",
+  "refused": false
+}
+```
+
+`GET /health` reports the loaded corpus, both model names, the edition dates and
+the active threshold -- enough to tell a working deployment from one serving the
+wrong corpus.
 
 ---
 
