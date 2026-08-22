@@ -71,17 +71,106 @@ a measurement of a historical edition — which is why the edition is pinned her
 
 ## Architecture
 
-`NOT YET BUILT — diagram goes here (hour 17.5)`
+```mermaid
+flowchart TB
+    subgraph BUILD["corpus build — runs once, offline"]
+        direction LR
+        ETAR["e-TAR<br/>consolidated act"] --> RAW["raw text<br/>432 KB"]
+        RAW --> PARSE["parser<br/>article-level split"]
+        PARSE --> ART[("articles.json<br/>257 records")]
+        ART --> EMB["voyage-3<br/>title + body"]
+        EMB --> VEC[("corpus.npy<br/>257 × 1024")]
+    end
+
+    GATEA{{"Gate A<br/>corpus integrity"}}
+    ART --> GATEA
+    GATEA -.->|"fails → stop"| STOP1["build halts"]
+
+    subgraph SERVE["serving — one HTTP request"]
+        direction TB
+        Q["question<br/>(Lithuanian)"] --> QE["voyage-3<br/>input_type=query"]
+        QE --> COS["cosine similarity<br/>vs all 257"]
+        COS --> TOPK["top-5 candidates"]
+        TOPK --> RR["rerank-2.5<br/>cross-encoder"]
+        RR --> GATE{"max rerank_score<br/>≥ 0.54 ?"}
+        GATE -->|no| REFUSE["honest refusal<br/>+ sources shown"]
+        GATE -->|yes| LLM["claude-haiku-4-5<br/>sees only these articles"]
+        LLM --> OUT["answer<br/>+ sources<br/>+ confidence"]
+    end
+
+    VEC --> COS
+    ART --> TOPK
+
+    subgraph EVAL["evaluation — same machinery"]
+        direction LR
+        GOLD[("golden set<br/>30 frozen")] --> RUN["eval runner"]
+        RUN --> MET["Recall@k<br/>refusal rates"]
+    end
+
+    RUN --> COS
+    MET -.->|"failure analysis<br/>→ one change"| RR
+    MET -.->|"threshold sweep"| GATE
+
+    style GATEA stroke-dasharray: 4 4
+```
+
+**Citations are attached, not generated.** The `sources` list is built in Python
+from the article IDs the retriever returned, before the model is called. If the
+model hallucinated an article number in its prose, `sources` would still show
+what was actually retrieved.
+
+**Evaluation invokes the same retrieval path the API serves** — not a parallel
+copy — so a measured number describes the deployed system.
 
 ---
 
 ## Chunking rationale
 
-`NOT YET WRITTEN — see hour 17.5`
+**One record per article. No text splitter, no overlap, no fixed token window.**
+
+Most RAG systems chunk prose with a recursive character splitter because prose
+has no natural boundaries. Statute is the opposite: a legislature has already
+divided the text into self-contained, individually-citable units. Article 57 is a
+complete thought *by design* — that is what makes it citable in court. The
+document's own structure is therefore the chunking strategy.
+
+Three consequences:
+
+1. **Citations become structural.** The article number comes from a parsed
+   header, never from a model's judgement about where a passage began.
+2. **No chunk straddles two provisions**, so an answer cannot be assembled from
+   half of one rule and half of another.
+3. **Size varies enormously** — 172 to 8,651 characters — and that is correct.
+   The largest article is ~2,900 tokens against `voyage-3`'s 32k context, so
+   nothing is truncated. A fixed 512-token window would have split article 57
+   mid-provision.
+
+The cost: a long article dilutes its own embedding, because one vector must
+represent every subsection. Article 126 covers both the definition of annual
+leave and its duration; a question about only one of those competes against the
+other for the same vector. That is a real limitation of article-level chunking
+and the honest counter-argument to the choice above.
 
 ---
 
 ## Results
+
+### Stage gates
+
+All four passed. A failing gate means stop and fix, not proceed.
+
+| Gate | Covers | Enforced by | Status |
+|---|---|---|---|
+| **A** | corpus integrity | `check_corpus.py`, in CI | ✅ |
+| **B** | retrieval inspectable with no LLM call | manual | ✅ |
+| **C** | golden set verified and frozen | `check_goldenset.py`, in CI | ✅ |
+| **D** | deployment answers from another machine | `GET /health` from Anthropic infra; `POST /chat` from an iPhone on cellular with wifi disabled | ✅ |
+
+Gate D deliberately required a non-laptop client. `POST /chat` from the phone
+returned `refused: false`, `confidence: 0.8359`, and article **126** ranked first
+— exercising Railway routing, request validation, the loaded corpus, both API
+credentials, embedding, retrieval, reranking, the confidence gate, generation and
+source attachment in one request.
 
 ### Retrieval benchmark
 
