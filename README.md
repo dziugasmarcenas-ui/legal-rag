@@ -1,51 +1,88 @@
-# legal-rag
+# Lithuanian Labour Code RAG
 
 [![ci](https://github.com/dziugasmarcenas-ui/legal-rag/actions/workflows/ci.yml/badge.svg)](https://github.com/dziugasmarcenas-ui/legal-rag/actions/workflows/ci.yml)
 
-A retrieval-augmented question answering system over the **Lithuanian Labour Code**
-(*Lietuvos Respublikos darbo kodeksas*, act no. XII-2603).
+**A deployed retrieval-augmented assistant that answers Lithuanian employment-law
+questions from 257 primary-source Labour Code articles, cites the governing article,
+and refuses when the available text is not sufficient.**
 
-Ask an employment-law question in plain language; get an answer grounded in a
-specific article of the code, with the article cited — or an honest refusal when
-the code does not contain the answer.
+[Try the live application](https://legal-rag-production-fac6.up.railway.app) ·
+[Read the case study](docs/portfolio/CASE_STUDY.md) ·
+[Use the demo guide](docs/portfolio/DEMO.md) ·
+[Reuse the application copy](docs/portfolio/APPLICATION_BULLETS.md)
 
-> **Status: build sprint in progress (started 2026-08-20).**
-> Every number in this README is either measured and dated, or explicitly marked
-> as not yet measured. Nothing is claimed that has not been run and observed.
+![A cited Lithuanian answer with retrieved source articles](docs/assets/legal-rag-answer.png)
+
+> **Status: V1 shipped.** Public FastAPI application, bilingual interface,
+> versioned corpus, frozen evaluation set, CI checks, Docker image, and measured
+> retrieval improvement. This is an information-retrieval demonstration, not
+> legal advice.
+
+## Results at a glance
+
+| Evidence | V1 result |
+|---|---|
+| Source coverage | 257 articles from one pinned consolidated edition |
+| Recall@1 | 0.720 → **0.880** after reranking |
+| Recall@3 | 0.840 → **0.920** after reranking |
+| Recall@5 control | 0.920 → 0.920, as expected for reordering only |
+| Abstention | Confidence gate returns an explicit refusal below 0.54 |
+| Delivery | FastAPI, Docker, Railway, GitHub Actions, LT/EN interface |
+
+## What I built
+
+I scoped the product, replaced a misleading five-document prototype with the
+versioned primary-source corpus, implemented retrieval and evaluation, froze and
+verified the benchmark before tuning, diagnosed ranking failures, introduced a
+cross-encoder reranker, added confidence-based abstention, built the API and
+interface, and deployed the container publicly.
+
+The useful result is not only the metric increase. The evaluation separates
+candidate-generation, ranking, answerability, and generation failures, so the
+remaining limitations are visible rather than hidden behind a polished demo.
+
+## Stack
+
+Python 3.12 · FastAPI · Voyage embeddings and reranking · Anthropic Claude ·
+NumPy · pytest · Docker · Railway · GitHub Actions
+
+## Portfolio material
+
+- [Case study](docs/portfolio/CASE_STUDY.md) — decisions, ownership, evidence, and lessons
+- [Demo and interview guide](docs/portfolio/DEMO.md) — 90-second and four-minute walkthroughs
+- [Application bullets](docs/portfolio/APPLICATION_BULLETS.md) — CV, LinkedIn, and role-specific copy
 
 ---
 
-## Scope — frozen 2026-08-20, hour 0.75
+## V1 scope and delivery record
 
-This section is a contract with myself. Anything not listed here does not ship.
+The original scope was frozen on 2026-08-20 before the measured build began.
 
-### In scope
+### Original requirements — completed
 
-- [ ] Corpus: consolidated Darbo kodeksas (XII-2603), parsed to article-level records
+- [x] Corpus: consolidated Darbo kodeksas (XII-2603), parsed to article-level records
       carrying `article`, `title`, `text`, `source`, `act_number`, `edition_from`, `edition_to`
-- [ ] Article-level chunking, embeddings persisted to disk (re-runs do not re-embed)
-- [ ] Top-k dense retrieval, inspectable with zero LLM calls
-- [ ] Confidence gate that abstains rather than guessing
-- [ ] `POST /chat` and `GET /health` over HTTP, publicly deployed
-- [ ] A golden set of 30 questions (~5 unanswerable), each expected article
+- [x] Article-level chunking, embeddings persisted to disk (re-runs do not re-embed)
+- [x] Top-k dense retrieval, inspectable with zero LLM calls
+- [x] Confidence gate that abstains rather than guessing
+- [x] `POST /chat` and `GET /health` over HTTP, publicly deployed
+- [x] A golden set of 30 questions (~5 unanswerable), each expected article
       manually verified, **frozen before any tuning**
-- [ ] Two separate benchmarks: retrieval quality and abstention behaviour
-- [ ] One measured baseline, one diagnosed failure, one justified fix, one rerun
+- [x] Two separate benchmarks: retrieval quality and abstention behaviour
+- [x] One measured baseline, one diagnosed failure, one justified fix, one rerun
 
-### Explicitly out of scope
+### Post-scope additions
 
-- Any frontend beyond a `curl` example
-- Multilingual answering beyond what the corpus language forces
-- Legal advice. This is an information-retrieval demo, not counsel.
-- Reranking, hybrid/BM25 search, query rewriting, agentic retrieval —
-  not because they are bad ideas, but because an unmeasured system cannot
-  justify them and this sprint is capped at 20 hours.
+A browser interface, LT/EN presentation, API rate limiting, and cross-encoder
+reranking were added after the measurable core was complete. Reranking was added
+only after baseline failure analysis showed that candidate ordering—not corpus
+coverage—was the dominant measured problem.
 
-### Success criteria
+### Still out of scope
 
-The build is done when a stranger can open a URL, ask a Lithuanian employment-law
-question, receive a cited answer or an honest refusal, and read this README to
-learn exactly how well it works and where it fails.
+- Legal advice or a substitute for a qualified professional
+- Case law, ministerial regulations, collective agreements, or other codes
+- Unmeasured agentic retrieval or workflow orchestration
 
 ---
 
