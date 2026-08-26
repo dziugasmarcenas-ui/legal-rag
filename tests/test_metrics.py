@@ -71,3 +71,63 @@ def test_refusal_rates_move_in_opposite_directions():
     assert metrics.correct_refusal_rate(unanswerable, 0.7) == 1.0
     assert metrics.false_refusal_rate(answerable, 0.4) == 0.5
     assert metrics.false_refusal_rate(answerable, 0.7) == 1.0
+
+
+# --- rate limiting -----------------------------------------------------------
+
+import ratelimit
+
+
+def test_per_ip_window_allows_then_blocks():
+    now = [1000.0]
+    rl = ratelimit.RateLimiter(per_ip_max=3, per_ip_window=60, daily_budget=999,
+                               clock=lambda: now[0])
+    assert all(rl.check("1.1.1.1") is None for _ in range(3))
+    blocked = rl.check("1.1.1.1")
+    assert blocked is not None and blocked[0] == 429
+
+
+def test_window_slides_open_again():
+    now = [1000.0]
+    rl = ratelimit.RateLimiter(per_ip_max=1, per_ip_window=60, daily_budget=999,
+                               clock=lambda: now[0])
+    assert rl.check("1.1.1.1") is None
+    assert rl.check("1.1.1.1")[0] == 429
+    now[0] += 61
+    assert rl.check("1.1.1.1") is None
+
+
+def test_addresses_are_independent():
+    now = [1000.0]
+    rl = ratelimit.RateLimiter(per_ip_max=1, per_ip_window=60, daily_budget=999,
+                               clock=lambda: now[0])
+    assert rl.check("1.1.1.1") is None
+    assert rl.check("2.2.2.2") is None
+
+
+def test_daily_budget_stops_many_addresses():
+    """The per-IP window cannot protect a budget; many addresses defeat it."""
+    now = [1000.0]
+    rl = ratelimit.RateLimiter(per_ip_max=99, per_ip_window=60, daily_budget=5,
+                               clock=lambda: now[0])
+    for i in range(5):
+        assert rl.check(f"10.0.0.{i}") is None
+    denied = rl.check("10.0.0.99")
+    assert denied is not None and denied[0] == 503
+
+
+def test_budget_resets_the_next_day():
+    now = [1000.0]
+    rl = ratelimit.RateLimiter(per_ip_max=99, per_ip_window=60, daily_budget=1,
+                               clock=lambda: now[0])
+    assert rl.check("1.1.1.1") is None
+    assert rl.check("1.1.1.1")[0] == 503
+    now[0] += 86400
+    assert rl.check("1.1.1.1") is None
+
+
+def test_client_ip_prefers_forwarded_header():
+    class R:
+        headers = {"x-forwarded-for": "203.0.113.9, 10.0.0.1"}
+        client = None
+    assert ratelimit.client_ip(R()) == "203.0.113.9"

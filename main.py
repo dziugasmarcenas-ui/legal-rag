@@ -12,11 +12,13 @@ import logging
 
 import anthropic
 
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
+from fastapi.responses import JSONResponse
 from pydantic import BaseModel, Field
 
 import config
 import gate
+import ratelimit
 import retrieval
 
 # Populate os.environ from .env at startup so anything reading environment
@@ -36,6 +38,11 @@ app = FastAPI(
     title="legal-rag",
     description="Question answering over the Lithuanian Labour Code",
 )
+
+# /chat spends three paid API calls per request (embed, rerank, generate), and
+# the URL is public. /health is deliberately not limited so uptime monitoring
+# stays free and always available.
+limiter = ratelimit.RateLimiter()
 
 
 class ChatRequest(BaseModel):
@@ -85,11 +92,31 @@ def health():
         "edition_to": retrieval.SIDECAR["edition_to"],
         "threshold": gate.THRESHOLD,
         "rerank_model": retrieval.RERANK_MODEL,
+        "usage": limiter.stats(),
     }
 
 
 @app.post("/chat")
-def chat(request: ChatRequest):
+def chat(request: ChatRequest, http: Request):
+    denied = limiter.check(ratelimit.client_ip(http))
+    if denied:
+        status, reason, retry_after = denied
+        log.warning("blocked ip=%s reason=%s", ratelimit.client_ip(http), reason)
+        return JSONResponse(
+            status_code=status,
+            headers={"Retry-After": str(retry_after)},
+            content={
+                "answer": None,
+                "error": reason,
+                "detail": (
+                    "This is a public demo with a spending cap. "
+                    "Try again later, or run it yourself: "
+                    "https://github.com/dziugasmarcenas-ui/legal-rag"
+                ),
+                "retry_after_seconds": retry_after,
+            },
+        )
+
     results = retrieval.retrieve(request.question, k=TOP_K)
     # report the same quantity the gate decides on, never a different one
     confidence = max((r[gate.SIGNAL] for r in results), default=0.0)
