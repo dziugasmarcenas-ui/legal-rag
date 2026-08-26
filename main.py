@@ -30,7 +30,7 @@ import retrieval
 config.load_env_file()
 
 ANSWER_MODEL = "claude-haiku-4-5-20251001"
-MAX_TOKENS = 600
+MAX_TOKENS = 900
 TOP_K = 3
 
 logging.basicConfig(
@@ -66,13 +66,38 @@ class ChatRequest(BaseModel):
     lang: Literal["lt", "en"] = "lt"
 
 
+# Written in the target language on purpose -- instructions in the output
+# language control the output more reliably than instructions about it.
+#
+# The Lithuanian rules are not generic "write well" advice. Each one names a
+# real failure observed in production, with the wrong form beside the right
+# one, because Lithuanian punishes clipped phrasing far harder than English
+# does: an English bullet can stop at a noun, a Lithuanian one that opens in
+# the dative has to reach its verb or it is simply ungrammatical.
 ANSWER_LANGUAGE = {
-    "lt": "Atsakyk lietuviškai, trumpai ir konkrečiai.",
+    "lt": (
+        "Atsakyk lietuviškai, aiškiai ir taisyklinga kalba.\n"
+        "Kalbos reikalavimai:\n"
+        "- Rašyk pilnais sakiniais. Kiekvienas punktas turi būti baigtas "
+        "teiginys su veiksmažodžiu. Rašyk „Darbuotojui priklauso 30 darbo "
+        "dienų“, o ne „Aukščiau nurodytoms kategorijoms: 30 darbo dienų“.\n"
+        "- Nepalik nebaigtų žodžių junginių — visada nurodyk daiktavardį. "
+        "Rašyk „pagimdžius du ar daugiau vaikų“, o ne „pagimdžius du ar "
+        "daugiau“.\n"
+        "- Apibūdindamas asmenis vartok būdvardžius, o ne prieveiksmius. "
+        "Rašyk „jaunesni nei 18 metų“, o ne „jauniau nei 18 metų“.\n"
+        "- Derink linksnius, giminę ir skaičių visame sakinyje.\n"
+        "- Skaičius rašyk skaitmenimis, ne žodžiais: „20 darbo dienų“, "
+        "o ne „dvidešimt darbo dienų“.\n"
+        "- Nevartok angliškų žodžių ir nepalik jokio teksto anglų kalba.\n"
+        "- Nerašyk antraščių su # ženklu."
+    ),
     "en": (
-        "Answer in English, briefly and concretely. The articles are in "
-        "Lithuanian; translate what they say faithfully and do not add anything "
-        "they do not contain. Keep Lithuanian legal terms in brackets where a "
-        "precise English equivalent does not exist."
+        "Answer in English, clearly and in complete sentences. The articles "
+        "are in Lithuanian; translate what they say faithfully and do not add "
+        "anything they do not contain. Keep Lithuanian legal terms in brackets "
+        "where a precise English equivalent does not exist. Write numbers as "
+        "digits, not words. Do not use markdown headings such as # or ##."
     ),
 }
 
@@ -114,7 +139,13 @@ def generate_answer(question, results, lang="lt"):
             {"role": "user", "content": build_prompt(question, results, lang)}
         ],
     )
-    return response.content[0].text
+    # Join every text block. content[0] is not always the answer -- a model
+    # with extended thinking enabled returns a thinking block first, and
+    # indexing blindly would crash on it.
+    return "".join(
+        block.text for block in response.content
+        if getattr(block, "type", None) == "text"
+    )
 
 
 @app.get("/health")

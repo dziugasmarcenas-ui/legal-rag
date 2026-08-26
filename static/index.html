@@ -329,7 +329,9 @@ const esc=s=>s.replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
 
 function format(text, articles){
   const blocks=esc(text).split(/\n{2,}/).map(b=>{
-    const lines=b.split("\n").map(l=>l.trim()).filter(Boolean);
+    // the prompt asks for no markdown headings; strip any that slip through
+    // rather than rendering a literal "# Answer" to the reader
+    const lines=b.split("\n").map(l=>l.trim().replace(/^#{1,6}\s+/,"")).filter(Boolean);
     if(lines.every(l=>/^[-*•]\s/.test(l)))
       return "<ul>"+lines.map(l=>"<li>"+l.replace(/^[-*•]\s/,"")+"</li>").join("")+"</ul>";
     return "<p>"+lines.join("<br>")+"</p>";
