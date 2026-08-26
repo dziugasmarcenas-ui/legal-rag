@@ -26,7 +26,7 @@ Stale statements will be corrected: “build sprint in progress,” unchecked co
 
 ### Genuine interface screenshot
 
-`docs/assets/legal-rag-answer.png` will show a successful Lithuanian answer, citation, confidence display, and source card from the real application. It must contain no secrets, personal queries, or fabricated output. If the live service cannot produce the expected result, the screenshot is blocked rather than mocked.
+`docs/assets/legal-rag-answer.jpg` will show a successful Lithuanian answer, citation, confidence display, and source card from the real application. It must contain no secrets, personal queries, or fabricated output. If the live service cannot produce the expected result, the screenshot is blocked rather than mocked.
 
 ### Case study
 

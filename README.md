@@ -11,7 +11,7 @@ and refuses when the available text is not sufficient.**
 [Use the demo guide](docs/portfolio/DEMO.md) ·
 [Reuse the application copy](docs/portfolio/APPLICATION_BULLETS.md)
 
-![A cited Lithuanian answer with retrieved source articles](docs/assets/legal-rag-answer.png)
+![A cited Lithuanian answer with retrieved source articles](docs/assets/legal-rag-answer.jpg)
 
 > **Status: V1 shipped.** Public FastAPI application, bilingual interface,
 > versioned corpus, frozen evaluation set, CI checks, Docker image, and measured

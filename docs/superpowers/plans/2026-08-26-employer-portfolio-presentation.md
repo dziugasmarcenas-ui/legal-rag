@@ -38,7 +38,7 @@
 
 - Load the in-app browser skill and open the live application.
 - Submit the annual-leave example and verify a successful cited answer containing article 126 above the 0.54 gate.
-- Capture the answer, confidence display, and source card to `docs/assets/legal-rag-answer.png`.
+- Capture the answer, confidence display, and source card to `docs/assets/legal-rag-answer.jpg`.
 - Inspect the image for readability and privacy, then commit.
 
 ### Task 5: Final audit
