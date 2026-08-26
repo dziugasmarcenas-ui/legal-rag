@@ -62,7 +62,14 @@ header{position:sticky;top:0;z-index:20;background:color-mix(in oklab,var(--page
 .brand span{color:var(--ink-3);font-weight:400}
 .dot{width:6px;height:6px;border-radius:50%;background:var(--green);flex:none;
   box-shadow:0 0 0 3px var(--green-tint)}
-.hlinks{margin-left:auto;display:flex;gap:4px}
+.langsw{margin-left:auto;display:flex;gap:1px;background:var(--inset);padding:2px;border-radius:8px;
+  box-shadow:inset 0 0 0 1px var(--line)}
+.langsw button{border:0;background:none;color:var(--ink-3);font:inherit;font-size:11px;font-weight:500;
+  padding:4px 9px;border-radius:6px;cursor:pointer;letter-spacing:.03em}
+.langsw button[aria-pressed="true"]{background:var(--surface);color:var(--ink);box-shadow:var(--shadow-card)}
+.langsw button:hover{color:var(--ink)}
+.langsw button:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.hlinks{display:flex;gap:4px;margin-left:6px}
 .hlinks a{color:var(--ink-2);text-decoration:none;font-size:12px;padding:5px 9px;border-radius:7px}
 .hlinks a:hover{background:var(--hover);color:var(--ink)}
 
@@ -178,7 +185,11 @@ footer a{color:var(--accent-ink)}
 <header>
   <div class="hwrap">
     <span class="dot" title="live"></span>
-    <span class="brand">Darbo kodeksas <span>· cited answers</span></span>
+    <span class="brand">Darbo kodeksas <span data-i="tag"></span></span>
+    <div class="langsw" role="group" aria-label="Language">
+      <button data-lang="lt" aria-pressed="true">LT</button>
+      <button data-lang="en" aria-pressed="false">EN</button>
+    </div>
     <nav class="hlinks">
       <a class="opt" href="/health">API</a>
       <a href="https://github.com/dziugasmarcenas-ui/legal-rag">Repo</a>
@@ -187,16 +198,14 @@ footer a{color:var(--accent-ink)}
 </header>
 
 <main>
-  <h1 class="lede">Ask about Lithuanian employment law. Get the article.</h1>
-  <p class="sub">Answers come from the consolidated <b>Darbo kodeksas</b>, edition valid
-    2026-06-07 to 2026-10-31. Every answer cites a specific article — and when the Code
-    doesn't cover your question, it says so instead of guessing.</p>
+  <h1 class="lede" data-i="lede"></h1>
+  <p class="sub" data-i="sub"></p>
 
   <div class="composer">
-    <textarea id="q" rows="2" placeholder="Klauskite lietuviškai — pvz. kiek dienų kasmetinių atostogų man priklauso?"></textarea>
+    <textarea id="q" rows="2"></textarea>
     <div class="crow">
-      <span class="hint">⌘/Ctrl + Enter</span>
-      <button class="ask" id="ask">Ask</button>
+      <span class="hint" data-i="hint"></span>
+      <button class="ask" id="ask" data-i="ask"></button>
     </div>
   </div>
 
@@ -206,55 +215,119 @@ footer a{color:var(--accent-ink)}
 
 <footer>
   <div class="facts" id="facts"></div>
-  <p>Retrieval finds candidate articles by meaning, a cross-encoder reranks them, and a
-     confidence gate decides whether there is enough support to answer at all. Citations are
-     attached from the retriever, never written by the language model — so a source shown here
-     is an article that was actually retrieved.</p>
-  <p><b>Not legal advice.</b> A technical demonstration over one consolidated edition of one
-     code. Verify anything that matters against
-     <a href="https://www.e-tar.lt/portal/lt/legalAct/f6d686707e7011e6b969d7ae07280e89/asr">e-TAR</a>
-     or a qualified professional.
-     Method, measurements and limitations are in the
-     <a href="https://github.com/dziugasmarcenas-ui/legal-rag">repository</a>.
-     UI primitives adapted from <a href="https://www.beautifului.dev/">Beautiful UI</a> (MIT).</p>
+  <p data-i="how"></p>
+  <p data-i="nla"></p>
 </footer>
 
 <script>
+const I18N={
+ lt:{
+  tag:"· cituojami atsakymai",
+  lede:"Klauskite apie Lietuvos darbo teisę. Gaukite straipsnį.",
+  sub:'Atsakymai remiasi suvestine <b>Darbo kodekso</b> redakcija, galiojančia 2026-06-07 – 2026-10-31. Kiekvienas atsakymas nurodo konkretų straipsnį — o kai Kodeksas klausimo neapima, tai ir pasakoma, o ne spėjama.',
+  ph:"Klauskite lietuviškai — pvz. kiek dienų kasmetinių atostogų man priklauso?",
+  hint:"⌘/Ctrl + Enter", ask:"Klausti",
+  answered:"Atsakyta", refused:"Nepakanka pagrindo",
+  answeredSub:"pagrįsta žemiau nurodytais straipsniais",
+  refusedSub:"atrodo, kad Kodeksas to neapima",
+  considered:n=>`Įvertinti ${n} straipsniai`,
+  conf:"geriausio straipsnio atitiktis", gateAt:"riba 0.54",
+  above:"virš — atsakyta", below:"žemiau — atsisakyta",
+  rel:"atit.", cos:"kos.",
+  note:'Citatos pridedamos iš paieškos, o ne rašomos modelio. Tikrinkite <a href="https://www.e-tar.lt/portal/lt/legalAct/f6d686707e7011e6b969d7ae07280e89/asr">e-TAR</a>.',
+  tooMany:"Per daug užklausų", capped:"Pasiekta dienos riba",
+  netErr:"Ryšio klaida", netMsg:"Nepavyko pasiekti paslaugos. Ji gali būti perkraunama — pabandykite po akimirkos.",
+  unavail:"Neprieinama", unavailMsg:"Atsakymo modelis neatsakė. Žemiau pateikti straipsniai vis tiek buvo rasti.",
+  retry:s=>`Bandykite po ${Math.ceil(s/60)} min.`,
+  working:"Dirbama…",
+  steps:[["Klausimas verčiamas į vektorių","voyage-3, input_type=query"],
+         ["Ieškoma tarp 257 straipsnių","kosinuso panašumas"],
+         ["Kandidatai perrikiuojami","rerank-2.5 cross-encoder"],
+         ["Tikrinamas pasitikėjimas","pagal 0.54 ribą"],
+         ["Rašomas atsakymas","claude-haiku-4-5, tik rasti straipsniai"]],
+  facts:["straipsniai","Recall@1","pasitikėjimo riba","redakcija nuo"],
+  how:"Paieška randa straipsnius pagal prasmę, cross-encoder juos perrikiuoja, o pasitikėjimo vartai nusprendžia, ar apskritai pakanka pagrindo atsakyti. Citatos pridedamos iš paieškos rezultatų, o ne rašomos kalbos modelio — todėl čia rodomas šaltinis yra tikrai rastas straipsnis.",
+  nla:'<b>Tai nėra teisinė konsultacija.</b> Techninė demonstracija, apimanti vieną suvestinę vieno kodekso redakciją. Svarbius dalykus tikrinkite <a href="https://www.e-tar.lt/portal/lt/legalAct/f6d686707e7011e6b969d7ae07280e89/asr">e-TAR</a> arba pas specialistą. Metodika, matavimai ir apribojimai — <a href="https://github.com/dziugasmarcenas-ui/legal-rag">saugykloje</a>. UI primityvai adaptuoti iš <a href="https://www.beautifului.dev/">Beautiful UI</a> (MIT).'
+ },
+ en:{
+  tag:"· cited answers",
+  lede:"Ask about Lithuanian employment law. Get the article.",
+  sub:'Answers come from the consolidated <b>Darbo kodeksas</b>, edition valid 2026-06-07 to 2026-10-31. Every answer cites a specific article — and when the Code does not cover your question, it says so instead of guessing.',
+  ph:"Ask in Lithuanian — e.g. kiek dienų kasmetinių atostogų man priklauso?",
+  hint:"⌘/Ctrl + Enter", ask:"Ask",
+  answered:"Answered", refused:"No confident answer",
+  answeredSub:"grounded in the articles below",
+  refusedSub:"the Code does not appear to cover this",
+  considered:n=>`Considered ${n} article${n>1?"s":""}`,
+  conf:"relevance of the best article", gateAt:"gate at 0.54",
+  above:"above — answered", below:"below — refused",
+  rel:"rel", cos:"cos",
+  note:'Citations are attached from the retriever, not written by the model. Verify against <a href="https://www.e-tar.lt/portal/lt/legalAct/f6d686707e7011e6b969d7ae07280e89/asr">e-TAR</a>.',
+  tooMany:"Too many requests", capped:"Daily cap reached",
+  netErr:"Network error", netMsg:"Could not reach the service. It may be restarting — try again in a moment.",
+  unavail:"Unavailable", unavailMsg:"The answering model did not respond. The articles below were still retrieved locally.",
+  retry:s=>`Try again in about ${Math.ceil(s/60)} minute(s).`,
+  working:"Working…",
+  steps:[["Embedding the question","voyage-3, input_type=query"],
+         ["Searching 257 articles","cosine similarity over the corpus"],
+         ["Reranking candidates","rerank-2.5 cross-encoder"],
+         ["Checking confidence","against the 0.54 gate"],
+         ["Writing the answer","claude-haiku-4-5, retrieved articles only"]],
+  facts:["articles","Recall@1","gate threshold","edition from"],
+  how:"Retrieval finds candidate articles by meaning, a cross-encoder reranks them, and a confidence gate decides whether there is enough support to answer at all. Citations are attached from the retriever, never written by the language model — so a source shown here is an article that was actually retrieved.",
+  nla:'<b>Not legal advice.</b> A technical demonstration over one consolidated edition of one code. The corpus, the retrieval and the benchmark are Lithuanian; English answers are translated from those same Lithuanian articles. Verify anything that matters against <a href="https://www.e-tar.lt/portal/lt/legalAct/f6d686707e7011e6b969d7ae07280e89/asr">e-TAR</a> or a qualified professional. Method, measurements and limitations are in the <a href="https://github.com/dziugasmarcenas-ui/legal-rag">repository</a>. UI primitives adapted from <a href="https://www.beautifului.dev/">Beautiful UI</a> (MIT).'
+ }
+};
+
+// Example questions stay Lithuanian in both modes: they are the frozen
+// benchmark questions, and retrieval runs against a Lithuanian corpus.
 const EXAMPLES=[
  "Kiek dienų kasmetinių atostogų man priklauso per metus?",
  "Įmonė naikina mano poziciją. Kiek laiko prieš tai turi mane įspėti?",
  "Ar galiu dirbti viršvalandžius ir kiek daugiausia?",
  "Kiek trunka nėštumo ir gimdymo atostogos?",
- "Kiek pensijos susikaupsiu per 10 metų?",
-];
-const STEPS=[
- ["Embedding the question","voyage-3, input_type=query"],
- ["Searching 257 articles","cosine similarity over the corpus"],
- ["Reranking candidates","rerank-2.5 cross-encoder"],
- ["Checking confidence","against the 0.54 gate"],
- ["Writing the answer","claude-haiku-4-5, retrieved articles only"],
+ "Kiek pensijos susikaupsiu per 10 metų?"
 ];
 const $=s=>document.querySelector(s);
 const out=$("#out"), qEl=$("#q"), askBtn=$("#ask");
+let LANG=localStorage.getItem("lang")
+  || ((navigator.language||"").toLowerCase().startsWith("lt") ? "lt" : "en");
+let T=I18N[LANG], HEALTH=null;
+
+function applyLang(){
+  T=I18N[LANG];
+  document.documentElement.lang=LANG;
+  localStorage.setItem("lang",LANG);
+  document.querySelectorAll("[data-lang]").forEach(b=>
+    b.setAttribute("aria-pressed", String(b.dataset.lang===LANG)));
+  document.querySelectorAll("[data-i]").forEach(el=>{
+    const v=T[el.dataset.i]; if(typeof v==="string") el.innerHTML=v;
+  });
+  qEl.placeholder=T.ph;
+  renderFacts();
+}
+document.querySelectorAll("[data-lang]").forEach(b=>b.onclick=()=>{
+  LANG=b.dataset.lang; applyLang(); out.innerHTML="";
+});
 
 EXAMPLES.forEach(t=>{
   const b=document.createElement("button");
-  b.className="ex"; b.textContent=t.length>52?t.slice(0,50)+"…":t;
-  b.title=t;
+  b.className="ex"; b.textContent=t.length>52?t.slice(0,50)+"…":t; b.title=t;
   b.onclick=()=>{qEl.value=t; ask();};
   $("#ex").append(b);
 });
 
-fetch("/health").then(r=>r.json()).then(h=>{
-  const f=[["257","articles"],["0.880","Recall@1"],["0.54","gate threshold"],
-           [h.edition_from,"edition from"]];
-  $("#facts").innerHTML=f.map(([v,l])=>`<div class="fact"><b>${v}</b><i>${l}</i></div>`).join("");
-}).catch(()=>{});
+function renderFacts(){
+  if(!HEALTH)return;
+  const v=["257","0.880","0.54",HEALTH.edition_from];
+  $("#facts").innerHTML=v.map((val,i)=>
+    `<div class="fact"><b>${val}</b><i>${T.facts[i]}</i></div>`).join("");
+}
+fetch("/health").then(r=>r.json()).then(h=>{HEALTH=h;renderFacts();}).catch(()=>{});
 
 const esc=s=>s.replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
 
 function format(text, articles){
-  // light markdown, then turn "[126 straipsnis]" into a chip that links to its source card
   const blocks=esc(text).split(/\n{2,}/).map(b=>{
     const lines=b.split("\n").map(l=>l.trim()).filter(Boolean);
     if(lines.every(l=>/^[-*•]\s/.test(l)))
@@ -263,49 +336,41 @@ function format(text, articles){
   }).join("");
   return blocks
     .replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")
-    .replace(/\[\s*(\d+(?:-\d+)?)\s*(?:straipsni[a-ząčęėįšųūž]*)?\s*\]/gi,(m,n)=>
-      articles.includes(n) ? `<button class="cite" data-a="${n}">${n} str.</button>` : m);
+    .replace(/\[\s*(\d+(?:-\d+)?)\s*(?:straipsni\S*|art\S*)?\s*\]/gi,
+      (m,n)=>articles.includes(n)?`<button class="cite" data-a="${n}">${n} str.</button>`:m);
 }
-
-function render(html){out.innerHTML=html; out.scrollIntoView({behavior:"smooth",block:"nearest"});}
+function render(h){out.innerHTML=h; out.scrollIntoView({behavior:"smooth",block:"nearest"});}
 
 function trace(){
-  render(`<div class="trace"><div class="trace-h"><span class="spin"></span>Working…</div>
-    <ul class="steps">${STEPS.map((s,i)=>
+  render(`<div class="trace"><div class="trace-h"><span class="spin"></span>${T.working}</div>
+    <ul class="steps">${T.steps.map((s,i)=>
       `<li id="s${i}"><span class="tick">✓</span><span>${s[0]} <span style="color:var(--ink-3)">· ${s[1]}</span></span></li>`
     ).join("")}</ul></div>`);
-  let i=0; $("#s0")?.classList.add("on");
+  let i=0; const first=$("#s0"); if(first)first.classList.add("on");
   return setInterval(()=>{
-    const cur=$("#s"+i); if(!cur)return;
-    cur.classList.remove("on"); cur.classList.add("done");
-    i++; $("#s"+i)?.classList.add("on");
+    const c=$("#s"+i); if(!c)return;
+    c.classList.remove("on"); c.classList.add("done"); i++;
+    const n=$("#s"+i); if(n)n.classList.add("on");
   },900);
 }
-
-function sourcesHTML(sources){
-  const ids=sources.map(s=>s.article);
-  return `<div class="src-h">Considered ${sources.length} article${sources.length>1?"s":""}</div>
-    <div class="srcs">${sources.map(s=>`
-      <div class="src" id="a${s.article}">
-        <span class="num">${s.citation}</span>
-        <span class="st" title="${esc(s.title)}">${esc(s.title)}</span>
-        <span class="sc">
-          <i><b>${s.rerank_score==null?"—":s.rerank_score.toFixed(3)}</b> rel</i>
-          <i class="cos">${s.cosine_score.toFixed(3)} cos</i>
-        </span>
-        <span class="bar"><i style="width:${Math.round((s.rerank_score??0)*100)}%"></i></span>
+function sourcesHTML(s){
+  return `<div class="src-h">${T.considered(s.length)}</div>
+    <div class="srcs">${s.map(x=>`
+      <div class="src" id="a${x.article}">
+        <span class="num">${x.citation}</span>
+        <span class="st" title="${esc(x.title)}">${esc(x.title)}</span>
+        <span class="sc"><i><b>${x.rerank_score==null?"—":x.rerank_score.toFixed(3)}</b> ${T.rel}</i>
+          <i class="cos">${x.cosine_score.toFixed(3)} ${T.cos}</i></span>
+        <span class="bar"><i style="width:${Math.round((x.rerank_score||0)*100)}%"></i></span>
       </div>`).join("")}</div>`;
 }
-
-function meterHTML(conf, refused){
-  const pct=Math.max(0,Math.min(1,conf))*100;
+function meterHTML(c, refused){
+  const pct=Math.max(0,Math.min(1,c))*100;
   return `<div class="conf">
-    <div class="conf-top"><b>${conf.toFixed(4)}</b> relevance of the best article
-      · gate at 0.54 · <span>${refused?"below — refused":"above — answered"}</span></div>
-    <div class="scale">
-      <span class="fill${refused?" no":""}" style="width:${pct}%"></span>
-      <span class="thr" style="left:54%"></span>
-    </div></div>`;
+    <div class="conf-top"><b>${c.toFixed(4)}</b> ${T.conf} · ${T.gateAt} ·
+      <span>${refused?T.below:T.above}</span></div>
+    <div class="scale"><span class="fill${refused?" no":""}" style="width:${pct}%"></span>
+      <span class="thr" style="left:54%"></span></div></div>`;
 }
 
 async function ask(){
@@ -316,54 +381,48 @@ async function ask(){
   let res,data;
   try{
     res=await fetch("/chat",{method:"POST",headers:{"Content-Type":"application/json"},
-      body:JSON.stringify({question:q})});
+      body:JSON.stringify({question:q,lang:LANG})});
     data=await res.json();
   }catch(e){
     clearInterval(t); askBtn.disabled=false;
-    return render(`<div class="card"><div class="card-h"><span class="pill err">Network error</span></div>
-      <div class="ans"><p>Could not reach the service. It may be restarting — try again in a moment.</p></div></div>`);
+    return render(`<div class="card"><div class="card-h"><span class="pill err">${T.netErr}</span></div>
+      <div class="ans"><p>${T.netMsg}</p></div></div>`);
   }
   clearInterval(t); askBtn.disabled=false;
 
   if(res.status===429||res.status===503){
     return render(`<div class="card"><div class="card-h">
-      <span class="pill err">${res.status===429?"Too many requests":"Daily cap reached"}</span></div>
-      <div class="ans"><p>${esc(data.detail||"Try again later.")}</p>
-      ${data.retry_after_seconds?`<p style="color:var(--ink-3)">Try again in about ${Math.ceil(data.retry_after_seconds/60)} minute(s).</p>`:""}
+      <span class="pill err">${res.status===429?T.tooMany:T.capped}</span></div>
+      <div class="ans"><p>${esc(data.detail||"")}</p>
+      ${data.retry_after_seconds?`<p style="color:var(--ink-3)">${T.retry(data.retry_after_seconds)}</p>`:""}
       </div></div>`);
   }
   if(!res.ok||data.error){
-    return render(`<div class="card"><div class="card-h"><span class="pill err">Unavailable</span></div>
-      <div class="ans"><p>The answering model did not respond. The articles below were still retrieved locally.</p></div>
+    return render(`<div class="card"><div class="card-h"><span class="pill err">${T.unavail}</span></div>
+      <div class="ans"><p>${T.unavailMsg}</p></div>
       ${data.sources?sourcesHTML(data.sources):""}</div>`);
   }
 
-  const ids=(data.sources||[]).map(s=>s.article);
-  const refused=!!data.refused;
+  const ids=(data.sources||[]).map(s=>s.article), refused=!!data.refused;
   render(`<div class="card">
-    <div class="card-h">
-      <span class="pill ${refused?"no":"ok"}">${refused?"No confident answer":"Answered"}</span>
-      <span style="color:var(--ink-3);font-size:11.5px">${refused?"the Code does not appear to cover this":"grounded in the articles below"}</span>
-    </div>
+    <div class="card-h"><span class="pill ${refused?"no":"ok"}">${refused?T.refused:T.answered}</span>
+      <span style="color:var(--ink-3);font-size:11.5px">${refused?T.refusedSub:T.answeredSub}</span></div>
     <div class="ans">${format(data.answer||"",ids)}</div>
-    ${meterHTML(data.confidence??0,refused)}
+    ${meterHTML(data.confidence||0,refused)}
     ${data.sources&&data.sources.length?sourcesHTML(data.sources):""}
-    <div class="note">Citations are attached from the retriever, not written by the model.
-      Verify against <a href="https://www.e-tar.lt/portal/lt/legalAct/f6d686707e7011e6b969d7ae07280e89/asr">e-TAR</a>.</div>
-  </div>`);
+    <div class="note">${T.note}</div></div>`);
 
   out.querySelectorAll(".cite").forEach(c=>c.onclick=()=>{
-    const el=document.getElementById("a"+c.dataset.a);
-    if(!el)return;
+    const el=document.getElementById("a"+c.dataset.a); if(!el)return;
     out.querySelectorAll(".src").forEach(s=>s.classList.remove("hl"));
     el.classList.add("hl"); el.scrollIntoView({behavior:"smooth",block:"center"});
   });
 }
-
 askBtn.onclick=ask;
 qEl.addEventListener("keydown",e=>{
   if(e.key==="Enter"&&(e.metaKey||e.ctrlKey)){e.preventDefault();ask();}
 });
+applyLang();
 </script>
 </body>
 </html>

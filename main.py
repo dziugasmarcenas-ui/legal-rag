@@ -16,6 +16,8 @@ import anthropic
 
 from fastapi import FastAPI, Request
 from fastapi.responses import FileResponse, JSONResponse
+from typing import Literal
+
 from pydantic import BaseModel, Field
 
 import config
@@ -58,10 +60,37 @@ def index():
 
 class ChatRequest(BaseModel):
     question: str = Field(min_length=3, max_length=1000)
+    # Presentation only. The corpus, the retrieval and the whole benchmark are
+    # Lithuanian; "en" asks the model to write its answer in English FROM the
+    # same Lithuanian articles. It does not switch to an English source of law.
+    lang: Literal["lt", "en"] = "lt"
 
 
-def build_prompt(question, results):
-    """Give the model only the retrieved articles, and require a citation."""
+ANSWER_LANGUAGE = {
+    "lt": "Atsakyk lietuviškai, trumpai ir konkrečiai.",
+    "en": (
+        "Answer in English, briefly and concretely. The articles are in "
+        "Lithuanian; translate what they say faithfully and do not add anything "
+        "they do not contain. Keep Lithuanian legal terms in brackets where a "
+        "precise English equivalent does not exist."
+    ),
+}
+
+REFUSAL = {
+    "lt": ("Neturiu pakankamai patikimo pagrindo atsakyti į šį klausimą pagal "
+           "Darbo kodeksą. Pasitikslinkite su teisininku ar personalo skyriumi."),
+    "en": ("I don't have a confident enough basis in the Labour Code to answer "
+           "this. Check with a lawyer or your HR department."),
+}
+
+
+def build_prompt(question, results, lang="lt"):
+    """Give the model only the retrieved articles, and require a citation.
+
+    The citation format stays "[X straipsnis]" in both languages, because the
+    UI parses it back into a link to the source card -- and because the article
+    is a Lithuanian one whichever language the prose is in.
+    """
     articles = "\n\n".join(
         f"[{r['citation']} straipsnis] {r['title']}\n{r['text']}" for r in results
     )
@@ -71,17 +100,19 @@ def build_prompt(question, results):
         "atsakymo nėra, pasakyk, kad nežinai.\n\n"
         f"Straipsniai:\n{articles}\n\n"
         f"Klausimas: {question}\n\n"
-        "Atsakyk lietuviškai, trumpai ir konkrečiai. Pabaigoje nurodyk "
-        "straipsnį formatu [X straipsnis]."
+        f"{ANSWER_LANGUAGE[lang]} Pabaigoje nurodyk straipsnį formatu "
+        "[X straipsnis]."
     )
 
 
-def generate_answer(question, results):
+def generate_answer(question, results, lang="lt"):
     client = anthropic.Anthropic(api_key=config.require("ANTHROPIC_API_KEY"))
     response = client.messages.create(
         model=ANSWER_MODEL,
         max_tokens=MAX_TOKENS,
-        messages=[{"role": "user", "content": build_prompt(question, results)}],
+        messages=[
+            {"role": "user", "content": build_prompt(question, results, lang)}
+        ],
     )
     return response.content[0].text
 
@@ -103,6 +134,7 @@ def health():
         "edition_to": retrieval.SIDECAR["edition_to"],
         "threshold": gate.THRESHOLD,
         "rerank_model": retrieval.RERANK_MODEL,
+        "languages": ["lt", "en"],
         "usage": limiter.stats(),
     }
 
@@ -148,11 +180,7 @@ def chat(request: ChatRequest, http: Request):
     if not gate.should_answer(results):
         log.info("refused q=%r confidence=%.4f", request.question, confidence)
         return {
-            "answer": (
-                "Neturiu pakankamai patikimo pagrindo atsakyti į šį klausimą "
-                "pagal Darbo kodeksą. Pasitikslinkite su teisininku ar "
-                "personalo skyriumi."
-            ),
+            "answer": REFUSAL[request.lang],
             "sources": sources,
             "confidence": round(confidence, 4),
             "confidence_signal": "max_" + gate.SIGNAL,
@@ -160,7 +188,7 @@ def chat(request: ChatRequest, http: Request):
         }
 
     try:
-        answer = generate_answer(request.question, results)
+        answer = generate_answer(request.question, results, request.lang)
     except anthropic.APIStatusError as error:
         # The model API failing is not the same as having no answer. Say so,
         # and still return the retrieved sources -- they were computed locally

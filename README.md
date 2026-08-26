@@ -355,6 +355,12 @@ shows the reranker relevance of the best article against the 0.54 gate, so a ref
 visibly a refusal rather than a shrug — the articles it considered are still listed, with
 both scores.
 
+An **LT/EN switch** changes the interface and the answer language. It does not change the
+law: the corpus, the retrieval and the entire benchmark are Lithuanian, and an English
+answer is translated from those same Lithuanian articles by the answering model. The example
+questions stay Lithuanian in both modes because they are the frozen benchmark questions.
+`POST /chat` takes `{"question": "...", "lang": "lt" | "en"}`, defaulting to `lt`.
+
 `/chat` is rate limited (5 requests per IP per minute, 300 per day) because every request
 spends three paid API calls and the URL is public.
 
