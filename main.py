@@ -10,10 +10,12 @@ to the response independently of anything the model writes.
 
 import logging
 
+from pathlib import Path
+
 import anthropic
 
 from fastapi import FastAPI, Request
-from fastapi.responses import JSONResponse
+from fastapi.responses import FileResponse, JSONResponse
 from pydantic import BaseModel, Field
 
 import config
@@ -43,6 +45,15 @@ app = FastAPI(
 # the URL is public. /health is deliberately not limited so uptime monitoring
 # stays free and always available.
 limiter = ratelimit.RateLimiter()
+
+INDEX = Path(__file__).parent / "static" / "index.html"
+
+
+@app.get("/", include_in_schema=False)
+def index():
+    """The demo UI. One self-contained file -- no build step, no bundler, and
+    nothing to serve it but this route."""
+    return FileResponse(INDEX, media_type="text/html")
 
 
 class ChatRequest(BaseModel):

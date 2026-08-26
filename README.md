@@ -349,6 +349,15 @@ regulations, no collective agreements. Not legal advice.
 
 **https://legal-rag-production-fac6.up.railway.app**
 
+A browser UI is served at `/`: ask a question, watch the real pipeline stages, and get an
+answer with inline article citations that link to the source cards. The confidence meter
+shows the reranker relevance of the best article against the 0.54 gate, so a refusal is
+visibly a refusal rather than a shrug — the articles it considered are still listed, with
+both scores.
+
+`/chat` is rate limited (5 requests per IP per minute, 300 per day) because every request
+spends three paid API calls and the URL is public.
+
 ```bash
 curl -s https://legal-rag-production-fac6.up.railway.app/health
 curl -s -X POST https://legal-rag-production-fac6.up.railway.app/chat \

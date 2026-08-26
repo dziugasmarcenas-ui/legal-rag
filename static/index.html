@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="lt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Darbo kodeksas — cited answers</title>
+<meta name="description" content="Ask a Lithuanian employment-law question, get an answer grounded in a specific article of the Labour Code — or an honest refusal.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚖️</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Design tokens adapted from Beautiful UI (beautifului.dev), MIT licensed. */
+:root{
+  --page:oklch(98.5% .001 286.376); --canvas:oklch(96.1% .002 247.84);
+  --surface:oklch(100% 0 0); --inset:oklch(97.9% .002 247.839);
+  --hover:oklch(97% .002 247.839); --hover-2:oklch(93.3% .003 247.86);
+  --ink:oklch(24.7% .006 258.361); --ink-2:oklch(50.6% .01 264.477);
+  --ink-3:oklch(69.5% .009 264.505);
+  --line:oklch(94.6% .003 264.542); --line-strong:oklch(91.2% .005 258.326);
+  --accent:oklch(62.6% .205 254.947); --accent-ink:oklch(55.6% .187 255.617);
+  --accent-tint:oklch(96% .019 252.878);
+  --green:oklch(60.3% .155 150.883); --green-tint:oklch(95.8% .017 159.118);
+  --orange:oklch(68.9% .179 49.902); --orange-tint:oklch(96.4% .021 67.581);
+  --red:oklch(62.1% .192 23.042); --red-tint:oklch(95.6% .017 17.462);
+  --shadow-card:0 0 0 1px var(--line),0 1px 2px oklch(0% 0 0/.04);
+  --shadow-raised:0 0 0 1px var(--line),0 4px 12px oklch(0% 0 0/.06);
+  --r:10px;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --page:oklch(22.6% .004 264.485); --canvas:oklch(24.2% .005 264.4);
+    --surface:oklch(26.4% .006 264.4); --inset:oklch(28.4% .006 264.4);
+    --hover:oklch(30% .006 264.4); --hover-2:oklch(33% .007 264.4);
+    --ink:oklch(96.4% .002 247.839); --ink-2:oklch(73.1% .008 260.731);
+    --ink-3:oklch(56% .009 264.5);
+    --line:oklch(32% .007 264.47); --line-strong:oklch(39% .009 264.47);
+    --accent:oklch(70% .17 255); --accent-ink:oklch(78% .15 255);
+    --accent-tint:oklch(31% .06 255);
+    --green:oklch(70% .15 151); --green-tint:oklch(30% .05 151);
+    --orange:oklch(75% .16 50); --orange-tint:oklch(32% .06 50);
+    --red:oklch(70% .17 23); --red-tint:oklch(31% .06 23);
+    --shadow-card:0 0 0 1px var(--line),0 1px 2px oklch(0% 0 0/.3);
+    --shadow-raised:0 0 0 1px var(--line),0 4px 14px oklch(0% 0 0/.35);
+  }
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{
+  background:var(--page); color:var(--ink);
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,sans-serif;
+  font-size:13px; line-height:1.55; -webkit-font-smoothing:antialiased;
+}
+.mono{font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  font-variant-numeric:tabular-nums}
+
+/* ---- header ---- */
+header{position:sticky;top:0;z-index:20;background:color-mix(in oklab,var(--page) 88%,transparent);
+  backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.hwrap{max-width:760px;margin:0 auto;padding:11px 20px;display:flex;align-items:center;gap:10px}
+.brand{font-size:13px;font-weight:600;letter-spacing:-.01em}
+.brand span{color:var(--ink-3);font-weight:400}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--green);flex:none;
+  box-shadow:0 0 0 3px var(--green-tint)}
+.hlinks{margin-left:auto;display:flex;gap:4px}
+.hlinks a{color:var(--ink-2);text-decoration:none;font-size:12px;padding:5px 9px;border-radius:7px}
+.hlinks a:hover{background:var(--hover);color:var(--ink)}
+
+main{max-width:760px;margin:0 auto;padding:26px 20px 80px}
+
+/* ---- intro ---- */
+.lede{font-size:19px;line-height:1.4;letter-spacing:-.015em;margin:0 0 7px;font-weight:600;text-wrap:balance}
+.sub{color:var(--ink-2);margin:0 0 20px;max-width:56ch}
+.sub b{color:var(--ink);font-weight:500}
+
+/* ---- composer ---- */
+.composer{background:var(--surface);border-radius:var(--r);box-shadow:var(--shadow-card);
+  padding:10px;transition:box-shadow .15s}
+.composer:focus-within{box-shadow:var(--shadow-raised)}
+textarea{width:100%;border:0;background:none;color:var(--ink);font:inherit;resize:none;
+  padding:6px 6px 2px;outline:none;min-height:46px;line-height:1.5}
+textarea::placeholder{color:var(--ink-3)}
+.crow{display:flex;align-items:center;gap:8px;padding:2px 2px 0}
+.hint{color:var(--ink-3);font-size:11.5px}
+.ask{margin-left:auto;border:0;background:var(--accent);color:#fff;font:inherit;font-weight:500;
+  padding:7px 15px;border-radius:7px;cursor:pointer;display:flex;align-items:center;gap:7px}
+.ask:hover{background:var(--accent-ink)}
+.ask:disabled{opacity:.5;cursor:not-allowed}
+.ask:focus-visible,textarea:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+.examples{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0 0}
+.ex{background:var(--surface);border:0;box-shadow:0 0 0 1px var(--line);color:var(--ink-2);
+  font:inherit;font-size:12px;padding:6px 11px;border-radius:20px;cursor:pointer;text-align:left}
+.ex:hover{color:var(--ink);box-shadow:0 0 0 1px var(--line-strong);background:var(--hover)}
+.ex:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+/* ---- pipeline trace ---- */
+.trace{margin-top:20px;background:var(--surface);border-radius:var(--r);box-shadow:var(--shadow-card);
+  padding:13px 15px}
+.trace-h{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--ink-2);font-weight:500}
+.spin{width:12px;height:12px;border-radius:50%;border:1.5px solid var(--line-strong);
+  border-top-color:var(--accent);animation:sp .7s linear infinite;flex:none}
+@keyframes sp{to{transform:rotate(360deg)}}
+.steps{margin:10px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:7px}
+.steps li{display:flex;align-items:center;gap:9px;font-size:12px;color:var(--ink-3);
+  opacity:.45;transition:opacity .3s,color .3s}
+.steps li.on{opacity:1;color:var(--ink-2)}
+.steps li.done{opacity:1;color:var(--ink-3)}
+.tick{width:14px;height:14px;border-radius:50%;flex:none;display:grid;place-items:center;
+  box-shadow:inset 0 0 0 1px var(--line-strong);font-size:9px;color:var(--surface)}
+.steps li.done .tick{background:var(--green);box-shadow:none}
+.steps li.on .tick{box-shadow:inset 0 0 0 1.5px var(--accent)}
+
+/* ---- answer ---- */
+.card{margin-top:20px;background:var(--surface);border-radius:var(--r);box-shadow:var(--shadow-card);
+  overflow:hidden}
+.card-h{display:flex;align-items:center;gap:9px;padding:12px 16px;border-bottom:1px solid var(--line)}
+.pill{font-size:11px;font-weight:500;padding:3px 9px;border-radius:20px;letter-spacing:.01em}
+.pill.ok{background:var(--green-tint);color:var(--green)}
+.pill.no{background:var(--orange-tint);color:var(--orange)}
+.pill.err{background:var(--red-tint);color:var(--red)}
+.ans{padding:15px 16px 16px;font-size:13.5px;line-height:1.65}
+.ans p{margin:0 0 10px}
+.ans p:last-child{margin-bottom:0}
+.ans ul{margin:0 0 10px;padding-left:18px}
+.ans li{margin-bottom:4px}
+.ans strong{font-weight:600}
+.cite{display:inline-flex;align-items:center;gap:3px;background:var(--accent-tint);
+  color:var(--accent-ink);font-family:"JetBrains Mono",monospace;font-size:11.5px;font-weight:500;
+  padding:1px 6px;border-radius:5px;cursor:pointer;border:0;vertical-align:baseline}
+.cite:hover{background:var(--accent);color:#fff}
+
+/* ---- confidence meter ---- */
+.conf{padding:0 16px 15px}
+.conf-top{display:flex;align-items:baseline;gap:7px;font-size:11.5px;color:var(--ink-3);margin-bottom:7px}
+.conf-top b{color:var(--ink);font-weight:600;font-size:13px}
+.scale{position:relative;height:5px;background:var(--inset);border-radius:3px;
+  box-shadow:inset 0 0 0 1px var(--line)}
+.fill{position:absolute;inset:0 auto 0 0;border-radius:3px;background:var(--green)}
+.fill.no{background:var(--orange)}
+.thr{position:absolute;top:-4px;bottom:-4px;width:1.5px;background:var(--ink-2);border-radius:1px}
+.thr{box-shadow:0 0 0 2px var(--surface)}
+
+/* ---- sources ---- */
+.src-h{font-size:11px;font-weight:500;color:var(--ink-3);letter-spacing:.04em;text-transform:uppercase;
+  padding:0 16px;margin:2px 0 8px}
+.srcs{padding:0 10px 10px;display:flex;flex-direction:column;gap:3px}
+.src{display:flex;align-items:center;gap:11px;padding:9px 10px;border-radius:8px;
+  text-decoration:none;color:inherit;transition:background .15s}
+.src:hover{background:var(--hover)}
+.src.hl{background:var(--accent-tint)}
+.num{font-family:"JetBrains Mono",monospace;font-size:12px;font-weight:500;color:var(--accent-ink);
+  background:var(--accent-tint);padding:3px 8px;border-radius:6px;flex:none;min-width:44px;text-align:center}
+.st{flex:1;min-width:0;font-size:12.5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.sc{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--ink-3);flex:none;display:flex;gap:10px}
+.sc i{font-style:normal}
+.sc b{color:var(--ink-2);font-weight:500}
+.bar{width:34px;height:3px;background:var(--inset);border-radius:2px;overflow:hidden;flex:none}
+.bar>i{display:block;height:100%;background:var(--accent);border-radius:2px}
+
+.note{padding:11px 16px;border-top:1px solid var(--line);color:var(--ink-3);font-size:11.5px}
+.note a{color:var(--accent-ink)}
+
+/* ---- footer ---- */
+footer{max-width:760px;margin:0 auto;padding:0 20px 60px;color:var(--ink-3);font-size:11.5px}
+.facts{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:14px}
+.fact{background:var(--surface);box-shadow:0 0 0 1px var(--line);border-radius:7px;padding:7px 11px}
+.fact b{color:var(--ink);font-weight:600;font-family:"JetBrains Mono",monospace}
+.fact i{font-style:normal;display:block;font-size:10.5px;margin-top:1px}
+footer p{margin:0 0 7px;max-width:64ch;line-height:1.6}
+footer a{color:var(--accent-ink)}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+@media (max-width:560px){.sc i.cos{display:none}.hlinks a.opt{display:none}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="hwrap">
+    <span class="dot" title="live"></span>
+    <span class="brand">Darbo kodeksas <span>· cited answers</span></span>
+    <nav class="hlinks">
+      <a class="opt" href="/health">API</a>
+      <a href="https://github.com/dziugasmarcenas-ui/legal-rag">Repo</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <h1 class="lede">Ask about Lithuanian employment law. Get the article.</h1>
+  <p class="sub">Answers come from the consolidated <b>Darbo kodeksas</b>, edition valid
+    2026-06-07 to 2026-10-31. Every answer cites a specific article — and when the Code
+    doesn't cover your question, it says so instead of guessing.</p>
+
+  <div class="composer">
+    <textarea id="q" rows="2" placeholder="Klauskite lietuviškai — pvz. kiek dienų kasmetinių atostogų man priklauso?"></textarea>
+    <div class="crow">
+      <span class="hint">⌘/Ctrl + Enter</span>
+      <button class="ask" id="ask">Ask</button>
+    </div>
+  </div>
+
+  <div class="examples" id="ex"></div>
+  <div id="out"></div>
+</main>
+
+<footer>
+  <div class="facts" id="facts"></div>
+  <p>Retrieval finds candidate articles by meaning, a cross-encoder reranks them, and a
+     confidence gate decides whether there is enough support to answer at all. Citations are
+     attached from the retriever, never written by the language model — so a source shown here
+     is an article that was actually retrieved.</p>
+  <p><b>Not legal advice.</b> A technical demonstration over one consolidated edition of one
+     code. Verify anything that matters against
+     <a href="https://www.e-tar.lt/portal/lt/legalAct/f6d686707e7011e6b969d7ae07280e89/asr">e-TAR</a>
+     or a qualified professional.
+     Method, measurements and limitations are in the
+     <a href="https://github.com/dziugasmarcenas-ui/legal-rag">repository</a>.
+     UI primitives adapted from <a href="https://www.beautifului.dev/">Beautiful UI</a> (MIT).</p>
+</footer>
+
+<script>
+const EXAMPLES=[
+ "Kiek dienų kasmetinių atostogų man priklauso per metus?",
+ "Įmonė naikina mano poziciją. Kiek laiko prieš tai turi mane įspėti?",
+ "Ar galiu dirbti viršvalandžius ir kiek daugiausia?",
+ "Kiek trunka nėštumo ir gimdymo atostogos?",
+ "Kiek pensijos susikaupsiu per 10 metų?",
+];
+const STEPS=[
+ ["Embedding the question","voyage-3, input_type=query"],
+ ["Searching 257 articles","cosine similarity over the corpus"],
+ ["Reranking candidates","rerank-2.5 cross-encoder"],
+ ["Checking confidence","against the 0.54 gate"],
+ ["Writing the answer","claude-haiku-4-5, retrieved articles only"],
+];
+const $=s=>document.querySelector(s);
+const out=$("#out"), qEl=$("#q"), askBtn=$("#ask");
+
+EXAMPLES.forEach(t=>{
+  const b=document.createElement("button");
+  b.className="ex"; b.textContent=t.length>52?t.slice(0,50)+"…":t;
+  b.title=t;
+  b.onclick=()=>{qEl.value=t; ask();};
+  $("#ex").append(b);
+});
+
+fetch("/health").then(r=>r.json()).then(h=>{
+  const f=[["257","articles"],["0.880","Recall@1"],["0.54","gate threshold"],
+           [h.edition_from,"edition from"]];
+  $("#facts").innerHTML=f.map(([v,l])=>`<div class="fact"><b>${v}</b><i>${l}</i></div>`).join("");
+}).catch(()=>{});
+
+const esc=s=>s.replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
+
+function format(text, articles){
+  // light markdown, then turn "[126 straipsnis]" into a chip that links to its source card
+  const blocks=esc(text).split(/\n{2,}/).map(b=>{
+    const lines=b.split("\n").map(l=>l.trim()).filter(Boolean);
+    if(lines.every(l=>/^[-*•]\s/.test(l)))
+      return "<ul>"+lines.map(l=>"<li>"+l.replace(/^[-*•]\s/,"")+"</li>").join("")+"</ul>";
+    return "<p>"+lines.join("<br>")+"</p>";
+  }).join("");
+  return blocks
+    .replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")
+    .replace(/\[\s*(\d+(?:-\d+)?)\s*(?:straipsni[a-ząčęėįšųūž]*)?\s*\]/gi,(m,n)=>
+      articles.includes(n) ? `<button class="cite" data-a="${n}">${n} str.</button>` : m);
+}
+
+function render(html){out.innerHTML=html; out.scrollIntoView({behavior:"smooth",block:"nearest"});}
+
+function trace(){
+  render(`<div class="trace"><div class="trace-h"><span class="spin"></span>Working…</div>
+    <ul class="steps">${STEPS.map((s,i)=>
+      `<li id="s${i}"><span class="tick">✓</span><span>${s[0]} <span style="color:var(--ink-3)">· ${s[1]}</span></span></li>`
+    ).join("")}</ul></div>`);
+  let i=0; $("#s0")?.classList.add("on");
+  return setInterval(()=>{
+    const cur=$("#s"+i); if(!cur)return;
+    cur.classList.remove("on"); cur.classList.add("done");
+    i++; $("#s"+i)?.classList.add("on");
+  },900);
+}
+
+function sourcesHTML(sources){
+  const ids=sources.map(s=>s.article);
+  return `<div class="src-h">Considered ${sources.length} article${sources.length>1?"s":""}</div>
+    <div class="srcs">${sources.map(s=>`
+      <div class="src" id="a${s.article}">
+        <span class="num">${s.citation}</span>
+        <span class="st" title="${esc(s.title)}">${esc(s.title)}</span>
+        <span class="sc">
+          <i><b>${s.rerank_score==null?"—":s.rerank_score.toFixed(3)}</b> rel</i>
+          <i class="cos">${s.cosine_score.toFixed(3)} cos</i>
+        </span>
+        <span class="bar"><i style="width:${Math.round((s.rerank_score??0)*100)}%"></i></span>
+      </div>`).join("")}</div>`;
+}
+
+function meterHTML(conf, refused){
+  const pct=Math.max(0,Math.min(1,conf))*100;
+  return `<div class="conf">
+    <div class="conf-top"><b>${conf.toFixed(4)}</b> relevance of the best article
+      · gate at 0.54 · <span>${refused?"below — refused":"above — answered"}</span></div>
+    <div class="scale">
+      <span class="fill${refused?" no":""}" style="width:${pct}%"></span>
+      <span class="thr" style="left:54%"></span>
+    </div></div>`;
+}
+
+async function ask(){
+  const q=qEl.value.trim();
+  if(q.length<3){qEl.focus();return;}
+  askBtn.disabled=true;
+  const t=trace();
+  let res,data;
+  try{
+    res=await fetch("/chat",{method:"POST",headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({question:q})});
+    data=await res.json();
+  }catch(e){
+    clearInterval(t); askBtn.disabled=false;
+    return render(`<div class="card"><div class="card-h"><span class="pill err">Network error</span></div>
+      <div class="ans"><p>Could not reach the service. It may be restarting — try again in a moment.</p></div></div>`);
+  }
+  clearInterval(t); askBtn.disabled=false;
+
+  if(res.status===429||res.status===503){
+    return render(`<div class="card"><div class="card-h">
+      <span class="pill err">${res.status===429?"Too many requests":"Daily cap reached"}</span></div>
+      <div class="ans"><p>${esc(data.detail||"Try again later.")}</p>
+      ${data.retry_after_seconds?`<p style="color:var(--ink-3)">Try again in about ${Math.ceil(data.retry_after_seconds/60)} minute(s).</p>`:""}
+      </div></div>`);
+  }
+  if(!res.ok||data.error){
+    return render(`<div class="card"><div class="card-h"><span class="pill err">Unavailable</span></div>
+      <div class="ans"><p>The answering model did not respond. The articles below were still retrieved locally.</p></div>
+      ${data.sources?sourcesHTML(data.sources):""}</div>`);
+  }
+
+  const ids=(data.sources||[]).map(s=>s.article);
+  const refused=!!data.refused;
+  render(`<div class="card">
+    <div class="card-h">
+      <span class="pill ${refused?"no":"ok"}">${refused?"No confident answer":"Answered"}</span>
+      <span style="color:var(--ink-3);font-size:11.5px">${refused?"the Code does not appear to cover this":"grounded in the articles below"}</span>
+    </div>
+    <div class="ans">${format(data.answer||"",ids)}</div>
+    ${meterHTML(data.confidence??0,refused)}
+    ${data.sources&&data.sources.length?sourcesHTML(data.sources):""}
+    <div class="note">Citations are attached from the retriever, not written by the model.
+      Verify against <a href="https://www.e-tar.lt/portal/lt/legalAct/f6d686707e7011e6b969d7ae07280e89/asr">e-TAR</a>.</div>
+  </div>`);
+
+  out.querySelectorAll(".cite").forEach(c=>c.onclick=()=>{
+    const el=document.getElementById("a"+c.dataset.a);
+    if(!el)return;
+    out.querySelectorAll(".src").forEach(s=>s.classList.remove("hl"));
+    el.classList.add("hl"); el.scrollIntoView({behavior:"smooth",block:"center"});
+  });
+}
+
+askBtn.onclick=ask;
+qEl.addEventListener("keydown",e=>{
+  if(e.key==="Enter"&&(e.metaKey||e.ctrlKey)){e.preventDefault();ask();}
+});
+</script>
+</body>
+</html>
