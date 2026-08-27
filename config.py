@@ -7,10 +7,25 @@ no branching on environment.
 """
 
 import os
+import re
 
 from pathlib import Path
 
 ENV_FILE = Path(__file__).parent / ".env"
+PUBLIC_PATH_PATTERN = re.compile(r"^/?[A-Za-z0-9._~/-]+/?$")
+
+
+def public_base_path(value):
+    """Normalize a trusted proxy prefix without accepting a full URL."""
+    raw = (value or "").strip()
+    if not raw:
+        return ""
+    if not PUBLIC_PATH_PATTERN.fullmatch(raw) or "//" in raw:
+        raise RuntimeError("X-Forwarded-Prefix must be a URL path, not a URL")
+    segments = raw.strip("/").split("/")
+    if any(segment in {"", ".", ".."} for segment in segments):
+        raise RuntimeError("X-Forwarded-Prefix contains an invalid path segment")
+    return "/" + "/".join(segments)
 
 
 def load_env_file(path=ENV_FILE):

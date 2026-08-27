@@ -191,7 +191,7 @@ footer a{color:var(--accent-ink)}
       <button data-lang="en" aria-pressed="false">EN</button>
     </div>
     <nav class="hlinks">
-      <a class="opt" href="/health">API</a>
+      <a class="opt" href="__PUBLIC_BASE_PATH__/health">API</a>
       <a href="https://github.com/dziugasmarcenas-ui/legal-rag">Repo</a>
     </nav>
   </div>
@@ -220,6 +220,7 @@ footer a{color:var(--accent-ink)}
 </footer>
 
 <script>
+const PUBLIC_BASE_PATH="__PUBLIC_BASE_PATH__";
 const I18N={
  lt:{
   tag:"· atsakymai su šaltiniais",
@@ -323,7 +324,7 @@ function renderFacts(){
   $("#facts").innerHTML=v.map((val,i)=>
     `<div class="fact"><b>${val}</b><i>${T.facts[i]}</i></div>`).join("");
 }
-fetch("/health").then(r=>r.json()).then(h=>{HEALTH=h;renderFacts();}).catch(()=>{});
+fetch(PUBLIC_BASE_PATH + "/health").then(r=>r.json()).then(h=>{HEALTH=h;renderFacts();}).catch(()=>{});
 
 const esc=s=>s.replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
 
@@ -382,7 +383,7 @@ async function ask(){
   const t=trace();
   let res,data;
   try{
-    res=await fetch("/chat",{method:"POST",headers:{"Content-Type":"application/json"},
+    res=await fetch(PUBLIC_BASE_PATH + "/chat",{method:"POST",headers:{"Content-Type":"application/json"},
       body:JSON.stringify({question:q,lang:LANG})});
     data=await res.json();
   }catch(e){

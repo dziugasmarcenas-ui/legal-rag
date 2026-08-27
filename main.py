@@ -15,7 +15,7 @@ from pathlib import Path
 import anthropic
 
 from fastapi import FastAPI, Request
-from fastapi.responses import FileResponse, JSONResponse
+from fastapi.responses import HTMLResponse, JSONResponse
 from typing import Literal
 
 from pydantic import BaseModel, Field
@@ -51,11 +51,15 @@ limiter = ratelimit.RateLimiter()
 INDEX = Path(__file__).parent / "static" / "index.html"
 
 
-@app.get("/", include_in_schema=False)
-def index():
+@app.get("/", include_in_schema=False, response_class=HTMLResponse)
+def index(request: Request):
     """The demo UI. One self-contained file -- no build step, no bundler, and
     nothing to serve it but this route."""
-    return FileResponse(INDEX, media_type="text/html")
+    prefix = config.public_base_path(request.headers.get("x-forwarded-prefix"))
+    html = INDEX.read_text(encoding="utf-8").replace(
+        "__PUBLIC_BASE_PATH__", prefix
+    )
+    return HTMLResponse(html)
 
 
 class ChatRequest(BaseModel):
