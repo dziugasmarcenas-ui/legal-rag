@@ -2,5 +2,5 @@ anthropic==0.111.0
 fastapi==0.141.1
 numpy==2.5.0
 pydantic==2.13.4
-uvicorn==0.52.4
+uvicorn==0.54.0
 voyageai==0.4.1
