@@ -18,6 +18,26 @@ and refuses when the available text is not sufficient.**
 > retrieval improvement. This is an information-retrieval demonstration, not
 > legal advice.
 
+## For reviewers: where to start
+
+This repository includes the application, its evaluation data, and the checks used to validate changes. A useful short review path is:
+
+1. [Case study](docs/portfolio/CASE_STUDY.md) — scope, decisions, failure analysis and what was measured.
+2. [Evaluation code and data](eval/) — inspect the frozen questions and retrieval metrics behind the reported result.
+3. [Retrieval implementation](retrieval.py) and [confidence gate](gate.py) — follow how a question becomes evidence or a refusal.
+4. [Automated checks](.github/workflows/ci.yml) — see which claims are enforced in CI.
+
+Run the checks locally without model API keys (Python 3.12):
+
+```bash
+python -m pip install -r requirements.txt pytest
+PYTHONPATH=.:eval python -m pytest tests/ -q
+python check_corpus.py
+python check_goldenset.py
+```
+
+The 0.72 → 0.88 Recall@1 result comes from **25 answerable questions** in a frozen 30-question set, not a production-scale benchmark. The abstention threshold was selected on that same set; its refusal metrics are **not held-out estimates**. Details and unresolved failures are documented below.
+
 ## Results at a glance
 
 | Evidence | V1 result |
