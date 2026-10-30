@@ -266,7 +266,7 @@ def status_payload():
         },
         "delegated_acts": {
             "acts": len(acts),
-            "chunks": len(sources) - len(explanations),
+            "chunks": len(sources) - len(explanations) - len(eu),
             "stale": stale,
             "titles": acts,
         },
