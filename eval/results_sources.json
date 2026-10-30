@@ -1,8 +1,8 @@
 {
  "summary": {
-  "hits": 21,
+  "hits": 22,
   "total": 32,
-  "hit_rate": 0.656,
+  "hit_rate": 0.688,
   "term_hits": 29,
   "term_total": 30,
   "term_rate": 0.967
@@ -113,7 +113,7 @@
    "delegated": [
     "Dėl darbuotojų saugos ir sveikatos instrukcijų patvirtinimo",
     "Dėl darbuotojų saugos ir sveikatos instrukcijų patvirtinimo",
-    "Dėl darbuotojų saugos ir sveikatos instrukcijų patvirtinimo"
+    "Dėl Darbdavio ar jo įgalioto asmens žinių iš darbuotojų saug"
    ],
    "top": "Dėl darbuotojų saugos ir sveikatos instrukcijų patvirtinimo, 2 p.",
    "hit": false,
@@ -197,10 +197,10 @@
    "delegated": [
     "Darbuotojų saugos ir sveikatos įstatymas",
     "Darbuotojų saugos ir sveikatos įstatymas",
-    "Darbuotojų saugos ir sveikatos įstatymas"
+    "Nutarimas Nr. 1118"
    ],
    "top": "Darbuotojų saugos ir sveikatos įstatymas, 3 p.",
-   "hit": false,
+   "hit": true,
    "expect": "tyrim",
    "term_hit": true
   },
@@ -239,7 +239,7 @@
    "delegated": [
     "VDI paaiškinimas",
     "Darbuotojų saugos ir sveikatos įstatymas",
-    "Darbuotojų saugos ir sveikatos įstatymas"
+    "VDI paaiškinimas"
    ],
    "top": "VDI paaiškinimas Nr. 4",
    "hit": false,
