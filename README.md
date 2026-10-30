@@ -646,6 +646,18 @@ offers a single "Stenograma" type, and querying it returns only
 "Seimo posėdžio Nr. N stenograma" (plenary). The committee page lists agendas,
 not transcripts.
 
+## Lithuanian court decisions (blocked)
+
+LITEKO's public search is an ASP.NET WebForms page: GET parameters are ignored,
+and a POST with the view state returns the same form rather than results.
+eTeismai renders its results client-side, so a links-only corpus cannot be built
+from static HTML.
+
+The case graph therefore contains ECHR judgments only (9 nodes, 6 article-level
+edges). A links-only LITEKO corpus needs either a working search endpoint or a
+data export; the parser and the graph schema already accept case nodes by
+metadata alone.
+
 ## Citation graph and status
 
 Every delegated act names the Code articles it implements ("parengtas
