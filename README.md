@@ -673,6 +673,19 @@ export from the registry or crawling the search UI at roughly 20 documents a
 page; the browser harvest works but yields mostly amendments and municipal
 orders, so it needs filtering. The ingestion machinery is ready for an ID list; discovery is not.
 
+## Access required
+
+Three things are blocked on access, not on code. Each is recorded with the
+attempt and the exact requirement.
+
+| Item | Why it is blocked | What unblocks it |
+|---|---|---|
+| Full e-TAR corpus (~95,000 acts) | no bulk endpoint; search yields 1–2 substantive acts per cycle | registry export, or a TAR data-service key |
+| LITEKO court decisions | Google reCAPTCHA v2 on the search page; scripted postbacks are rejected | API key or a captcha-solved session |
+| Committee transcripts | not published on e-seimas or lrs.lt (one "Stenograma" type, plenary only) | DOCX/HTML export |
+
+Everything else in Phases 1 and 4 is implemented and measured.
+
 ## Lithuanian court decisions (blocked)
 
 LITEKO's public search is an ASP.NET WebForms page protected by **Google
