@@ -235,6 +235,21 @@ ACTS = [
     },
 ]
 
+# Any ID list can be appended without editing this file: the bulk pipeline
+# writes data/extra_acts.json and the same download/validity/chunk path runs.
+_EXTRA = Path(__file__).parent / "data" / "extra_acts.json"
+if _EXTRA.exists():
+    for _entry in json.loads(_EXTRA.read_text(encoding="utf-8")):
+        if not any(a["id"] == _entry["id"] for a in ACTS):
+            ACTS.append({
+                "id": _entry["id"],
+                "short": _entry.get("short") or _entry["title"][:60],
+                "title": _entry["title"],
+                "authority": _entry.get("authority", ""),
+                "date": _entry.get("date", ""),
+                "url": f"https://www.e-tar.lt/portal/lt/legalAct/{_entry['id']}",
+            })
+
 POINT = re.compile(r"^(\d+)\.\s")
 SUBPOINT = re.compile(r"^(\d+\.\d+)\.?\s")
 SECTION = re.compile(r"^[IVXLC]+ SKYRIUS\b")

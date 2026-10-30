@@ -1,11 +1,11 @@
 {
  "summary": {
-  "hits": 27,
+  "hits": 23,
   "total": 32,
-  "hit_rate": 0.844,
-  "term_hits": 29,
+  "hit_rate": 0.719,
+  "term_hits": 28,
   "term_total": 30,
-  "term_rate": 0.967
+  "term_rate": 0.933
  },
  "rows": [
   {
@@ -29,7 +29,7 @@
    "delegated": [
     "Nutarimas Nr. 496",
     "Nutarimas Nr. 496",
-    "Nutarimas Nr. 496"
+    "VDI paaiškinimas"
    ],
    "top": "Nutarimas Nr. 496, 3 p.",
    "hit": true,
@@ -98,8 +98,8 @@
    "expected": "VDI įsakymas A1-276",
    "delegated": [
     "Informacija apie saugos būklę",
-    "VDI įsakymas A1-276",
-    "VDI paaiškinimas"
+    "Darbuotojų saugos ir sveikatos įstatymas",
+    "VDI įsakymas A1-276"
    ],
    "top": "Informacija apie saugos būklę, įžanga",
    "hit": true,
@@ -111,11 +111,11 @@
    "question": "Kaip dažnai darbuotojams turi būti atnaujinamos saugos ir sveikatos žinios?",
    "expected": "VDI įsakymas A1-276",
    "delegated": [
+    "Saugaus darbo organizavimo ir darbo vietų įrengimo reikalavi",
     "Cheminiai veiksniai",
-    "HN 32:2004 videoterminalai",
-    "Informacija apie saugos būklę"
+    "HN 32:2004 videoterminalai"
    ],
-   "top": "Cheminiai veiksniai, 30 p.",
+   "top": "Saugaus darbo organizavimo ir darbo vietų įrengimo reikalavi, 6 p.",
    "hit": false,
    "expect": null,
    "term_hit": null
@@ -125,11 +125,11 @@
    "question": "Kas privalo instruktuoti darbuotojus saugos ir sveikatos klausimais?",
    "expected": "VDI įsakymas A1-276",
    "delegated": [
-    "VDI paaiškinimas",
+    "Darbuotojų saugos ir sveikatos įstatymas",
     "VDI paaiškinimas",
     "VDI paaiškinimas"
    ],
-   "top": "VDI paaiškinimas Nr. 28",
+   "top": "Darbuotojų saugos ir sveikatos įstatymas, 3 p.",
    "hit": false,
    "expect": "instruktu",
    "term_hit": true
@@ -139,12 +139,12 @@
    "question": "Kada įmonėje turi būti sudarytas darbuotojų saugos ir sveikatos komitetas?",
    "expected": "VDI įsakymas A1-502",
    "delegated": [
-    "VDI įsakymas A1-502",
-    "Informacija apie saugos būklę",
-    "VDI paaiškinimas"
+    "Darbuotojų saugos ir sveikatos įstatymas",
+    "Darbuotojų saugos ir sveikatos įstatymas",
+    "Darbuotojų saugos ir sveikatos įstatymas"
    ],
-   "top": "VDI įsakymas A1-502, 3 p.",
-   "hit": true,
+   "top": "Darbuotojų saugos ir sveikatos įstatymas, 2 p.",
+   "hit": false,
    "expect": "steigiamas",
    "term_hit": true
   },
@@ -153,12 +153,12 @@
    "question": "Kas sudaro darbuotojų saugos ir sveikatos komitetą?",
    "expected": "VDI įsakymas A1-502",
    "delegated": [
+    "Darbuotojų saugos ir sveikatos įstatymas",
     "VDI paaiškinimas",
-    "VDI įsakymas A1-502",
-    "VDI įsakymas A1-502"
+    "Apskričių teritorinių ir savivaldybių darbuotojų saugos ir s"
    ],
-   "top": "VDI paaiškinimas Nr. 15",
-   "hit": true,
+   "top": "Darbuotojų saugos ir sveikatos įstatymas, 2 p.",
+   "hit": false,
    "expect": "komiteto",
    "term_hit": true
   },
@@ -169,7 +169,7 @@
    "delegated": [
     "VDI įsakymas A1-502",
     "VDI įsakymas A1-502",
-    "VDI įsakymas A1-502"
+    "Lietuvos Respublikos darbuotojų saugos ir sveikatos komisijo"
    ],
    "top": "VDI įsakymas A1-502, 6 p.",
    "hit": true,
@@ -188,19 +188,19 @@
    "top": "Cheminiai veiksniai, 29 p.",
    "hit": true,
    "expect": "praneš",
-   "term_hit": true
+   "term_hit": false
   },
   {
    "id": 15,
    "question": "Kas tiria nelaimingą atsitikimą darbe?",
    "expected": "Nutarimas Nr. 1118",
    "delegated": [
-    "Nutarimas Nr. 1118",
-    "Nutarimas Nr. 1118",
-    "Nutarimas Nr. 1118"
+    "Darbuotojų saugos ir sveikatos įstatymas",
+    "Darbuotojų saugos ir sveikatos įstatymas",
+    "Darbuotojų saugos ir sveikatos įstatymas"
    ],
-   "top": "Nutarimas Nr. 1118, 14 p.",
-   "hit": true,
+   "top": "Darbuotojų saugos ir sveikatos įstatymas, 3 p.",
+   "hit": false,
    "expect": "tyrim",
    "term_hit": true
   },
@@ -238,8 +238,8 @@
    "expected": "SADM ir SAM įsakymas A1-266/V-575",
    "delegated": [
     "VDI paaiškinimas",
-    "VDI paaiškinimas",
-    "VDI paaiškinimas"
+    "Darbuotojų saugos ir sveikatos įstatymas",
+    "Darbuotojų saugos ir sveikatos įstatymas"
    ],
    "top": "VDI paaiškinimas Nr. 4",
    "hit": false,
@@ -252,8 +252,8 @@
    "expected": "SADM ir SAM įsakymas A1-266/V-575",
    "delegated": [
     "VDI paaiškinimas",
-    "VDI paaiškinimas",
-    "SADM ir SAM įsakymas A1-457/V-961"
+    "Darbuotojų saugos ir sveikatos įstatymas",
+    "Darbuotojų saugos ir sveikatos įstatymas"
    ],
    "top": "VDI paaiškinimas Nr. 12",
    "hit": false,
@@ -279,12 +279,12 @@
    "question": "Kas atlieka profesinės rizikos vertinimą įmonėje?",
    "expected": "SADM ir SAM įsakymas A1-457/V-961",
    "delegated": [
-    "SADM ir SAM įsakymas A1-457/V-961",
-    "VDI paaiškinimas",
-    "Triukšmas"
+    "Darbuotojų saugos ir sveikatos įstatymas",
+    "Saugaus darbo organizavimo ir darbo vietų įrengimo reikalavi",
+    "Saugaus darbo organizavimo ir darbo vietų įrengimo reikalavi"
    ],
-   "top": "SADM ir SAM įsakymas A1-457/V-961, 6 p.",
-   "hit": true,
+   "top": "Darbuotojų saugos ir sveikatos įstatymas, 3 p.",
+   "hit": false,
    "expect": "darbdav",
    "term_hit": true
   },
@@ -294,8 +294,8 @@
    "expected": "VDI paaiškinimas",
    "delegated": [
     "VDI paaiškinimas",
-    "VDI paaiškinimas",
-    "VDI paaiškinimas"
+    "Saugaus darbo organizavimo ir darbo vietų įrengimo reikalavi",
+    "Saugaus darbo organizavimo ir darbo vietų įrengimo reikalavi"
    ],
    "top": "VDI paaiškinimas Nr. 13",
    "hit": true,
@@ -309,7 +309,7 @@
    "delegated": [
     "VDI paaiškinimas",
     "VDI paaiškinimas",
-    "Statybvietės"
+    "Darbuotojų apsaugos nuo asbesto keliamos rizikos nuostatai"
    ],
    "top": "VDI paaiškinimas Nr. 2",
    "hit": true,
