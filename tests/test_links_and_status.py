@@ -89,3 +89,12 @@ def test_status_reports_coverage_freshness_and_measured_quality():
     assert payload["links"]["edges"] >= 300
     assert payload["links"]["case_edges"] >= 6
     assert payload["links"]["cases"] >= 9
+
+
+def test_status_reports_which_index_is_serving():
+    """A silent fallback to the arrays would be invisible on every other field."""
+    import main
+
+    payload = main.status_payload()
+    assert payload["index"]["kind"] in ("sqlite", "arrays")
+    assert payload["index"]["chunks"] >= 6000

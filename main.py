@@ -308,6 +308,13 @@ def status_payload():
             "editions": history.coverage()["editions"],
             "from": history.coverage()["from"],
         },
+        "index": {
+            # Which index is serving: the SQLite store, or the NPY fallback.
+            # Without this, a deploy that quietly fell back to the arrays would
+            # look identical on every other field.
+            "kind": "sqlite" if retrieval.vector_index() is not None else "arrays",
+            "chunks": len(sources),
+        },
         "links": {
             "articles_linked": link_graph.load()["articles_linked"],
             "edges": link_graph.load()["edges"],
