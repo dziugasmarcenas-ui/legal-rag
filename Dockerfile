@@ -18,14 +18,19 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY data/articles.json data/articles.json
 COPY data/history.json data/history.json
 COPY data/sources.json data/sources.json
+COPY data/links.json data/links.json
 COPY embeddings/ embeddings/
 COPY static/ static/
 COPY config.py retrieval.py gate.py edition.py ratelimit.py llm.py answer.py \
-     paragraphs.py history.py oauth.py mcp_server.py main.py ./
+     paragraphs.py history.py oauth.py link_graph.py mcp_server.py main.py ./
 
 # Fail the build rather than the first request if the corpus and the vectors
 # ever ship out of step with each other.
 RUN python -c "import retrieval; assert retrieval.VECTORS.shape[0] == len(retrieval.ARTICLES); print('corpus/vector alignment OK:', retrieval.VECTORS.shape)"
+
+# Import the whole app, not just retrieval: a missing module in COPY is the
+# failure mode that took the live service down once.
+RUN python -c "import main; print('app imports OK')"
 
 EXPOSE 8000
 

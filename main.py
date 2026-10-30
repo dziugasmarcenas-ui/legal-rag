@@ -228,14 +228,8 @@ def health():
     }
 
 
-@app.get("/status")
-def status():
-    """Coverage, freshness and measured quality in one place.
-
-    A status endpoint that only says "ok" cannot answer the question a user of a
-    legal tool actually has: which sources are loaded, how current they are, and
-    how well the thing scores.
-    """
+def status_payload():
+    """Coverage, freshness and measured quality in one place."""
     today = date.today().isoformat()
     sources = (
         json.loads((Path(__file__).parent / "data" / "sources.json").read_text(encoding="utf-8"))
@@ -277,6 +271,54 @@ def status():
             "delegated": summary("results_sources.json"),
         },
     }
+
+
+@app.get("/status")
+def status():
+    return status_payload()
+
+
+@app.get("/status.html", include_in_schema=False)
+def status_page():
+    """The same numbers as a page, because a JSON blob is not a status page."""
+    data = status_payload()
+    code = data["code"]
+    acts = data["delegated_acts"]
+    evals = data["evals"]
+    served = evals["code_served"] or {}
+    delegated = evals["delegated"] or {}
+
+    def row(label, value, note=""):
+        return f"<tr><th>{label}</th><td>{value}</td><td class=n>{note}</td></tr>"
+
+    badge = "expired" if code["expired"] else "in force"
+    rows = "".join([
+        row("Labour Code", f"{code['articles']} articles", f"edition to {code['edition_to']} — {badge}"),
+        row("Delegated acts", f"{acts['acts']} acts", f"{acts['chunks']} chunks, {len(acts['stale'])} stale"),
+        row("Edition archive", f"{data['history']['editions']} editions", f"from {data['history']['from']}"),
+        row("Citation links", f"{data['links']['edges']} edges", f"across {data['links']['articles_linked']} articles"),
+        row("Code accuracy", f"{served.get('served_hit1', 0):.3f} top-1", f"{served.get('served_hit_rate', 0):.3f} in top 3"),
+        row("Refusals", f"{served.get('correct_refusal_rate', 0):.3f} correct", f"{served.get('false_refusal_rate', 0):.3f} false"),
+        row("Delegated accuracy", f"{delegated.get('hit_rate', 0):.3f} right act", f"{delegated.get('term_rate', 0):.3f} with the answer"),
+    ])
+
+    return HTMLResponse(f"""<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>legal-rag status</title>
+<style>
+ body{{font:15px/1.55 system-ui,-apple-system,sans-serif;margin:0;background:#f7f7f8;color:#1c1c1e}}
+ main{{max-width:620px;margin:8vh auto;padding:26px;background:#fff;border:1px solid #e6e6ea;border-radius:12px}}
+ h1{{font-size:19px;margin:0 0 4px}} p{{color:#666;margin:0 0 18px}}
+ table{{width:100%;border-collapse:collapse}} th,td{{text-align:left;padding:9px 6px;border-top:1px solid #eee;font-weight:400}}
+ th{{color:#444;width:38%}} td.n{{color:#777;font-size:13px}}
+ a{{color:#2563eb;text-decoration:none}}
+ footer{{margin-top:18px;color:#888;font-size:12px}}
+</style></head><body><main>
+<h1>legal-rag status</h1>
+<p>What is loaded, how current it is, and how well it scores. Not legal advice.</p>
+<table>{rows}</table>
+<footer>JSON: <a href="/status">/status</a> · <a href="/">application</a></footer>
+</main></body></html>""")
 
 
 @app.post("/chat")
