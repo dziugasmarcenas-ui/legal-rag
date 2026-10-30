@@ -628,17 +628,18 @@ while the deployed answer for one question was "I don't know".
 Freshness covers them too: the daily check fails if any ingested act is repealed
 or has a newer edition on e-TAR.
 
-## Seimas (blocked)
+## Seimas drafts
 
-The Seimas site is behind a Cloudflare challenge that returns 403 to every
-non-browser client. A transcript collection was retrieved through a real browser
-session (438 pages), and the PDF's text layer splits words per syllable —
-"La bai ačiū už klau si mą" — which would poison retrieval. One clean
-labour-related fragment came out of 438 pages, so nothing was ingested.
+Draft acts are served by e-seimas as DOCX and extract cleanly, unlike the
+transcript PDFs. Three labour-related drafts are ingested by article (**9
+chunks**), cited as `Seimo projektas be numerio, 1 str.`, and labelled as drafts:
+the prompt must say a draft is not adopted law, and the gate never lets a draft
+decide an answer.
 
-`ingest_seimas.py` and its tests are in the tree: the parser, the
-table-of-contents filter and the syllable-split detector are ready for a clean
-export (DOCX or HTML) or an official feed.
+Committee and plenary transcripts remain **blocked**: the PDFs split words per
+syllable ("La bai ačiū už klau si mą"), and two collections tested both scored a
+0.41 two-letter-token ratio. `ingest_seimas.py` and its tests wait for a clean
+export.
 
 ## Citation graph and status
 
@@ -659,6 +660,7 @@ an article leads to the provisions that actually apply it.
   "explanations": {"items": 548, "chunks": 792, "institutions": 2},
   "eu_law": {"directives": 5, "chunks": 95},
   "echr": {"judgments": 3, "chunks": 130},
+  "seimas_drafts": {"drafts": 3, "chunks": 9},
   "history": {"editions": 41, "from": "2017-07-01"},
   "links": {"articles_linked": 118, "edges": 320, "case_edges": 2},
   "evals": {"code_served": {"served_hit1": 0.92}, "delegated": {"term_rate": 0.955}}

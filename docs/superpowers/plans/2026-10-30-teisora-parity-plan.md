@@ -130,8 +130,10 @@ export (DOCX/HTML) or an official feed.
 ECHR is ingested (3 Lithuanian
 judgments, 130 fragments via HUDOC). SADM's FAQ adds a second institution
 (299 answers). The citation graph now covers cases as links-only metadata
-(2 ECHR edges; no judgment text needed for the graph). Remaining: Seimas drafts
-and committee transcripts, blocked on a clean export. EU law is ingested (five directives via the Cellar endpoint). The public status page is the endpoint, not yet a UI.
+(2 ECHR edges; no judgment text needed for the graph). Seimas draft acts are ingested via the
+e-seimas TAP route (3 drafts, 9 chunks, clean DOCX). Committee and plenary
+transcripts remain blocked on the PDF text layer; the parser is ready for a
+clean export. EU law is ingested (five directives via the Cellar endpoint). The public status page is the endpoint, not yet a UI.
 
 
 - Institution explanations beyond VDI; Seimas drafts and committee transcripts;

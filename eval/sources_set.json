@@ -166,5 +166,11 @@
   "question": "Kur kreiptis dėl socialinės pašalpos gavimo?",
   "expected": "SADM paaiškinimas",
   "expect": "savivaldyb"
+ },
+ {
+  "id": 30,
+  "question": "Kokie pakeitimai siūlomi Darbo kodekso 221 straipsniui?",
+  "expected": "Seimo projektas",
+  "expect": "221"
  }
 ]

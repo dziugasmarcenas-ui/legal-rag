@@ -33,6 +33,7 @@ import ingest_echr
 import ingest_eu
 import ingest_explanations
 import ingest_sadm
+import ingest_seimas_drafts
 import refresh_corpus
 
 MODEL = "voyage-3"
@@ -338,6 +339,10 @@ def main(argv=None):
     sadm = ingest_sadm.records()
     print(f"SADM paaiškinimai: {len(sadm)} chunks")
     records.extend(sadm)
+
+    drafts = ingest_seimas_drafts.records()
+    print(f"Seimo projektai: {len(drafts)} chunks")
+    records.extend(drafts)
 
     eu = ingest_eu.records()
     print(f"EU directives: {len(eu)} chunks")

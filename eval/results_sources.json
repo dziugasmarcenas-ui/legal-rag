@@ -1,11 +1,11 @@
 {
  "summary": {
-  "hits": 26,
-  "total": 28,
-  "hit_rate": 0.929,
-  "term_hits": 25,
-  "term_total": 26,
-  "term_rate": 0.962
+  "hits": 27,
+  "total": 29,
+  "hit_rate": 0.931,
+  "term_hits": 26,
+  "term_total": 27,
+  "term_rate": 0.963
  },
  "rows": [
   {
@@ -209,11 +209,11 @@
    "question": "Kaip sudaroma darbo ginčų komisija?",
    "expected": "SADM įsakymas A1-344",
    "delegated": [
+    "Seimo projektas",
     "SADM įsakymas A1-344",
-    "VDI paaiškinimas",
-    "SADM įsakymas A1-344"
+    "VDI paaiškinimas"
    ],
-   "top": "SADM įsakymas A1-344, 1 p.",
+   "top": "Seimo projektas be numerio, 1 str.",
    "hit": true,
    "expect": "komisij",
    "term_hit": true
@@ -223,11 +223,11 @@
    "question": "Per kiek laiko darbo ginčų komisija turi išnagrinėti ginčą?",
    "expected": "SADM įsakymas A1-344",
    "delegated": [
+    "Seimo projektas",
     "VDI paaiškinimas",
-    "SADM įsakymas A1-344",
-    "Nutarimas Nr. 1118"
+    "SADM įsakymas A1-344"
    ],
-   "top": "VDI paaiškinimas Nr. 246",
+   "top": "Seimo projektas be numerio, 3 str.",
    "hit": true,
    "expect": "mėnes",
    "term_hit": true
@@ -398,6 +398,19 @@
    "top": "SADM paaiškinimas Nr. 5",
    "hit": true,
    "expect": "savivaldyb",
+   "term_hit": true
+  },
+  {
+   "id": 30,
+   "question": "Kokie pakeitimai siūlomi Darbo kodekso 221 straipsniui?",
+   "expected": "Seimo projektas",
+   "delegated": [
+    "Seimo projektas",
+    "Seimo projektas"
+   ],
+   "top": "Seimo projektas be numerio, 1 str.",
+   "hit": true,
+   "expect": "221",
    "term_hit": true
   }
  ]
