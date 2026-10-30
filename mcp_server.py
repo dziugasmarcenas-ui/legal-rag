@@ -15,10 +15,16 @@ be convenient: every result carries the edition it came from, an explicit
 verbatim. Nothing here writes a citation the retriever did not return.
 """
 
+import os
 import sys
 
 from typing import Literal
 
+from mcp.server.auth.settings import (
+    AuthSettings,
+    ClientRegistrationOptions,
+    RevocationOptions,
+)
 from mcp.server.mcpserver import MCPServer
 
 import answer
@@ -27,6 +33,7 @@ import edition
 import gate
 import history
 import llm
+import oauth
 import paragraphs
 import retrieval
 
@@ -37,10 +44,36 @@ DISCLAIMER = (
     "Labour Code. Not legal advice; verify against e-TAR before relying on it."
 )
 
+# OAuth is enabled by setting OAUTH_PASSWORD. Without it the static MCP_TOKEN
+# path stays in use, so a local run never publishes an open authorization server.
+PUBLIC_URL = os.environ.get("PUBLIC_URL", "http://localhost:8000").rstrip("/")
+OAUTH = oauth.build()
+
+AUTH = (
+    AuthSettings(
+        issuer_url=PUBLIC_URL,
+        # One resource, one audience: the tokens cannot be replayed elsewhere,
+        # and there is nothing to validate them against but this URL.
+        resource_server_url=f"{PUBLIC_URL}/mcp",
+        validate_token_resource=False,
+        service_documentation_url=f"{PUBLIC_URL}/",
+        client_registration_options=ClientRegistrationOptions(
+            enabled=True,
+            valid_scopes=["legal:read"],
+            default_scopes=["legal:read"],
+        ),
+        revocation_options=RevocationOptions(enabled=True),
+    )
+    if OAUTH
+    else None
+)
+
 mcp = MCPServer(
     name="legal-rag",
     title="Lithuanian Labour Code",
     version="0.1.0",
+    auth=AUTH,
+    auth_server_provider=OAUTH,
     instructions=(
         "Retrieval over the consolidated Lithuanian Labour Code (Darbo kodeksas).\n\n"
         "Use search_labour_code to find the articles that govern a situation, "
@@ -312,6 +345,13 @@ def ask_labour_code(question: str, lang: Literal["lt", "en"] = "lt") -> dict:
         "corpus": status,
         "disclaimer": DISCLAIMER,
     }
+
+
+if OAUTH is not None:
+    @mcp.custom_route("/oauth/consent", methods=["GET", "POST"])
+    async def oauth_consent(request):
+        """The one human step in the flow: prove you are the operator."""
+        return await OAUTH.consent_response(request)
 
 
 # Mounted at /mcp by main.py. The root path is "/" so the mount point, not the

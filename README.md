@@ -578,22 +578,44 @@ MCP_TOKEN=... uvicorn main:app --port 8000
 # header:   Authorization: Bearer $MCP_TOKEN
 ```
 
+**OAuth 2.1 (what connector directories require).** Set `OAUTH_PASSWORD` (the
+one shared connection password) and `PUBLIC_URL` (the public origin). The server
+then publishes discovery metadata and a full authorization-code flow with PKCE:
+
+```
+GET  /.well-known/oauth-authorization-server
+POST /register                      # dynamic client registration
+GET  /authorize  -> /oauth/consent  # the human step: enter OAUTH_PASSWORD
+POST /token                         # code + verifier -> access token
+GET  /mcp                           # Bearer <access token>
+```
+
+Access tokens last an hour, refresh tokens 30 days and rotate on use. Point the
+connector at `https://YOUR-HOST/mcp`; it discovers the rest. When OAuth is
+enabled the static `MCP_TOKEN` path is disabled -- two front doors is one too
+many.
+
 ```json
 {
   "mcpServers": {
     "legal-rag": {
       "command": "npx",
-      "args": ["-y", "mcp-remote", "https://legal-rag-production-fac6.up.railway.app/mcp",
-               "--header", "Authorization: Bearer YOUR_TOKEN"]
+      "args": ["-y", "mcp-remote", "https://YOUR-HOST/mcp"]
     }
   }
 }
 ```
 
-If `MCP_TOKEN` is unset the endpoint is unauthenticated and says so at boot --
-acceptable on localhost, never on a public host. MCP requests share the same
-per-IP window and daily budget as `/chat`, because every tool call can spend an
-embedding, a rerank and a generation.
+Without `OAUTH_PASSWORD` the server falls back to a static `MCP_TOKEN` header,
+and with neither the endpoint is unauthenticated and says so at boot --
+acceptable on localhost, never on a public host.
+
+**Honest limit.** OAuth state is in memory: one operator, one instance, and a
+redeploy makes clients re-authorize. A multi-user or multi-instance deployment
+needs a token store before it can be sold.
+
+MCP requests share the same per-IP window and daily budget as `/chat`, because
+every tool call can spend an embedding, a rerank and a generation.
 
 ## Running it
 

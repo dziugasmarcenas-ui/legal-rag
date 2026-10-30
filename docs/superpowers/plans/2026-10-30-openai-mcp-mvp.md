@@ -200,7 +200,11 @@ tests cover schema, unknown article, empty query, and refusal.
 
 ## Phase 3 — Remote MCP
 
-**Status 2026-10-30: shipped except deploy verification.** `/mcp` is served by a
+**Status 2026-10-30: shipped except deploy verification.** OAuth 2.1 shipped:
+discovery metadata, dynamic client registration, authorization-code + PKCE,
+a password-gated consent page, 1-hour access tokens and rotating 30-day refresh
+tokens. Verified end-to-end against a running server (register -> authorize ->
+consent -> token -> `/mcp` 200; wrong password 401; no token 401). `/mcp` is served by a
 raw ASGI router (not `app.mount`, which 307s `/mcp` to `/mcp/` and breaks clients
 that will not follow a redirect on POST). Bearer auth via `MCP_TOKEN`, shared
 per-IP window and daily budget, `401` without the token, and `npx mcp-remote`

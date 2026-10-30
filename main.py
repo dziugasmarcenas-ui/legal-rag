@@ -100,21 +100,34 @@ class McpRouter:
 
     PREFIX = "/mcp"
 
-    def __init__(self, app, mcp_app, token, limiter):
+    # OAuth discovery and grant endpoints live at the root, as the specification
+    # requires. They are public by design -- a client cannot authorize before it
+    # has a token -- and only /mcp itself is guarded.
+    AUTH_PATHS = ("/authorize", "/token", "/register", "/revoke", "/oauth",
+                  "/.well-known")
+
+    def __init__(self, app, mcp_app, token, limiter, oauth=False):
         self.app = app
         self.mcp_app = mcp_app
         self.token = token
         self.limiter = limiter
+        self.oauth = oauth
 
     async def __call__(self, scope, receive, send):
         path = scope.get("path", "")
-        if scope["type"] != "http" or not (
-            path == self.PREFIX or path.startswith(self.PREFIX + "/")
-        ):
+        if scope["type"] != "http":
+            return await self.app(scope, receive, send)
+
+        if any(path == p or path.startswith(p + "/") for p in self.AUTH_PATHS):
+            return await self.mcp_app(scope, receive, send)
+
+        if not (path == self.PREFIX or path.startswith(self.PREFIX + "/")):
             return await self.app(scope, receive, send)
 
         headers = dict(scope["headers"])
-        if self.token:
+        # With OAuth enabled the MCP app validates the bearer token itself, so a
+        # static secret here would be a second, weaker front door.
+        if self.token and not self.oauth:
             supplied = headers.get(b"authorization", b"").decode()
             if supplied != f"Bearer {self.token}":
                 return await _reject(send, 401, "unauthorized")
@@ -199,7 +212,10 @@ def health():
             "transport": "streamable-http",
             "tools": ["corpus_info", "search_labour_code", "get_article",
                       "ask_labour_code"],
-            "auth": "bearer" if MCP_TOKEN else "none",
+            "auth": (
+                "oauth" if mcp_server.OAUTH
+                else ("bearer" if MCP_TOKEN else "none")
+            ),
         },
         "usage": limiter.stats(),
     }
@@ -280,4 +296,5 @@ def chat(request: ChatRequest, http: Request):
 
 
 # Wrapped last, so every route above is already registered on the FastAPI app.
-app = McpRouter(app, mcp_server.asgi_app, MCP_TOKEN, limiter)
+app = McpRouter(app, mcp_server.asgi_app, MCP_TOKEN, limiter,
+                oauth=bool(mcp_server.OAUTH))
