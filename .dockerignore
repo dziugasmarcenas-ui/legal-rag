@@ -18,3 +18,9 @@ check_corpus.py
 check_goldenset.py
 parse_corpus.py
 embed_corpus.py
+
+# Superseded by data/vectors.db. Excluded so a 47 MB pair is not uploaded to
+# every build; a checkout still needs them only to rebuild the store.
+data/sources.json
+embeddings/sources.npy
+embeddings/sources.json

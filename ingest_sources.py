@@ -37,6 +37,7 @@ import ingest_sodra
 import ingest_seimas
 import ingest_seimas_drafts
 import refresh_corpus
+import vector_store
 
 MODEL = "voyage-3"
 BATCH = 64
@@ -386,7 +387,10 @@ def chunks(lines, act):
         heading = " · ".join(x for x in (chunk["annex"], chunk["chapter"]) if x)
         reference = f"{chunk['ref']} p." if chunk["ref"] else "įžanga"
         records.append({
-            "id": f"{act['id'][:8]}-{index}",
+            # The whole id, not its first eight characters: TAIS.403977 and
+            # TAIS.403469 both truncate to "TAIS.403", which silently collapsed
+            # 54 chunks into their neighbours when the store keyed on id.
+            "id": f"{act['id']}-{index}",
             "source": chunk["source"],
             "act_id": act["id"],
             "act_title": chunk["act_title"],
@@ -530,26 +534,68 @@ def main(argv=None):
     DATA.write_text(json.dumps(records, ensure_ascii=False, indent=1), encoding="utf-8")
     texts = [embedding_input(r) for r in records]
     expected = fingerprint(texts)
+    refresh = "--refresh" in (argv or sys.argv[1:])
 
-    if VECTORS.exists() and SIDECAR.exists() and "--refresh" not in (argv or sys.argv[1:]):
-        if json.loads(SIDECAR.read_text())["fingerprint"] == expected:
-            print("source index already current -- no API call made")
-            return 0
+    store = vector_store.load() if vector_store.exists() else None
+    if store is None:
+        # No store yet: keep the legacy all-or-nothing path so a checkout can
+        # still rebuild the artifacts before the migration runs.
+        if VECTORS.exists() and SIDECAR.exists() and not refresh:
+            if json.loads(SIDECAR.read_text())["fingerprint"] == expected:
+                print("source index already current -- no API call made")
+                return 0
 
-    client = voyageai.Client(api_key=config.require("VOYAGE_API_KEY"))
-    vectors = []
-    for i in range(0, len(texts), BATCH):
-        result = client.embed(texts[i:i + BATCH], model=MODEL, input_type="document")
-        vectors.extend(result.embeddings)
-        print(f"  embedded {min(i + BATCH, len(texts))}/{len(texts)}")
+        client = voyageai.Client(api_key=config.require("VOYAGE_API_KEY"))
+        vectors = []
+        for i in range(0, len(texts), BATCH):
+            result = client.embed(texts[i:i + BATCH], model=MODEL, input_type="document")
+            vectors.extend(result.embeddings)
+            print(f"  embedded {min(i + BATCH, len(texts))}/{len(texts)}")
+
+        matrix = np.array(vectors, dtype=np.float32)
+        np.save(VECTORS, matrix)
+        SIDECAR.write_text(json.dumps({
+            "model": MODEL, "count": int(matrix.shape[0]),
+            "fingerprint": expected, "embedded_at": datetime.now(timezone.utc).isoformat(),
+        }), encoding="utf-8")
+        print(f"saved {matrix.shape} to {VECTORS}")
+        return 0
+
+    # Incremental: a chunk whose title+text is unchanged keeps its vector, so a
+    # re-ingest after adding acts embeds only the new ones.
+    cache = {} if refresh else store.vectors_by_hash()
+    digests = [vector_store.content_hash(r) for r in records]
+    vectors = [cache.get(digest) for digest in digests]
+    missing = [i for i, vector in enumerate(vectors) if vector is None]
+
+    if missing:
+        client = voyageai.Client(api_key=config.require("VOYAGE_API_KEY"))
+        for i in range(0, len(missing), BATCH):
+            batch = missing[i:i + BATCH]
+            result = client.embed(
+                [texts[j] for j in batch], model=MODEL, input_type="document"
+            )
+            for j, embedding in zip(batch, result.embeddings):
+                vectors[j] = np.asarray(embedding, dtype=np.float32)
+            print(f"  embedded {min(i + BATCH, len(missing))}/{len(missing)} new chunks")
 
     matrix = np.array(vectors, dtype=np.float32)
+    added, updated, unchanged = store.put_many(records, matrix, model=MODEL)
+    store.set_meta("fingerprint", expected)
+    removed = store.delete_missing([r["id"] for r in records])
+    store.close()
+
+    # The NPY pair stays in step as the reviewable artifact; the store is what
+    # the service reads.
     np.save(VECTORS, matrix)
     SIDECAR.write_text(json.dumps({
         "model": MODEL, "count": int(matrix.shape[0]),
         "fingerprint": expected, "embedded_at": datetime.now(timezone.utc).isoformat(),
     }), encoding="utf-8")
-    print(f"saved {matrix.shape} to {VECTORS}")
+    print(
+        f"store: +{added} ~{updated} ={unchanged}, removed {removed}; "
+        f"embedded {len(missing)} of {len(records)} chunks"
+    )
     return 0
 
 

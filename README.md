@@ -697,6 +697,41 @@ export from the registry or crawling the search UI at roughly 20 documents a
 page; the browser harvest works but yields mostly amendments and municipal
 orders, so it needs filtering. The ingestion machinery is ready for an ID list; discovery is not.
 
+## Vector store
+
+The source index is one SQLite file, `data/vectors.db`, instead of the pair it
+replaced (`data/sources.json` 13 MB + `embeddings/sources.npy` 34 MB). Both old
+files had to be loaded whole into memory at import; at 95,000 acts that pair is
+tens of gigabytes resident before the first question.
+
+| | Before | Now |
+|---|---|---|
+| Artifact | 13 MB JSON + 34 MB NPY | 52 MB SQLite |
+| Memory at boot | all vectors + all text | 1 MB of sign bits |
+| Adding acts | rewrite both artifacts | upsert, delete missing |
+| Re-ingest | re-embed everything | embed only changed chunks |
+
+Search is two-stage: a 1-bit-per-dimension signature shortlists 1,000 of 8,764
+chunks (~1 MB, Hamming distance over packed bytes), then exact float32 cosine
+re-scores that shortlist. The approximation only chooses candidates; the ranking
+the reranker sees is real cosine.
+
+That claim is measured, not asserted:
+
+- `migrate_vectors.py --check` compares the store against exhaustive cosine over
+  the full matrix: **0.996 top-10 recall** (one true neighbour lost at ranks 9–10
+  in 25 synthetic queries).
+- Both published evaluations were re-run through the store unchanged:
+  **0.920 top-1 / 0.960 top-3 / 0.800 correct refusal / 0.000 false**, and
+  delegated **0.656 right source / 0.967 answer-bearing** — identical to the
+  array-based numbers.
+- The app was started with `data/sources.json` deleted: `/status` still reported
+  117 acts, 6,991 chunks, 784 answers, 363 transcript fragments.
+
+Incremental ingest reuses a chunk's stored vector when its title and text hash
+is unchanged, so adding acts costs embeddings only for the new ones. Tests cover
+the reuse, the update path, deletion of repealed chunks, and signature recall.
+
 ## Access required
 
 Three things are blocked on access, not on code. Each is recorded with the

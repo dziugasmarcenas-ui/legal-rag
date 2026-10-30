@@ -21,7 +21,10 @@ import retrieval
 def test_the_source_index_loads_the_ingested_act():
     records, matrix = retrieval.source_index()
     assert len(records) > 100
-    assert matrix.shape[0] == len(records)
+    if matrix is None:  # served from the SQLite store
+        assert retrieval.vector_index().count() == len(records)
+    else:
+        assert matrix.shape[0] == len(records)
     first = records[0]
     for field in ("citation", "source", "text", "url", "act_id"):
         assert first[field], field

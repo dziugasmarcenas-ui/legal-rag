@@ -9,6 +9,9 @@ import numpy as np
 import voyageai
 
 
+import vector_store
+
+
 ROOT = Path(__file__).parent
 
 # Load article metadata
@@ -225,45 +228,76 @@ SOURCE_SHOWN = 3
 SOURCE_FLOOR = 0.42
 
 _SOURCES = None
+_STORE = None
+
+
+def vector_index():
+    """The SQLite store when it exists, else None.
+
+    The store is the shipped path; the JSON + NPY pair remains the fallback so a
+    checkout without a built store still runs. Keeping both paths is what lets
+    the evaluation prove they return the same answers.
+    """
+    global _STORE
+    if _STORE is None and vector_store.exists():
+        _STORE = vector_store.load()
+    return _STORE
 
 
 def source_index():
+    """(records, matrix). matrix is None when the store serves the index."""
     global _SOURCES
     if _SOURCES is None:
-        records = json.loads((ROOT / "data" / "sources.json").read_text(encoding="utf-8"))
-        matrix = np.load(ROOT / "embeddings" / "sources.npy")
-        _SOURCES = (records, matrix)
+        store = vector_index()
+        if store is not None:
+            _SOURCES = (store.all_records(), None)
+        else:
+            records = json.loads((ROOT / "data" / "sources.json").read_text(encoding="utf-8"))
+            matrix = np.load(ROOT / "embeddings" / "sources.npy")
+            _SOURCES = (records, matrix)
     return _SOURCES
 
 
 def source_candidates(query_vector, k=SOURCE_CANDIDATES):
     """Delegated acts: resolutions the Code points at for the actual rule."""
-    if not (ROOT / "data" / "sources.json").exists():
-        return []
+    store = vector_index()
     records, matrix = source_index()
     if not records:
         return []
+
+    if store is not None:
+        ids, scores = store.search(query_vector)
+        pairs = list(zip(store.records(ids[:k]), scores[:k]))
+        out = []
+        for record, score in pairs:
+            if float(score) < SOURCE_FLOOR:
+                continue
+            out.append(_delegated(record, float(score)))
+        return out
 
     scores = cosine_similarities(query_vector, matrix)
     out = []
     for row in top_k(scores, min(k, len(records))):
         if float(scores[row]) < SOURCE_FLOOR:
             continue
-        record = records[row]
-        out.append({
-            "article": None,
-            "citation": record["citation"],
-            "label": record["citation"],
-            "source": record["source"],
-            "source_title": record["act_title"],
-            "url": record["url"],
-            "title": record["title"],
-            "text": record["text"],
-            "parts": [],
-            "cosine_score": float(scores[row]),
-            "rerank_score": None,
-        })
+        out.append(_delegated(records[row], float(scores[row])))
     return out
+
+
+def _delegated(record, score):
+    return {
+        "article": None,
+        "citation": record["citation"],
+        "label": record["citation"],
+        "source": record["source"],
+        "source_title": record.get("act_title", ""),
+        "url": record["url"],
+        "title": record["title"],
+        "text": record["text"],
+        "parts": [],
+        "cosine_score": score,
+        "rerank_score": None,
+    }
 
 
 def retrieve(question, k=SERVED_K, candidates=SERVED_CANDIDATES, use_rerank=True,

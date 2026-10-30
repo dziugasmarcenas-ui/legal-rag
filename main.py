@@ -231,11 +231,9 @@ def health():
 def status_payload():
     """Coverage, freshness and measured quality in one place."""
     today = date.today().isoformat()
-    sources = (
-        json.loads((Path(__file__).parent / "data" / "sources.json").read_text(encoding="utf-8"))
-        if (Path(__file__).parent / "data" / "sources.json").exists()
-        else []
-    )
+    # One source of truth: whatever retrieval is serving from. When the store
+    # is present the image does not carry sources.json at all.
+    sources = retrieval.source_index()[0]
     explanations = [
         r for r in sources
         if r.get("act_id") in ("vdi-faq", "sadm-faq")
