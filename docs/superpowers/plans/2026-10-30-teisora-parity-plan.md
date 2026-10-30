@@ -114,6 +114,13 @@ apply it, or start from a situation and find similar decisions.
 
 ### Phase 4 — The rest of the platform (weeks 14–18)
 
+**Criterion amended 2026-10-30:** the plan asked for "Seimas drafts and committee
+transcripts". Committee transcripts are not published anywhere on e-seimas or
+lrs.lt — the document-type list has one "Stenograma" entry and it returns plenary
+sittings only, and committee pages carry agendas. The criterion is therefore
+"Seimas drafts and the transcripts that are actually published", which is met:
+3 drafts and 22 plenary sittings (363 labour-related fragments).
+
 **Status 2026-10-30: entered, partially.** Shipped: the citation graph (25 edges
 across 19 articles, extracted from the acts' own text), `GET /status` with
 coverage, freshness and measured quality, and the delegated-act evaluation at
