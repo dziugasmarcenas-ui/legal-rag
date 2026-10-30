@@ -663,7 +663,9 @@ Discovery routes measured, with yields:
 | e-seimas TAD via browser bridge (26 exported) | **9** net new |
 | e-seimas title batch "darbo apmokėjimo" (7 exported) | **2** net new; 5 exam-payment orders pruned |
 | e-seimas "darbo laiko" / "darbo sąlygų" (30 + 2 matches) | **1** net new after personal/institutional filtering |
-| e-seimas "socialinės apsaugos" (501 docs, 15 matches) | **0** — all technical corrections, funding calls, programme documents |
+| e-seimas "socialinės apsaugos" (501 docs, 15 matches) | **0** — technical corrections, funding calls, programme documents |
+| e-seimas "kolektyvinių sutarčių" (9 docs) | **0** — two municipal funding-distribution orders |
+| e-seimas "užimtumo" (372 docs, 40 matches) | **0** — all programme, commission and project orders |
 | data.gov.lt | no dataset links in HTML |
 | data.e-tar.lt | explainer page, no API |
 | OAI-PMH | not offered |
