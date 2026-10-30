@@ -19,6 +19,9 @@ COPY data/articles.json data/articles.json
 COPY data/history.json data/history.json
 COPY data/sources.json data/sources.json
 COPY data/links.json data/links.json
+# The measured numbers are published on /status; ship the files that hold them.
+COPY eval/results_serving.json eval/results_serving.json
+COPY eval/results_sources.json eval/results_sources.json
 COPY embeddings/ embeddings/
 COPY static/ static/
 COPY config.py retrieval.py gate.py edition.py ratelimit.py llm.py answer.py \
