@@ -93,7 +93,7 @@ exists — the inspectorate's or court's position.
 ### Phase 2 — All of e-TAR (weeks 4–8)
 
 **Status 2026-10-30: started.** The ingestion pipeline accepts an external ID
-list (`data/extra_acts.json`) and now covers 121 acts / 7,209 chunks. Discovery yields are measured: 56 acts from the ministry's safety index, 2 from 18 pages of search, 2 from 12 topic pages. Discovery
+list (`data/extra_acts.json`) and now covers 123 acts / 7,276 chunks. Discovery yields are measured: 56 acts from the ministry's safety index, 2 from 18 pages of search, 2 from 12 topic pages. Discovery
 is the blocker: e-TAR has no bulk endpoint (JSF search ignores GET, no OAI-PMH,
 data.e-tar.lt is an explainer), so full coverage needs a registry export or a
 long crawler. Pipeline ready; source access open.
@@ -149,7 +149,7 @@ real browser session and a loopback bridge; the PDF "syllable split" was in fact
 soft hyphens (U+00AD), repaired with PyMuPDF.
 
 **Exit:** source coverage matches Teisora's published list. Not met — Phase 2
-coverage is 121 of ~95,000 acts, Phase 3 has no LITEKO corpus (Constitutional Court rulings are ingested), and committee
+coverage is 123 of ~95,000 acts, Phase 3 has no LITEKO corpus (Constitutional Court rulings are ingested), and committee
 transcripts do not exist publicly.
 
 ### Phase 5 — Commercial shell (weeks 15–20, parallel)
