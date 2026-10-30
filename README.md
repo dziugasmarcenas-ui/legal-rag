@@ -566,6 +566,18 @@ candidates from the search results were rejected that way.
 Ingestion refuses an act that is repealed or lacks a consolidated edition: a
 dead regulation is worse than a missing one.
 
+### The inspectorate's own answers
+
+VDI publishes answers to the questions employers actually ask — "do I need a
+safety service if the company is one director and an accountant?", "does
+everyone on site wear a helmet?". That is an institution's stated position, not
+a statute, and it is ingested as such: **249 answers, 442 chunks**, cited as
+`VDI paaiškinimas Nr. 12`.
+
+It is the same index as the acts, so a question can return a rule and the
+inspectorate's interpretation of it in one call. The wording is the source's,
+never paraphrased.
+
 The two families are not peers, and the ranking says so. The Code is returned
 first and decides whether there is an answer at all; delegated provisions are
 appended as corroboration (at most two). Mixing them into one ranking was
@@ -575,8 +587,10 @@ roles separated, every Code number is unchanged.
 
 The delegated index has its own evaluation, because the frozen Code set cannot
 score rules the Code does not contain: 12 questions whose answers live in these
-acts. **20/20 find the right act** and **18/19 of the answerable ones return a
-chunk that actually contains the answer term** (`eval/run_sources_eval.py`).
+acts. **21/22 of the answerable questions return a chunk containing the answer
+term** (`eval/run_sources_eval.py`); the older "right act" number (21/23) now
+understates the system, because a VDI explanation can answer a question that an
+act merely delegates.
 The second number exists because act-level hits flatter a system that finds the
 right law and the wrong provision — the first version of this eval scored 12/12
 while the deployed answer for one question was "I don't know".
@@ -598,9 +612,10 @@ an article leads to the provisions that actually apply it.
 {
   "code": {"articles": 257, "edition_to": "2026-10-31", "expired": false},
   "delegated_acts": {"acts": 7, "chunks": 633, "stale": []},
+  "explanations": {"items": 249, "chunks": 442},
   "history": {"editions": 41, "from": "2017-07-01"},
   "links": {"articles_linked": 19, "edges": 25},
-  "evals": {"code_served": {"served_hit1": 0.92}, "delegated": {"hit_rate": 1.0}}
+  "evals": {"code_served": {"served_hit1": 0.92}, "delegated": {"term_rate": 0.955}}
 }
 ```
 

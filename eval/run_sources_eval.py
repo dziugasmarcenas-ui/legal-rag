@@ -54,6 +54,8 @@ def main():
     print(f"\ndelegated-act hit rate (top {retrieval.SOURCE_SHOWN}): "
           f"{hits}/{total} = {hits / total:.3f}")
     print(f"answer-bearing chunk rate: {terms}/{len(scored)} = {terms / len(scored):.3f}")
+    print("(act hit can now be an explanation answering the same question; "
+          "the answer-bearing rate is the product metric)")
 
     (ROOT / "eval" / "results_sources.json").write_text(
         json.dumps({"summary": {"hits": hits, "total": total,

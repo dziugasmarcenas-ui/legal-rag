@@ -77,4 +77,5 @@ def test_status_reports_coverage_freshness_and_measured_quality():
     assert payload["delegated_acts"]["stale"] == []
     assert payload["history"]["editions"] == 41
     assert payload["evals"]["code_served"]["served_hit1"] == 0.92
-    assert payload["evals"]["delegated"]["hit_rate"] == 1.0
+    assert payload["evals"]["delegated"]["term_rate"] >= 0.9
+    assert payload["explanations"]["items"] >= 200

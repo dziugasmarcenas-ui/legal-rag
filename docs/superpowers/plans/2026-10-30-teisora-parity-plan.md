@@ -117,9 +117,10 @@ apply it, or start from a situation and find similar decisions.
 **Status 2026-10-30: entered, partially.** Shipped: the citation graph (25 edges
 across 19 articles, extracted from the acts' own text), `GET /status` with
 coverage, freshness and measured quality, and the delegated-act evaluation at
-20 questions. Remaining: institution explanations beyond VDI, Seimas drafts and
-committee transcripts, EU law and ECHR, and the citation graph extended to
-cases. The public status page is the endpoint, not yet a UI.
+20 questions. VDI's published Q&A is ingested (249 answers, 442 chunks), so
+"institution explanations" is no longer empty. Remaining: explanations beyond
+VDI, Seimas drafts and committee transcripts, EU law and ECHR (EUR-Lex returns
+an empty 202 to automated clients), and the citation graph extended to cases. The public status page is the endpoint, not yet a UI.
 
 
 - Institution explanations beyond VDI; Seimas drafts and committee transcripts;

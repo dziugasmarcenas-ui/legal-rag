@@ -29,6 +29,7 @@ import numpy as np
 import voyageai
 
 import config
+import ingest_explanations
 import refresh_corpus
 
 MODEL = "voyage-3"
@@ -326,6 +327,10 @@ def main(argv=None):
             chunk["valid_from"], chunk["valid_to"] = window
         print(f"{act['short']}: {len(act_chunks)} chunks  ({window[0]} .. {window[1]})")
         records.extend(act_chunks)
+
+    explanations = ingest_explanations.records()
+    print(f"VDI paaiškinimai: {len(explanations)} chunks")
+    records.extend(explanations)
 
     DATA.write_text(json.dumps(records, ensure_ascii=False, indent=1), encoding="utf-8")
     texts = [embedding_input(r) for r in records]

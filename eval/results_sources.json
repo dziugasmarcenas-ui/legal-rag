@@ -1,11 +1,11 @@
 {
  "summary": {
-  "hits": 20,
-  "total": 20,
-  "hit_rate": 1.0,
-  "term_hits": 18,
-  "term_total": 19,
-  "term_rate": 0.947
+  "hits": 21,
+  "total": 23,
+  "hit_rate": 0.913,
+  "term_hits": 21,
+  "term_total": 22,
+  "term_rate": 0.955
  },
  "rows": [
   {
@@ -14,7 +14,7 @@
    "expected": "Nutarimas Nr. 496",
    "delegated": [
     "Nutarimas Nr. 496",
-    "Nutarimas Nr. 496",
+    "VDI paaiškinimas",
     "Nutarimas Nr. 496"
    ],
    "top": "Nutarimas Nr. 496, 5 p.",
@@ -42,7 +42,7 @@
    "expected": "Nutarimas Nr. 496",
    "delegated": [
     "Nutarimas Nr. 496",
-    "Nutarimas Nr. 496",
+    "VDI paaiškinimas",
     "Nutarimas Nr. 496"
    ],
    "top": "Nutarimas Nr. 496, 5 p.",
@@ -57,7 +57,7 @@
    "delegated": [
     "Nutarimas Nr. 496",
     "Nutarimas Nr. 496",
-    "Nutarimas Nr. 496"
+    "VDI paaiškinimas"
    ],
    "top": "Nutarimas Nr. 496, 3 p.",
    "hit": true,
@@ -70,7 +70,7 @@
    "expected": "Nutarimas Nr. 496",
    "delegated": [
     "Nutarimas Nr. 496",
-    "Nutarimas Nr. 496",
+    "VDI paaiškinimas",
     "Nutarimas Nr. 496"
    ],
    "top": "Nutarimas Nr. 496, 5 p.",
@@ -85,7 +85,7 @@
    "delegated": [
     "Nutarimas Nr. 496",
     "Nutarimas Nr. 496",
-    "Nutarimas Nr. 496"
+    "VDI paaiškinimas"
    ],
    "top": "Nutarimas Nr. 496, 5 p.",
    "hit": true,
@@ -99,7 +99,7 @@
    "delegated": [
     "VDI įsakymas A1-502",
     "VDI įsakymas A1-276",
-    "VDI įsakymas A1-276"
+    "VDI paaiškinimas"
    ],
    "top": "VDI įsakymas A1-502, 6 p.",
    "hit": true,
@@ -111,11 +111,11 @@
    "question": "Kaip dažnai darbuotojams turi būti atnaujinamos saugos ir sveikatos žinios?",
    "expected": "VDI įsakymas A1-276",
    "delegated": [
+    "VDI paaiškinimas",
     "VDI įsakymas A1-276",
-    "VDI įsakymas A1-276",
-    "VDI įsakymas A1-502"
+    "VDI paaiškinimas"
    ],
-   "top": "VDI įsakymas A1-276, 1 p.",
+   "top": "VDI paaiškinimas Nr. 45",
    "hit": true,
    "expect": null,
    "term_hit": null
@@ -125,12 +125,12 @@
    "question": "Kas privalo instruktuoti darbuotojus saugos ir sveikatos klausimais?",
    "expected": "VDI įsakymas A1-276",
    "delegated": [
-    "SADM ir SAM įsakymas A1-266/V-575",
-    "VDI įsakymas A1-502",
-    "VDI įsakymas A1-276"
+    "VDI paaiškinimas",
+    "VDI paaiškinimas",
+    "VDI paaiškinimas"
    ],
-   "top": "SADM ir SAM įsakymas A1-266/V-575, 10 p.",
-   "hit": true,
+   "top": "VDI paaiškinimas Nr. 28",
+   "hit": false,
    "expect": "instruktu",
    "term_hit": true
   },
@@ -140,8 +140,8 @@
    "expected": "VDI įsakymas A1-502",
    "delegated": [
     "VDI įsakymas A1-502",
-    "VDI įsakymas A1-502",
-    "VDI įsakymas A1-502"
+    "VDI paaiškinimas",
+    "VDI paaiškinimas"
    ],
    "top": "VDI įsakymas A1-502, 3 p.",
    "hit": true,
@@ -153,11 +153,11 @@
    "question": "Kas sudaro darbuotojų saugos ir sveikatos komitetą?",
    "expected": "VDI įsakymas A1-502",
    "delegated": [
-    "VDI įsakymas A1-502",
+    "VDI paaiškinimas",
     "VDI įsakymas A1-502",
     "VDI įsakymas A1-502"
    ],
-   "top": "VDI įsakymas A1-502, 13 p.",
+   "top": "VDI paaiškinimas Nr. 15",
    "hit": true,
    "expect": "komiteto",
    "term_hit": true
@@ -210,7 +210,7 @@
    "expected": "SADM įsakymas A1-344",
    "delegated": [
     "SADM įsakymas A1-344",
-    "SADM įsakymas A1-344",
+    "VDI paaiškinimas",
     "SADM įsakymas A1-344"
    ],
    "top": "SADM įsakymas A1-344, 1 p.",
@@ -223,11 +223,11 @@
    "question": "Per kiek laiko darbo ginčų komisija turi išnagrinėti ginčą?",
    "expected": "SADM įsakymas A1-344",
    "delegated": [
+    "VDI paaiškinimas",
     "SADM įsakymas A1-344",
-    "Nutarimas Nr. 1118",
-    "SADM įsakymas A1-344"
+    "Nutarimas Nr. 1118"
    ],
-   "top": "SADM įsakymas A1-344, 14 p.",
+   "top": "VDI paaiškinimas Nr. 246",
    "hit": true,
    "expect": "mėnes",
    "term_hit": true
@@ -237,12 +237,12 @@
    "question": "Kada įmonėje privalo būti darbuotojų saugos ir sveikatos tarnyba?",
    "expected": "SADM ir SAM įsakymas A1-266/V-575",
    "delegated": [
-    "SADM ir SAM įsakymas A1-266/V-575",
-    "SADM ir SAM įsakymas A1-266/V-575",
-    "SADM ir SAM įsakymas A1-266/V-575"
+    "VDI paaiškinimas",
+    "VDI paaiškinimas",
+    "VDI paaiškinimas"
    ],
-   "top": "SADM ir SAM įsakymas A1-266/V-575, 8 p.",
-   "hit": true,
+   "top": "VDI paaiškinimas Nr. 4",
+   "hit": false,
    "expect": "tarnyb",
    "term_hit": true
   },
@@ -251,11 +251,11 @@
    "question": "Kas gali vykdyti darbuotojų saugos ir sveikatos tarnybos funkcijas?",
    "expected": "SADM ir SAM įsakymas A1-266/V-575",
    "delegated": [
+    "VDI paaiškinimas",
     "SADM ir SAM įsakymas A1-457/V-961",
-    "SADM ir SAM įsakymas A1-266/V-575",
     "SADM ir SAM įsakymas A1-266/V-575"
    ],
-   "top": "SADM ir SAM įsakymas A1-457/V-961, 3 p.",
+   "top": "VDI paaiškinimas Nr. 12",
    "hit": true,
    "expect": "vadovas",
    "term_hit": false
@@ -266,8 +266,8 @@
    "expected": "SADM ir SAM įsakymas A1-457/V-961",
    "delegated": [
     "SADM ir SAM įsakymas A1-457/V-961",
-    "SADM ir SAM įsakymas A1-457/V-961",
-    "SADM ir SAM įsakymas A1-457/V-961"
+    "VDI paaiškinimas",
+    "VDI paaiškinimas"
    ],
    "top": "SADM ir SAM įsakymas A1-457/V-961, įžanga",
    "hit": true,
@@ -280,12 +280,54 @@
    "expected": "SADM ir SAM įsakymas A1-457/V-961",
    "delegated": [
     "SADM ir SAM įsakymas A1-457/V-961",
-    "SADM ir SAM įsakymas A1-457/V-961",
+    "VDI paaiškinimas",
     "SADM ir SAM įsakymas A1-457/V-961"
    ],
    "top": "SADM ir SAM įsakymas A1-457/V-961, 6 p.",
    "hit": true,
    "expect": "darbdav",
+   "term_hit": true
+  },
+  {
+   "id": 22,
+   "question": "Ar įmonė, kurioje dirba tik direktorius ir samdoma buhalterė, privalo turėti darbuotojų saugos ir sveikatos tarnybą?",
+   "expected": "VDI paaiškinimas",
+   "delegated": [
+    "VDI paaiškinimas",
+    "VDI paaiškinimas",
+    "VDI paaiškinimas"
+   ],
+   "top": "VDI paaiškinimas Nr. 13",
+   "hit": true,
+   "expect": "tarnyb",
+   "term_hit": true
+  },
+  {
+   "id": 23,
+   "question": "Ar visur statybvietėje darbuotojai turi dėvėti šalmus?",
+   "expected": "VDI paaiškinimas",
+   "delegated": [
+    "VDI paaiškinimas",
+    "VDI paaiškinimas",
+    "VDI paaiškinimas"
+   ],
+   "top": "VDI paaiškinimas Nr. 2",
+   "hit": true,
+   "expect": "šalm",
+   "term_hit": true
+  },
+  {
+   "id": 24,
+   "question": "Ar darbdavys privalo užtikrinti saugą asmenų, kurie atlieka visuomenei naudingą veiklą?",
+   "expected": "VDI paaiškinimas",
+   "delegated": [
+    "VDI paaiškinimas",
+    "VDI paaiškinimas",
+    "VDI paaiškinimas"
+   ],
+   "top": "VDI paaiškinimas Nr. 6",
+   "hit": true,
+   "expect": "nauding",
    "term_hit": true
   }
  ]

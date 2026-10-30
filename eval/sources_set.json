@@ -118,5 +118,23 @@
   "question": "Kas atlieka profesinės rizikos vertinimą įmonėje?",
   "expected": "SADM ir SAM įsakymas A1-457/V-961",
   "expect": "darbdav"
+ },
+ {
+  "id": 22,
+  "question": "Ar įmonė, kurioje dirba tik direktorius ir samdoma buhalterė, privalo turėti darbuotojų saugos ir sveikatos tarnybą?",
+  "expected": "VDI paaiškinimas",
+  "expect": "tarnyb"
+ },
+ {
+  "id": 23,
+  "question": "Ar visur statybvietėje darbuotojai turi dėvėti šalmus?",
+  "expected": "VDI paaiškinimas",
+  "expect": "šalm"
+ },
+ {
+  "id": 24,
+  "question": "Ar darbdavys privalo užtikrinti saugą asmenų, kurie atlieka visuomenei naudingą veiklą?",
+  "expected": "VDI paaiškinimas",
+  "expect": "nauding"
  }
 ]

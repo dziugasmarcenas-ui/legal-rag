@@ -236,8 +236,12 @@ def status_payload():
         if (Path(__file__).parent / "data" / "sources.json").exists()
         else []
     )
-    acts = sorted({r["source"] for r in sources})
-    stale = sorted({r["source"] for r in sources if r["valid_to"] < today})
+    explanations = [r for r in sources if r.get("act_id") == "vdi-faq"]
+    acts = sorted({r["source"] for r in sources if r.get("act_id") != "vdi-faq"})
+    stale = sorted({
+        r["source"] for r in sources
+        if r.get("act_id") != "vdi-faq" and r["valid_to"] < today
+    })
 
     quality_file = Path(__file__).parent / "data" / "quality.json"
     quality = (
@@ -258,9 +262,14 @@ def status_payload():
         },
         "delegated_acts": {
             "acts": len(acts),
-            "chunks": len(sources),
+            "chunks": len(sources) - len(explanations),
             "stale": stale,
             "titles": acts,
+        },
+        "explanations": {
+            "items": len({r["citation"] for r in explanations}),
+            "chunks": len(explanations),
+            "source": "Valstybinė darbo inspekcija",
         },
         "history": link_graph.load() and {
             "editions": history.coverage()["editions"],
@@ -299,6 +308,7 @@ def status_page():
     rows = "".join([
         row("Labour Code", f"{code['articles']} articles", f"edition to {code['edition_to']} — {badge}"),
         row("Delegated acts", f"{acts['acts']} acts", f"{acts['chunks']} chunks, {len(acts['stale'])} stale"),
+        row("VDI explanations", f"{data['explanations']['items']} answers", f"{data['explanations']['chunks']} chunks"),
         row("Edition archive", f"{data['history']['editions']} editions", f"from {data['history']['from']}"),
         row("Citation links", f"{data['links']['edges']} edges", f"across {data['links']['articles_linked']} articles"),
         row("Code accuracy", f"{served.get('served_hit1', 0):.3f} top-1", f"{served.get('served_hit_rate', 0):.3f} in top 3"),
