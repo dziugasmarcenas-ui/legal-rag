@@ -1,8 +1,65 @@
 {
  "generated_by": "link_graph.py",
  "articles_linked": 118,
- "edges": 320,
+ "edges": 322,
  "case_edges": 2,
+ "cases": [
+  {
+   "case": "Hoppen p. Lietuvą",
+   "court": "EŽTT",
+   "date": "",
+   "url": "https://hudoc.echr.coe.int/eng?i=001-207824"
+  },
+  {
+   "case": "Hoppen p. Lietuvą",
+   "court": "EŽTT",
+   "date": "",
+   "url": "https://hudoc.echr.coe.int/eng?i=003-7542601-10359671"
+  },
+  {
+   "case": "Naku p. Lietuvą",
+   "court": "EŽTT",
+   "date": "",
+   "url": "https://hudoc.echr.coe.int/eng?i=001-168382"
+  },
+  {
+   "case": "Cudak p. Lietuvą",
+   "court": "EŽTT",
+   "date": "",
+   "url": "https://hudoc.echr.coe.int/eng?i=001-170087"
+  },
+  {
+   "case": "Rainys p. Lietuvą",
+   "court": "EŽTT",
+   "date": "",
+   "url": "https://hudoc.echr.coe.int/eng?i=001-68749"
+  },
+  {
+   "case": "Sidabras p. Lietuvą",
+   "court": "EŽTT",
+   "date": "",
+   "url": "https://hudoc.echr.coe.int/eng?i=001-155358"
+  },
+  {
+   "case": "Paslavičius p. Lietuvą",
+   "court": "EŽTT",
+   "date": "",
+   "url": "https://hudoc.echr.coe.int/eng?i=001-225881"
+  },
+  {
+   "case": "Žičkus p. Lietuvą",
+   "court": "EŽTT",
+   "date": "",
+   "url": "https://hudoc.echr.coe.int/eng?i=001-92069"
+  },
+  {
+   "case": "Sidabras p. Lietuvą",
+   "court": "EŽTT",
+   "date": "",
+   "url": "https://hudoc.echr.coe.int/eng?i=001-61942"
+  }
+ ],
+ "case_count": 9,
  "links": {
   "204": [
    {
@@ -513,6 +570,13 @@
     "citation": "SADM įsakymas A1-344, įžanga",
     "act_id": "935f0d105cdc11e79198ffdb108a3753",
     "url": "https://www.e-tar.lt/portal/lt/legalAct/935f0d105cdc11e79198ffdb108a3753"
+   },
+   {
+    "kind": "provision",
+    "source": "Seimo projektas",
+    "citation": "Seimo projektas be numerio, 5 str.",
+    "act_id": "tap-91382ec0d47011f1a5e3dbc2261ee42a",
+    "url": "https://e-seimas.lrs.lt/portal/legalActProjectSearch/lt"
    }
   ],
   "226": [
@@ -600,6 +664,13 @@
     "citation": "VDI paaiškinimas Nr. 94",
     "act_id": "vdi-faq",
     "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "Seimo projektas",
+    "citation": "Seimo projektas be numerio, 3 str.",
+    "act_id": "tap-91382ec0d47011f1a5e3dbc2261ee42a",
+    "url": "https://e-seimas.lrs.lt/portal/legalActProjectSearch/lt"
    }
   ],
   "170": [

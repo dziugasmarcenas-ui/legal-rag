@@ -592,9 +592,8 @@ from the Cellar resource endpoint, which returns a document; the public
 
 ### ECHR case law
 
-Three Strasbourg judgments against Lithuania on employment matters are ingested
-from HUDOC (130 fragments, cited as `EŽTT, Hoppen p. Lietuvą (Nr. 10092/16), 3
-fragmentas`). The HUDOC JSON query API and document-body endpoint are public;
+Nine Strasbourg judgments against Lithuania are ingested from HUDOC (403
+fragments, cited as `EŽTT, Hoppen p. Lietuvą (Nr. 976/20), 3 fragmentas`). The HUDOC JSON query API and document-body endpoint are public;
 the text is English, because that is how the Court publishes it.
 
 Coverage is thin on purpose: Lithuania has few labour cases, and the query is
@@ -647,8 +646,10 @@ Every delegated act names the Code articles it implements ("parengtas
 vadovaujantis Darbo kodekso 139 straipsnio 4 dalimi"). `link_graph.py` extracts
 that: **320 edges across 118 articles**, built only where the text names the
 article. Two of them are case edges from ECHR judgments that cite the Code
-(`Article 59 of the Labour Code`), carried as metadata only — title, court, date,
-URL. `get_article("139")` now returns `implemented_by`, so starting from
+(`Article 59 of the Labour Code`), carried as metadata only — title, court,
+application number, date, URL. The graph also indexes nine judgment nodes even
+where the judgment does not cite a Code article, so case coverage does not
+depend on an edge existing. `get_article("139")` now returns `implemented_by`, so starting from
 an article leads to the provisions that actually apply it.
 
 `GET /status` reports what the service covers and how well it scores:
@@ -659,10 +660,10 @@ an article leads to the provisions that actually apply it.
   "delegated_acts": {"acts": 7, "chunks": 633, "stale": []},
   "explanations": {"items": 548, "chunks": 792, "institutions": 2},
   "eu_law": {"directives": 5, "chunks": 95},
-  "echr": {"judgments": 3, "chunks": 130},
+  "echr": {"judgments": 9, "chunks": 403},
   "seimas_drafts": {"drafts": 3, "chunks": 9},
   "history": {"editions": 41, "from": "2017-07-01"},
-  "links": {"articles_linked": 118, "edges": 320, "case_edges": 2},
+  "links": {"articles_linked": 118, "edges": 322, "case_edges": 2, "cases": 9},
   "evals": {"code_served": {"served_hit1": 0.92}, "delegated": {"term_rate": 0.955}}
 }
 ```

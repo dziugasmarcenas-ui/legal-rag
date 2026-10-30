@@ -86,3 +86,4 @@ def test_status_reports_coverage_freshness_and_measured_quality():
     assert payload["seimas_drafts"]["chunks"] >= 9
     assert payload["links"]["edges"] >= 300
     assert payload["links"]["case_edges"] >= 2
+    assert payload["links"]["cases"] >= 9

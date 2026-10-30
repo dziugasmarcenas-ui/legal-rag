@@ -303,6 +303,7 @@ def status_payload():
             "articles_linked": link_graph.load()["articles_linked"],
             "edges": link_graph.load()["edges"],
             "case_edges": link_graph.load().get("case_edges", 0),
+            "cases": link_graph.load().get("case_count", 0),
         },
         "evals": {
             "code_served": summary("code_served"),
@@ -340,7 +341,7 @@ def status_page():
         row("Seimas drafts", f"{data['seimas_drafts']['drafts']} drafts", f"{data['seimas_drafts']['chunks']} chunks, not adopted"),
         row("Edition archive", f"{data['history']['editions']} editions", f"from {data['history']['from']}"),
         row("Citation links", f"{data['links']['edges']} edges",
-            f"across {data['links']['articles_linked']} articles, {data['links']['case_edges']} to cases"),
+            f"across {data['links']['articles_linked']} articles, {data['links']['cases']} cases indexed"),
         row("Code accuracy", f"{served.get('served_hit1', 0):.3f} top-1", f"{served.get('served_hit_rate', 0):.3f} in top 3"),
         row("Refusals", f"{served.get('correct_refusal_rate', 0):.3f} correct", f"{served.get('false_refusal_rate', 0):.3f} false"),
         row("Delegated accuracy", f"{delegated.get('hit_rate', 0):.3f} right act", f"{delegated.get('term_rate', 0):.3f} with the answer"),

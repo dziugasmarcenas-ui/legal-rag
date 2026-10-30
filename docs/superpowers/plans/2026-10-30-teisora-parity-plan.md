@@ -127,13 +127,16 @@ for retrieval: one clean labour-related fragment out of 438 pages. The parser
 and its quality gates are in `ingest_seimas.py` with tests, waiting for a clean
 export (DOCX/HTML) or an official feed.
 
-ECHR is ingested (3 Lithuanian
-judgments, 130 fragments via HUDOC). SADM's FAQ adds a second institution
+ECHR is ingested (9 Lithuanian
+judgments, 403 fragments via HUDOC; 2 judgments cite Code articles, all 9 are
+indexed as metadata nodes). SADM's FAQ adds a second institution
 (299 answers). The citation graph now covers cases as links-only metadata
 (2 ECHR edges; no judgment text needed for the graph). Seimas draft acts are ingested via the
 e-seimas TAP route (3 drafts, 9 chunks, clean DOCX). Committee and plenary
-transcripts remain blocked on the PDF text layer; the parser is ready for a
-clean export. EU law is ingested (five directives via the Cellar endpoint). The public status page is the endpoint, not yet a UI.
+transcripts remain blocked: the PDF text layer is broken, committee pages carry
+no transcript link (only agenda links), Sodra's benefit sitemap URLs return 404
+and Užimtumo tarnyba's FAQ renders client-side, so no third clean route was
+found. The parser is ready for a clean export. EU law is ingested (five directives via the Cellar endpoint). The public status page is the endpoint, not yet a UI.
 
 
 - Institution explanations beyond VDI; Seimas drafts and committee transcripts;

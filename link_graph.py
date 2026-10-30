@@ -49,10 +49,19 @@ def build(articles=None, records=None):
     known = {a["article"] for a in articles}
 
     links = {}
+    cases = {}
     for record in records:
         if record["source"] in CASE_SOURCES:
             # Cases are linked by metadata only: title, court, date, URL. The
             # graph does not depend on redistributing judgment text.
+            application = re.search(r"\(Nr\. ([^)]+)\)", record["citation"])
+            cases.setdefault(record["act_id"], {
+                "case": record["act_title"],
+                "court": "EŽTT",
+                "application": application.group(1) if application else "",
+                "date": record.get("act_date", ""),
+                "url": record["url"],
+            })
             for match in CASE_REFERENCE.finditer(record["text"]):
                 identifier = match.group(1)
                 if identifier not in known:
@@ -88,12 +97,16 @@ def build(articles=None, records=None):
             })
 
     edges = sum(len(v) for v in links.values())
-    cases = sum(1 for v in links.values() for e in v if e.get("kind") == "case")
+    case_edge_count = sum(
+        1 for v in links.values() for e in v if e.get("kind") == "case"
+    )
     return {
         "generated_by": "link_graph.py",
         "articles_linked": len(links),
         "edges": edges,
-        "case_edges": cases,
+        "case_edges": case_edge_count,
+        "cases": list(cases.values()),
+        "case_count": len(cases),
         "links": links,
     }
 

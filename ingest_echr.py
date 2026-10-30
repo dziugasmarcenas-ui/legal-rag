@@ -31,10 +31,11 @@ CASE = "https://hudoc.echr.coe.int/eng?i={}"
 
 QUERY = (
     'contentsitename:ECHR AND (Lithuania) AND '
-    '(labour OR employment OR "freedom of association" OR "trade union" OR '
-    '"right to respect for private life")'
+    '(labour OR employment OR dismissal OR "trade union" OR '
+    '"collective agreement" OR salary OR "right to work" OR '
+    '"freedom of association" OR "right to respect for private life")'
 )
-LIMIT = 40
+LIMIT = 60
 MAX_CHARS = 1600
 
 
