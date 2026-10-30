@@ -1,7 +1,7 @@
 {
  "generated_by": "link_graph.py",
  "articles_linked": 137,
- "edges": 407,
+ "edges": 412,
  "case_edges": 30,
  "cases": [
   {
@@ -1027,6 +1027,41 @@
     "citation": "Dėl 2026 metais taikomo minimaliojo darbo užmokesčio, įžanga",
     "act_id": "2d7df1c2aab011f0a34db2fbd35a03b2",
     "url": "https://www.e-tar.lt/portal/lt/legalAct/2d7df1c2aab011f0a34db2fbd35a03b2"
+   },
+   {
+    "kind": "provision",
+    "source": "Dėl 2025 metais taikomo minimaliojo darbo užmokesčio",
+    "citation": "Dėl 2025 metais taikomo minimaliojo darbo užmokesčio, įžanga",
+    "act_id": "0eccee1365fc11efad96fef38de4d94a",
+    "url": "https://www.e-tar.lt/portal/lt/legalAct/0eccee1365fc11efad96fef38de4d94a"
+   },
+   {
+    "kind": "provision",
+    "source": "Dėl 2024 metais taikomo minimaliojo darbo užmokesčio",
+    "citation": "Dėl 2024 metais taikomo minimaliojo darbo užmokesčio, įžanga",
+    "act_id": "5c671151173811eea9b3de7dd350a34e",
+    "url": "https://www.e-tar.lt/portal/lt/legalAct/5c671151173811eea9b3de7dd350a34e"
+   },
+   {
+    "kind": "provision",
+    "source": "Dėl 2023 metais taikomo minimaliojo darbo užmokesčio",
+    "citation": "Dėl 2023 metais taikomo minimaliojo darbo užmokesčio, įžanga",
+    "act_id": "da90faf6463c11edb7269d52b4d4fd38",
+    "url": "https://www.e-tar.lt/portal/lt/legalAct/da90faf6463c11edb7269d52b4d4fd38"
+   },
+   {
+    "kind": "provision",
+    "source": "Dėl 2022 metais taikomo minimaliojo darbo užmokesčio",
+    "citation": "Dėl 2022 metais taikomo minimaliojo darbo užmokesčio, įžanga",
+    "act_id": "ee384fc42cea11ec99bbc1b08701c7f8",
+    "url": "https://www.e-tar.lt/portal/lt/legalAct/ee384fc42cea11ec99bbc1b08701c7f8"
+   },
+   {
+    "kind": "provision",
+    "source": "Dėl 2021 metais taikomo minimaliojo darbo užmokesčio",
+    "citation": "Dėl 2021 metais taikomo minimaliojo darbo užmokesčio, įžanga",
+    "act_id": "a213f2c00ec311ebbedbd456d2fb030d",
+    "url": "https://www.e-tar.lt/portal/lt/legalAct/a213f2c00ec311ebbedbd456d2fb030d"
    },
    {
     "kind": "provision",
