@@ -1,8 +1,8 @@
 {
  "summary": {
-  "hits": 22,
+  "hits": 21,
   "total": 32,
-  "hit_rate": 0.688,
+  "hit_rate": 0.656,
   "term_hits": 29,
   "term_total": 30,
   "term_rate": 0.967
@@ -210,11 +210,11 @@
    "expected": "SADM įsakymas A1-344",
    "delegated": [
     "Seimo projektas",
-    "SADM įsakymas A1-344",
-    "VDI paaiškinimas"
+    "Dėl Darbo ginčų komisijos nuostatų, Darbo ginčų komisijos da",
+    "Dėl Darbo ginčų komisijos nuostatų, Darbo ginčų komisijos da"
    ],
    "top": "Seimo projektas be numerio, 1 str.",
-   "hit": true,
+   "hit": false,
    "expect": "komisij",
    "term_hit": true
   },

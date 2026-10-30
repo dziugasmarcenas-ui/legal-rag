@@ -546,7 +546,7 @@ The Code often states a principle and points elsewhere for the rule. Average pay
 is the clearest case: article 139 delegates to **Government Resolution No. 496**,
 which is where severance and holiday pay are actually calculated.
 
-**90 delegated acts** are ingested, chunked by their own numbered points and
+**94 delegated acts** are ingested, chunked by their own numbered points and
 cited the way the institution cites them: average pay and work time (Res. 496),
 accidents at work (1118), the labour disputes commission (A1-344), the safety
 service (A1-266/V-575), risk assessment (A1-457/V-961), training (A1-276),
@@ -554,7 +554,7 @@ safety committees (A1-502), workplace requirements, work equipment, PPE, safety
 signs, VDT work (HN 32:2004), manual handling, noise, vibration, chemicals,
 occupational disease, construction sites, and more.
 
-**5,774 chunks across 90 acts.** Ingestion refuses an act that is repealed or
+**5,959 chunks across 94 acts.** Ingestion refuses an act that is repealed or
 lacks a consolidated edition: a dead regulation is worse than a missing one.
 Three candidates were rejected that way, including one repealed in 2005.
 
@@ -650,7 +650,7 @@ not transcripts.
 
 The pipeline now consumes any list of act IDs: `data/extra_acts.json` is appended
 to the ingestion set, and the same download → validity guard → chunk → embed
-path runs. Coverage is now **90 acts**.
+path runs. Coverage is now **94 acts**.
 
 Discovery routes measured, with yields:
 
@@ -671,6 +671,7 @@ Discovery routes measured, with yields:
 | e-seimas "socialinio draudimo išmokų" (119 docs, 15 matches) | **2** — voluntary sickness/maternity insurance, overpayment rules |
 | e-seimas "saugos ir sveikatos reikalavimų" (125 docs, 9 matches) | **0** — already ingested or legacy identifiers |
 | e-seimas "darbo tvarkos taisyklių" (143 docs, 3 matches) | **1** — road-transport crews' work/rest rules |
+| e-seimas "darbo ginčų" + "profesinės saugos" (67 + 32 docs) | **4** net — dispute commissions, VDI expert examination |
 | data.gov.lt | no dataset links in HTML |
 | data.e-tar.lt | explainer page, no API |
 | OAI-PMH | not offered |
@@ -727,7 +728,7 @@ an article leads to the provisions that actually apply it.
 ```json
 {
   "code": {"articles": 257, "edition_to": "2026-10-31", "expired": false},
-  "delegated_acts": {"acts": 90, "chunks": 5774, "stale": []},
+  "delegated_acts": {"acts": 94, "chunks": 5959, "stale": []},
   "explanations": {"items": 784, "chunks": 1040, "institutions": 3},
   "eu_law": {"directives": 5, "chunks": 95},
   "echr": {"judgments": 9, "chunks": 266},
