@@ -1,8 +1,8 @@
 {
  "summary": {
-  "hits": 22,
+  "hits": 21,
   "total": 32,
-  "hit_rate": 0.688,
+  "hit_rate": 0.656,
   "term_hits": 29,
   "term_total": 30,
   "term_rate": 0.967
@@ -197,10 +197,10 @@
    "delegated": [
     "Darbuotojų saugos ir sveikatos įstatymas",
     "Darbuotojų saugos ir sveikatos įstatymas",
-    "Nutarimas Nr. 1118"
+    "Darbuotojų saugos ir sveikatos įstatymas"
    ],
    "top": "Darbuotojų saugos ir sveikatos įstatymas, 3 p.",
-   "hit": true,
+   "hit": false,
    "expect": "tyrim",
    "term_hit": true
   },

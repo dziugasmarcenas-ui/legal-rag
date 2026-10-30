@@ -546,7 +546,7 @@ The Code often states a principle and points elsewhere for the rule. Average pay
 is the clearest case: article 139 delegates to **Government Resolution No. 496**,
 which is where severance and holiday pay are actually calculated.
 
-**113 delegated acts** are ingested, chunked by their own numbered points and
+**117 delegated acts** are ingested, chunked by their own numbered points and
 cited the way the institution cites them: average pay and work time (Res. 496),
 accidents at work (1118), the labour disputes commission (A1-344), the safety
 service (A1-266/V-575), risk assessment (A1-457/V-961), training (A1-276),
@@ -554,7 +554,7 @@ safety committees (A1-502), workplace requirements, work equipment, PPE, safety
 signs, VDT work (HN 32:2004), manual handling, noise, vibration, chemicals,
 occupational disease, construction sites, and more.
 
-**6,816 chunks across 113 acts.** Ingestion refuses an act that is repealed or
+**6,991 chunks across 117 acts.** Ingestion refuses an act that is repealed or
 lacks a consolidated edition: a dead regulation is worse than a missing one.
 Three candidates were rejected that way, including one repealed in 2005.
 
@@ -650,7 +650,7 @@ not transcripts.
 
 The pipeline now consumes any list of act IDs: `data/extra_acts.json` is appended
 to the ingestion set, and the same download → validity guard → chunk → embed
-path runs. Coverage is now **113 acts**.
+path runs. Coverage is now **117 acts**.
 
 Discovery routes measured, with yields:
 
@@ -682,6 +682,7 @@ Discovery routes measured, with yields:
 | e-seimas type=Nutarimas "darbo apmokėjimo" (267 docs, 20 matches) | **3** — state-sector pay systems |
 | e-seimas type=Nutarimas "socialinės apsaugos" (261 docs, 25 matches) | **1** — benefit reference indicators; rest were loans and reorganisations |
 | e-seimas type=Nutarimas "bendrosios saugos" (5 docs) | **0** |
+| e-seimas type=Nutarimas "darbo sąlygų" (105 docs, 17 matches) | **4** — pregnant/nursing workers, under-18 prohibited work, special-conditions pay, posted foreign workers |
 | data.gov.lt | no dataset links in HTML |
 | data.e-tar.lt | explainer page, no API |
 | OAI-PMH | not offered |
@@ -738,7 +739,7 @@ an article leads to the provisions that actually apply it.
 ```json
 {
   "code": {"articles": 257, "edition_to": "2026-10-31", "expired": false},
-  "delegated_acts": {"acts": 113, "chunks": 6816, "stale": []},
+  "delegated_acts": {"acts": 117, "chunks": 6991, "stale": []},
   "explanations": {"items": 784, "chunks": 1040, "institutions": 3},
   "eu_law": {"directives": 5, "chunks": 95},
   "echr": {"judgments": 9, "chunks": 266},
