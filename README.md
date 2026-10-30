@@ -578,6 +578,14 @@ It is the same index as the acts, so a question can return a rule and the
 inspectorate's interpretation of it in one call. The wording is the source's,
 never paraphrased.
 
+### EU directives
+
+Five directives the Code implements are ingested from EUR-Lex (95 chunks,
+cited as `Direktyva 2003/88/EB, 3 str.`): working time, work-life balance, posted
+workers, collective redundancies, equal treatment. The Lithuanian text comes
+from the Cellar resource endpoint, which returns a document; the public
+`legal-content` URL answers automated clients with an empty shell.
+
 The two families are not peers, and the ranking says so. The Code is returned
 first and decides whether there is an answer at all; delegated provisions are
 appended as corroboration (at most two). Mixing them into one ranking was
@@ -587,7 +595,7 @@ roles separated, every Code number is unchanged.
 
 The delegated index has its own evaluation, because the frozen Code set cannot
 score rules the Code does not contain: 12 questions whose answers live in these
-acts. **21/22 of the answerable questions return a chunk containing the answer
+acts. **23/24 of the answerable questions return a chunk containing the answer
 term** (`eval/run_sources_eval.py`); the older "right act" number (21/23) now
 understates the system, because a VDI explanation can answer a question that an
 act merely delegates.
@@ -613,6 +621,7 @@ an article leads to the provisions that actually apply it.
   "code": {"articles": 257, "edition_to": "2026-10-31", "expired": false},
   "delegated_acts": {"acts": 7, "chunks": 633, "stale": []},
   "explanations": {"items": 249, "chunks": 442},
+  "eu_law": {"directives": 5, "chunks": 95},
   "history": {"editions": 41, "from": "2017-07-01"},
   "links": {"articles_linked": 19, "edges": 25},
   "evals": {"code_served": {"served_hit1": 0.92}, "delegated": {"term_rate": 0.955}}

@@ -136,5 +136,17 @@
   "question": "Ar darbdavys privalo užtikrinti saugą asmenų, kurie atlieka visuomenei naudingą veiklą?",
   "expected": "VDI paaiškinimas",
   "expect": "nauding"
+ },
+ {
+  "id": 25,
+  "question": "Kiek valandų nepertraukiamo kasdienio poilsio per parą turi teisę darbuotojas pagal ES teisę?",
+  "expected": "Direktyva 2003/88/EB",
+  "expect": "11 valand"
+ },
+ {
+  "id": 26,
+  "question": "Kokį minimalų kasmetinių atostogų laikotarpį numato ES darbo laiko direktyva?",
+  "expected": "Direktyva 2003/88/EB",
+  "expect": "keturi"
  }
 ]

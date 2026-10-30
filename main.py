@@ -237,7 +237,11 @@ def status_payload():
         else []
     )
     explanations = [r for r in sources if r.get("act_id") == "vdi-faq"]
-    acts = sorted({r["source"] for r in sources if r.get("act_id") != "vdi-faq"})
+    eu = [r for r in sources if r["source"].startswith("Direktyva")]
+    acts = sorted({
+        r["source"] for r in sources
+        if r.get("act_id") != "vdi-faq" and not r["source"].startswith("Direktyva")
+    })
     stale = sorted({
         r["source"] for r in sources
         if r.get("act_id") != "vdi-faq" and r["valid_to"] < today
@@ -270,6 +274,10 @@ def status_payload():
             "items": len({r["citation"] for r in explanations}),
             "chunks": len(explanations),
             "source": "Valstybinė darbo inspekcija",
+        },
+        "eu_law": {
+            "directives": len({r["source"] for r in eu}),
+            "chunks": len(eu),
         },
         "history": link_graph.load() and {
             "editions": history.coverage()["editions"],
@@ -309,6 +317,7 @@ def status_page():
         row("Labour Code", f"{code['articles']} articles", f"edition to {code['edition_to']} — {badge}"),
         row("Delegated acts", f"{acts['acts']} acts", f"{acts['chunks']} chunks, {len(acts['stale'])} stale"),
         row("VDI explanations", f"{data['explanations']['items']} answers", f"{data['explanations']['chunks']} chunks"),
+        row("EU directives", f"{data['eu_law']['directives']} directives", f"{data['eu_law']['chunks']} chunks"),
         row("Edition archive", f"{data['history']['editions']} editions", f"from {data['history']['from']}"),
         row("Citation links", f"{data['links']['edges']} edges", f"across {data['links']['articles_linked']} articles"),
         row("Code accuracy", f"{served.get('served_hit1', 0):.3f} top-1", f"{served.get('served_hit_rate', 0):.3f} in top 3"),

@@ -1,11 +1,11 @@
 {
  "summary": {
-  "hits": 21,
-  "total": 23,
-  "hit_rate": 0.913,
-  "term_hits": 21,
-  "term_total": 22,
-  "term_rate": 0.955
+  "hits": 23,
+  "total": 25,
+  "hit_rate": 0.92,
+  "term_hits": 23,
+  "term_total": 24,
+  "term_rate": 0.958
  },
  "rows": [
   {
@@ -328,6 +328,34 @@
    "top": "VDI paaiškinimas Nr. 6",
    "hit": true,
    "expect": "nauding",
+   "term_hit": true
+  },
+  {
+   "id": 25,
+   "question": "Kiek valandų nepertraukiamo kasdienio poilsio per parą turi teisę darbuotojas pagal ES teisę?",
+   "expected": "Direktyva 2003/88/EB",
+   "delegated": [
+    "Direktyva 2003/88/EB",
+    "Direktyva 2003/88/EB",
+    "Nutarimas Nr. 496"
+   ],
+   "top": "Direktyva 2003/88/EB, 3 str.",
+   "hit": true,
+   "expect": "11 valand",
+   "term_hit": true
+  },
+  {
+   "id": 26,
+   "question": "Kokį minimalų kasmetinių atostogų laikotarpį numato ES darbo laiko direktyva?",
+   "expected": "Direktyva 2003/88/EB",
+   "delegated": [
+    "Direktyva 2003/88/EB",
+    "VDI paaiškinimas",
+    "Direktyva 2003/88/EB"
+   ],
+   "top": "Direktyva 2003/88/EB, 7 str.",
+   "hit": true,
+   "expect": "keturi",
    "term_hit": true
   }
  ]
