@@ -29,13 +29,15 @@ API = "https://hudoc.echr.coe.int/app/query/results"
 BODY = "https://hudoc.echr.coe.int/app/conversion/docx/html/body?library=ECHR&id={}"
 CASE = "https://hudoc.echr.coe.int/eng?i={}"
 
-QUERY = (
-    'contentsitename:ECHR AND (Lithuania) AND '
-    '(labour OR employment OR dismissal OR "trade union" OR '
-    '"collective agreement" OR salary OR "right to work" OR '
-    '"freedom of association" OR "right to respect for private life")'
-)
+# Judgments that quote the Labour Code by name. This is the only query that
+# reliably produces article-level links back to the corpus.
+QUERY = 'contentsitename:ECHR AND (Lithuania) AND ("Labour Code")'
 LIMIT = 60
+
+# Keep the judgment fragments that are about employment; a judgment that quotes
+# the Code in passing should not flood the index with procedural text.
+RELEVANT = ("labour", "employment", "dismissal", "trade union", "salary",
+            "work", "employee", "employer")
 MAX_CHARS = 1600
 
 
@@ -110,13 +112,19 @@ def records():
         # document type; a connector must not present duplicates as case law.
         # The application number is the same across language versions and
         # document types; the name is not.
-        key = case.get("appno") or re.sub(r"[^a-z]", "", name.lower())
+        # HUDOC leaves `appno` empty for many rows; falling back to the name
+        # keeps distinct judgments from collapsing into one empty key.
+        key = (case.get("appno") or "").strip() or re.sub(
+            r"[^a-z]", "", name.lower()
+        )
         if key in seen:
             continue
         seen.add(key)
         pieces = chunks(plain(body))
         for index, text in enumerate(pieces, start=1):
             if len(text) < 200:
+                continue
+            if not any(word in text.lower() for word in RELEVANT):
                 continue
             out.append({
                 "id": f"echr-{itemid}-{index}",

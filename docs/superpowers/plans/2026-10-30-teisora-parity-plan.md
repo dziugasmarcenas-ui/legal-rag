@@ -128,8 +128,8 @@ and its quality gates are in `ingest_seimas.py` with tests, waiting for a clean
 export (DOCX/HTML) or an official feed.
 
 ECHR is ingested (9 Lithuanian
-judgments, 403 fragments via HUDOC; 2 judgments cite Code articles, all 9 are
-indexed as metadata nodes). SADM's FAQ adds a second institution
+judgments quoting the Labour Code, 266 employment-related fragments; 6
+article-level case edges, all 9 judgments indexed as metadata nodes). SADM's FAQ adds a second institution
 (299 answers). The citation graph now covers cases as links-only metadata
 (2 ECHR edges; no judgment text needed for the graph). Seimas draft acts are ingested via the
 e-seimas TAP route (3 drafts, 9 chunks, clean DOCX). Committee and plenary

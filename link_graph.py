@@ -31,9 +31,23 @@ REFERENCE = re.compile(
 
 # Strasbourg judgments cite Lithuanian provisions in English: "Article 59 of the
 # Labour Code". That is textual evidence for an edge, so it is extracted.
-CASE_REFERENCE = re.compile(
-    r"Article\s+(\d{1,3}(?:-\d{1,2})?)\s+of\s+the\s+(?:Lithuanian\s+)?Labour\s+Code",
-    re.IGNORECASE,
+# Strasbourg judgments name Lithuanian provisions in several shapes; all of them
+# keep "Labour Code" near the number, which is the evidence the edge rests on.
+CASE_REFERENCES = (
+    re.compile(
+        r"Article\s+(\d{1,3}(?:-\d{1,2})?)\s+of\s+the\s+(?:Lithuanian\s+)?Labour\s+Code",
+        re.IGNORECASE,
+    ),
+    re.compile(
+        r"(?:Article|section|Art\.)\s*(\d{1,3}(?:-\d{1,2})?)[^.]{0,40}"
+        r"(?:Labour Code|Darbo kodeks)",
+        re.IGNORECASE,
+    ),
+    re.compile(
+        r"(?:Labour Code|Darbo kodeks)[^.]{0,40}"
+        r"(?:Article|section|straipsn\w*)\s*(\d{1,3}(?:-\d{1,2})?)",
+        re.IGNORECASE,
+    ),
 )
 
 CASE_SOURCES = ("EŽTT sprendimas",)
@@ -55,6 +69,7 @@ def build(articles=None, records=None):
             # Cases are linked by metadata only: title, court, date, URL. The
             # graph does not depend on redistributing judgment text.
             application = re.search(r"\(Nr\. ([^)]+)\)", record["citation"])
+            appno = application.group(1) if application else ""
             cases.setdefault(record["act_id"], {
                 "case": record["act_title"],
                 "court": "EŽTT",
@@ -62,21 +77,23 @@ def build(articles=None, records=None):
                 "date": record.get("act_date", ""),
                 "url": record["url"],
             })
-            for match in CASE_REFERENCE.finditer(record["text"]):
-                identifier = match.group(1)
-                if identifier not in known:
-                    continue
-                entry = links.setdefault(identifier, [])
-                if any(e.get("citation") == record["act_title"] for e in entry):
-                    continue
-                entry.append({
-                    "kind": "case",
-                    "source": "EŽTT",
-                    "citation": record["act_title"],
-                    "date": record.get("act_date", ""),
-                    "url": record["url"],
-                    "act_id": record["act_id"],
-                })
+            for pattern in CASE_REFERENCES:
+                for match in pattern.finditer(record["text"]):
+                    identifier = match.group(1)
+                    if identifier not in known:
+                        continue
+                    entry = links.setdefault(identifier, [])
+                    if any(e.get("citation") == record["act_title"] for e in entry):
+                        continue
+                    entry.append({
+                        "kind": "case",
+                        "source": "EŽTT",
+                        "citation": record["act_title"],
+                        "application": appno,
+                        "date": record.get("act_date", ""),
+                        "url": record["url"],
+                        "act_id": record["act_id"],
+                    })
             continue
 
         for match in REFERENCE.finditer(record["text"]):

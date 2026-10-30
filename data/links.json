@@ -1,60 +1,69 @@
 {
  "generated_by": "link_graph.py",
- "articles_linked": 118,
- "edges": 322,
- "case_edges": 2,
+ "articles_linked": 119,
+ "edges": 326,
+ "case_edges": 6,
  "cases": [
   {
    "case": "Hoppen p. Lietuvą",
    "court": "EŽTT",
+   "application": "976/20",
    "date": "",
    "url": "https://hudoc.echr.coe.int/eng?i=001-207824"
   },
   {
    "case": "Hoppen p. Lietuvą",
    "court": "EŽTT",
+   "application": "",
    "date": "",
    "url": "https://hudoc.echr.coe.int/eng?i=003-7542601-10359671"
   },
   {
    "case": "Naku p. Lietuvą",
    "court": "EŽTT",
+   "application": "26126/07",
    "date": "",
    "url": "https://hudoc.echr.coe.int/eng?i=001-168382"
   },
   {
    "case": "Cudak p. Lietuvą",
    "court": "EŽTT",
+   "application": "77265/12",
    "date": "",
    "url": "https://hudoc.echr.coe.int/eng?i=001-170087"
   },
   {
    "case": "Rainys p. Lietuvą",
    "court": "EŽTT",
+   "application": "70665/01;74345/01",
    "date": "",
    "url": "https://hudoc.echr.coe.int/eng?i=001-68749"
   },
   {
    "case": "Sidabras p. Lietuvą",
    "court": "EŽTT",
+   "application": "50421/08;56213/08",
    "date": "",
    "url": "https://hudoc.echr.coe.int/eng?i=001-155358"
   },
   {
    "case": "Paslavičius p. Lietuvą",
    "court": "EŽTT",
+   "application": "15152/18",
    "date": "",
    "url": "https://hudoc.echr.coe.int/eng?i=001-225881"
   },
   {
    "case": "Žičkus p. Lietuvą",
    "court": "EŽTT",
+   "application": "26652/02",
    "date": "",
    "url": "https://hudoc.echr.coe.int/eng?i=001-92069"
   },
   {
    "case": "Sidabras p. Lietuvą",
    "court": "EŽTT",
+   "application": "55480/00;59330/00",
    "date": "",
    "url": "https://hudoc.echr.coe.int/eng?i=001-61942"
   }
@@ -751,6 +760,15 @@
     "citation": "VDI paaiškinimas Nr. 55",
     "act_id": "vdi-faq",
     "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "case",
+    "source": "EŽTT",
+    "citation": "Hoppen p. Lietuvą",
+    "application": "976/20",
+    "date": "",
+    "url": "https://hudoc.echr.coe.int/eng?i=001-207824",
+    "act_id": "001-207824"
    }
   ],
   "188": [
@@ -1502,6 +1520,15 @@
     "citation": "SADM paaiškinimas Nr. 26",
     "act_id": "sadm-faq",
     "url": "https://socmin.lrv.lt/lt/duk/"
+   },
+   {
+    "kind": "case",
+    "source": "EŽTT",
+    "citation": "Naku p. Lietuvą",
+    "application": "26126/07",
+    "date": "",
+    "url": "https://hudoc.echr.coe.int/eng?i=001-168382",
+    "act_id": "001-168382"
    }
   ],
   "1": [
@@ -2387,6 +2414,7 @@
     "kind": "case",
     "source": "EŽTT",
     "citation": "Hoppen p. Lietuvą",
+    "application": "976/20",
     "date": "",
     "url": "https://hudoc.echr.coe.int/eng?i=001-207824",
     "act_id": "001-207824"
@@ -2433,6 +2461,15 @@
     "citation": "VDI paaiškinimas Nr. 216",
     "act_id": "vdi-faq",
     "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "case",
+    "source": "EŽTT",
+    "citation": "Hoppen p. Lietuvą",
+    "application": "976/20",
+    "date": "",
+    "url": "https://hudoc.echr.coe.int/eng?i=001-207824",
+    "act_id": "001-207824"
    }
   ],
   "213": [
@@ -2543,11 +2580,23 @@
     "url": "https://socmin.lrv.lt/lt/duk/"
    }
   ],
+  "50": [
+   {
+    "kind": "case",
+    "source": "EŽTT",
+    "citation": "Hoppen p. Lietuvą",
+    "application": "976/20",
+    "date": "",
+    "url": "https://hudoc.echr.coe.int/eng?i=001-207824",
+    "act_id": "001-207824"
+   }
+  ],
   "161": [
    {
     "kind": "case",
     "source": "EŽTT",
     "citation": "Hoppen p. Lietuvą",
+    "application": "976/20",
     "date": "",
     "url": "https://hudoc.echr.coe.int/eng?i=001-207824",
     "act_id": "001-207824"
