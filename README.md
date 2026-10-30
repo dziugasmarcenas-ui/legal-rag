@@ -546,7 +546,7 @@ The Code often states a principle and points elsewhere for the rule. Average pay
 is the clearest case: article 139 delegates to **Government Resolution No. 496**,
 which is where severance and holiday pay are actually calculated.
 
-**100 delegated acts** are ingested, chunked by their own numbered points and
+**102 delegated acts** are ingested, chunked by their own numbered points and
 cited the way the institution cites them: average pay and work time (Res. 496),
 accidents at work (1118), the labour disputes commission (A1-344), the safety
 service (A1-266/V-575), risk assessment (A1-457/V-961), training (A1-276),
@@ -554,7 +554,7 @@ safety committees (A1-502), workplace requirements, work equipment, PPE, safety
 signs, VDT work (HN 32:2004), manual handling, noise, vibration, chemicals,
 occupational disease, construction sites, and more.
 
-**5,619 chunks across 100 acts.** Ingestion refuses an act that is repealed or
+**5,661 chunks across 102 acts.** Ingestion refuses an act that is repealed or
 lacks a consolidated edition: a dead regulation is worse than a missing one.
 Three candidates were rejected that way, including one repealed in 2005.
 
@@ -668,7 +668,7 @@ told to call it a committee opinion.
 
 The pipeline now consumes any list of act IDs: `data/extra_acts.json` is appended
 to the ingestion set, and the same download → validity guard → chunk → embed
-path runs. Coverage is now **100 acts**.
+path runs. Coverage is now **102 acts**.
 
 Discovery routes measured, with yields:
 
@@ -710,6 +710,7 @@ Discovery routes measured, with yields:
 | e-seimas "įrengimo" (84 docs, 15 matches) | **0** — both candidates were repealed (see below) |
 | e-seimas **state=Galioja** + type=Nutarimas, titles "darbo" / "socialinio draudimo" / "atostogų" / "profesinės" / "užimtumo" | **2 acts + 4 KT rulings** — the in-force filter surfaced 4 Constitutional Court rulings and two resolutions; the rest were property transfers and mandates |
 | e-seimas publication filters (Stenogramos / Teismų praktika) | **0** — Stenogramos returns nothing in act search; TPRA holds three old plenary rulings, none on labour |
+| e-seimas state=Galioja + "darbo sutarties" / "kolektyvinių sutarčių" / "socialinių paslaugų" / "mokymo" / "darbuotojų" | **2** — wage-median disclosure in public procurement, compensation for health workers treating dangerous infections; the rest were collective-agreement mandates, quotas and property transfers |
 | data.gov.lt | no dataset links in HTML |
 | data.e-tar.lt | explainer page, no API |
 | OAI-PMH | not offered |
@@ -818,7 +819,7 @@ accepts case nodes by metadata alone.
 
 Every delegated act names the Code articles it implements ("parengtas
 vadovaujantis Darbo kodekso 139 straipsnio 4 dalimi"). `link_graph.py` extracts
-that: **406 edges across 137 articles**, built only where the text names the
+that: **407 edges across 137 articles**, built only where the text names the
 article. Thirty are case edges: ECHR judgments citing `Article 59 of the
 Labour Code` and Constitutional Court rulings citing `Darbo kodekso 59
 straipsnį`. Cases are carried as metadata only — title, court, case number, date,
@@ -832,7 +833,7 @@ an article leads to the provisions that actually apply it.
 ```json
 {
   "code": {"articles": 257, "edition_to": "2026-10-31", "expired": false},
-  "delegated_acts": {"acts": 100, "chunks": 5619, "stale": []},
+  "delegated_acts": {"acts": 102, "chunks": 5661, "stale": []},
   "explanations": {"items": 784, "chunks": 1040, "institutions": 3},
   "eu_law": {"directives": 5, "chunks": 95},
   "echr": {"judgments": 9, "chunks": 266},
@@ -841,7 +842,7 @@ an article leads to the provisions that actually apply it.
   "seimas_committee": {"documents": 38, "chunks": 286},
   "seimas_transcripts": {"documents": 22, "chunks": 363},
   "history": {"editions": 41, "from": "2017-07-01"},
-  "links": {"articles_linked": 137, "edges": 406, "case_edges": 30, "cases": 27},
+  "links": {"articles_linked": 137, "edges": 407, "case_edges": 30, "cases": 27},
   "evals": {"code_served": {"served_hit1": 0.92}, "delegated": {"term_rate": 0.955}}
 }
 ```

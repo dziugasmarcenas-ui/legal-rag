@@ -93,7 +93,7 @@ exists — the inspectorate's or court's position.
 ### Phase 2 — All of e-TAR (weeks 4–8)
 
 **Status 2026-10-30: started.** The ingestion pipeline accepts an external ID
-list (`data/extra_acts.json`) and now covers 100 in-force acts / 5,619 chunks. A status sweep removed 35 acts that e-seimas marks NEGALIOJA (their DOCX exports carry no repeal marker), so the previous count was inflated. Discovery yields are measured: 56 acts from the ministry's safety index, 2 from 18 pages of search, 2 from 12 topic pages. Discovery
+list (`data/extra_acts.json`) and now covers 102 in-force acts / 5,661 chunks. A status sweep removed 35 acts that e-seimas marks NEGALIOJA (their DOCX exports carry no repeal marker), so the previous count was inflated. Discovery yields are measured: 56 acts from the ministry's safety index, 2 from 18 pages of search, 2 from 12 topic pages. Discovery
 is the blocker: e-TAR has no bulk endpoint (JSF search ignores GET, no OAI-PMH,
 data.e-tar.lt is an explainer), so full coverage needs a registry export or a
 long crawler. Pipeline ready; source access open.
@@ -135,7 +135,7 @@ state of each half:
 | EU law | 5 directives, 95 chunks, via the Cellar endpoint | ✅ |
 | ECHR | 9 judgments quoting the Labour Code, 266 fragments | ✅ |
 | Constitutional Court | 18 rulings, 532 fragments, 27 case nodes (9 ECHR + 18 KT), 30 case edges | ✅, national case law via e-seimas |
-| Citation graph | 137 articles, 406 edges (30 to cases) | ✅ |
+| Citation graph | 137 articles, 407 edges (30 to cases) | ✅ |
 | Status page and SLO reporting | `/status` JSON and `/status.html`, coverage, freshness and measured quality | ✅ |
 
 **The committee half is not satisfied, and the plan does not claim it is.** The
