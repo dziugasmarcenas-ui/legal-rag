@@ -616,6 +616,18 @@ while the deployed answer for one question was "I don't know".
 Freshness covers them too: the daily check fails if any ingested act is repealed
 or has a newer edition on e-TAR.
 
+## Seimas (blocked)
+
+The Seimas site is behind a Cloudflare challenge that returns 403 to every
+non-browser client. A transcript collection was retrieved through a real browser
+session (438 pages), and the PDF's text layer splits words per syllable —
+"La bai ačiū už klau si mą" — which would poison retrieval. One clean
+labour-related fragment came out of 438 pages, so nothing was ingested.
+
+`ingest_seimas.py` and its tests are in the tree: the parser, the
+table-of-contents filter and the syllable-split detector are ready for a clean
+export (DOCX or HTML) or an official feed.
+
 ## Citation graph and status
 
 Every delegated act names the Code articles it implements ("parengtas

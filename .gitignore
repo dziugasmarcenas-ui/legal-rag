@@ -10,3 +10,6 @@ data/history_raw/
 
 # Downloaded act DOCX cache; rebuild with ingest_sources.py
 data/sources_raw/
+
+# Seimas transcript PDFs; export via the browser bridge, not committed
+data/seimas_raw/

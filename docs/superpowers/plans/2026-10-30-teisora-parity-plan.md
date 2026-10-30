@@ -118,7 +118,16 @@ apply it, or start from a situation and find similar decisions.
 across 19 articles, extracted from the acts' own text), `GET /status` with
 coverage, freshness and measured quality, and the delegated-act evaluation at
 20 questions. VDI's published Q&A is ingested (249 answers, 442 chunks), so
-"institution explanations" is no longer empty. ECHR is ingested (3 Lithuanian
+"institution explanations" is no longer empty. **Seimas is blocked on access, not on code.** lrs.lt and e-seimas.lrs.lt
+answer 403 to every non-browser client (curl, webfetch) and only pass a
+Cloudflare challenge inside a real browser. A 438-page transcript collection
+was retrieved through the in-app browser and a loopback bridge, and its PDF text
+layer splits words per syllable ("La bai ačiū už klau si mą"), which is unusable
+for retrieval: one clean labour-related fragment out of 438 pages. The parser
+and its quality gates are in `ingest_seimas.py` with tests, waiting for a clean
+export (DOCX/HTML) or an official feed.
+
+ECHR is ingested (3 Lithuanian
 judgments, 130 fragments via HUDOC). Remaining: explanations beyond VDI, Seimas
 drafts and committee transcripts, and the citation graph extended to cases. EU law is ingested (five directives via the Cellar endpoint). The public status page is the endpoint, not yet a UI.
 
