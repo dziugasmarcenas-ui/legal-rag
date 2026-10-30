@@ -72,7 +72,7 @@ def test_status_reports_coverage_freshness_and_measured_quality():
         payload = client.get("/status").json()
 
     assert payload["code"]["articles"] == 257
-    assert payload["delegated_acts"]["acts"] >= 7
+    assert payload["delegated_acts"]["acts"] >= 15
     assert payload["delegated_acts"]["chunks"] >= 600
     assert payload["delegated_acts"]["stale"] == []
     assert payload["history"]["editions"] == 41

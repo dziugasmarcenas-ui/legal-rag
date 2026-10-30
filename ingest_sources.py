@@ -105,6 +105,134 @@ ACTS = [
         "date": "2012-10-25",
         "url": "https://www.e-tar.lt/portal/lt/legalAct/TAR.5B121E9A63FD",
     },
+    {
+        "id": "TAR.F69EF012D841",
+        "short": "Darboviečių įrengimo bendrieji nuostatai",
+        "title": "Darboviečių įrengimo bendrieji nuostatai",
+        "authority": "Valstybinė darbo inspekcija",
+        "date": "",
+        "url": "https://www.e-tar.lt/portal/lt/legalAct/TAR.F69EF012D841",
+    },
+    {
+        "id": "TAR.FECF8EBD1AFF",
+        "short": "Darbo įrenginių naudojimo bendrieji nuostatai",
+        "title": "Darbo įrenginių naudojimo bendrieji nuostatai",
+        "authority": "Valstybinė darbo inspekcija",
+        "date": "",
+        "url": "https://www.e-tar.lt/portal/lt/legalAct/TAR.FECF8EBD1AFF",
+    },
+    {
+        "id": "TAR.63FFB1A69855",
+        "short": "Asmeninės apsaugos priemonės",
+        "title": "Darbuotojų aprūpinimo asmeninėmis apsaugos priemonėmis nuostatai",
+        "authority": "Valstybinė darbo inspekcija",
+        "date": "",
+        "url": "https://www.e-tar.lt/portal/lt/legalAct/TAR.63FFB1A69855",
+    },
+    {
+        "id": "TAR.02EABB5CF5CB",
+        "short": "Saugos ženklai",
+        "title": "Saugos ir sveikatos apsaugos ženklų naudojimo darbovietėse nuostatai",
+        "authority": "Valstybinė darbo inspekcija",
+        "date": "",
+        "url": "https://www.e-tar.lt/portal/lt/legalAct/TAR.02EABB5CF5CB",
+    },
+    {
+        "id": "TAR.73FAFA28349E",
+        "short": "HN 32:2004 videoterminalai",
+        "title": "Darbas su videoterminalais. Saugos ir sveikatos reikalavimai",
+        "authority": "Sveikatos apsaugos ministerija",
+        "date": "",
+        "url": "https://www.e-tar.lt/portal/lt/legalAct/TAR.73FAFA28349E",
+    },
+    {
+        "id": "TAR.EE88543E313F",
+        "short": "Krovinių tvarkymas rankomis",
+        "title": "Darbuotojų saugos ir sveikatos reikalavimai tvarkant krovinius rankomis",
+        "authority": "Valstybinė darbo inspekcija",
+        "date": "",
+        "url": "https://www.e-tar.lt/portal/lt/legalAct/TAR.EE88543E313F",
+    },
+    {
+        "id": "TAR.5ED52629C3C4",
+        "short": "Triukšmas",
+        "title": "Darbuotojų apsaugos nuo triukšmo keliamos rizikos nuostatai",
+        "authority": "Valstybinė darbo inspekcija",
+        "date": "",
+        "url": "https://www.e-tar.lt/portal/lt/legalAct/TAR.5ED52629C3C4",
+    },
+    {
+        "id": "TAR.0630DF325F2F",
+        "short": "Vibracija",
+        "title": "Darbuotojų apsaugos nuo vibracijos keliamos rizikos nuostatai",
+        "authority": "Valstybinė darbo inspekcija",
+        "date": "",
+        "url": "https://www.e-tar.lt/portal/lt/legalAct/TAR.0630DF325F2F",
+    },
+    {
+        "id": "TAR.313208361D5D",
+        "short": "Cheminiai veiksniai",
+        "title": "Darbuotojų apsaugos nuo cheminių veiksnių darbe nuostatai",
+        "authority": "Valstybinė darbo inspekcija",
+        "date": "",
+        "url": "https://www.e-tar.lt/portal/lt/legalAct/TAR.313208361D5D",
+    },
+    {
+        "id": "TAR.4035EFB0B583",
+        "short": "Informacija apie saugos būklę",
+        "title": "Informacijos apie darbuotojų saugos būklę ir darbo vietų atitiktį teikimo tvarka",
+        "authority": "Valstybinė darbo inspekcija",
+        "date": "",
+        "url": "https://www.e-tar.lt/portal/lt/legalAct/TAR.4035EFB0B583",
+    },
+    {
+        "id": "TAR.A9012F002B6D",
+        "short": "DSS paslaugos",
+        "title": "Juridinių ir fizinių asmenų, atliekančių darbuotojų saugos ir sveikatos paslaugas, veikla",
+        "authority": "Valstybinė darbo inspekcija",
+        "date": "",
+        "url": "https://www.e-tar.lt/portal/lt/legalAct/TAR.A9012F002B6D",
+    },
+    {
+        "id": "TAR.7AB2F8B44BBF",
+        "short": "DSS instrukcijos",
+        "title": "Darbuotojų saugos ir sveikatos instrukcijų rengimo ir instruktavimo tvarka",
+        "authority": "Valstybinė darbo inspekcija",
+        "date": "",
+        "url": "https://www.e-tar.lt/portal/lt/legalAct/TAR.7AB2F8B44BBF",
+    },
+    {
+        "id": "TAR.E2B53281464E",
+        "short": "Sutrumpintas darbo laikas",
+        "title": "Sutrumpinto darbo laiko trukmės nustatymo pagal darbo aplinkos veiksnius kriterijai",
+        "authority": "Valstybinė darbo inspekcija",
+        "date": "",
+        "url": "https://www.e-tar.lt/portal/lt/legalAct/TAR.E2B53281464E",
+    },
+    {
+        "id": "TAR.04551A50A76D",
+        "short": "Profesinės ligos",
+        "title": "Profesinių ligų tyrimo ir apskaitos nuostatai",
+        "authority": "Valstybinė darbo inspekcija",
+        "date": "",
+        "url": "https://www.e-tar.lt/portal/lt/legalAct/TAR.04551A50A76D",
+    },
+    {
+        "id": "TAR.8012ED3EA143",
+        "short": "HN 23:2011 chemikalai",
+        "title": "Cheminių medžiagų profesinio poveikio ribiniai dydžiai",
+        "authority": "Sveikatos apsaugos ministerija",
+        "date": "",
+        "url": "https://www.e-tar.lt/portal/lt/legalAct/TAR.8012ED3EA143",
+    },
+    {
+        "id": "TAR.3923E605202A",
+        "short": "Statybvietės",
+        "title": "Darboviečių įrengimo statybvietėse nuostatai",
+        "authority": "Valstybinė darbo inspekcija",
+        "date": "",
+        "url": "https://www.e-tar.lt/portal/lt/legalAct/TAR.3923E605202A",
+    },
 ]
 
 POINT = re.compile(r"^(\d+)\.\s")
@@ -273,7 +401,7 @@ def download(act):
         page.decode("utf-8", "replace"),
     )
     if not match:
-        sys.exit(f"no edition token for {act['short']}")
+        raise RuntimeError(f"no edition token for {act['short']}")
     blob = refresh_corpus.fetch(
         f"https://www.e-tar.lt/rs/actualedition/{act['id']}/{match.group(1)}/format/MSO2010_DOCX/"
     )
@@ -321,7 +449,11 @@ def fingerprint(texts):
 def main(argv=None):
     records = []
     for act in ACTS:
-        text = refresh_corpus.docx_text(download(act))
+        try:
+            text = refresh_corpus.docx_text(download(act))
+        except Exception as error:
+            print(f"{act['short']}: SKIPPED -- {error}")
+            continue
         window = validity(act, text)
         if window is None:
             print(f"{act['short']}: SKIPPED -- not in force (no consolidated edition or repealed)")

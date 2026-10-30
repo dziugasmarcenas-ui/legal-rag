@@ -69,7 +69,7 @@ verify. No phase starts before the previous exit criterion is met.
 
 ### Phase 1 — Win employment law (weeks 1–3)
 
-**Status 2026-10-30: in progress.** Shipped: three delegated acts (340 chunks,
+**Status 2026-10-30: in progress.** Shipped: 21 delegated acts (1,587 chunks,
 cited by point), the delegated-act evaluation (12/12), freshness covering those
 acts, and the Code/delegation ranking rule measured and settled. Remaining:
 the rest of the implementing acts, VDI's published Q&A (its site serves the list

@@ -546,22 +546,17 @@ The Code often states a principle and points elsewhere for the rule. Average pay
 is the clearest case: article 139 delegates to **Government Resolution No. 496**,
 which is where severance and holiday pay are actually calculated.
 
-Three acts are ingested so far, chunked by their own numbered points and cited
-the way the institution cites them:
+**21 delegated acts** are ingested, chunked by their own numbered points and
+cited the way the institution cites them: average pay and work time (Res. 496),
+accidents at work (1118), the labour disputes commission (A1-344), the safety
+service (A1-266/V-575), risk assessment (A1-457/V-961), training (A1-276),
+safety committees (A1-502), workplace requirements, work equipment, PPE, safety
+signs, VDT work (HN 32:2004), manual handling, noise, vibration, chemicals,
+occupational disease, construction sites, and more.
 
-| Act | Chunks | In force from |
-|---|---|---|
-| Government Resolution No. 496 (average pay, work time) | 251 | 2026-01-01 |
-| Government Resolution No. 1118 (accidents at work) | 129 | 2021-01-01 |
-| SADM order A1-344 (labour disputes commission) | 54 | 2025-01-01 |
-| SADM/SAM order A1-266/V-575 (safety service) | 67 | 2026-05-05 |
-| SADM/SAM order A1-457/V-961 (risk assessment) | 43 | 2022-08-01 |
-| VDI order A1-276 (safety training) | 54 | 2023-03-11 |
-| VDI order A1-502 (safety committees) | 35 | 2024-10-01 |
-
-**633 chunks across 7 acts.** Ingestion refuses an act that is repealed or lacks
-a consolidated edition: a dead regulation is worse than a missing one. Two
-candidates from the search results were rejected that way.
+**1,587 chunks across 21 acts.** Ingestion refuses an act that is repealed or
+lacks a consolidated edition: a dead regulation is worse than a missing one.
+Three candidates were rejected that way, including one repealed in 2005.
 
 Ingestion refuses an act that is repealed or lacks a consolidated edition: a
 dead regulation is worse than a missing one.
@@ -669,7 +664,7 @@ an article leads to the provisions that actually apply it.
 ```json
 {
   "code": {"articles": 257, "edition_to": "2026-10-31", "expired": false},
-  "delegated_acts": {"acts": 7, "chunks": 633, "stale": []},
+  "delegated_acts": {"acts": 21, "chunks": 1587, "stale": []},
   "explanations": {"items": 784, "chunks": 1040, "institutions": 3},
   "eu_law": {"directives": 5, "chunks": 95},
   "echr": {"judgments": 9, "chunks": 266},

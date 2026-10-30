@@ -1,8 +1,8 @@
 {
  "summary": {
-  "hits": 30,
+  "hits": 27,
   "total": 32,
-  "hit_rate": 0.938,
+  "hit_rate": 0.844,
   "term_hits": 29,
   "term_total": 30,
   "term_rate": 0.967
@@ -29,7 +29,7 @@
    "delegated": [
     "Nutarimas Nr. 496",
     "Nutarimas Nr. 496",
-    "VDI paaiškinimas"
+    "Nutarimas Nr. 496"
    ],
    "top": "Nutarimas Nr. 496, 3 p.",
    "hit": true,
@@ -97,11 +97,11 @@
    "question": "Kokie reikalavimai taikomi darbuotojų mokymui saugos ir sveikatos srityje?",
    "expected": "VDI įsakymas A1-276",
    "delegated": [
-    "VDI įsakymas A1-502",
+    "Informacija apie saugos būklę",
     "VDI įsakymas A1-276",
     "VDI paaiškinimas"
    ],
-   "top": "VDI įsakymas A1-502, 6 p.",
+   "top": "Informacija apie saugos būklę, įžanga",
    "hit": true,
    "expect": "mokymo",
    "term_hit": true
@@ -111,12 +111,12 @@
    "question": "Kaip dažnai darbuotojams turi būti atnaujinamos saugos ir sveikatos žinios?",
    "expected": "VDI įsakymas A1-276",
    "delegated": [
-    "VDI paaiškinimas",
-    "VDI įsakymas A1-276",
-    "VDI paaiškinimas"
+    "Cheminiai veiksniai",
+    "HN 32:2004 videoterminalai",
+    "Informacija apie saugos būklę"
    ],
-   "top": "VDI paaiškinimas Nr. 45",
-   "hit": true,
+   "top": "Cheminiai veiksniai, 30 p.",
+   "hit": false,
    "expect": null,
    "term_hit": null
   },
@@ -140,7 +140,7 @@
    "expected": "VDI įsakymas A1-502",
    "delegated": [
     "VDI įsakymas A1-502",
-    "VDI paaiškinimas",
+    "Informacija apie saugos būklę",
     "VDI paaiškinimas"
    ],
    "top": "VDI įsakymas A1-502, 3 p.",
@@ -181,11 +181,11 @@
    "question": "Ką darbdavys privalo daryti įvykus nelaimingam atsitikimui darbe?",
    "expected": "Nutarimas Nr. 1118",
    "delegated": [
-    "Nutarimas Nr. 1118",
+    "Cheminiai veiksniai",
     "Nutarimas Nr. 1118",
     "Nutarimas Nr. 1118"
    ],
-   "top": "Nutarimas Nr. 1118, 8 p.",
+   "top": "Cheminiai veiksniai, 29 p.",
    "hit": true,
    "expect": "praneš",
    "term_hit": true
@@ -252,11 +252,11 @@
    "expected": "SADM ir SAM įsakymas A1-266/V-575",
    "delegated": [
     "VDI paaiškinimas",
-    "SADM ir SAM įsakymas A1-457/V-961",
-    "SADM ir SAM įsakymas A1-266/V-575"
+    "VDI paaiškinimas",
+    "SADM ir SAM įsakymas A1-457/V-961"
    ],
    "top": "VDI paaiškinimas Nr. 12",
-   "hit": true,
+   "hit": false,
    "expect": "vadovas",
    "term_hit": false
   },
@@ -265,12 +265,12 @@
    "question": "Kaip dažnai turi būti atliekamas profesinės rizikos vertinimas?",
    "expected": "SADM ir SAM įsakymas A1-457/V-961",
    "delegated": [
-    "SADM ir SAM įsakymas A1-457/V-961",
-    "VDI paaiškinimas",
-    "VDI paaiškinimas"
+    "Cheminiai veiksniai",
+    "Informacija apie saugos būklę",
+    "Triukšmas"
    ],
-   "top": "SADM ir SAM įsakymas A1-457/V-961, įžanga",
-   "hit": true,
+   "top": "Cheminiai veiksniai, 10 p.",
+   "hit": false,
    "expect": "rizikos vertinim",
    "term_hit": true
   },
@@ -281,7 +281,7 @@
    "delegated": [
     "SADM ir SAM įsakymas A1-457/V-961",
     "VDI paaiškinimas",
-    "SADM ir SAM įsakymas A1-457/V-961"
+    "Triukšmas"
    ],
    "top": "SADM ir SAM įsakymas A1-457/V-961, 6 p.",
    "hit": true,
@@ -309,7 +309,7 @@
    "delegated": [
     "VDI paaiškinimas",
     "VDI paaiškinimas",
-    "SADM paaiškinimas"
+    "Statybvietės"
    ],
    "top": "VDI paaiškinimas Nr. 2",
    "hit": true,
