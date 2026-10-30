@@ -1,8 +1,8 @@
 {
  "summary": {
-  "hits": 22,
+  "hits": 23,
   "total": 32,
-  "hit_rate": 0.688,
+  "hit_rate": 0.719,
   "term_hits": 29,
   "term_total": 30,
   "term_rate": 0.967
@@ -98,8 +98,8 @@
    "expected": "VDI įsakymas A1-276",
    "delegated": [
     "Dėl Darbdavio, darbdaviui atstovaujančio asmens mokymo darbu",
-    "Informacija apie saugos būklę",
-    "Dėl Darbdavių, jų įgaliotų asmenų bei darbuotojų saugos ir s"
+    "Dėl Darbdavio, darbdaviui atstovaujančio asmens mokymo darbu",
+    "Informacija apie saugos būklę"
    ],
    "top": "Dėl Darbdavio, darbdaviui atstovaujančio asmens mokymo darbu, 2 p.",
    "hit": false,
@@ -112,7 +112,7 @@
    "expected": "VDI įsakymas A1-276",
    "delegated": [
     "Dėl darbuotojų saugos ir sveikatos instrukcijų patvirtinimo",
-    "Saugaus darbo organizavimo ir darbo vietų įrengimo reikalavi",
+    "Dėl darbuotojų saugos ir sveikatos instrukcijų patvirtinimo",
     "Dėl darbuotojų saugos ir sveikatos instrukcijų patvirtinimo"
    ],
    "top": "Dėl darbuotojų saugos ir sveikatos instrukcijų patvirtinimo, 2 p.",
@@ -155,7 +155,7 @@
    "delegated": [
     "Darbuotojų saugos ir sveikatos įstatymas",
     "Dėl Darbuotojų saugos ir sveikatos komiteto nuostatų patvirt",
-    "VDI paaiškinimas"
+    "Dėl Darbuotojų saugos ir sveikatos komiteto nuostatų patvirt"
    ],
    "top": "Darbuotojų saugos ir sveikatos įstatymas, 2 p.",
    "hit": false,
@@ -197,10 +197,10 @@
    "delegated": [
     "Darbuotojų saugos ir sveikatos įstatymas",
     "Darbuotojų saugos ir sveikatos įstatymas",
-    "Darbuotojų saugos ir sveikatos įstatymas"
+    "Nutarimas Nr. 1118"
    ],
    "top": "Darbuotojų saugos ir sveikatos įstatymas, 3 p.",
-   "hit": false,
+   "hit": true,
    "expect": "tyrim",
    "term_hit": true
   },
@@ -280,7 +280,7 @@
    "expected": "SADM ir SAM įsakymas A1-457/V-961",
    "delegated": [
     "Darbuotojų saugos ir sveikatos įstatymas",
-    "2022–2027 m. darbuotojų saugos ir sveikatos veiksmų planas",
+    "Dėl 2022–2027 m. darbuotojų saugos ir sveikatos veiksmų plan",
     "Saugaus darbo organizavimo ir darbo vietų įrengimo reikalavi"
    ],
    "top": "Darbuotojų saugos ir sveikatos įstatymas, 3 p.",

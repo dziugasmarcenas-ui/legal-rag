@@ -404,6 +404,12 @@ def chunks(lines, act):
 
 
 def download(act):
+    # Documents that exist only in e-seimas (not in e-TAR) are exported through
+    # the browser bridge and read from disk.
+    local = ROOT / "data" / "acts_raw" / f"act-{act['id']}.docx"
+    if local.exists() and local.stat().st_size > 1000:
+        return local.read_bytes()
+
     RAW.mkdir(parents=True, exist_ok=True)
     cache = RAW / f"{act['id']}.docx"
     if cache.exists() and cache.stat().st_size > 1000:

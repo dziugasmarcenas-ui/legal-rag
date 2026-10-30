@@ -13,3 +13,6 @@ data/sources_raw/
 
 # Seimas transcript PDFs; export via the browser bridge, not committed
 data/seimas_raw/
+
+# e-seimas DOCX exports fetched through the browser bridge
+data/acts_raw/
