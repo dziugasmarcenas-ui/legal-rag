@@ -22,6 +22,9 @@ EXPLANATION_SOURCES = ("VDI paaiškinimas", "SADM paaiškinimas",
 # Parliamentary record: authoritative for "what was debated", not for the law.
 RECORD_SOURCES = ("Seimo stenogramos",)
 EXPLANATION_THRESHOLD = 0.85
+# Enacted acts other than the Code. Measured: an unrelated question reached 0.699
+# on an act, while a question the act answers reached 0.819.
+ACT_THRESHOLD = 0.78
 
 
 def should_answer_any(results):
@@ -34,7 +37,14 @@ def should_answer_any(results):
         if not r.get("article")
         and r.get("source") in EXPLANATION_SOURCES + RECORD_SOURCES
     ]
-    return any((r.get(SIGNAL) or 0.0) >= EXPLANATION_THRESHOLD for r in explanations)
+    if any((r.get(SIGNAL) or 0.0) >= EXPLANATION_THRESHOLD for r in explanations):
+        return True
+
+    acts = [
+        r for r in results
+        if not r.get("article") and r.get("source") not in EXPLANATION_SOURCES + RECORD_SOURCES
+    ]
+    return any((r.get(SIGNAL) or 0.0) >= ACT_THRESHOLD for r in acts)
 
 
 def should_answer(results):

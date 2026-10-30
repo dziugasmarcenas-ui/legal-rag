@@ -410,8 +410,7 @@ def chat(request: ChatRequest, http: Request):
         # A refusal that is actually an institution answer must report that
         # number, or the meter shows 0.41 while the answer is well supported.
         confidence = max(
-            (r[gate.SIGNAL] for r in results
-             if r.get("source") in gate.EXPLANATION_SOURCES + gate.RECORD_SOURCES),
+            (r[gate.SIGNAL] for r in results if not r.get("article")),
             default=confidence,
         )
 

@@ -52,12 +52,12 @@ def test_source_output_is_shaped_for_the_tool_contract():
     assert out["above_gate"] is True
 
 
-def test_the_gate_ignores_delegated_acts(monkeypatch):
-    """A confident resolution must not make an uncovered question answerable."""
+def test_a_merely_relevant_act_does_not_bypass_the_gate(monkeypatch):
+    """0.699 was measured on an unrelated question; the act bar is 0.78."""
     delegated = {
         "article": None, "citation": "Nutarimas Nr. 496, 5 p.", "title": "t",
         "text": "x", "url": "u", "source": "Nutarimas Nr. 496",
-        "cosine_score": 0.5, "rerank_score": 0.95,
+        "cosine_score": 0.5, "rerank_score": 0.70,
     }
     code = {
         "article": "44", "citation": "44", "label": "44 straipsnis", "title": "t",
@@ -118,11 +118,11 @@ def test_a_merely_relevant_explanation_does_not_bypass_the_gate():
     assert gate.should_answer_any([code_weak, explanation]) is False
 
 
-def test_an_enacted_resolution_never_decides_alone():
+def test_a_confident_act_can_answer_where_the_code_is_silent():
     import gate
 
-    resolution = {"article": None, "source": "Nutarimas Nr. 496", "rerank_score": 0.99}
-    assert gate.should_answer_any([resolution]) is False
+    act = {"article": None, "source": "Nutarimas Nr. 496", "rerank_score": 0.82}
+    assert gate.should_answer_any([act]) is True
 
 
 def test_sodra_navigation_and_cookies_are_not_content():
