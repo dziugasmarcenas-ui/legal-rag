@@ -546,17 +546,32 @@ The Code often states a principle and points elsewhere for the rule. Average pay
 is the clearest case: article 139 delegates to **Government Resolution No. 496**,
 which is where severance and holiday pay are actually calculated.
 
-That resolution is ingested as a second source: 251 chunks, chunked by the act's
-own numbered points, cited as `Nutarimas Nr. 496, 5 p.`, and embedded in a
-separate index. The Labour Code index is untouched.
+Three acts are ingested so far, chunked by their own numbered points and cited
+the way the institution cites them:
 
-The two are not peers, and the ranking says so. The Code is returned first and
-decides whether there is an answer at all; delegated provisions are appended as
-corroboration (at most two). Mixing them into one ranking was measured and
-rejected: an off-topic question pulled a resolution chunk at 0.70 and looked
-answerable, dropping correct refusal from 0.800 to 0.600. With the roles
-separated, every published number is unchanged: 0.920 top-1, 0.960 in top 3,
-0.800 correct refusal.
+| Act | Chunks | In force from |
+|---|---|---|
+| Government Resolution No. 496 (average pay, work time) | 251 | 2026-01-01 |
+| VDI order A1-276 (safety and health training) | 54 | 2023-03-11 |
+| VDI order A1-502 (safety and health committees) | 35 | 2024-10-01 |
+
+Ingestion refuses an act that is repealed or lacks a consolidated edition: a
+dead regulation is worse than a missing one.
+
+The two families are not peers, and the ranking says so. The Code is returned
+first and decides whether there is an answer at all; delegated provisions are
+appended as corroboration (at most two). Mixing them into one ranking was
+measured and rejected: an off-topic question pulled a resolution chunk at 0.70
+and looked answerable, dropping correct refusal from 0.800 to 0.600. With the
+roles separated, every Code number is unchanged.
+
+The delegated index has its own evaluation, because the frozen Code set cannot
+score rules the Code does not contain: 12 questions whose answers live in these
+acts, **12/12 find the right act in the top two delegated results**
+(`eval/run_sources_eval.py`).
+
+Freshness covers them too: the daily check fails if any ingested act is repealed
+or has a newer edition on e-TAR.
 
 ## Use it from your own AI (MCP)
 

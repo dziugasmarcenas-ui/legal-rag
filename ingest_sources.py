@@ -50,6 +50,22 @@ ACTS = [
         "date": "2017-06-21",
         "url": "https://www.e-tar.lt/portal/lt/legalAct/76731a705b4711e79198ffdb108a3753",
     },
+    {
+        "id": "3a200a5049eb11e7846ef01bfffb9b64",
+        "short": "VDI įsakymas A1-276",
+        "title": "Dėl Mokymo ir žinių darbuotojų saugos ir sveikatos srityje reikalavimų",
+        "authority": "Valstybinė darbo inspekcija",
+        "date": "2017-06-06",
+        "url": "https://www.e-tar.lt/portal/lt/legalAct/3a200a5049eb11e7846ef01bfffb9b64",
+    },
+    {
+        "id": "TAR.710F227A96C2",
+        "short": "VDI įsakymas A1-502",
+        "title": "Dėl Darbuotojų saugos ir sveikatos komitetų bendrųjų nuostatų",
+        "authority": "Valstybinė darbo inspekcija",
+        "date": "2013-09-09",
+        "url": "https://www.e-tar.lt/portal/lt/legalAct/TAR.710F227A96C2",
+    },
 ]
 
 POINT = re.compile(r"^(\d+)\.\s")
@@ -159,6 +175,30 @@ def chunks(lines, act):
 
     flush()
 
+    if not out:
+        # Orders and regulations sometimes carry no numbering at all. Do not
+        # drop them: group paragraphs into readable chunks instead.
+        buffer = []
+        for line in lines:
+            buffer.append(line)
+            if sum(len(x) for x in buffer) >= 1100:
+                out.append({
+                    "source": act["short"], "act_id": act["id"],
+                    "act_title": act["title"], "authority": act["authority"],
+                    "act_date": act["date"], "url": act["url"],
+                    "annex": "", "chapter": "", "ref": "",
+                    "parts": buffer,
+                })
+                buffer = []
+        if buffer:
+            out.append({
+                "source": act["short"], "act_id": act["id"],
+                "act_title": act["title"], "authority": act["authority"],
+                "act_date": act["date"], "url": act["url"],
+                "annex": "", "chapter": "", "ref": "",
+                "parts": buffer,
+            })
+
     records = []
     for index, chunk in enumerate(out, start=1):
         heading = " · ".join(x for x in (chunk["annex"], chunk["chapter"]) if x)
@@ -187,7 +227,12 @@ def download(act):
     if cache.exists() and cache.stat().st_size > 1000:
         return cache.read_bytes()
     page = refresh_corpus.fetch(f"https://www.e-tar.lt/portal/lt/legalAct/{act['id']}/asr")
-    match = re.search(rf"actualedition/{act['id']}/([A-Za-z0-9]+)/", page.decode("utf-8", "replace"))
+    if b"actualedition" not in page:
+        page = refresh_corpus.fetch(f"https://www.e-tar.lt/portal/lt/legalAct/{act['id']}")
+    match = re.search(
+        rf"actualedition/{re.escape(act['id'])}/([A-Za-z0-9]+)/",
+        page.decode("utf-8", "replace"),
+    )
     if not match:
         sys.exit(f"no edition token for {act['short']}")
     blob = refresh_corpus.fetch(
@@ -195,6 +240,17 @@ def download(act):
     )
     cache.write_bytes(blob)
     return blob
+
+
+def validity(act, text):
+    """Refuse to ingest repealed acts. A dead regulation is worse than none."""
+    window = refresh_corpus.WINDOW.search(text)
+    if not window:
+        return None
+    head = text[:300]
+    if "netenka galios" in head:
+        return None
+    return window.group(1), window.group(2) or refresh_corpus.OPEN_ENDED
 
 
 def embedding_input(record):
@@ -213,8 +269,14 @@ def main(argv=None):
     records = []
     for act in ACTS:
         text = refresh_corpus.docx_text(download(act))
+        window = validity(act, text)
+        if window is None:
+            print(f"{act['short']}: SKIPPED -- not in force (no consolidated edition or repealed)")
+            continue
         act_chunks = chunks(clean(text), act)
-        print(f"{act['short']}: {len(act_chunks)} chunks")
+        for chunk in act_chunks:
+            chunk["valid_from"], chunk["valid_to"] = window
+        print(f"{act['short']}: {len(act_chunks)} chunks  ({window[0]} .. {window[1]})")
         records.extend(act_chunks)
 
     DATA.write_text(json.dumps(records, ensure_ascii=False, indent=1), encoding="utf-8")

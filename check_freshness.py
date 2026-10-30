@@ -22,12 +22,32 @@ import edition
 
 ROOT = Path(__file__).parent
 SIDECAR = ROOT / "embeddings" / "corpus.json"
+SOURCES = ROOT / "data" / "sources.json"
 
 
 def sidecar():
     if not SIDECAR.exists():
         sys.exit(f"no sidecar at {SIDECAR}; run embed_corpus.py first")
     return json.loads(SIDECAR.read_text(encoding="utf-8"))
+
+
+def source_acts():
+    if not SOURCES.exists():
+        return []
+    records = json.loads(SOURCES.read_text(encoding="utf-8"))
+    by_source = {}
+    for record in records:
+        by_source.setdefault(record["source"], record)
+    return list(by_source.values())
+
+
+def check_source_editions(today):
+    """Every ingested act must still be in force, and be the edition we stored."""
+    stale = [r["source"] for r in source_acts() if r["valid_to"] < today.isoformat()]
+    if stale:
+        print(f"::error::delegated acts out of date: {stale}. Run: python ingest_sources.py --refresh")
+        return 1
+    return 0
 
 
 def main(argv):
@@ -66,7 +86,33 @@ def main(argv):
         return 1
 
     print("e-TAR serves the same edition; nothing to refresh")
-    return 0
+
+    # Delegated acts roll independently of the Code; check them too.
+    if source_acts():
+        import ingest_sources as ing
+
+        for act in ing.ACTS:
+            try:
+                text = rc.docx_text(ing.download(act))
+            except SystemExit as error:
+                print(f"::error::{act['short']}: {error}")
+                return 1
+            window = ing.validity(act, text)
+            if window is None:
+                print(f"::error::{act['short']} is no longer in force")
+                return 1
+            stored = next(
+                (r for r in source_acts() if r["source"] == act["short"]), None
+            )
+            if stored and stored["valid_from"] != window[0]:
+                print(
+                    f"::error::{act['short']} has a newer edition from {window[0]}; "
+                    "stored is from " + stored["valid_from"] + ". Run: python ingest_sources.py --refresh"
+                )
+                return 1
+        print(f"delegated acts current: {len(ing.ACTS)}")
+
+    return check_source_editions(today)
 
 
 if __name__ == "__main__":

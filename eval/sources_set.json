@@ -1,0 +1,14 @@
+[
+ {"id": 1, "question": "Kaip skaičiuojamas vidutinis dieninis darbo užmokestis?", "expected": "Nutarimas Nr. 496"},
+ {"id": 2, "question": "Kokie mokėjimai įskaitomi į vidutinį darbo užmokestį?", "expected": "Nutarimas Nr. 496"},
+ {"id": 3, "question": "Koks skaičiuojamasis laikotarpis vidutiniam darbo užmokesčiui apskaičiuoti?", "expected": "Nutarimas Nr. 496"},
+ {"id": 4, "question": "Ar vienkartinės premijos įskaitomos į vidutinį darbo užmokestį?", "expected": "Nutarimas Nr. 496"},
+ {"id": 5, "question": "Kaip apskaičiuojamas vidutinis valandinis darbo užmokestis?", "expected": "Nutarimas Nr. 496"},
+ {"id": 6, "question": "Kaip apskaičiuojamas vidutinis darbo užmokestis, kai darbuotojas dirbo ne visą mėnesį?", "expected": "Nutarimas Nr. 496"},
+ {"id": 7, "question": "Kokie reikalavimai taikomi darbuotojų mokymui saugos ir sveikatos srityje?", "expected": "VDI įsakymas A1-276"},
+ {"id": 8, "question": "Kaip dažnai darbuotojams turi būti atnaujinamos saugos ir sveikatos žinios?", "expected": "VDI įsakymas A1-276"},
+ {"id": 9, "question": "Kas privalo instruktuoti darbuotojus saugos ir sveikatos klausimais?", "expected": "VDI įsakymas A1-276"},
+ {"id": 10, "question": "Kada įmonėje turi būti sudarytas darbuotojų saugos ir sveikatos komitetas?", "expected": "VDI įsakymas A1-502"},
+ {"id": 11, "question": "Kas sudaro darbuotojų saugos ir sveikatos komitetą?", "expected": "VDI įsakymas A1-502"},
+ {"id": 12, "question": "Kokios yra darbuotojų saugos ir sveikatos komiteto funkcijos?", "expected": "VDI įsakymas A1-502"}
+]

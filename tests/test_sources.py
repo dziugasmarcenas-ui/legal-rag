@@ -8,6 +8,8 @@ corroborates, the Code decides whether there is an answer.
 import json
 import sys
 
+from datetime import date
+
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parents[1]))
@@ -28,7 +30,7 @@ def test_the_source_index_loads_the_ingested_act():
 def test_every_chunk_carries_a_citable_reference():
     records, _ = retrieval.source_index()
     for record in records:
-        assert record["citation"].startswith("Nutarimas Nr. 496")
+        assert record["source"] in record["citation"]
         assert record["text"].strip()
 
 
@@ -66,3 +68,34 @@ def test_the_gate_ignores_delegated_acts(monkeypatch):
     out = mcp_server.search_labour_code("Kokia bauda už parkavimą?", k=1)
     assert out["answerable"] is False
     assert out["confidence"] == 0.3
+
+
+def test_every_ingested_act_records_its_validity_window():
+    records, _ = retrieval.source_index()
+    today = "2026-10-30"
+    for record in records:
+        assert record["valid_from"] and record["valid_to"]
+        assert record["valid_to"] >= today, record["source"]
+
+
+def test_the_source_eval_set_only_names_ingested_acts():
+    set_path = Path(__file__).parents[1] / "eval" / "sources_set.json"
+    entries = json.loads(set_path.read_text(encoding="utf-8"))
+    records, _ = retrieval.source_index()
+    names = {r["source"] for r in records}
+    assert entries
+    for entry in entries:
+        assert entry["expected"] in names, entry
+
+
+def test_stale_delegated_acts_fail_the_freshness_check(monkeypatch):
+    import check_freshness
+
+    healthy = check_freshness.source_acts()
+    assert check_freshness.check_source_editions(date(2026, 10, 30)) == 0
+    monkeypatch.setattr(
+        check_freshness, "source_acts",
+        lambda: [{"source": "Nutarimas Nr. 496", "valid_to": "2020-01-01"}],
+    )
+    assert check_freshness.check_source_editions(date(2026, 10, 30)) == 1
+    monkeypatch.setattr(check_freshness, "source_acts", lambda: healthy)
