@@ -546,7 +546,7 @@ The Code often states a principle and points elsewhere for the rule. Average pay
 is the clearest case: article 139 delegates to **Government Resolution No. 496**,
 which is where severance and holiday pay are actually calculated.
 
-**85 delegated acts** are ingested, chunked by their own numbered points and
+**86 delegated acts** are ingested, chunked by their own numbered points and
 cited the way the institution cites them: average pay and work time (Res. 496),
 accidents at work (1118), the labour disputes commission (A1-344), the safety
 service (A1-266/V-575), risk assessment (A1-457/V-961), training (A1-276),
@@ -554,7 +554,7 @@ safety committees (A1-502), workplace requirements, work equipment, PPE, safety
 signs, VDT work (HN 32:2004), manual handling, noise, vibration, chemicals,
 occupational disease, construction sites, and more.
 
-**5,478 chunks across 85 acts.** Ingestion refuses an act that is repealed or
+**5,620 chunks across 86 acts.** Ingestion refuses an act that is repealed or
 lacks a consolidated edition: a dead regulation is worse than a missing one.
 Three candidates were rejected that way, including one repealed in 2005.
 
@@ -650,7 +650,7 @@ not transcripts.
 
 The pipeline now consumes any list of act IDs: `data/extra_acts.json` is appended
 to the ingestion set, and the same download → validity guard → chunk → embed
-path runs. Coverage is now **85 acts**.
+path runs. Coverage is now **86 acts**.
 
 Discovery routes measured, with yields:
 
@@ -662,6 +662,7 @@ Discovery routes measured, with yields:
 | VDI legal-acts grid (20 pages, 197 rows) | **0** — every row is an amendment |
 | e-seimas TAD via browser bridge (26 exported) | **9** net new |
 | e-seimas title batch "darbo apmokėjimo" (7 exported) | **2** net new; 5 exam-payment orders pruned |
+| e-seimas "darbo laiko" / "darbo sąlygų" (30 + 2 matches) | **1** net new after personal/institutional filtering |
 | data.gov.lt | no dataset links in HTML |
 | data.e-tar.lt | explainer page, no API |
 | OAI-PMH | not offered |
@@ -718,7 +719,7 @@ an article leads to the provisions that actually apply it.
 ```json
 {
   "code": {"articles": 257, "edition_to": "2026-10-31", "expired": false},
-  "delegated_acts": {"acts": 85, "chunks": 5478, "stale": []},
+  "delegated_acts": {"acts": 86, "chunks": 5620, "stale": []},
   "explanations": {"items": 784, "chunks": 1040, "institutions": 3},
   "eu_law": {"directives": 5, "chunks": 95},
   "echr": {"judgments": 9, "chunks": 266},
