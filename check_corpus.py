@@ -82,6 +82,28 @@ for known in ("57", "126", "72-1"):
         print(f"       {known}: {a['title'][:78]}")
         print(f"       cited as: {a['citation']}  |  {len(a['text'])} chars of text")
 
+# --- Gate A: parts are a faithful view of the article text -------------------
+missing_parts = [a["article"] for a in articles if not a.get("parts")]
+check("every article has at least one part", not missing_parts, f"{missing_parts[:5]}")
+
+drifted = []
+for a in articles:
+    joined = [line for p in a["parts"] for line in p["text"].split("\n") if line.strip()]
+    original = [line for line in a["text"].split("\n") if line.strip()]
+    if joined != original:
+        drifted.append(a["article"])
+check("parts reconstruct the article text exactly", not drifted, f"{drifted[:5]}")
+
+bad_citations = []
+for a in articles:
+    numbered = [p["number"] for p in a["parts"] if p["number"]]
+    if numbered and numbered[0] != "1":
+        bad_citations.append((a["article"], numbered[0]))
+check("part numbering starts at 1", not bad_citations, f"{bad_citations[:3]}")
+
+annex = [a["article"] for a in articles if "darbo kodekso\npriedas" in a["text"]]
+check("the Code's annex is not inside an article", not annex, f"{annex}")
+
 # --- Gate A: edition dates recorded ------------------------------------------
 dated = all(
     a["edition_from"] == EDITION_FROM and a["edition_to"] == EDITION_TO

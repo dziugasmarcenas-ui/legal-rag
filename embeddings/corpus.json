@@ -2,10 +2,10 @@
   "model": "voyage-3",
   "dimensions": 1024,
   "count": 257,
-  "corpus_fingerprint": "b34eada0528d1f08cf14515fe5c823b8c2bd939058256c136e85756b622663e0",
+  "corpus_fingerprint": "e6179e7b36d021193422af3ff034919a8b10530b4bff31c576c176cb74a9f7a4",
   "edition_from": "2026-06-07",
   "edition_to": "2026-10-31",
-  "embedded_at": "2026-08-20T15:00:36.342055+00:00",
+  "embedded_at": "2026-10-30T06:50:38.204121+00:00",
   "article_ids": [
     "1",
     "2",

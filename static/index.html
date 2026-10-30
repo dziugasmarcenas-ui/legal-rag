@@ -351,8 +351,10 @@ function format(text, articles){
   }).join("");
   return blocks
     .replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")
-    .replace(/\[\s*(\d+(?:-\d+)?)\s*(?:straipsni\S*|art\S*)?\s*\]/gi,
-      (m,n)=>articles.includes(n)?`<button class="cite" data-a="${n}">${n} str.</button>`:m);
+    .replace(/\[\s*(\d+(?:-\d+)?[¹]?)\s*(?:straipsni\S*)?(?:\s*(\d+(?:-\d+)?[¹]?)\s*(?:dalis|d\.?))?\s*\]/gi,
+      (m,n,part)=>articles.includes(n)
+        ? `<button class="cite" data-a="${n}">${n} str.${part?` ${part} d.`:""}</button>`
+        : m);
 }
 function render(h){out.innerHTML=h; out.scrollIntoView({behavior:"smooth",block:"nearest"});}
 

@@ -15,6 +15,8 @@ import json
 
 from pathlib import Path
 
+from paragraphs import split_parts
+
 SOURCE = "Lietuvos Respublikos darbo kodeksas"
 ACT_NUMBER = "XII-2603"
 EDITION_FROM = "2026-06-07"
@@ -160,12 +162,23 @@ def parse_articles(lines, start, end):
         if current is None:
             continue
 
+        # The Code's annex (the list of EU directives it implements) follows
+        # article 260 and is not part of it. Left in, it is embedded as article
+        # 260's text and can never be cited correctly.
+        if line == "priedas" and body[-2:] == ["Lietuvos Respublikos", "darbo kodekso"]:
+            break
+
         if not is_noise(line):
             body.append(line)
 
     if current is not None:
         current["text"] = "\n".join(body)
         articles.append(current)
+
+    # Parts are derived, never hand-maintained: `text` stays the single source
+    # of truth and the parts are a view of its own numbering.
+    for article in articles:
+        article["parts"] = split_parts(article["text"])
 
     return articles
 

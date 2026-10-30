@@ -58,6 +58,20 @@ REFUSAL = {
 }
 
 
+# Citations name the part when the claim rests on one. A reader can check
+# "126 straipsnio 2 dalis" in seconds; "126 straipsnis" sends them hunting.
+CITATION_CLOSING = {
+    "lt": (
+        "Pabaigoje nurodyk straipsnį formatu [X straipsnis]. Jei teiginys remiasi "
+        "konkrečia straipsnio dalimi, nurodyk ją: [X straipsnio Y dalis]."
+    ),
+    "en": (
+        "End by naming the article as [X straipsnis]. If the claim rests on a "
+        "specific part, name it as [X straipsnio Y dalis]."
+    ),
+}
+
+
 def build_prompt(question, results, lang="lt"):
     """Give the model only the retrieved articles, and require a citation.
 
@@ -74,8 +88,7 @@ def build_prompt(question, results, lang="lt"):
         "atsakymo nėra, pasakyk, kad nežinai.\n\n"
         f"Straipsniai:\n{articles}\n\n"
         f"Klausimas: {question}\n\n"
-        f"{ANSWER_LANGUAGE[lang]} Pabaigoje nurodyk straipsnį formatu "
-        "[X straipsnis]."
+        f"{ANSWER_LANGUAGE[lang]} {CITATION_CLOSING[lang]}"
     )
 
 

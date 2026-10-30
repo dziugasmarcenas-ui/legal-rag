@@ -55,6 +55,30 @@ def test_get_article_returns_the_loaded_text_or_a_typed_error():
     assert "corpus" in missing
 
 
+def test_articles_are_returned_with_citable_parts():
+    found = mcp_server.get_article("126")
+    assert len(found["parts"]) >= 2
+    assert found["parts"][0]["citation"] == "126 str. 1 d."
+    assert found["parts"][0]["id"] == "126-1"
+    assert found["parts"][0]["text"].startswith("1.")
+
+
+def test_superscript_parts_get_a_stable_id():
+    found = mcp_server.get_article("3")
+    superscript = [p for p in found["parts"] if p["number"] == "2¹"]
+    assert superscript and superscript[0]["id"] == "3-2-1"
+
+
+def test_search_returns_parts_not_just_articles(monkeypatch):
+    monkeypatch.setattr(
+        mcp_server.retrieval, "retrieve", lambda *a, **k: [result("126", 0.9)]
+    )
+    found = mcp_server.search_labour_code("atostogos", k=1)
+    first = found["results"][0]
+    assert "text" not in first
+    assert first["parts"], "search must expose the parts a citation can name"
+
+
 def test_search_marks_gate_outcomes_per_article(monkeypatch):
     monkeypatch.setattr(
         mcp_server.retrieval, "retrieve",

@@ -1,0 +1,28 @@
+name: freshness
+
+# Separate from the pull-request gate on purpose. The corpus is a legal edition
+# with an end date; when it rolls over the answer is wrong even though every
+# test passes. Making this a scheduled job keeps that signal loud without making
+# every pull request red for a reason unrelated to the change under review.
+
+on:
+  schedule:
+    - cron: "15 5 * * *"
+  workflow_dispatch:
+
+jobs:
+  edition:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: The edition is in force and matches e-TAR
+        run: python check_freshness.py --online

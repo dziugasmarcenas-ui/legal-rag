@@ -140,8 +140,17 @@ and, mounted by `main.py`, over Streamable HTTP at `/mcp`. Prompt construction
 moved to `answer.py` so the API and MCP call the same one. Tests cover the
 contract: typed `not_found`, per-article `above_gate`, refusal below the gate
 without calling the model, and a provider outage that still returns sources.
-Remaining scope from the original task: paragraph-level IDs (deliberately not
-done — they require re-chunking and invalidate the benchmark).
+**Part-level citations shipped** without re-chunking: `paragraphs.py` derives
+the Code's own `dalis` numbering (repairing flattened superscripts such as
+`2¹` arriving as `21.`), every article carries `parts`, and MCP returns them
+with `126 str. 2 d.` / `126-2` style ids. Retrieval and the benchmark are
+unchanged, so the published numbers still describe the served pipeline.
+Re-chunking retrieval to paragraph level remains deliberately undone: it would
+invalidate the benchmark for a retrieval gain that has not been measured.
+
+Freshness is now automated: `check_freshness.py --online` runs in a scheduled
+`freshness` workflow (not the PR gate), so a rolled-over edition turns a daily
+job red instead of making every pull request red.
 
 
 Extract the shared core, then wrap it.

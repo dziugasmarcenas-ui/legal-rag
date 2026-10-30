@@ -48,6 +48,7 @@ The 0.72 → 0.88 Recall@1 result comes from **25 answerable questions** in a fr
 | Recall@5 control | 0.920 → 0.920, as expected for reordering only |
 | Served pipeline | reranks 10 candidates, shows 3: **0.920** top-1, **0.960** in top 3 |
 | Abstention | Confidence gate returns an explicit refusal below 0.54 |
+| Citations | article **and part** (`126 str. 2 d.`), attached by the retriever, never written by the model |
 | Delivery | FastAPI, Docker, Railway, GitHub Actions, LT/EN interface |
 
 ## What I built
@@ -119,6 +120,7 @@ coverage—was the dominant measured problem.
 | Live | https://legal-rag-production-fac6.up.railway.app |
 | Retrieved from | e-TAR, act id `f6d686707e7011e6b969d7ae07280e89`, retrieved 2026-08-20 |
 | Articles parsed | **257** |
+| Parts (dalis) parsed | **997**, cited as `126 str. 2 d.` |
 | Coverage | Complete Code, all four parts. Articles 1-260, less repealed 85-88, plus 72¹ |
 
 The system answers against **that specific consolidated edition**, not against
@@ -444,7 +446,10 @@ relevance threshold distinguishes "this article is about your topic" from "this
 article answers your question".
 
 **Scope.** One consolidated edition of one code. No case law, no ministerial
-regulations, no collective agreements. Not legal advice.
+regulations, no collective agreements. The Code's annex (the list of EU
+directives it implements) follows article 260 in the source text and is excluded
+from the corpus: it is not citable as an article, and leaving it in attached it
+to article 260. Not legal advice.
 
 ---
 
@@ -487,8 +492,8 @@ retriever returned -- the model cannot introduce one.
 | Tool | Returns |
 |---|---|
 | `corpus_info()` | edition window, article count, models, threshold, known gaps, disclaimer |
-| `search_labour_code(query, k=5)` | ranked articles with full text, both scores, and `above_gate` per article |
-| `get_article("72-1")` | the exact text of one article, or a typed `not_found` |
+| `search_labour_code(query, k=5)` | ranked articles with both scores, `above_gate` per article, and citable parts |
+| `get_article("72-1")` | the exact text of one article with its numbered parts, or a typed `not_found` |
 | `ask_labour_code(question, lang)` | grounded answer + sources + confidence, or an explicit refusal |
 
 Every result carries the edition it came from. When the edition expires,

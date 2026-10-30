@@ -26,6 +26,7 @@ import config
 import edition
 import gate
 import llm
+import paragraphs
 import retrieval
 
 config.load_env_file()
@@ -72,13 +73,20 @@ def _status():
     return status
 
 
+def _parts(record):
+    parts = record.get("parts") or paragraphs.split_parts(record["text"])
+    return paragraphs.parts_with_citations(record["article"], parts)
+
+
 def _source(result):
     score = result["rerank_score"]
     return {
         "article": result["article"],
         "citation": result["citation"],
         "title": result["title"],
-        "text": result["text"],
+        # Parts, not a flat blob: an answer that names "126 str. 2 d." is worth
+        # more than one that names the article and leaves the reader to find it.
+        "parts": _parts(result),
         "cosine_score": round(result["cosine_score"], 4),
         "rerank_score": round(score, 4) if score is not None else None,
         "above_gate": score is not None and score >= gate.THRESHOLD,
@@ -168,6 +176,7 @@ def get_article(article: str) -> dict:
                 "citation": record["citation"],
                 "title": record["title"],
                 "text": record["text"],
+                "parts": _parts(record),
                 "corpus": _status(),
                 "disclaimer": DISCLAIMER,
             }

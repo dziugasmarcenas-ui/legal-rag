@@ -150,6 +150,9 @@ def retrieve(question, k=SERVED_K, candidates=SERVED_CANDIDATES, use_rerank=True
             "citation": article["citation"],
             "title": article["title"],
             "text": article["text"],
+            # Derived at parse time; carried through so a caller can cite the
+            # part a claim actually rests on, not just the article.
+            "parts": article.get("parts", []),
             "cosine_score": float(scores[row]),
             "rerank_score": None,
         })

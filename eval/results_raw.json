@@ -1,7 +1,7 @@
 {
   "key": {
     "golden_hash": "aca238241f5555bbae794a6c750c275768e880272afc5ed135bbe015faa119b3",
-    "corpus_fingerprint": "b34eada0528d1f08cf14515fe5c823b8c2bd939058256c136e85756b622663e0",
+    "corpus_fingerprint": "e6179e7b36d021193422af3ff034919a8b10530b4bff31c576c176cb74a9f7a4",
     "embedding_model": "voyage-3"
   },
   "results": [
@@ -555,15 +555,15 @@
         "220",
         "218",
         "16",
-        "260",
-        "150"
+        "150",
+        "217"
       ],
       "scores": [
         0.357285,
         0.329425,
         0.326678,
-        0.299889,
-        0.296089
+        0.296089,
+        0.282924
       ]
     },
     {
