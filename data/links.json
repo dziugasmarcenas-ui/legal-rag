@@ -1,8 +1,8 @@
 {
  "generated_by": "link_graph.py",
  "articles_linked": 137,
- "edges": 399,
- "case_edges": 23,
+ "edges": 406,
+ "case_edges": 30,
  "cases": [
   {
    "case": "Hoppen p. Lietuvą",
@@ -103,6 +103,13 @@
    "url": "https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/723e6e01d0b911e6a476d5908abd2210"
   },
   {
+   "case": "KT nutarimas, byla Nr. 11/2018",
+   "court": "LR KT",
+   "application": "11/2018",
+   "date": "2019-10-31",
+   "url": "https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/771d0600fc1e11e993cb8c8daaf8ff8a"
+  },
+  {
    "case": "KT nutarimas, byla Nr. 4/2017",
    "court": "LR KT",
    "application": "4/2017",
@@ -115,6 +122,13 @@
    "application": "9/02",
    "date": "2005-02-07",
    "url": "https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/TAIS.250058"
+  },
+  {
+   "case": "KT nutarimas, byla Nr. 15/05",
+   "court": "LR KT",
+   "application": "15/05",
+   "date": "2007-12-07",
+   "url": "https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/TAIS.311087"
   },
   {
    "case": "KT nutarimas, byla Nr. 56/06",
@@ -164,9 +178,23 @@
    "application": "138/2010",
    "date": "2013-12-11",
    "url": "https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/TAIS.462199"
+  },
+  {
+   "case": "KT nutarimas, byla Nr. 8/2021",
+   "court": "LR KT",
+   "application": "8/2021",
+   "date": "2022-05-19",
+   "url": "https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/a8c7eed0d7aa11ecb1b39d276e924a5d"
+  },
+  {
+   "case": "KT nutarimas, byla Nr. 15/2021",
+   "court": "LR KT",
+   "application": "15/2021",
+   "date": "2022-07-07",
+   "url": "https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/f9d5a912fe2f11ecbfe9c72e552dd5bd"
   }
  ],
- "case_count": 23,
+ "case_count": 27,
  "links": {
   "204": [
    {
@@ -908,6 +936,15 @@
     "citation": "VDI paaiškinimas Nr. 59",
     "act_id": "vdi-faq",
     "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "case",
+    "source": "LR KT",
+    "citation": "KT nutarimas, byla Nr. 15/05",
+    "application": "15/05",
+    "date": "2007-12-07",
+    "url": "https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/TAIS.311087",
+    "act_id": "kt-15/05"
    }
   ],
   "22": [
@@ -949,6 +986,15 @@
     "date": "",
     "url": "https://hudoc.echr.coe.int/eng?i=001-207824",
     "act_id": "001-207824"
+   },
+   {
+    "kind": "case",
+    "source": "LR KT",
+    "citation": "KT nutarimas, byla Nr. 15/05",
+    "application": "15/05",
+    "date": "2007-12-07",
+    "url": "https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/TAIS.311087",
+    "act_id": "kt-15/05"
    }
   ],
   "108": [
@@ -1052,6 +1098,15 @@
     "citation": "SADM paaiškinimas Nr. 27",
     "act_id": "sadm-faq",
     "url": "https://socmin.lrv.lt/lt/duk/"
+   },
+   {
+    "kind": "case",
+    "source": "LR KT",
+    "citation": "KT nutarimas, byla Nr. 15/05",
+    "application": "15/05",
+    "date": "2007-12-07",
+    "url": "https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/TAIS.311087",
+    "act_id": "kt-15/05"
    }
   ],
   "171": [
@@ -1091,6 +1146,15 @@
     "citation": "VDI paaiškinimas Nr. 54",
     "act_id": "vdi-faq",
     "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "case",
+    "source": "LR KT",
+    "citation": "KT nutarimas, byla Nr. 15/05",
+    "application": "15/05",
+    "date": "2007-12-07",
+    "url": "https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/TAIS.311087",
+    "act_id": "kt-15/05"
    }
   ],
   "167": [
@@ -1900,6 +1964,15 @@
     "citation": "Seimo komiteto išvada Nr. 6, 5 fragmentas",
     "act_id": "committee-380de630d65311f0948bfb5fa1e0c51b",
     "url": "https://e-seimas.lrs.lt/portal/documentSearch/lt"
+   },
+   {
+    "kind": "case",
+    "source": "LR KT",
+    "citation": "KT nutarimas, byla Nr. 15/05",
+    "application": "15/05",
+    "date": "2007-12-07",
+    "url": "https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/TAIS.311087",
+    "act_id": "kt-15/05"
    },
    {
     "kind": "case",
@@ -2840,6 +2913,15 @@
     "citation": "SADM paaiškinimas Nr. 25",
     "act_id": "sadm-faq",
     "url": "https://socmin.lrv.lt/lt/duk/"
+   },
+   {
+    "kind": "case",
+    "source": "LR KT",
+    "citation": "KT nutarimas, byla Nr. 15/05",
+    "application": "15/05",
+    "date": "2007-12-07",
+    "url": "https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/TAIS.311087",
+    "act_id": "kt-15/05"
    }
   ],
   "59": [
@@ -3226,7 +3308,16 @@
     "act_id": "001-159885"
    }
   ],
-  "145": [
+  "2": [
+   {
+    "kind": "case",
+    "source": "LR KT",
+    "citation": "KT nutarimas, byla Nr. 15/05",
+    "application": "15/05",
+    "date": "2007-12-07",
+    "url": "https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/TAIS.311087",
+    "act_id": "kt-15/05"
+   },
    {
     "kind": "case",
     "source": "LR KT",
@@ -3237,7 +3328,7 @@
     "act_id": "kt-44/2009"
    }
   ],
-  "2": [
+  "145": [
    {
     "kind": "case",
     "source": "LR KT",
