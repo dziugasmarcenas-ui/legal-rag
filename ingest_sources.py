@@ -32,6 +32,7 @@ import config
 import ingest_echr
 import ingest_eu
 import ingest_explanations
+import ingest_sadm
 import refresh_corpus
 
 MODEL = "voyage-3"
@@ -333,6 +334,10 @@ def main(argv=None):
     explanations = ingest_explanations.records()
     print(f"VDI paaiškinimai: {len(explanations)} chunks")
     records.extend(explanations)
+
+    sadm = ingest_sadm.records()
+    print(f"SADM paaiškinimai: {len(sadm)} chunks")
+    records.extend(sadm)
 
     eu = ingest_eu.records()
     print(f"EU directives: {len(eu)} chunks")

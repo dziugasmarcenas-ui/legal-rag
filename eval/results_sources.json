@@ -1,11 +1,11 @@
 {
  "summary": {
-  "hits": 24,
-  "total": 26,
-  "hit_rate": 0.923,
-  "term_hits": 23,
-  "term_total": 24,
-  "term_rate": 0.958
+  "hits": 26,
+  "total": 28,
+  "hit_rate": 0.929,
+  "term_hits": 25,
+  "term_total": 26,
+  "term_rate": 0.962
  },
  "rows": [
   {
@@ -29,7 +29,7 @@
    "delegated": [
     "Nutarimas Nr. 496",
     "Nutarimas Nr. 496",
-    "Nutarimas Nr. 496"
+    "VDI paaiškinimas"
    ],
    "top": "Nutarimas Nr. 496, 3 p.",
    "hit": true,
@@ -309,7 +309,7 @@
    "delegated": [
     "VDI paaiškinimas",
     "VDI paaiškinimas",
-    "VDI paaiškinimas"
+    "SADM paaiškinimas"
    ],
    "top": "VDI paaiškinimas Nr. 2",
    "hit": true,
@@ -371,6 +371,34 @@
    "hit": true,
    "expect": null,
    "term_hit": null
+  },
+  {
+   "id": 28,
+   "question": "Koks yra socialinės pašalpos dydis?",
+   "expected": "SADM paaiškinimas",
+   "delegated": [
+    "SADM paaiškinimas",
+    "SADM paaiškinimas",
+    "SADM paaiškinimas"
+   ],
+   "top": "SADM paaiškinimas Nr. 2",
+   "hit": true,
+   "expect": "dyd",
+   "term_hit": true
+  },
+  {
+   "id": 29,
+   "question": "Kur kreiptis dėl socialinės pašalpos gavimo?",
+   "expected": "SADM paaiškinimas",
+   "delegated": [
+    "SADM paaiškinimas",
+    "SADM paaiškinimas",
+    "SADM paaiškinimas"
+   ],
+   "top": "SADM paaiškinimas Nr. 5",
+   "hit": true,
+   "expect": "savivaldyb",
+   "term_hit": true
   }
  ]
 }

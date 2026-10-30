@@ -187,6 +187,7 @@ def corpus_info() -> dict:
         "links": {
             "articles_linked": link_graph.load()["articles_linked"],
             "edges": link_graph.load()["edges"],
+            "case_edges": link_graph.load().get("case_edges", 0),
             "note": "get_article reports the delegated provisions that cite it",
         },
         "history": (
@@ -309,7 +310,14 @@ def get_article(article: str, as_of_date: str | None = None) -> dict:
                 "parts": _parts(record),
                 # The acts that say "this article delegates to us". Extracted
                 # from their own text, never inferred.
-                "implemented_by": link_graph.load()["links"].get(wanted, [])[:10],
+                "implemented_by": [
+                    e for e in link_graph.load()["links"].get(wanted, [])
+                    if e.get("kind") != "case"
+                ][:10],
+                "cases_citing": [
+                    e for e in link_graph.load()["links"].get(wanted, [])
+                    if e.get("kind") == "case"
+                ][:10],
                 "edition": _indexed_edition(),
                 "corpus": _status(),
                 "disclaimer": DISCLAIMER,

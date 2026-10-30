@@ -236,18 +236,20 @@ def status_payload():
         if (Path(__file__).parent / "data" / "sources.json").exists()
         else []
     )
-    explanations = [r for r in sources if r.get("act_id") == "vdi-faq"]
+    explanations = [
+        r for r in sources if r.get("act_id") in ("vdi-faq", "sadm-faq")
+    ]
     eu = [r for r in sources if r["source"].startswith("Direktyva")]
     echr = [r for r in sources if r["source"].startswith("EŽTT")]
     acts = sorted({
         r["source"] for r in sources
-        if r.get("act_id") != "vdi-faq"
+        if r.get("act_id") not in ("vdi-faq", "sadm-faq")
         and not r["source"].startswith("Direktyva")
         and not r["source"].startswith("EŽTT")
     })
     stale = sorted({
         r["source"] for r in sources
-        if r.get("act_id") != "vdi-faq" and r["valid_to"] < today
+        if r.get("act_id") not in ("vdi-faq", "sadm-faq") and r["valid_to"] < today
     })
 
     quality_file = Path(__file__).parent / "data" / "quality.json"
@@ -274,9 +276,9 @@ def status_payload():
             "titles": acts,
         },
         "explanations": {
-            "items": len({r["citation"] for r in explanations}),
+            "items": len({(r["source"], r["citation"]) for r in explanations}),
             "chunks": len(explanations),
-            "source": "Valstybinė darbo inspekcija",
+            "institutions": sorted({r["source"] for r in explanations}),
         },
         "eu_law": {
             "directives": len({r["source"] for r in eu}),
@@ -293,6 +295,7 @@ def status_payload():
         "links": {
             "articles_linked": link_graph.load()["articles_linked"],
             "edges": link_graph.load()["edges"],
+            "case_edges": link_graph.load().get("case_edges", 0),
         },
         "evals": {
             "code_served": summary("code_served"),
@@ -323,11 +326,13 @@ def status_page():
     rows = "".join([
         row("Labour Code", f"{code['articles']} articles", f"edition to {code['edition_to']} — {badge}"),
         row("Delegated acts", f"{acts['acts']} acts", f"{acts['chunks']} chunks, {len(acts['stale'])} stale"),
-        row("VDI explanations", f"{data['explanations']['items']} answers", f"{data['explanations']['chunks']} chunks"),
+        row("Institution answers", f"{data['explanations']['items']} answers",
+            f"{data['explanations']['chunks']} chunks, {len(data['explanations']['institutions'])} institutions"),
         row("EU directives", f"{data['eu_law']['directives']} directives", f"{data['eu_law']['chunks']} chunks"),
         row("ECHR judgments", f"{data['echr']['judgments']} judgments", f"{data['echr']['chunks']} chunks"),
         row("Edition archive", f"{data['history']['editions']} editions", f"from {data['history']['from']}"),
-        row("Citation links", f"{data['links']['edges']} edges", f"across {data['links']['articles_linked']} articles"),
+        row("Citation links", f"{data['links']['edges']} edges",
+            f"across {data['links']['articles_linked']} articles, {data['links']['case_edges']} to cases"),
         row("Code accuracy", f"{served.get('served_hit1', 0):.3f} top-1", f"{served.get('served_hit_rate', 0):.3f} in top 3"),
         row("Refusals", f"{served.get('correct_refusal_rate', 0):.3f} correct", f"{served.get('false_refusal_rate', 0):.3f} false"),
         row("Delegated accuracy", f"{delegated.get('hit_rate', 0):.3f} right act", f"{delegated.get('term_rate', 0):.3f} with the answer"),

@@ -1,10 +1,12 @@
 {
  "generated_by": "link_graph.py",
- "articles_linked": 19,
- "edges": 25,
+ "articles_linked": 118,
+ "edges": 320,
+ "case_edges": 2,
  "links": {
   "204": [
    {
+    "kind": "provision",
     "source": "Nutarimas Nr. 496",
     "citation": "Nutarimas Nr. 496, 4 p.",
     "act_id": "76731a705b4711e79198ffdb108a3753",
@@ -13,36 +15,132 @@
   ],
   "113": [
    {
+    "kind": "provision",
     "source": "Nutarimas Nr. 496",
     "citation": "Nutarimas Nr. 496, 1 p.",
     "act_id": "76731a705b4711e79198ffdb108a3753",
     "url": "https://www.e-tar.lt/portal/lt/legalAct/76731a705b4711e79198ffdb108a3753"
    },
    {
+    "kind": "provision",
     "source": "Nutarimas Nr. 496",
     "citation": "Nutarimas Nr. 496, 4 p.",
     "act_id": "76731a705b4711e79198ffdb108a3753",
     "url": "https://www.e-tar.lt/portal/lt/legalAct/76731a705b4711e79198ffdb108a3753"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 64",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 103",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 123",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
    }
   ],
   "139": [
    {
+    "kind": "provision",
     "source": "Nutarimas Nr. 496",
     "citation": "Nutarimas Nr. 496, 1 p.",
     "act_id": "76731a705b4711e79198ffdb108a3753",
     "url": "https://www.e-tar.lt/portal/lt/legalAct/76731a705b4711e79198ffdb108a3753"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 72",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 79",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 162",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 163",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 187",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 189",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 190",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
    }
   ],
   "35": [
    {
+    "kind": "provision",
     "source": "Nutarimas Nr. 496",
     "citation": "Nutarimas Nr. 496, 8 p.",
     "act_id": "76731a705b4711e79198ffdb108a3753",
     "url": "https://www.e-tar.lt/portal/lt/legalAct/76731a705b4711e79198ffdb108a3753"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 64",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 101",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 102",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
    }
   ],
   "100": [
    {
+    "kind": "provision",
     "source": "Nutarimas Nr. 496",
     "citation": "Nutarimas Nr. 496, 1 p.",
     "act_id": "76731a705b4711e79198ffdb108a3753",
@@ -51,62 +149,357 @@
   ],
   "57": [
    {
+    "kind": "provision",
     "source": "Nutarimas Nr. 496",
     "citation": "Nutarimas Nr. 496, 4 p.",
     "act_id": "76731a705b4711e79198ffdb108a3753",
     "url": "https://www.e-tar.lt/portal/lt/legalAct/76731a705b4711e79198ffdb108a3753"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 71",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 73",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 76",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 96",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 210",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 244",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "SADM paaiškinimas",
+    "citation": "SADM paaiškinimas Nr. 20",
+    "act_id": "sadm-faq",
+    "url": "https://socmin.lrv.lt/lt/duk/"
+   },
+   {
+    "kind": "provision",
+    "source": "SADM paaiškinimas",
+    "citation": "SADM paaiškinimas Nr. 109",
+    "act_id": "sadm-faq",
+    "url": "https://socmin.lrv.lt/lt/duk/"
+   },
+   {
+    "kind": "provision",
+    "source": "SADM paaiškinimas",
+    "citation": "SADM paaiškinimas Nr. 112",
+    "act_id": "sadm-faq",
+    "url": "https://socmin.lrv.lt/lt/duk/"
    }
   ],
   "41": [
    {
+    "kind": "provision",
     "source": "Nutarimas Nr. 496",
     "citation": "Nutarimas Nr. 496, 1 p.",
     "act_id": "76731a705b4711e79198ffdb108a3753",
     "url": "https://www.e-tar.lt/portal/lt/legalAct/76731a705b4711e79198ffdb108a3753"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 90",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
    }
   ],
   "122": [
    {
+    "kind": "provision",
     "source": "Nutarimas Nr. 496",
     "citation": "Nutarimas Nr. 496, 1 p.",
     "act_id": "76731a705b4711e79198ffdb108a3753",
     "url": "https://www.e-tar.lt/portal/lt/legalAct/76731a705b4711e79198ffdb108a3753"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 64",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 97",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 107",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 113",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 116",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 122",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 123",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 161",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 212",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
    }
   ],
   "138": [
    {
+    "kind": "provision",
     "source": "Nutarimas Nr. 496",
     "citation": "Nutarimas Nr. 496, 1 p.",
     "act_id": "76731a705b4711e79198ffdb108a3753",
     "url": "https://www.e-tar.lt/portal/lt/legalAct/76731a705b4711e79198ffdb108a3753"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 127",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 135",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 136",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 137",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 145",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 146",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 150",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 151",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "SADM paaiškinimas",
+    "citation": "SADM paaiškinimas Nr. 28",
+    "act_id": "sadm-faq",
+    "url": "https://socmin.lrv.lt/lt/duk/"
+   },
+   {
+    "kind": "provision",
+    "source": "SADM paaiškinimas",
+    "citation": "SADM paaiškinimas Nr. 260",
+    "act_id": "sadm-faq",
+    "url": "https://socmin.lrv.lt/lt/duk/"
    }
   ],
   "127": [
    {
+    "kind": "provision",
     "source": "Nutarimas Nr. 496",
     "citation": "Nutarimas Nr. 496, 2 p.",
     "act_id": "76731a705b4711e79198ffdb108a3753",
     "url": "https://www.e-tar.lt/portal/lt/legalAct/76731a705b4711e79198ffdb108a3753"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 77",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 82",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 128",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 130",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 141",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 146",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 149",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 157",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 198",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "SADM paaiškinimas",
+    "citation": "SADM paaiškinimas Nr. 22",
+    "act_id": "sadm-faq",
+    "url": "https://socmin.lrv.lt/lt/duk/"
    }
   ],
   "121": [
    {
+    "kind": "provision",
     "source": "Nutarimas Nr. 496",
     "citation": "Nutarimas Nr. 496, 1 p.",
     "act_id": "76731a705b4711e79198ffdb108a3753",
     "url": "https://www.e-tar.lt/portal/lt/legalAct/76731a705b4711e79198ffdb108a3753"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 161",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
    }
   ],
   "44": [
    {
+    "kind": "provision",
     "source": "Nutarimas Nr. 496",
     "citation": "Nutarimas Nr. 496, 16 p.",
     "act_id": "76731a705b4711e79198ffdb108a3753",
     "url": "https://www.e-tar.lt/portal/lt/legalAct/76731a705b4711e79198ffdb108a3753"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 214",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
    }
   ],
   "79": [
    {
+    "kind": "provision",
     "source": "Nutarimas Nr. 496",
     "citation": "Nutarimas Nr. 496, 6 p.",
     "act_id": "76731a705b4711e79198ffdb108a3753",
@@ -115,6 +508,7 @@
   ],
   "221": [
    {
+    "kind": "provision",
     "source": "SADM įsakymas A1-344",
     "citation": "SADM įsakymas A1-344, įžanga",
     "act_id": "935f0d105cdc11e79198ffdb108a3753",
@@ -123,18 +517,21 @@
   ],
   "226": [
    {
+    "kind": "provision",
     "source": "SADM įsakymas A1-344",
     "citation": "SADM įsakymas A1-344, 12 p.",
     "act_id": "935f0d105cdc11e79198ffdb108a3753",
     "url": "https://www.e-tar.lt/portal/lt/legalAct/935f0d105cdc11e79198ffdb108a3753"
    },
    {
+    "kind": "provision",
     "source": "SADM įsakymas A1-344",
     "citation": "SADM įsakymas A1-344, 9 p.",
     "act_id": "935f0d105cdc11e79198ffdb108a3753",
     "url": "https://www.e-tar.lt/portal/lt/legalAct/935f0d105cdc11e79198ffdb108a3753"
    },
    {
+    "kind": "provision",
     "source": "SADM įsakymas A1-344",
     "citation": "SADM įsakymas A1-344, 13 p.",
     "act_id": "935f0d105cdc11e79198ffdb108a3753",
@@ -143,24 +540,28 @@
   ],
   "228": [
    {
+    "kind": "provision",
     "source": "SADM įsakymas A1-344",
     "citation": "SADM įsakymas A1-344, 13 p.",
     "act_id": "935f0d105cdc11e79198ffdb108a3753",
     "url": "https://www.e-tar.lt/portal/lt/legalAct/935f0d105cdc11e79198ffdb108a3753"
    },
    {
+    "kind": "provision",
     "source": "SADM įsakymas A1-344",
     "citation": "SADM įsakymas A1-344, 14 p.",
     "act_id": "935f0d105cdc11e79198ffdb108a3753",
     "url": "https://www.e-tar.lt/portal/lt/legalAct/935f0d105cdc11e79198ffdb108a3753"
    },
    {
+    "kind": "provision",
     "source": "SADM įsakymas A1-344",
     "citation": "SADM įsakymas A1-344, 18 p.",
     "act_id": "935f0d105cdc11e79198ffdb108a3753",
     "url": "https://www.e-tar.lt/portal/lt/legalAct/935f0d105cdc11e79198ffdb108a3753"
    },
    {
+    "kind": "provision",
     "source": "SADM įsakymas A1-344",
     "citation": "SADM įsakymas A1-344, 21 p.",
     "act_id": "935f0d105cdc11e79198ffdb108a3753",
@@ -169,6 +570,7 @@
   ],
   "215": [
    {
+    "kind": "provision",
     "source": "SADM įsakymas A1-344",
     "citation": "SADM įsakymas A1-344, 4 p.",
     "act_id": "935f0d105cdc11e79198ffdb108a3753",
@@ -177,6 +579,7 @@
   ],
   "224": [
    {
+    "kind": "provision",
     "source": "SADM įsakymas A1-344",
     "citation": "SADM įsakymas A1-344, 6 p.",
     "act_id": "935f0d105cdc11e79198ffdb108a3753",
@@ -185,10 +588,1898 @@
   ],
   "223": [
    {
+    "kind": "provision",
     "source": "SADM įsakymas A1-344",
     "citation": "SADM įsakymas A1-344, 6 p.",
     "act_id": "935f0d105cdc11e79198ffdb108a3753",
     "url": "https://www.e-tar.lt/portal/lt/legalAct/935f0d105cdc11e79198ffdb108a3753"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 94",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   }
+  ],
+  "170": [
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 53",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 61",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "SADM paaiškinimas",
+    "citation": "SADM paaiškinimas Nr. 27",
+    "act_id": "sadm-faq",
+    "url": "https://socmin.lrv.lt/lt/duk/"
+   }
+  ],
+  "171": [
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 53",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 60",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 61",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 65",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   }
+  ],
+  "177": [
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 54",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   }
+  ],
+  "167": [
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 55",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   }
+  ],
+  "168": [
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 55",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   }
+  ],
+  "188": [
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 56",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   }
+  ],
+  "176": [
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 57",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 65",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   }
+  ],
+  "211": [
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 59",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   }
+  ],
+  "210": [
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 59",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   }
+  ],
+  "165": [
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 59",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   }
+  ],
+  "190": [
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 62",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   }
+  ],
+  "187": [
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 62",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   }
+  ],
+  "193": [
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 62",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 64",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 192",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   }
+  ],
+  "119": [
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 64",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 109",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 121",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 124",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 199",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   }
+  ],
+  "195": [
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 64",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "SADM paaiškinimas",
+    "citation": "SADM paaiškinimas Nr. 73",
+    "act_id": "sadm-faq",
+    "url": "https://socmin.lrv.lt/lt/duk/"
+   }
+  ],
+  "114": [
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 64",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 97",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 101",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 113",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 116",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 122",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 123",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 212",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   }
+  ],
+  "124": [
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 64",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 103",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   }
+  ],
+  "120": [
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 64",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   }
+  ],
+  "112": [
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 64",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 109",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 112",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 121",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 122",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 123",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 134",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 150",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 199",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "SADM paaiškinimas",
+    "citation": "SADM paaiškinimas Nr. 4",
+    "act_id": "sadm-faq",
+    "url": "https://socmin.lrv.lt/lt/duk/"
+   }
+  ],
+  "216": [
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 64",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   }
+  ],
+  "202": [
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 64",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   }
+  ],
+  "173": [
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 65",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   }
+  ],
+  "60": [
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 66",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 210",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 244",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   }
+  ],
+  "101": [
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 67",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 100",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 140",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 179",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   }
+  ],
+  "34": [
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 67",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 85",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 88",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   }
+  ],
+  "61": [
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 70",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 71",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 96",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   }
+  ],
+  "63": [
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 71",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 73",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 87",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   }
+  ],
+  "62": [
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 71",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 73",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 210",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 244",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "SADM paaiškinimas",
+    "citation": "SADM paaiškinimas Nr. 109",
+    "act_id": "sadm-faq",
+    "url": "https://socmin.lrv.lt/lt/duk/"
+   },
+   {
+    "kind": "provision",
+    "source": "SADM paaiškinimas",
+    "citation": "SADM paaiškinimas Nr. 112",
+    "act_id": "sadm-faq",
+    "url": "https://socmin.lrv.lt/lt/duk/"
+   }
+  ],
+  "65": [
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 72",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   }
+  ],
+  "146": [
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 72",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 138",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 193",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   }
+  ],
+  "21": [
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 73",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   }
+  ],
+  "22": [
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 73",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   }
+  ],
+  "56": [
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 74",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 78",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 81",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 210",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 244",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   }
+  ],
+  "47": [
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 74",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 96",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 97",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   }
+  ],
+  "150": [
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 78",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 197",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   }
+  ],
+  "55": [
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 78",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 197",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 210",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 244",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   }
+  ],
+  "58": [
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 78",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 197",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 210",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 241",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 244",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 248",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   }
+  ],
+  "64": [
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 80",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   }
+  ],
+  "51": [
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 82",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   }
+  ],
+  "53": [
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 84",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 202",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 210",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   }
+  ],
+  "42": [
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 85",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "SADM paaiškinimas",
+    "citation": "SADM paaiškinimas Nr. 26",
+    "act_id": "sadm-faq",
+    "url": "https://socmin.lrv.lt/lt/duk/"
+   }
+  ],
+  "1": [
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 88",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   }
+  ],
+  "32": [
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 88",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   }
+  ],
+  "54": [
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 91",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 210",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 244",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   }
+  ],
+  "45": [
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 92",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 96",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 115",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   }
+  ],
+  "147": [
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 94",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 173",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "SADM paaiškinimas",
+    "citation": "SADM paaiškinimas Nr. 260",
+    "act_id": "sadm-faq",
+    "url": "https://socmin.lrv.lt/lt/duk/"
+   }
+  ],
+  "220": [
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 94",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   }
+  ],
+  "217": [
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 94",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   }
+  ],
+  "131": [
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 96",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "SADM paaiškinimas",
+    "citation": "SADM paaiškinimas Nr. 18",
+    "act_id": "sadm-faq",
+    "url": "https://socmin.lrv.lt/lt/duk/"
+   }
+  ],
+  "36": [
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 98",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 210",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 241",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 244",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   }
+  ],
+  "89": [
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 99",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   }
+  ],
+  "92": [
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 99",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 185",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   }
+  ],
+  "68": [
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 99",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 185",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   }
+  ],
+  "69": [
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 99",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 185",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 210",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 244",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "SADM paaiškinimas",
+    "citation": "SADM paaiškinimas Nr. 21",
+    "act_id": "sadm-faq",
+    "url": "https://socmin.lrv.lt/lt/duk/"
+   }
+  ],
+  "40": [
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 100",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 109",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 121",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 199",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "SADM paaiškinimas",
+    "citation": "SADM paaiškinimas Nr. 4",
+    "act_id": "sadm-faq",
+    "url": "https://socmin.lrv.lt/lt/duk/"
+   }
+  ],
+  "111": [
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 106",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 119",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 120",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   }
+  ],
+  "115": [
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 109",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 113",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 121",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 123",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 169",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   }
+  ],
+  "118": [
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 109",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 110",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 121",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   }
+  ],
+  "137": [
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 111",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 131",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 132",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   }
+  ],
+  "25": [
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 122",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 186",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 214",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 216",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   }
+  ],
+  "126": [
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 126",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 139",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 160",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "SADM paaiškinimas",
+    "citation": "SADM paaiškinimas Nr. 22",
+    "act_id": "sadm-faq",
+    "url": "https://socmin.lrv.lt/lt/duk/"
+   }
+  ],
+  "24": [
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 129",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   }
+  ],
+  "129": [
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 132",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "SADM paaiškinimas",
+    "citation": "SADM paaiškinimas Nr. 260",
+    "act_id": "sadm-faq",
+    "url": "https://socmin.lrv.lt/lt/duk/"
+   }
+  ],
+  "133": [
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 133",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   }
+  ],
+  "14": [
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 133",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   }
+  ],
+  "130": [
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 134",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 138",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   }
+  ],
+  "3": [
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 134",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "SADM paaiškinimas",
+    "citation": "SADM paaiškinimas Nr. 23",
+    "act_id": "sadm-faq",
+    "url": "https://socmin.lrv.lt/lt/duk/"
+   },
+   {
+    "kind": "provision",
+    "source": "SADM paaiškinimas",
+    "citation": "SADM paaiškinimas Nr. 25",
+    "act_id": "sadm-faq",
+    "url": "https://socmin.lrv.lt/lt/duk/"
+   }
+  ],
+  "107": [
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 140",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 175",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 188",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 214",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 222",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "SADM paaiškinimas",
+    "citation": "SADM paaiškinimas Nr. 29",
+    "act_id": "sadm-faq",
+    "url": "https://socmin.lrv.lt/lt/duk/"
+   }
+  ],
+  "144": [
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 140",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 165",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 167",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 170",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 172",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 175",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 177",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 179",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 189",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 204",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 207",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "SADM paaiškinimas",
+    "citation": "SADM paaiškinimas Nr. 23",
+    "act_id": "sadm-faq",
+    "url": "https://socmin.lrv.lt/lt/duk/"
+   }
+  ],
+  "134": [
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 147",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   }
+  ],
+  "135": [
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 155",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "SADM paaiškinimas",
+    "citation": "SADM paaiškinimas Nr. 260",
+    "act_id": "sadm-faq",
+    "url": "https://socmin.lrv.lt/lt/duk/"
+   }
+  ],
+  "33": [
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 162",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 172",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 192",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "SADM paaiškinimas",
+    "citation": "SADM paaiškinimas Nr. 26",
+    "act_id": "sadm-faq",
+    "url": "https://socmin.lrv.lt/lt/duk/"
+   }
+  ],
+  "117": [
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 167",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 200",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   }
+  ],
+  "141": [
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 171",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 172",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 191",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 196",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   }
+  ],
+  "96": [
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 186",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   }
+  ],
+  "140": [
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 192",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 195",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "SADM paaiškinimas",
+    "citation": "SADM paaiškinimas Nr. 260",
+    "act_id": "sadm-faq",
+    "url": "https://socmin.lrv.lt/lt/duk/"
+   }
+  ],
+  "148": [
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 194",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   }
+  ],
+  "132": [
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 197",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   }
+  ],
+  "52": [
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 201",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 219",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 222",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   }
+  ],
+  "154": [
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 203",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   }
+  ],
+  "30": [
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 208",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 240",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 242",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "SADM paaiškinimas",
+    "citation": "SADM paaiškinimas Nr. 14",
+    "act_id": "sadm-faq",
+    "url": "https://socmin.lrv.lt/lt/duk/"
+   },
+   {
+    "kind": "provision",
+    "source": "SADM paaiškinimas",
+    "citation": "SADM paaiškinimas Nr. 25",
+    "act_id": "sadm-faq",
+    "url": "https://socmin.lrv.lt/lt/duk/"
+   }
+  ],
+  "59": [
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 210",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 244",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "case",
+    "source": "EŽTT",
+    "citation": "Hoppen p. Lietuvą",
+    "date": "",
+    "url": "https://hudoc.echr.coe.int/eng?i=001-207824",
+    "act_id": "001-207824"
+   }
+  ],
+  "104": [
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 210",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 244",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   }
+  ],
+  "37": [
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 215",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   }
+  ],
+  "29": [
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 215",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   }
+  ],
+  "128": [
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 216",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   }
+  ],
+  "213": [
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 249",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   }
+  ],
+  "200": [
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 249",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   }
+  ],
+  "7": [
+   {
+    "kind": "provision",
+    "source": "SADM paaiškinimas",
+    "citation": "SADM paaiškinimas Nr. 21",
+    "act_id": "sadm-faq",
+    "url": "https://socmin.lrv.lt/lt/duk/"
+   }
+  ],
+  "206": [
+   {
+    "kind": "provision",
+    "source": "SADM paaiškinimas",
+    "citation": "SADM paaiškinimas Nr. 25",
+    "act_id": "sadm-faq",
+    "url": "https://socmin.lrv.lt/lt/duk/"
+   }
+  ],
+  "31": [
+   {
+    "kind": "provision",
+    "source": "SADM paaiškinimas",
+    "citation": "SADM paaiškinimas Nr. 26",
+    "act_id": "sadm-faq",
+    "url": "https://socmin.lrv.lt/lt/duk/"
+   }
+  ],
+  "169": [
+   {
+    "kind": "provision",
+    "source": "SADM paaiškinimas",
+    "citation": "SADM paaiškinimas Nr. 27",
+    "act_id": "sadm-faq",
+    "url": "https://socmin.lrv.lt/lt/duk/"
+   }
+  ],
+  "156": [
+   {
+    "kind": "provision",
+    "source": "SADM paaiškinimas",
+    "citation": "SADM paaiškinimas Nr. 260",
+    "act_id": "sadm-faq",
+    "url": "https://socmin.lrv.lt/lt/duk/"
+   }
+  ],
+  "159": [
+   {
+    "kind": "provision",
+    "source": "SADM paaiškinimas",
+    "citation": "SADM paaiškinimas Nr. 260",
+    "act_id": "sadm-faq",
+    "url": "https://socmin.lrv.lt/lt/duk/"
+   }
+  ],
+  "180": [
+   {
+    "kind": "provision",
+    "source": "SADM paaiškinimas",
+    "citation": "SADM paaiškinimas Nr. 260",
+    "act_id": "sadm-faq",
+    "url": "https://socmin.lrv.lt/lt/duk/"
+   }
+  ],
+  "181": [
+   {
+    "kind": "provision",
+    "source": "SADM paaiškinimas",
+    "citation": "SADM paaiškinimas Nr. 260",
+    "act_id": "sadm-faq",
+    "url": "https://socmin.lrv.lt/lt/duk/"
+   }
+  ],
+  "253": [
+   {
+    "kind": "provision",
+    "source": "SADM paaiškinimas",
+    "citation": "SADM paaiškinimas Nr. 260",
+    "act_id": "sadm-faq",
+    "url": "https://socmin.lrv.lt/lt/duk/"
+   }
+  ],
+  "72": [
+   {
+    "kind": "provision",
+    "source": "SADM paaiškinimas",
+    "citation": "SADM paaiškinimas Nr. 278",
+    "act_id": "sadm-faq",
+    "url": "https://socmin.lrv.lt/lt/duk/"
+   }
+  ],
+  "161": [
+   {
+    "kind": "case",
+    "source": "EŽTT",
+    "citation": "Hoppen p. Lietuvą",
+    "date": "",
+    "url": "https://hudoc.echr.coe.int/eng?i=001-207824",
+    "act_id": "001-207824"
    }
   ]
  }

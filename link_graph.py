@@ -29,6 +29,15 @@ REFERENCE = re.compile(
     re.IGNORECASE,
 )
 
+# Strasbourg judgments cite Lithuanian provisions in English: "Article 59 of the
+# Labour Code". That is textual evidence for an edge, so it is extracted.
+CASE_REFERENCE = re.compile(
+    r"Article\s+(\d{1,3}(?:-\d{1,2})?)\s+of\s+the\s+(?:Lithuanian\s+)?Labour\s+Code",
+    re.IGNORECASE,
+)
+
+CASE_SOURCES = ("EŽTT sprendimas",)
+
 
 def build(articles=None, records=None):
     articles = articles if articles is not None else json.loads(
@@ -41,6 +50,26 @@ def build(articles=None, records=None):
 
     links = {}
     for record in records:
+        if record["source"] in CASE_SOURCES:
+            # Cases are linked by metadata only: title, court, date, URL. The
+            # graph does not depend on redistributing judgment text.
+            for match in CASE_REFERENCE.finditer(record["text"]):
+                identifier = match.group(1)
+                if identifier not in known:
+                    continue
+                entry = links.setdefault(identifier, [])
+                if any(e.get("citation") == record["act_title"] for e in entry):
+                    continue
+                entry.append({
+                    "kind": "case",
+                    "source": "EŽTT",
+                    "citation": record["act_title"],
+                    "date": record.get("act_date", ""),
+                    "url": record["url"],
+                    "act_id": record["act_id"],
+                })
+            continue
+
         for match in REFERENCE.finditer(record["text"]):
             identifier = match.group(1)
             if identifier not in known:
@@ -51,16 +80,20 @@ def build(articles=None, records=None):
             if any(e["citation"] == record["citation"] for e in entry):
                 continue
             entry.append({
+                "kind": "provision",
                 "source": record["source"],
                 "citation": record["citation"],
                 "act_id": record["act_id"],
                 "url": record["url"],
             })
 
+    edges = sum(len(v) for v in links.values())
+    cases = sum(1 for v in links.values() for e in v if e.get("kind") == "case")
     return {
         "generated_by": "link_graph.py",
         "articles_linked": len(links),
-        "edges": sum(len(v) for v in links.values()),
+        "edges": edges,
+        "case_edges": cases,
         "links": links,
     }
 

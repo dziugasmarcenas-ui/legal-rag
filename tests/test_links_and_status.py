@@ -78,6 +78,9 @@ def test_status_reports_coverage_freshness_and_measured_quality():
     assert payload["history"]["editions"] == 41
     assert payload["evals"]["code_served"]["served_hit1"] == 0.92
     assert payload["evals"]["delegated"]["term_rate"] >= 0.9
-    assert payload["explanations"]["items"] >= 200
+    assert payload["explanations"]["items"] >= 500
+    assert len(payload["explanations"]["institutions"]) >= 2
     assert payload["eu_law"]["directives"] >= 5
     assert payload["echr"]["judgments"] >= 3
+    assert payload["links"]["edges"] >= 300
+    assert payload["links"]["case_edges"] >= 2

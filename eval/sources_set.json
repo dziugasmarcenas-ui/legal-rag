@@ -154,5 +154,17 @@
   "question": "Ar profesinės sąjungos narių atleidimas gali būti pripažintas diskriminaciniu?",
   "expected": "EŽTT sprendimas",
   "expect": null
+ },
+ {
+  "id": 28,
+  "question": "Koks yra socialinės pašalpos dydis?",
+  "expected": "SADM paaiškinimas",
+  "expect": "dyd"
+ },
+ {
+  "id": 29,
+  "question": "Kur kreiptis dėl socialinės pašalpos gavimo?",
+  "expected": "SADM paaiškinimas",
+  "expect": "savivaldyb"
  }
 ]

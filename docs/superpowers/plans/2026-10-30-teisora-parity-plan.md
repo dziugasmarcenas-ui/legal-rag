@@ -128,8 +128,10 @@ and its quality gates are in `ingest_seimas.py` with tests, waiting for a clean
 export (DOCX/HTML) or an official feed.
 
 ECHR is ingested (3 Lithuanian
-judgments, 130 fragments via HUDOC). Remaining: explanations beyond VDI, Seimas
-drafts and committee transcripts, and the citation graph extended to cases. EU law is ingested (five directives via the Cellar endpoint). The public status page is the endpoint, not yet a UI.
+judgments, 130 fragments via HUDOC). SADM's FAQ adds a second institution
+(299 answers). The citation graph now covers cases as links-only metadata
+(2 ECHR edges; no judgment text needed for the graph). Remaining: Seimas drafts
+and committee transcripts, blocked on a clean export. EU law is ingested (five directives via the Cellar endpoint). The public status page is the endpoint, not yet a UI.
 
 
 - Institution explanations beyond VDI; Seimas drafts and committee transcripts;
