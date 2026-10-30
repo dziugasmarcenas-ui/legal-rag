@@ -638,9 +638,10 @@ chunks**), cited as `Seimo projektas be numerio, 1 str.`, and labelled as drafts
 the prompt must say a draft is not adopted law, and the gate never lets a draft
 decide an answer.
 
-Committee and plenary transcripts remain **blocked**: the PDFs split words per
-syllable ("La bai ačiū už klau si mą"), and two collections tested both scored a
-0.41 two-letter-token ratio. `ingest_seimas.py` and its tests wait for a clean
+Committee and plenary transcripts remain **blocked**: every PDF from lrs.lt
+splits words per syllable ("La bai ačiū už klau si mą"). Three collections and
+the per-sitting "e. leidiniai" editions were tested; the per-sitting PDF scored a
+0.354 two-letter-token ratio on its first twelve pages, the same defect. `ingest_seimas.py` and its tests wait for a clean
 export.
 
 ## Citation graph and status

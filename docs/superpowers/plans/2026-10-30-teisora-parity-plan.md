@@ -133,10 +133,12 @@ article-level case edges, all 9 judgments indexed as metadata nodes). SADM's FAQ
 answers). The citation graph now covers cases as links-only metadata
 (2 ECHR edges; no judgment text needed for the graph). Seimas draft acts are ingested via the
 e-seimas TAP route (3 drafts, 9 chunks, clean DOCX). Committee and plenary
-transcripts remain blocked: the PDF text layer is broken, committee pages carry
-no transcript link (only agenda links), Sodra's benefit sitemap URLs return 404
-and Užimtumo tarnyba's FAQ renders client-side, so no third clean route was
-found. The parser is ready for a clean export. EU law is ingested (five directives via the Cellar endpoint). The public status page is the endpoint, not yet a UI.
+transcripts remain blocked after every route: multi-sitting collections
+(p_r=39771), the "e. leidiniai" year pages (p_r=39772 → p_r=38686) with
+per-sitting editions, committee pages (agenda links only), and getFile4/5 /
+p_fmt=2 (404). The per-sitting PDF scored a 0.354 two-letter-token ratio, the
+same syllable-split layer as the collections. A clean DOCX/HTML export is the
+only remaining requirement. The parser is ready for a clean export. EU law is ingested (five directives via the Cellar endpoint). The public status page is the endpoint, not yet a UI.
 
 
 - Institution explanations beyond VDI; Seimas drafts and committee transcripts;
