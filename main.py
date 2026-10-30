@@ -239,11 +239,15 @@ def status_payload():
     acts = sorted({r["source"] for r in sources})
     stale = sorted({r["source"] for r in sources if r["valid_to"] < today})
 
+    quality_file = Path(__file__).parent / "data" / "quality.json"
+    quality = (
+        json.loads(quality_file.read_text(encoding="utf-8"))
+        if quality_file.exists()
+        else {}
+    )
+
     def summary(name):
-        path = Path(__file__).parent / "eval" / name
-        if not path.exists():
-            return None
-        return json.loads(path.read_text(encoding="utf-8")).get("summary")
+        return quality.get(name)
 
     return {
         "code": {
@@ -267,8 +271,8 @@ def status_payload():
             "edges": link_graph.load()["edges"],
         },
         "evals": {
-            "code_served": summary("results_serving.json"),
-            "delegated": summary("results_sources.json"),
+            "code_served": summary("code_served"),
+            "delegated": summary("delegated"),
         },
     }
 

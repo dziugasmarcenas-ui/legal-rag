@@ -1,0 +1,22 @@
+{
+ "code_served": {
+  "questions": 30,
+  "answerable": 25,
+  "unanswerable": 5,
+  "candidates": 10,
+  "served_k": 3,
+  "served_hit1": 0.92,
+  "served_hit_rate": 0.96,
+  "false_refusal_rate": 0.0,
+  "correct_refusal_rate": 0.8,
+  "answered": 27
+ },
+ "delegated": {
+  "hits": 20,
+  "total": 20,
+  "hit_rate": 1.0,
+  "term_hits": 18,
+  "term_total": 19,
+  "term_rate": 0.947
+ }
+}
