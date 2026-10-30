@@ -89,11 +89,28 @@ def rerank(question, results, client):
     return ordered
 
 
-def retrieve(question, k=5, use_rerank=True):
+# The served configuration, defined once.
+#
+# `candidates` is how many articles cosine search pulls in. `k` is how many the
+# caller sees. Reranking only reorders what it is given, so reranking 3 of them
+# is not the same product as reranking 10 and showing 3 -- and the second is what
+# the benchmark measured. The API and the eval both call `retrieve()` with no
+# arguments, so these two numbers cannot drift between them.
+#
+# Raising candidates costs one rerank call on a few more short documents, which
+# is noise next to the generation call.
+SERVED_CANDIDATES = 10
+SERVED_K = 3
+
+
+def retrieve(question, k=SERVED_K, candidates=SERVED_CANDIDATES, use_rerank=True):
     """
     Turn a text question into an embedding,
     compare it against the corpus,
     and return the k best articles.
+
+    `candidates` must be at least `k`; more candidates than that only gives the
+    reranker more to reorder, and never changes how many are returned.
 
     Two scores come back on every result, deliberately named rather than a
     single ambiguous "score":
@@ -124,8 +141,8 @@ def retrieve(question, k=5, use_rerank=True):
 
     results = []
 
-    # Get the best k article rows
-    for row in top_k(scores, k):
+    # Get the best candidate rows; the reranker decides which k survive.
+    for row in top_k(scores, max(candidates, k)):
         article = ARTICLES[row]
 
         results.append({
@@ -140,7 +157,9 @@ def retrieve(question, k=5, use_rerank=True):
     if use_rerank:
         results = rerank(question, results, client)
 
-    return results
+    # Reranking returns all candidates in relevance order; the caller asked for
+    # k of them, and the gate reads the best score across what is returned.
+    return results[:k]
 
 
 if __name__ == "__main__":
@@ -151,7 +170,7 @@ if __name__ == "__main__":
             'Usage: python retrieval.py "your question here"'
         )
 
-    for result in retrieve(question, k=5):
+    for result in retrieve(question, k=5, candidates=10):
         rr = result["rerank_score"]
         print(
             f"rerank {rr:.4f}  cos {result['cosine_score']:.4f}  "

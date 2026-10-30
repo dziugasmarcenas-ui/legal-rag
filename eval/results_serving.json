@@ -1,0 +1,895 @@
+{
+ "key": {
+  "golden_hash": "aca238241f5555bbae794a6c750c275768e880272afc5ed135bbe015faa119b3",
+  "corpus_fingerprint": "b34eada0528d1f08cf14515fe5c823b8c2bd939058256c136e85756b622663e0",
+  "embedding_model": "voyage-3",
+  "rerank_model": "rerank-2.5",
+  "candidates": 10,
+  "k": 3
+ },
+ "rows": [
+  {
+   "id": 1,
+   "question": "Bandomasis jau eina ketvirtą mėnesį. Kiek išvis darbdavys gali laikyti bandomajam?",
+   "answerable": true,
+   "expected": [
+    "36"
+   ],
+   "retrieved": [
+    "36",
+    "68",
+    "69"
+   ],
+   "citations": [
+    "36",
+    "68",
+    "69"
+   ],
+   "scores": [
+    0.7269957661628723,
+    0.5098493099212646,
+    0.44604092836380005
+   ],
+   "cosine": [
+    0.47544386982917786,
+    0.4713342487812042,
+    0.39949458837509155
+   ],
+   "refused": false
+  },
+  {
+   "id": 2,
+   "question": "Pasirašiau darbo sutartį, bet joje nėra parašyta, kur tiksliai mano darbo vieta. Ar taip gali būti?",
+   "answerable": true,
+   "expected": [
+    "34",
+    "44"
+   ],
+   "retrieved": [
+    "34",
+    "33",
+    "21"
+   ],
+   "citations": [
+    "34",
+    "33",
+    "21"
+   ],
+   "scores": [
+    0.7994783520698547,
+    0.6080455780029297,
+    0.5500167608261108
+   ],
+   "cosine": [
+    0.4597701132297516,
+    0.41063418984413147,
+    0.3695642352104187
+   ],
+   "refused": false
+  },
+  {
+   "id": 3,
+   "question": "Vadovė nori mane perkelti dirbti į kitą miestą, o aš nesutinku. Ar gali tiesiog pakeisti darbo vietą be mano sutikimo?",
+   "answerable": true,
+   "expected": [
+    "45"
+   ],
+   "retrieved": [
+    "45",
+    "46",
+    "51"
+   ],
+   "citations": [
+    "45",
+    "46",
+    "51"
+   ],
+   "scores": [
+    0.8897908926010132,
+    0.5878801345825195,
+    0.5664829611778259
+   ],
+   "cosine": [
+    0.5246025323867798,
+    0.3681849241256714,
+    0.33492645621299744
+   ],
+   "refused": false
+  },
+  {
+   "id": 4,
+   "question": "Jau trečią kartą duoda terminuotą sutartį tai pačiai pozicijai, tarp jų buvo tik kelių savaičių tarpai. Bendrai taip dirbu virš 2 metų. Ar čia galima?",
+   "answerable": true,
+   "expected": [
+    "68"
+   ],
+   "retrieved": [
+    "68",
+    "72",
+    "69"
+   ],
+   "citations": [
+    "68",
+    "72",
+    "69"
+   ],
+   "scores": [
+    0.8429205417633057,
+    0.7154259085655212,
+    0.6953654885292053
+   ],
+   "cosine": [
+    0.5207433700561523,
+    0.40604591369628906,
+    0.4103623032569885
+   ],
+   "refused": false
+  },
+  {
+   "id": 5,
+   "question": "Dirbu 12 valandų pamainą ir po 8 valandų vėl liepia ateiti į darbą. Ar tiek poilsio užtenka?",
+   "answerable": true,
+   "expected": [
+    "114",
+    "122"
+   ],
+   "retrieved": [
+    "122",
+    "114",
+    "118"
+   ],
+   "citations": [
+    "122",
+    "114",
+    "118"
+   ],
+   "scores": [
+    0.796875,
+    0.6875,
+    0.640625
+   ],
+   "cosine": [
+    0.501275897026062,
+    0.39894771575927734,
+    0.42443108558654785
+   ],
+   "refused": false
+  },
+  {
+   "id": 6,
+   "question": "Dirbu pamainomis ir vakar vakare pakeitė grafiką, kad šiandien turiu ateiti į darbą. Ar grafiką galima taip keisti paskutinę minutę?",
+   "answerable": true,
+   "expected": [
+    "115"
+   ],
+   "retrieved": [
+    "116",
+    "115",
+    "45"
+   ],
+   "citations": [
+    "116",
+    "115",
+    "45"
+   ],
+   "scores": [
+    0.7209805846214294,
+    0.7072906494140625,
+    0.5834375023841858
+   ],
+   "cosine": [
+    0.4708222448825836,
+    0.4341624975204468,
+    0.3611176013946533
+   ],
+   "refused": false
+  },
+  {
+   "id": 7,
+   "question": "Po darbo sako dar dvi valandas pasilikti, nes nespėjom visko padaryti. Ar gali liepti be mano sutikimo ir kaip už tas valandas turi mokėti?",
+   "answerable": true,
+   "expected": [
+    "119",
+    "144"
+   ],
+   "retrieved": [
+    "119",
+    "144",
+    "35"
+   ],
+   "citations": [
+    "119",
+    "144",
+    "35"
+   ],
+   "scores": [
+    0.6583754420280457,
+    0.5414407253265381,
+    0.5412750840187073
+   ],
+   "cosine": [
+    0.5047775506973267,
+    0.39177995920181274,
+    0.42558181285858154
+   ],
+   "refused": false
+  },
+  {
+   "id": 8,
+   "question": "Rytoj valstybinė šventė, bet šiandien dirbam įprastas 8 valandas. Ar diena prieš šventę neturėtų būti trumpesnė?",
+   "answerable": true,
+   "expected": [
+    "112"
+   ],
+   "retrieved": [
+    "112",
+    "123",
+    "144"
+   ],
+   "citations": [
+    "112",
+    "123",
+    "144"
+   ],
+   "scores": [
+    0.8047199249267578,
+    0.677943229675293,
+    0.6299445629119873
+   ],
+   "cosine": [
+    0.44023868441581726,
+    0.4287838935852051,
+    0.3809816241264343
+   ],
+   "refused": false
+  },
+  {
+   "id": 9,
+   "question": "Dirbu 5 dienas per savaitę. Kiek apmokamų laisvų dienų per metus man priklauso?",
+   "answerable": true,
+   "expected": [
+    "126"
+   ],
+   "retrieved": [
+    "126",
+    "130",
+    "138"
+   ],
+   "citations": [
+    "126",
+    "130",
+    "138"
+   ],
+   "scores": [
+    0.8356088399887085,
+    0.7397009134292603,
+    0.7280279994010925
+   ],
+   "cosine": [
+    0.5373789072036743,
+    0.4380396604537964,
+    0.43399032950401306
+   ],
+   "refused": false
+  },
+  {
+   "id": 10,
+   "question": "Išeinu iš darbo ir dar turiu 8 nepanaudotas atostogų dienas. Jos tiesiog dingsta ar už jas turi sumokėti?",
+   "answerable": true,
+   "expected": [
+    "127"
+   ],
+   "retrieved": [
+    "127",
+    "130",
+    "129"
+   ],
+   "citations": [
+    "127",
+    "130",
+    "129"
+   ],
+   "scores": [
+    0.7313827276229858,
+    0.6957302689552307,
+    0.647943377494812
+   ],
+   "cosine": [
+    0.4954226613044739,
+    0.46855515241622925,
+    0.447298526763916
+   ],
+   "refused": false
+  },
+  {
+   "id": 11,
+   "question": "Atostogos prasideda pirmadienį, o penktadienį dar negavau pinigų už jas. Kada darbdavys turi juos pervesti?",
+   "answerable": true,
+   "expected": [
+    "130"
+   ],
+   "retrieved": [
+    "130",
+    "146",
+    "147"
+   ],
+   "citations": [
+    "130",
+    "146",
+    "147"
+   ],
+   "scores": [
+    0.8087603449821472,
+    0.6100252866744995,
+    0.5361700654029846
+   ],
+   "cosine": [
+    0.45105743408203125,
+    0.4593714773654938,
+    0.4877503216266632
+   ],
+   "refused": false
+  },
+  {
+   "id": 12,
+   "question": "Vadovas sako, kad atostogas galiu imti tik po savaitę. Ar man nepriklauso bent kartą pasiimti dviejų savaičių iš eilės?",
+   "answerable": true,
+   "expected": [
+    "128"
+   ],
+   "retrieved": [
+    "128",
+    "126",
+    "137"
+   ],
+   "citations": [
+    "128",
+    "126",
+    "137"
+   ],
+   "scores": [
+    0.7093720436096191,
+    0.6159579157829285,
+    0.6046000123023987
+   ],
+   "cosine": [
+    0.427994966506958,
+    0.43547162413597107,
+    0.4795805811882019
+   ],
+   "refused": false
+  },
+  {
+   "id": 13,
+   "question": "Už gegužę algą darbdavys žada sumokėti tik liepos vidury. Ar gali atlyginimą taip vėluoti?",
+   "answerable": true,
+   "expected": [
+    "146",
+    "147"
+   ],
+   "retrieved": [
+    "147",
+    "219",
+    "50"
+   ],
+   "citations": [
+    "147",
+    "219",
+    "50"
+   ],
+   "scores": [
+    0.7131946682929993,
+    0.5990233421325684,
+    0.5713415741920471
+   ],
+   "cosine": [
+    0.4887911379337311,
+    0.4054609537124634,
+    0.37537676095962524
+   ],
+   "refused": false
+  },
+  {
+   "id": 14,
+   "question": "Per Jonines dirbau visą pamainą. Ar už tokią dieną turi mokėti daugiau negu paprastai?",
+   "answerable": true,
+   "expected": [
+    "123",
+    "144"
+   ],
+   "retrieved": [
+    "144",
+    "123",
+    "115"
+   ],
+   "citations": [
+    "144",
+    "123",
+    "115"
+   ],
+   "scores": [
+    0.7597507238388062,
+    0.6109461188316345,
+    0.5859526991844177
+   ],
+   "cosine": [
+    0.46100878715515137,
+    0.402357280254364,
+    0.35629385709762573
+   ],
+   "refused": false
+  },
+  {
+   "id": 15,
+   "question": "Darbdavys nuo algos nuskaičiavo 100 eurų už sugadintą prekę, nors aš nieko nesutikau mokėti. Ar jis gali taip tiesiog nuskaičiuoti?",
+   "answerable": true,
+   "expected": [
+    "150",
+    "151",
+    "156"
+   ],
+   "retrieved": [
+    "150",
+    "156",
+    "154"
+   ],
+   "citations": [
+    "150",
+    "156",
+    "154"
+   ],
+   "scores": [
+    0.6456665992736816,
+    0.5735139846801758,
+    0.4328528344631195
+   ],
+   "cosine": [
+    0.4514375925064087,
+    0.4718618392944336,
+    0.3929116725921631
+   ],
+   "refused": false
+  },
+  {
+   "id": 16,
+   "question": "Darbdavys niekada neduoda algalapio, tik įkrenta pinigai į sąskaitą. Ar jis neprivalo parodyti, už ką tiksliai man sumokėjo ir kiek valandų suskaičiavo?",
+   "answerable": true,
+   "expected": [
+    "148"
+   ],
+   "retrieved": [
+    "148",
+    "120",
+    "139"
+   ],
+   "citations": [
+    "148",
+    "120",
+    "139"
+   ],
+   "scores": [
+    0.7712748050689697,
+    0.5996168255805969,
+    0.5587973594665527
+   ],
+   "cosine": [
+    0.5623089075088501,
+    0.48746100068092346,
+    0.41908442974090576
+   ],
+   "refused": false
+  },
+  {
+   "id": 17,
+   "question": "Noriu išeiti iš darbo savo noru. Ar tikrai turiu dar 20 dienų atidirbti?",
+   "answerable": true,
+   "expected": [
+    "55"
+   ],
+   "retrieved": [
+    "55",
+    "64",
+    "65"
+   ],
+   "citations": [
+    "55",
+    "64",
+    "65"
+   ],
+   "scores": [
+    0.7070636749267578,
+    0.5943474769592285,
+    0.5769548416137695
+   ],
+   "cosine": [
+    0.40657472610473633,
+    0.4254818260669708,
+    0.417011022567749
+   ],
+   "refused": false
+  },
+  {
+   "id": 18,
+   "question": "Jau du mėnesius normaliai nemoka algos. Ar galiu dėl to išeiti greičiau ir ar man priklausytų išeitinė?",
+   "answerable": true,
+   "expected": [
+    "56"
+   ],
+   "retrieved": [
+    "56",
+    "50",
+    "60"
+   ],
+   "citations": [
+    "56",
+    "50",
+    "60"
+   ],
+   "scores": [
+    0.859099805355072,
+    0.7982650399208069,
+    0.5839253664016724
+   ],
+   "cosine": [
+    0.4040863513946533,
+    0.3983095586299896,
+    0.38622474670410156
+   ],
+   "refused": false
+  },
+  {
+   "id": 19,
+   "question": "Įmonė naikina mano poziciją ir sako, kad mane atleis. Kiek laiko prieš tai turi įspėti ir kokia išeitinė priklauso?",
+   "answerable": true,
+   "expected": [
+    "57"
+   ],
+   "retrieved": [
+    "57",
+    "59",
+    "64"
+   ],
+   "citations": [
+    "57",
+    "59",
+    "64"
+   ],
+   "scores": [
+    0.8161683678627014,
+    0.7987739443778992,
+    0.7797104120254517
+   ],
+   "cosine": [
+    0.4874081015586853,
+    0.46173083782196045,
+    0.5114142298698425
+   ],
+   "refused": false
+  },
+  {
+   "id": 20,
+   "question": "Prieš kelis mėnesius gavau įspėjimą už pavėlavimą, dabar vėl pavėlavau. Ar už antrą kartą gali iškart atleisti be išeitinės?",
+   "answerable": true,
+   "expected": [
+    "58"
+   ],
+   "retrieved": [
+    "58",
+    "56",
+    "64"
+   ],
+   "citations": [
+    "58",
+    "56",
+    "64"
+   ],
+   "scores": [
+    0.8049498200416565,
+    0.5712262988090515,
+    0.5526480078697205
+   ],
+   "cosine": [
+    0.37328290939331055,
+    0.30735713243484497,
+    0.2939549386501312
+   ],
+   "refused": false
+  },
+  {
+   "id": 21,
+   "question": "Esu nėščia, o darbe dabar mažina etatus. Ar mane gali atleisti kaip ir kitus darbuotojus?",
+   "answerable": true,
+   "expected": [
+    "57",
+    "61"
+   ],
+   "retrieved": [
+    "61",
+    "57",
+    "40"
+   ],
+   "citations": [
+    "61",
+    "57",
+    "40"
+   ],
+   "scores": [
+    0.79296875,
+    0.70703125,
+    0.63671875
+   ],
+   "cosine": [
+    0.48024314641952515,
+    0.4268561601638794,
+    0.3863782286643982
+   ],
+   "refused": false
+  },
+  {
+   "id": 22,
+   "question": "Turiu vieną 8 metų vaiką. Ar dėl vaiko man priklauso kokia papildoma laisva diena nuo darbo?",
+   "answerable": true,
+   "expected": [
+    "138"
+   ],
+   "retrieved": [
+    "138",
+    "137",
+    "126"
+   ],
+   "citations": [
+    "138",
+    "137",
+    "126"
+   ],
+   "scores": [
+    0.8222556710243225,
+    0.7808921337127686,
+    0.7044895887374878
+   ],
+   "cosine": [
+    0.44170981645584106,
+    0.4267444610595703,
+    0.3580171465873718
+   ],
+   "refused": false
+  },
+  {
+   "id": 23,
+   "question": "Grįžtu į darbą po vaiko priežiūros ir sako, kad mano senos vietos nebėra, siūlo prastesnes pareigas už mažesnę algą. Ar gali taip?",
+   "answerable": true,
+   "expected": [
+    "131",
+    "134"
+   ],
+   "retrieved": [
+    "45",
+    "140",
+    "218"
+   ],
+   "citations": [
+    "45",
+    "140",
+    "218"
+   ],
+   "scores": [
+    0.6559897661209106,
+    0.5552546977996826,
+    0.5304854512214661
+   ],
+   "cosine": [
+    0.4374236464500427,
+    0.38344839215278625,
+    0.39698341488838196
+   ],
+   "refused": false
+  },
+  {
+   "id": 24,
+   "question": "Darbdavys liko skolingas apie 700 eurų algos ir nesumoka. Kur man dėl to kreiptis ir kiek laiko turiu?",
+   "answerable": true,
+   "expected": [
+    "216",
+    "217",
+    "220"
+   ],
+   "retrieved": [
+    "220",
+    "50",
+    "147"
+   ],
+   "citations": [
+    "220",
+    "50",
+    "147"
+   ],
+   "scores": [
+    0.634565532207489,
+    0.6266253590583801,
+    0.6235421299934387
+   ],
+   "cosine": [
+    0.4340420961380005,
+    0.43732473254203796,
+    0.43773165345191956
+   ],
+   "refused": false
+  },
+  {
+   "id": 25,
+   "question": "Atleido prieš maždaug 6 savaites, o tik dabar supratau, kad galėjo atleisti neteisėtai. Ar dar ne per vėlu ginčyti atleidimą?",
+   "answerable": true,
+   "expected": [
+    "220"
+   ],
+   "retrieved": [
+    "220",
+    "218",
+    "231"
+   ],
+   "citations": [
+    "220",
+    "218",
+    "231"
+   ],
+   "scores": [
+    0.8156276345252991,
+    0.7790538668632507,
+    0.6497990489006042
+   ],
+   "cosine": [
+    0.357970267534256,
+    0.32903486490249634,
+    0.2802925109863281
+   ],
+   "refused": false
+  },
+  {
+   "id": 26,
+   "question": "Jei dabar mane atleistų ir gaudavau 1800 eurų ant popieriaus, kiek tiksliai per mėnesį gaučiau bedarbio išmokos?",
+   "answerable": false,
+   "expected": [],
+   "retrieved": [
+    "59",
+    "218",
+    "147"
+   ],
+   "citations": [
+    "59",
+    "218",
+    "147"
+   ],
+   "scores": [
+    0.4993336796760559,
+    0.4899028241634369,
+    0.45425331592559814
+   ],
+   "cosine": [
+    0.3398146629333496,
+    0.3528282940387726,
+    0.35444191098213196
+   ],
+   "refused": true
+  },
+  {
+   "id": 27,
+   "question": "Jeigu sutartyje alga 2500 eurų bruto, kiek nuo jos turi nuskaičiuoti GPM ir kiek man turi likti į rankas?",
+   "answerable": false,
+   "expected": [],
+   "retrieved": [
+    "140",
+    "139",
+    "33"
+   ],
+   "citations": [
+    "140",
+    "139",
+    "33"
+   ],
+   "scores": [
+    0.4545325040817261,
+    0.4444522559642792,
+    0.4271586537361145
+   ],
+   "cosine": [
+    0.3733949661254883,
+    0.38187453150749207,
+    0.36277884244918823
+   ],
+   "refused": true
+  },
+  {
+   "id": 28,
+   "question": "Jeigu 10 metų dirbu ir gaunu apie 2000 eurų ant popieriaus, kiek per tą laiką susikaupia pensijos stažo ir pensijos taškų?",
+   "answerable": false,
+   "expected": [],
+   "retrieved": [
+    "148",
+    "120",
+    "140"
+   ],
+   "citations": [
+    "148",
+    "120",
+    "140"
+   ],
+   "scores": [
+    0.42801764607429504,
+    0.3682669401168823,
+    0.3650732934474945
+   ],
+   "cosine": [
+    0.30412381887435913,
+    0.27882468700408936,
+    0.30455219745635986
+   ],
+   "refused": true
+  },
+  {
+   "id": 29,
+   "question": "Sandėlyje žiemą būna apie 11 laipsnių. Kokia minimali temperatūra darbo vietoje yra leidžiama pagal įstatymus?",
+   "answerable": false,
+   "expected": [],
+   "retrieved": [
+    "158",
+    "122",
+    "3"
+   ],
+   "citations": [
+    "158",
+    "122",
+    "3"
+   ],
+   "scores": [
+    0.4464518129825592,
+    0.3901931345462799,
+    0.37462690472602844
+   ],
+   "cosine": [
+    0.3816131055355072,
+    0.3857704997062683,
+    0.38185739517211914
+   ],
+   "refused": true
+  },
+  {
+   "id": 30,
+   "question": "Darbo ginčų komisiją jau praėjau ir dabar noriu kreiptis į teismą. Kokia turi būti ieškinio forma, kokius dokumentus pridėti ir kaip jį pateikti per e.teismas?",
+   "answerable": false,
+   "expected": [],
+   "retrieved": [
+    "231",
+    "220",
+    "223"
+   ],
+   "citations": [
+    "231",
+    "220",
+    "223"
+   ],
+   "scores": [
+    0.80078125,
+    0.6484375,
+    0.5546875
+   ],
+   "cosine": [
+    0.6011766195297241,
+    0.5346614718437195,
+    0.6049250364303589
+   ],
+   "refused": false
+  }
+ ],
+ "summary": {
+  "questions": 30,
+  "answerable": 25,
+  "unanswerable": 5,
+  "candidates": 10,
+  "served_k": 3,
+  "served_hit1": 0.92,
+  "served_hit_rate": 0.96,
+  "false_refusal_rate": 0.0,
+  "correct_refusal_rate": 0.8,
+  "answered": 26
+ }
+}

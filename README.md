@@ -46,6 +46,7 @@ The 0.72 → 0.88 Recall@1 result comes from **25 answerable questions** in a fr
 | Recall@1 | 0.720 → **0.880** after reranking |
 | Recall@3 | 0.840 → **0.920** after reranking |
 | Recall@5 control | 0.920 → 0.920, as expected for reordering only |
+| Served pipeline | reranks 10 candidates, shows 3: **0.920** top-1, **0.960** in top 3 |
 | Abstention | Confidence gate returns an explicit refusal below 0.54 |
 | Delivery | FastAPI, Docker, Railway, GitHub Actions, LT/EN interface |
 
@@ -63,7 +64,7 @@ remaining limitations are visible rather than hidden behind a polished demo.
 
 ## Stack
 
-Python 3.12 · FastAPI · Voyage embeddings and reranking · Anthropic Claude ·
+Python 3.12 · FastAPI · Voyage embeddings and reranking · OpenAI generation ·
 NumPy · pytest · Docker · Railway · GitHub Actions
 
 ## Portfolio material
@@ -124,6 +125,28 @@ The system answers against **that specific consolidated edition**, not against
 "Lithuanian law" generically. When the law changes, the benchmark below becomes
 a measurement of a historical edition — which is why the edition is pinned here.
 
+The edition is also checked at runtime. `/health` reports `edition_expired` and
+`edition_days_left`, the process logs a warning at boot once the window closes,
+and the interface shows a banner. An expired edition is the one failure the
+reader cannot see in the output: the retrieved article looks right because it
+is the article that was loaded.
+
+**Refreshing it is one command.** `refresh_corpus.py` reads the current edition
+token from the e-TAR page, downloads the DOCX of the consolidated text, extracts
+paragraphs, and prints the edition window plus the paragraphs that changed:
+
+```bash
+python refresh_corpus.py           # fetch and diff, write nothing
+python refresh_corpus.py --write   # replace data/darbo_kodeksas_raw.txt
+python parse_corpus.py && python check_corpus.py && python embed_corpus.py
+python eval/run_eval.py --refresh  # only if the text actually changed
+```
+
+The diff is whitespace-insensitive, because e-TAR uses non-breaking spaces for
+alignment and those must not trigger a re-embed. Run against the loaded edition
+on 2026-10-30, it reports *no substantive change* — the refresh path is verified
+against the corpus it is meant to replace.
+
 ---
 
 ## Architecture
@@ -147,12 +170,12 @@ flowchart TB
         direction TB
         Q["question<br/>(Lithuanian)"] --> QE["voyage-3<br/>input_type=query"]
         QE --> COS["cosine similarity<br/>vs all 257"]
-        COS --> TOPK["top-5 candidates"]
+        COS --> TOPK["top-10 candidates"]
         TOPK --> RR["rerank-2.5<br/>cross-encoder"]
         RR --> GATE{"max rerank_score<br/>≥ 0.54 ?"}
         GATE -->|no| REFUSE["honest refusal<br/>+ sources shown"]
-        GATE -->|yes| LLM["claude-haiku-4-5<br/>sees only these articles"]
-        LLM --> OUT["answer<br/>+ sources<br/>+ confidence"]
+        GATE -->|yes| LLM["gpt-6.1-terra<br/>(configurable)<br/>sees only these articles"]
+        LLM --> OUT["top-3 sources<br/>+ answer<br/>+ confidence"]
     end
 
     VEC --> COS
@@ -241,6 +264,29 @@ are measured separately here on purpose.
 | Recall@1 | 0.720 (18/25) | **0.880** (22/25) |
 | Recall@3 | 0.840 (21/25) | **0.920** (23/25) |
 | Recall@5 | 0.920 (23/25) | 0.920 (23/25) |
+
+### Served configuration
+
+The table above measures candidate generation over the top 5 by cosine
+similarity. The application does something a little different, and now does it
+deliberately: it pulls **10** candidates, reranks all ten, and shows **3**.
+Earlier, `main.py` retrieved 3 and reranked only those, so the deployed product
+was not the thing the benchmark measured -- reranking can only reorder what it
+is given.
+
+`eval/serving_eval.py` calls `retrieval.retrieve()` with no arguments, the same
+call `main.py` makes, so the two cannot drift silently.
+
+| Served metric | Result |
+|---|---|
+| Top-1 is the correct article | **0.920** (23/25) |
+| Correct article in the 3 shown | **0.960** (24/25) |
+| False refusal (answerable) | 0.000 (0/25) |
+| Correct refusal (unanswerable) | 0.800 (4/5) |
+
+Showing three ranked articles rather than one is deliberate: the articles are
+evidence, and the reader is better served by the governing article plus its
+neighbours than by a single result the reranker was confident about.
 
 ### The one change, and why it was that one
 

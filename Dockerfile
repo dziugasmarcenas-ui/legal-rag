@@ -18,7 +18,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY data/articles.json data/articles.json
 COPY embeddings/ embeddings/
 COPY static/ static/
-COPY config.py retrieval.py gate.py ratelimit.py main.py ./
+COPY config.py retrieval.py gate.py edition.py ratelimit.py llm.py main.py ./
 
 # Fail the build rather than the first request if the corpus and the vectors
 # ever ship out of step with each other.

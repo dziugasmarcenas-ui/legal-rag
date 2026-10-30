@@ -170,6 +170,8 @@ textarea::placeholder{color:var(--ink-3)}
 
 /* ---- footer ---- */
 footer{max-width:760px;margin:0 auto;padding:0 20px 60px;color:var(--ink-3);font-size:11.5px}
+#stale{margin:0 0 16px;padding:10px 14px;border:1px solid var(--orange);background:var(--orange-tint);color:var(--ink);border-radius:var(--r);font-size:13px;line-height:1.45}
+#stale a{color:var(--accent-ink)}
 .facts{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:14px}
 .fact{background:var(--surface);box-shadow:0 0 0 1px var(--line);border-radius:7px;padding:7px 11px}
 .fact b{color:var(--ink);font-weight:600;font-family:"JetBrains Mono",monospace}
@@ -200,6 +202,7 @@ footer a{color:var(--accent-ink)}
 <main>
   <h1 class="lede" data-i="lede"></h1>
   <p class="sub" data-i="sub"></p>
+  <div id="stale" hidden></div>
 
   <div class="composer">
     <textarea id="q" rows="2"></textarea>
@@ -245,8 +248,9 @@ const I18N={
          ["Paieška atliekama 257 straipsniuose","kosinusinis panašumas"],
          ["Straipsniai surikiuojami pagal tinkamumą","rerank-2.5, kryžminis koduotuvas"],
          ["Vertinamas atsakymo patikimumas","taikoma 0,54 riba"],
-         ["Formuluojamas atsakymas","claude-haiku-4-5, remiantis tik rastais straipsniais"]],
+         ["Formuluojamas atsakymas","remiantis tik rastais straipsniais"]],
   facts:["straipsnių","Recall@1","patikimumo riba","redakcija galioja nuo"],
+  stale:"<b>Dėmesio: įkelta suvestinė redakcija galiojo iki {to}.</b> Nuo tos datos Kodeksas gali būti pakeistas, todėl atsakymai gali neatitikti šiuo metu galiojančio teksto. Pasitikrinkite e-TAR arba kreipkitės į teisininką.",
   how:"Paieška pagal prasmę atrenka galimai tinkamus straipsnius, o kryžminis koduotuvas surikiuoja juos pagal atitiktį klausimui. Tada sistema įvertina, ar turimos informacijos pakanka patikimam atsakymui. Citatas prideda paieškos sistema, o ne kalbos modelis, todėl rodomas šaltinis visada yra iš tikrųjų rastas straipsnis.",
   nla:'<b>Tai nėra teisinė konsultacija.</b> Tai techninė demonstracija, pagrįsta viena suvestine vieno kodekso redakcija. Svarbią informaciją pasitikrinkite <a href="https://www.e-tar.lt/portal/lt/legalAct/f6d686707e7011e6b969d7ae07280e89/asr">e-TAR</a> arba kreipkitės į specialistą. Metodika, vertinimo rezultatai ir apribojimai aprašyti projekto <a href="https://github.com/dziugasmarcenas-ui/legal-rag">saugykloje</a>. Sąsajos komponentai pritaikyti iš <a href="https://www.beautifului.dev/">Beautiful UI</a> (MIT).'
  },
@@ -273,8 +277,9 @@ const I18N={
          ["Searching 257 articles","cosine similarity over the corpus"],
          ["Reranking candidates","rerank-2.5 cross-encoder"],
          ["Checking confidence","against the 0.54 gate"],
-         ["Writing the answer","claude-haiku-4-5, retrieved articles only"]],
+         ["Writing the answer","retrieved articles only"]],
   facts:["articles","Recall@1","gate threshold","edition from"],
+  stale:"<b>Note: the loaded edition expired on {to}.</b> The Code may have changed since, so answers may not reflect the law in force today. Check e-TAR or a qualified professional.",
   how:"Retrieval finds candidate articles by meaning, a cross-encoder reranks them, and a confidence gate decides whether there is enough support to answer at all. Citations are attached from the retriever, never written by the language model — so a source shown here is an article that was actually retrieved.",
   nla:'<b>Not legal advice.</b> A technical demonstration over one consolidated edition of one code. The corpus, the retrieval and the benchmark are Lithuanian; English answers are translated from those same Lithuanian articles. Verify anything that matters against <a href="https://www.e-tar.lt/portal/lt/legalAct/f6d686707e7011e6b969d7ae07280e89/asr">e-TAR</a> or a qualified professional. Method, measurements and limitations are in the <a href="https://github.com/dziugasmarcenas-ui/legal-rag">repository</a>. UI primitives adapted from <a href="https://www.beautifului.dev/">Beautiful UI</a> (MIT).'
  }
@@ -323,6 +328,13 @@ function renderFacts(){
   const v=["257","0.880","0.54",HEALTH.edition_from];
   $("#facts").innerHTML=v.map((val,i)=>
     `<div class="fact"><b>${val}</b><i>${T.facts[i]}</i></div>`).join("");
+  const st=$("#stale");
+  if(HEALTH.edition_expired){
+    st.hidden=false;
+    st.innerHTML=T.stale.replace("{to}",HEALTH.edition_to);
+  } else {
+    st.hidden=true; st.innerHTML="";
+  }
 }
 fetch(PUBLIC_BASE_PATH + "/health").then(r=>r.json()).then(h=>{HEALTH=h;renderFacts();}).catch(()=>{});
 
@@ -347,7 +359,7 @@ function render(h){out.innerHTML=h; out.scrollIntoView({behavior:"smooth",block:
 function trace(){
   render(`<div class="trace"><div class="trace-h"><span class="spin"></span>${T.working}</div>
     <ul class="steps">${T.steps.map((s,i)=>
-      `<li id="s${i}"><span class="tick">✓</span><span>${s[0]} <span style="color:var(--ink-3)">· ${s[1]}</span></span></li>`
+      `<li id="s${i}"><span class="tick">✓</span><span>${s[0]} <span style="color:var(--ink-3)">· ${i===T.steps.length-1&&HEALTH?HEALTH.answer_model:s[1]}</span></span></li>`
     ).join("")}</ul></div>`);
   let i=0; const first=$("#s0"); if(first)first.classList.add("on");
   return setInterval(()=>{
