@@ -10,7 +10,9 @@ the model writes.
 """
 
 import logging
+import os
 
+from contextlib import asynccontextmanager
 from pathlib import Path
 
 from fastapi import FastAPI, Request
@@ -23,6 +25,7 @@ import config
 import edition
 import gate
 import llm
+import mcp_server
 import ratelimit
 import retrieval
 
@@ -39,9 +42,21 @@ logging.basicConfig(
 )
 log = logging.getLogger("legal-rag")
 
+@asynccontextmanager
+async def lifespan(_app):
+    """Run the MCP session manager for the lifetime of the HTTP app.
+
+    The streamable-HTTP transport keeps per-session state; without this the
+    /mcp mount accepts a connection and then fails on the first tool call.
+    """
+    async with mcp_server.mcp.session_manager.run():
+        yield
+
+
 app = FastAPI(
     title="legal-rag",
     description="Question answering over the Lithuanian Labour Code",
+    lifespan=lifespan,
 )
 
 # Loud at boot, not only on /health: an expired edition answers about the law as
@@ -55,6 +70,75 @@ if _expired:
 # the URL is public. /health is deliberately not limited so uptime monitoring
 # stays free and always available.
 limiter = ratelimit.RateLimiter()
+
+MCP_TOKEN = os.environ.get("MCP_TOKEN", "")
+
+
+async def _reject(send, status, message):
+    body = f'{{"error":"{message}"}}'.encode("utf-8")
+    await send({
+        "type": "http.response.start",
+        "status": status,
+        "headers": [(b"content-type", b"application/json"),
+                    (b"content-length", str(len(body)).encode())],
+    })
+    await send({"type": "http.response.body", "body": body})
+
+
+class McpRouter:
+    """Put the MCP app at exactly /mcp, with a bearer token and the spend cap.
+
+    Mounting with `app.mount` would 307 `/mcp` to `/mcp/`, and not every MCP
+    client follows a redirect on a POST. Matching the path here and rewriting it
+    for the sub-app avoids that, and keeps SSE streaming untouched because
+    messages pass straight through.
+
+    Every tool call arrives as an HTTP POST, so a per-request check is a
+    per-tool-call check in practice. Unauthenticated when MCP_TOKEN is unset --
+    a local-development convenience, logged at boot.
+    """
+
+    PREFIX = "/mcp"
+
+    def __init__(self, app, mcp_app, token, limiter):
+        self.app = app
+        self.mcp_app = mcp_app
+        self.token = token
+        self.limiter = limiter
+
+    async def __call__(self, scope, receive, send):
+        path = scope.get("path", "")
+        if scope["type"] != "http" or not (
+            path == self.PREFIX or path.startswith(self.PREFIX + "/")
+        ):
+            return await self.app(scope, receive, send)
+
+        headers = dict(scope["headers"])
+        if self.token:
+            supplied = headers.get(b"authorization", b"").decode()
+            if supplied != f"Bearer {self.token}":
+                return await _reject(send, 401, "unauthorized")
+
+        forwarded = headers.get(b"x-forwarded-for", b"").decode()
+        ip = forwarded.split(",")[0].strip() if forwarded else (
+            scope.get("client") or ("unknown", 0)
+        )[0]
+
+        denied = self.limiter.check(ip)
+        if denied:
+            return await _reject(send, denied[0], denied[1])
+
+        inner = dict(scope)
+        inner["path"] = path[len(self.PREFIX):] or "/"
+        inner["root_path"] = self.PREFIX
+        return await self.mcp_app(inner, receive, send)
+
+
+if not MCP_TOKEN:
+    log.warning(
+        "MCP is served at /mcp without authentication; set MCP_TOKEN before "
+        "exposing this service publicly"
+    )
 
 INDEX = Path(__file__).parent / "static" / "index.html"
 
@@ -78,76 +162,15 @@ class ChatRequest(BaseModel):
     lang: Literal["lt", "en"] = "lt"
 
 
-# Written in the target language on purpose -- instructions in the output
-# language control the output more reliably than instructions about it.
-#
-# The Lithuanian rules are not generic "write well" advice. Each one names a
-# real failure observed in production, with the wrong form beside the right
-# one, because Lithuanian punishes clipped phrasing far harder than English
-# does: an English bullet can stop at a noun, a Lithuanian one that opens in
-# the dative has to reach its verb or it is simply ungrammatical.
-ANSWER_LANGUAGE = {
-    "lt": (
-        "Atsakyk lietuviškai, aiškiai ir taisyklinga kalba.\n"
-        "Kalbos reikalavimai:\n"
-        "- Rašyk pilnais sakiniais. Kiekvienas punktas turi būti baigtas "
-        "teiginys su veiksmažodžiu. Rašyk „Darbuotojui priklauso 30 darbo "
-        "dienų“, o ne „Aukščiau nurodytoms kategorijoms: 30 darbo dienų“.\n"
-        "- Nepalik nebaigtų žodžių junginių — visada nurodyk daiktavardį. "
-        "Rašyk „pagimdžius du ar daugiau vaikų“, o ne „pagimdžius du ar "
-        "daugiau“.\n"
-        "- Apibūdindamas asmenis vartok būdvardžius, o ne prieveiksmius. "
-        "Rašyk „jaunesni nei 18 metų“, o ne „jauniau nei 18 metų“.\n"
-        "- Derink linksnius, giminę ir skaičių visame sakinyje.\n"
-        "- Skaičius rašyk skaitmenimis, ne žodžiais: „20 darbo dienų“, "
-        "o ne „dvidešimt darbo dienų“.\n"
-        "- Nevartok angliškų žodžių ir nepalik jokio teksto anglų kalba.\n"
-        "- Nerašyk antraščių su # ženklu.\n"
-        "- Jei kelioms darbuotojų kategorijoms taikoma ta pati taisyklė, "
-        "išvardyk jas kartu, o ne kartok tą pačią taisyklę kiekvienai atskirai."
-    ),
-    "en": (
-        "Answer in English, clearly and in complete sentences. The articles "
-        "are in Lithuanian; translate what they say faithfully and do not add "
-        "anything they do not contain. Keep Lithuanian legal terms in brackets "
-        "where a precise English equivalent does not exist. Write numbers as "
-        "digits, not words. Do not use markdown headings such as # or ##. If the "
-        "same rule applies to several categories, list them together rather than "
-        "repeating the rule for each one."
-    ),
-}
-
-REFUSAL = {
-    "lt": ("Neturiu pakankamai patikimo pagrindo atsakyti į šį klausimą pagal "
-           "Darbo kodeksą. Pasitikslinkite su teisininku ar personalo skyriumi."),
-    "en": ("I don't have a confident enough basis in the Labour Code to answer "
-           "this. Check with a lawyer or your HR department."),
-}
-
-
-def build_prompt(question, results, lang="lt"):
-    """Give the model only the retrieved articles, and require a citation.
-
-    The citation format stays "[X straipsnis]" in both languages, because the
-    UI parses it back into a link to the source card -- and because the article
-    is a Lithuanian one whichever language the prose is in.
-    """
-    articles = "\n\n".join(
-        f"[{r['citation']} straipsnis] {r['title']}\n{r['text']}" for r in results
-    )
-    return (
-        "Tu esi Lietuvos darbo teisės asistentas. Atsakyk į klausimą remdamasis "
-        "TIK žemiau pateiktais Darbo kodekso straipsniais. Jei straipsniuose "
-        "atsakymo nėra, pasakyk, kad nežinai.\n\n"
-        f"Straipsniai:\n{articles}\n\n"
-        f"Klausimas: {question}\n\n"
-        f"{ANSWER_LANGUAGE[lang]} Pabaigoje nurodyk straipsnį formatu "
-        "[X straipsnis]."
-    )
+# ANSWER_LANGUAGE, REFUSAL and build_prompt live in answer.py, because MCP's
+# ask_labour_code needs the same prompt and two copies would be two products.
+# They are re-exported here so the existing UI contract tests keep working.
+import answer  # noqa: E402
+from answer import ANSWER_LANGUAGE, REFUSAL, build_prompt  # noqa: E402
 
 
 def generate_answer(question, results, lang="lt"):
-    return llm.generate(build_prompt(question, results, lang))
+    return answer.generate(question, results, lang)
 
 
 @app.get("/health")
@@ -171,6 +194,13 @@ def health():
         "threshold": gate.THRESHOLD,
         "rerank_model": retrieval.RERANK_MODEL,
         "languages": ["lt", "en"],
+        "mcp": {
+            "path": "/mcp",
+            "transport": "streamable-http",
+            "tools": ["corpus_info", "search_labour_code", "get_article",
+                      "ask_labour_code"],
+            "auth": "bearer" if MCP_TOKEN else "none",
+        },
         "usage": limiter.stats(),
     }
 
@@ -214,7 +244,7 @@ def chat(request: ChatRequest, http: Request):
     ]
 
     if not gate.should_answer(results):
-        log.info("refused q=%r confidence=%.4f", request.question, confidence)
+        log.info("refused q_len=%d confidence=%.4f", len(request.question), confidence)
         return {
             "answer": REFUSAL[request.lang],
             "sources": sources,
@@ -239,7 +269,7 @@ def chat(request: ChatRequest, http: Request):
             "refused": False,
         }
 
-    log.info("answered q=%r confidence=%.4f", request.question, confidence)
+    log.info("answered q_len=%d confidence=%.4f", len(request.question), confidence)
     return {
         "answer": answer,
         "sources": sources,
@@ -247,3 +277,7 @@ def chat(request: ChatRequest, http: Request):
         "confidence_signal": "max_" + gate.SIGNAL,
         "refused": False,
     }
+
+
+# Wrapped last, so every route above is already registered on the FastAPI app.
+app = McpRouter(app, mcp_server.asgi_app, MCP_TOKEN, limiter)

@@ -132,7 +132,17 @@ and a README number produced by it.
 **Acceptance:** a results table in the README with the winner marked, the cost
 per 1,000 answers, and the exact prompts. If OpenAI does not win, say so.
 
-## Phase 2 — MCP core (2–3 days)
+## Phase 2 — MCP core
+
+**Status 2026-10-30: shipped.** `mcp_server.py` serves four tools
+(`corpus_info`, `search_labour_code`, `get_article`, `ask_labour_code`) over stdio
+and, mounted by `main.py`, over Streamable HTTP at `/mcp`. Prompt construction
+moved to `answer.py` so the API and MCP call the same one. Tests cover the
+contract: typed `not_found`, per-article `above_gate`, refusal below the gate
+without calling the model, and a provider outage that still returns sources.
+Remaining scope from the original task: paragraph-level IDs (deliberately not
+done — they require re-chunking and invalidate the benchmark).
+
 
 Extract the shared core, then wrap it.
 
@@ -171,7 +181,15 @@ Rules the server enforces, not the prompt:
 **Acceptance:** `stdio` server answers all four tools in a local MCP client;
 tests cover schema, unknown article, empty query, and refusal.
 
-## Phase 3 — Remote MCP (2–3 days)
+## Phase 3 — Remote MCP
+
+**Status 2026-10-30: shipped except deploy verification.** `/mcp` is served by a
+raw ASGI router (not `app.mount`, which 307s `/mcp` to `/mcp/` and breaks clients
+that will not follow a redirect on POST). Bearer auth via `MCP_TOKEN`, shared
+per-IP window and daily budget, `401` without the token, and `npx mcp-remote`
+instructions in the README. Not yet verified against the public deployment
+because that needs the Railway env vars set.
+
 
 - Mount Streamable HTTP MCP at `/mcp` on the existing FastAPI app, same image and
   Railway service. `/health` gains `mcp: true` and the tool list.

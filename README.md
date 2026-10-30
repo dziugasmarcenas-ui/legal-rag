@@ -64,7 +64,7 @@ remaining limitations are visible rather than hidden behind a polished demo.
 
 ## Stack
 
-Python 3.12 · FastAPI · Voyage embeddings and reranking · OpenAI generation ·
+Python 3.12 · FastAPI · MCP · Voyage embeddings and reranking · OpenAI generation ·
 NumPy · pytest · Docker · Railway · GitHub Actions
 
 ## Portfolio material
@@ -476,6 +476,66 @@ curl -s -X POST https://legal-rag-production-fac6.up.railway.app/chat \
 
 Deployed on Railway from this repository's Dockerfile. Credentials live in the
 platform's environment, never in the image or the repo.
+
+## Use it from your own AI (MCP)
+
+The same retriever is an **MCP server**, so Claude, ChatGPT, OpenCode or any MCP
+host can call it. The host writes the prose; this server supplies evidence, the
+citation, and an answerability verdict. The citation is always the article the
+retriever returned -- the model cannot introduce one.
+
+| Tool | Returns |
+|---|---|
+| `corpus_info()` | edition window, article count, models, threshold, known gaps, disclaimer |
+| `search_labour_code(query, k=5)` | ranked articles with full text, both scores, and `above_gate` per article |
+| `get_article("72-1")` | the exact text of one article, or a typed `not_found` |
+| `ask_labour_code(question, lang)` | grounded answer + sources + confidence, or an explicit refusal |
+
+Every result carries the edition it came from. When the edition expires,
+`corpus.edition_expired` is true and `corpus.warning` explains what that means,
+so a host cannot silently present an old edition as current law.
+
+### Connect over stdio (local)
+
+```json
+{
+  "mcpServers": {
+    "legal-rag": {
+      "command": "python",
+      "args": ["/absolute/path/to/legal-rag/mcp_server.py"],
+      "env": { "VOYAGE_API_KEY": "..." }
+    }
+  }
+}
+```
+
+### Connect over HTTP (remote)
+
+The server is mounted at `/mcp` on the same deployment, using the Streamable
+HTTP transport:
+
+```bash
+MCP_TOKEN=... uvicorn main:app --port 8000
+# endpoint: http://localhost:8000/mcp
+# header:   Authorization: Bearer $MCP_TOKEN
+```
+
+```json
+{
+  "mcpServers": {
+    "legal-rag": {
+      "command": "npx",
+      "args": ["-y", "mcp-remote", "https://legal-rag-production-fac6.up.railway.app/mcp",
+               "--header", "Authorization: Bearer YOUR_TOKEN"]
+    }
+  }
+}
+```
+
+If `MCP_TOKEN` is unset the endpoint is unauthenticated and says so at boot --
+acceptable on localhost, never on a public host. MCP requests share the same
+per-IP window and daily budget as `/chat`, because every tool call can spend an
+embedding, a rerank and a generation.
 
 ## Running it
 

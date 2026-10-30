@@ -81,8 +81,16 @@ def generate(prompt, name=None):
     )
 
 
+def _key(name):
+    """A missing key is a provider failure, not a crash: the caller still has sources."""
+    try:
+        return config.require(API_KEY_ENV[name])
+    except RuntimeError as error:
+        raise ProviderUnavailable(f"{name}: {error}") from error
+
+
 def _openai(prompt):
-    client = openai.OpenAI(api_key=config.require(API_KEY_ENV["openai"]))
+    client = openai.OpenAI(api_key=_key("openai"))
     try:
         response = client.responses.create(
             model=model_name("openai"),
@@ -95,7 +103,7 @@ def _openai(prompt):
 
 
 def _anthropic(prompt):
-    client = anthropic.Anthropic(api_key=config.require(API_KEY_ENV["anthropic"]))
+    client = anthropic.Anthropic(api_key=_key("anthropic"))
     try:
         response = client.messages.create(
             model=model_name("anthropic"),
