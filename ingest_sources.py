@@ -411,15 +411,21 @@ def download(act):
     page = refresh_corpus.fetch(f"https://www.e-tar.lt/portal/lt/legalAct/{act['id']}/asr")
     if b"actualedition" not in page:
         page = refresh_corpus.fetch(f"https://www.e-tar.lt/portal/lt/legalAct/{act['id']}")
-    match = re.search(
-        rf"actualedition/{re.escape(act['id'])}/([A-Za-z0-9]+)/",
-        page.decode("utf-8", "replace"),
-    )
-    if not match:
-        raise RuntimeError(f"no edition token for {act['short']}")
-    blob = refresh_corpus.fetch(
-        f"https://www.e-tar.lt/rs/actualedition/{act['id']}/{match.group(1)}/format/MSO2010_DOCX/"
-    )
+    html_text = page.decode("utf-8", "replace")
+    match = re.search(rf"actualedition/{re.escape(act['id'])}/([A-Za-z0-9]+)/", html_text)
+    if match:
+        url = (
+            f"https://www.e-tar.lt/rs/actualedition/{act['id']}/"
+            f"{match.group(1)}/format/MSO2010_DOCX/"
+        )
+    else:
+        # Acts that were never consolidated (a single published order) expose the
+        # DOCX directly instead of through an edition token.
+        direct = re.search(r'/rs/legalact/[^"\'\s]*MSO2010_DOCX[^"\'\s]*', html_text)
+        if not direct:
+            raise RuntimeError(f"no edition token or DOCX link for {act['short']}")
+        url = "https://www.e-tar.lt" + direct.group(0)
+    blob = refresh_corpus.fetch(url)
     cache.write_bytes(blob)
     return blob
 
@@ -442,7 +448,13 @@ def validity(act, text):
     """Refuse to ingest repealed acts. A dead regulation is worse than none."""
     window = refresh_corpus.WINDOW.search(text)
     if not window:
-        return None
+        # A single published order has no consolidated-edition header. Its
+        # adoption date is the best available start; the repeals marker is the
+        # guard against ingesting a dead act.
+        if "netenka galios" in text[:300]:
+            return None
+        adopted = adoption_date(text)
+        return (adopted, refresh_corpus.OPEN_ENDED) if adopted else None
     head = text[:300]
     if "netenka galios" in head:
         return None

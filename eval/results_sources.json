@@ -1,11 +1,11 @@
 {
  "summary": {
-  "hits": 23,
+  "hits": 22,
   "total": 32,
-  "hit_rate": 0.719,
-  "term_hits": 28,
+  "hit_rate": 0.688,
+  "term_hits": 29,
   "term_total": 30,
-  "term_rate": 0.933
+  "term_rate": 0.967
  },
  "rows": [
   {
@@ -97,12 +97,12 @@
    "question": "Kokie reikalavimai taikomi darbuotojų mokymui saugos ir sveikatos srityje?",
    "expected": "VDI įsakymas A1-276",
    "delegated": [
+    "Dėl Darbdavio, darbdaviui atstovaujančio asmens mokymo darbu",
     "Informacija apie saugos būklę",
-    "Darbuotojų saugos ir sveikatos įstatymas",
-    "VDI įsakymas A1-276"
+    "Dėl Darbdavių, jų įgaliotų asmenų bei darbuotojų saugos ir s"
    ],
-   "top": "Informacija apie saugos būklę, įžanga",
-   "hit": true,
+   "top": "Dėl Darbdavio, darbdaviui atstovaujančio asmens mokymo darbu, 2 p.",
+   "hit": false,
    "expect": "mokymo",
    "term_hit": true
   },
@@ -111,11 +111,11 @@
    "question": "Kaip dažnai darbuotojams turi būti atnaujinamos saugos ir sveikatos žinios?",
    "expected": "VDI įsakymas A1-276",
    "delegated": [
+    "Dėl darbuotojų saugos ir sveikatos instrukcijų patvirtinimo",
     "Saugaus darbo organizavimo ir darbo vietų įrengimo reikalavi",
-    "Cheminiai veiksniai",
-    "HN 32:2004 videoterminalai"
+    "Dėl darbuotojų saugos ir sveikatos instrukcijų patvirtinimo"
    ],
-   "top": "Saugaus darbo organizavimo ir darbo vietų įrengimo reikalavi, 6 p.",
+   "top": "Dėl darbuotojų saugos ir sveikatos instrukcijų patvirtinimo, 2 p.",
    "hit": false,
    "expect": null,
    "term_hit": null
@@ -154,8 +154,8 @@
    "expected": "VDI įsakymas A1-502",
    "delegated": [
     "Darbuotojų saugos ir sveikatos įstatymas",
-    "VDI paaiškinimas",
-    "Apskričių teritorinių ir savivaldybių darbuotojų saugos ir s"
+    "Dėl Darbuotojų saugos ir sveikatos komiteto nuostatų patvirt",
+    "VDI paaiškinimas"
    ],
    "top": "Darbuotojų saugos ir sveikatos įstatymas, 2 p.",
    "hit": false,
@@ -168,8 +168,8 @@
    "expected": "VDI įsakymas A1-502",
    "delegated": [
     "VDI įsakymas A1-502",
-    "VDI įsakymas A1-502",
-    "Lietuvos Respublikos darbuotojų saugos ir sveikatos komisijo"
+    "Dėl Darbuotojų saugos ir sveikatos komiteto nuostatų patvirt",
+    "Dėl Darbuotojų saugos ir sveikatos komiteto nuostatų patvirt"
    ],
    "top": "VDI įsakymas A1-502, 6 p.",
    "hit": true,
@@ -183,12 +183,12 @@
    "delegated": [
     "Cheminiai veiksniai",
     "Nutarimas Nr. 1118",
-    "Nutarimas Nr. 1118"
+    "Saugaus darbo organizavimo ir darbo vietų įrengimo reikalavi"
    ],
    "top": "Cheminiai veiksniai, 29 p.",
    "hit": true,
    "expect": "praneš",
-   "term_hit": false
+   "term_hit": true
   },
   {
    "id": 15,
@@ -280,7 +280,7 @@
    "expected": "SADM ir SAM įsakymas A1-457/V-961",
    "delegated": [
     "Darbuotojų saugos ir sveikatos įstatymas",
-    "Saugaus darbo organizavimo ir darbo vietų įrengimo reikalavi",
+    "2022–2027 m. darbuotojų saugos ir sveikatos veiksmų planas",
     "Saugaus darbo organizavimo ir darbo vietų įrengimo reikalavi"
    ],
    "top": "Darbuotojų saugos ir sveikatos įstatymas, 3 p.",

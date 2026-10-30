@@ -93,7 +93,7 @@ exists — the inspectorate's or court's position.
 ### Phase 2 — All of e-TAR (weeks 4–8)
 
 **Status 2026-10-30: started.** The ingestion pipeline accepts an external ID
-list (`data/extra_acts.json`) and now covers 41 acts / 2,925 chunks. Discovery
+list (`data/extra_acts.json`) and now covers 70 acts / 4,417 chunks (browser harvest of the e-TAR search). Discovery
 is the blocker: e-TAR has no bulk endpoint (JSF search ignores GET, no OAI-PMH,
 data.e-tar.lt is an explainer), so full coverage needs a registry export or a
 long crawler. Pipeline ready; source access open.
