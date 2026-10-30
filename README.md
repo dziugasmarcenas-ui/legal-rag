@@ -648,10 +648,12 @@ not transcripts.
 
 ## Lithuanian court decisions (blocked)
 
-LITEKO's public search is an ASP.NET WebForms page: GET parameters are ignored,
-and a POST with the view state returns the same form rather than results.
-eTeismai renders its results client-side, so a links-only corpus cannot be built
-from static HTML.
+LITEKO's public search is an ASP.NET WebForms page protected by **Google
+reCAPTCHA v2**: the detailed search page embeds a reCAPTCHA anchor frame. A
+scripted POST with `__VIEWSTATE`, `__EVALUATION` and the exact `cmdieskoti`
+field is answered with a 302 back to the form and a byte-identical GET — the
+search never runs without a solved captcha. eTeismai renders its results
+client-side, so no static HTML carries them either.
 
 The case graph therefore contains ECHR judgments only (9 nodes, 6 article-level
 edges). A links-only LITEKO corpus needs either a working search endpoint or a
