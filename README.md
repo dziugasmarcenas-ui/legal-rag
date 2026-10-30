@@ -673,6 +673,8 @@ Discovery routes measured, with yields:
 | e-seimas "darbo tvarkos taisyklių" (143 docs, 3 matches) | **1** — road-transport crews' work/rest rules |
 | e-seimas "darbo ginčų" + "profesinės saugos" (67 + 32 docs) | **4** net — dispute commissions, VDI expert examination |
 | e-seimas "saugos ir sveikatos mokymo" (47 docs, 14 matches) | **6** net — training programmes, attestation, instructors |
+| e-seimas "saugos ir sveikatos tarnybos" (48 docs, 7 matches) | **0** — already ingested or legacy identifiers |
+| e-seimas "darbo apmokėjimo sistemų" (82 docs, 4 matches) | **0** — institution-specific pay systems (ministry, clinic, orchestra) |
 | data.gov.lt | no dataset links in HTML |
 | data.e-tar.lt | explainer page, no API |
 | OAI-PMH | not offered |
