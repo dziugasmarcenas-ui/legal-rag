@@ -246,8 +246,11 @@ def chat(request: ChatRequest, http: Request):
         )
 
     results = retrieval.retrieve(request.question)
+    # The gate reads the Code only: delegated acts corroborate, they do not
+    # decide whether the Code answers the question.
+    code_results = [r for r in results if r.get("article")]
     # report the same quantity the gate decides on, never a different one
-    confidence = max((r[gate.SIGNAL] for r in results), default=0.0)
+    confidence = max((r[gate.SIGNAL] for r in code_results), default=0.0)
 
     # Sources are attached whether or not we answer, so a refusal still shows
     # what was considered and at what score. Refusing invisibly is not honest.
@@ -255,6 +258,7 @@ def chat(request: ChatRequest, http: Request):
         {
             "article": r["article"],
             "citation": r["citation"],
+            "source": r.get("source", "Darbo kodeksas"),
             "title": r["title"],
             "cosine_score": round(r["cosine_score"], 4),
             "rerank_score": round(r["rerank_score"], 4) if r["rerank_score"] is not None else None,
@@ -262,7 +266,7 @@ def chat(request: ChatRequest, http: Request):
         for r in results
     ]
 
-    if not gate.should_answer(results):
+    if not gate.should_answer(code_results):
         log.info("refused q_len=%d confidence=%.4f", len(request.question), confidence)
         return {
             "answer": REFUSAL[request.lang],

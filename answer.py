@@ -63,11 +63,14 @@ REFUSAL = {
 CITATION_CLOSING = {
     "lt": (
         "Pabaigoje nurodyk straipsnį formatu [X straipsnis]. Jei teiginys remiasi "
-        "konkrečia straipsnio dalimi, nurodyk ją: [X straipsnio Y dalis]."
+        "konkrečia straipsnio dalimi, nurodyk ją: [X straipsnio Y dalis]. Kitų "
+        "teisės aktų nuostatas cituok tiksliai taip, kaip jos pažymėtos laužtiniuose "
+        "skliaustuose, pvz. [Nutarimas Nr. 496, 5 p.]."
     ),
     "en": (
         "End by naming the article as [X straipsnis]. If the claim rests on a "
-        "specific part, name it as [X straipsnio Y dalis]."
+        "specific part, name it as [X straipsnio Y dalis]. Cite other acts exactly "
+        "as labelled in square brackets, e.g. [Nutarimas Nr. 496, 5 p.]."
     ),
 }
 
@@ -95,7 +98,8 @@ def build_prompt(question, results, lang="lt", edition=None):
     is a Lithuanian one whichever language the prose is in.
     """
     articles = "\n\n".join(
-        f"[{r['citation']} straipsnis] {r['title']}\n{r['text']}" for r in results
+        f"[{r.get('label') or (r['citation'] + ' straipsnis')}] {r['title']}\n{r['text']}"
+        for r in results
     )
     return (
         "Tu esi Lietuvos darbo teisės asistentas. Atsakyk į klausimą remdamasis "

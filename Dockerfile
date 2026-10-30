@@ -17,6 +17,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 # nobody measured.
 COPY data/articles.json data/articles.json
 COPY data/history.json data/history.json
+COPY data/sources.json data/sources.json
 COPY embeddings/ embeddings/
 COPY static/ static/
 COPY config.py retrieval.py gate.py edition.py ratelimit.py llm.py answer.py \

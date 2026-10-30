@@ -64,9 +64,9 @@ def measure(entries):
                 "question": entry["question"],
                 "answerable": entry["answerable"],
                 "expected": entry["expected_articles"],
-                "retrieved": [r["article"] for r in results],
+                "retrieved": [r["article"] for r in results if r.get("article")],
                 "citations": [r["citation"] for r in results],
-                "scores": [r["rerank_score"] for r in results],
+                "scores": [r["rerank_score"] for r in results if r.get("article")],
                 "cosine": [r["cosine_score"] for r in results],
                 "refused": not gate.should_answer(results),
             }

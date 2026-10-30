@@ -114,17 +114,31 @@ def _parts(record):
 
 def _source(result):
     score = result["rerank_score"]
-    return {
-        "article": result["article"],
+    record = {
         "citation": result["citation"],
         "title": result["title"],
-        # Parts, not a flat blob: an answer that names "126 str. 2 d." is worth
-        # more than one that names the article and leaves the reader to find it.
-        "parts": _parts(result),
         "cosine_score": round(result["cosine_score"], 4),
         "rerank_score": round(score, 4) if score is not None else None,
         "above_gate": score is not None and score >= gate.THRESHOLD,
     }
+    if result.get("article"):
+        # Parts, not a flat blob: an answer that names "126 str. 2 d." is worth
+        # more than one that names the article and leaves the reader to find it.
+        record.update({
+            "article": result["article"],
+            "source": "Darbo kodeksas",
+            "parts": _parts(result),
+        })
+    else:
+        # A delegated act: a Government resolution the Code points at.
+        record.update({
+            "source": result.get("source"),
+            "source_title": result.get("source_title"),
+            "url": result.get("url"),
+            "text": result.get("text", ""),
+            "parts": [],
+        })
+    return record
 
 
 def _confidence(results):
@@ -216,11 +230,12 @@ def search_labour_code(query: str, k: int = 5, as_of_date: str | None = None) ->
         query, k=k, candidates=max(k, retrieval.SERVED_CANDIDATES),
         as_of_date=as_of_date,
     )
+    code_results = [r for r in results if r.get("article")]
     return {
         "query": query,
         "results": [_source(r) for r in results],
-        "confidence": _confidence(results),
-        "answerable": gate.should_answer(results),
+        "confidence": _confidence(code_results),
+        "answerable": gate.should_answer(code_results),
         # Articles the question named explicitly. They are pinned first, but
         # the answerability gate still judges the evidence on its merits.
         "referenced": retrieval.referenced_articles(query),
@@ -321,10 +336,11 @@ def ask_labour_code(question: str, lang: Literal["lt", "en"] = "lt",
 
     results = retrieval.retrieve(question, as_of_date=as_of_date)
     sources = [_source(r) for r in results]
-    confidence = _confidence(results)
+    code_results = [r for r in results if r.get("article")]
+    confidence = _confidence(code_results)
     status = _status()
 
-    if not gate.should_answer(results):
+    if not gate.should_answer(code_results):
         return {
             "answer": answer.REFUSAL[lang],
             "refused": True,

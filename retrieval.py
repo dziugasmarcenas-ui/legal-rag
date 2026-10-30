@@ -217,6 +217,55 @@ def referenced_articles(question):
     return found
 
 
+SOURCE_CANDIDATES = 5
+SOURCE_SHOWN = 2
+# A source chunk has to be genuinely close before it is allowed to compete with
+# the Code. Without a floor, every query drags five irrelevant provisions into
+# the reranker and can push the governing article out of the answer.
+SOURCE_FLOOR = 0.42
+
+_SOURCES = None
+
+
+def source_index():
+    global _SOURCES
+    if _SOURCES is None:
+        records = json.loads((ROOT / "data" / "sources.json").read_text(encoding="utf-8"))
+        matrix = np.load(ROOT / "embeddings" / "sources.npy")
+        _SOURCES = (records, matrix)
+    return _SOURCES
+
+
+def source_candidates(query_vector, k=SOURCE_CANDIDATES):
+    """Delegated acts: resolutions the Code points at for the actual rule."""
+    if not (ROOT / "data" / "sources.json").exists():
+        return []
+    records, matrix = source_index()
+    if not records:
+        return []
+
+    scores = cosine_similarities(query_vector, matrix)
+    out = []
+    for row in top_k(scores, min(k, len(records))):
+        if float(scores[row]) < SOURCE_FLOOR:
+            continue
+        record = records[row]
+        out.append({
+            "article": None,
+            "citation": record["citation"],
+            "label": record["citation"],
+            "source": record["source"],
+            "source_title": record["act_title"],
+            "url": record["url"],
+            "title": record["title"],
+            "text": record["text"],
+            "parts": [],
+            "cosine_score": float(scores[row]),
+            "rerank_score": None,
+        })
+    return out
+
+
 def retrieve(question, k=SERVED_K, candidates=SERVED_CANDIDATES, use_rerank=True,
              as_of_date=None):
     """The served retrieval, optionally as of a past date.
@@ -276,6 +325,7 @@ def retrieve(question, k=SERVED_K, candidates=SERVED_CANDIDATES, use_rerank=True
         results.append({
             "article": article["article"],
             "citation": article["citation"],
+            "label": f"{article['citation']} straipsnis",
             "title": article["title"],
             "text": article["text"],
             "parts": article.get("parts", []),
@@ -292,6 +342,7 @@ def retrieve(question, k=SERVED_K, candidates=SERVED_CANDIDATES, use_rerank=True
         results.append({
             "article": article["article"],
             "citation": article["citation"],
+            "label": f"{article['citation']} straipsnis",
             "title": article["title"],
             "text": article["text"],
             # Derived at parse time; carried through so a caller can cite the
@@ -301,23 +352,32 @@ def retrieve(question, k=SERVED_K, candidates=SERVED_CANDIDATES, use_rerank=True
             "rerank_score": None,
         })
 
+    # Delegated acts join the same reranker, so the comparison is like-for-like.
+    results.extend(source_candidates(query))
+
     if use_rerank:
         results = rerank(question, results, client)
 
-        # A named article is pinned first. The reranker is judging relevance to
-        # the phrasing, and "Kas yra DK 126 straipsnyje?" scores the article
-        # about numbers higher than the one the user asked for. When the user
-        # names a provision, returning it first is the answer to the request.
-        referenced = set(referenced_articles(question))
-        if referenced:
-            results = (
-                [r for r in results if r["article"] in referenced]
-                + [r for r in results if r["article"] not in referenced]
-            )
+    # The Code and the acts it delegates to are not peers. The Code decides
+    # whether there is an answer at all; a resolution is corroboration shown
+    # beside it. Mixing them into one ranking let a provision outrank the
+    # governing article and made an off-topic question look answerable, which is
+    # exactly the failure the gate exists to prevent.
+    code = [r for r in results if r.get("article")]
+    delegated = [r for r in results if not r.get("article")]
 
-    # Reranking returns all candidates in relevance order; the caller asked for
-    # k of them, and the gate reads the best score across what is returned.
-    return results[:k]
+    # A named article is pinned first. The reranker is judging relevance to the
+    # phrasing, and "Kas yra DK 126 straipsnyje?" scores the article about
+    # numbers higher than the one the user asked for. When the user names a
+    # provision, returning it first is the answer to the request.
+    referenced = set(referenced_articles(question))
+    if referenced:
+        code = (
+            [r for r in code if r["article"] in referenced]
+            + [r for r in code if r["article"] not in referenced]
+        )
+
+    return code[:k] + delegated[:SOURCE_SHOWN]
 
 
 if __name__ == "__main__":

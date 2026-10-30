@@ -540,6 +540,24 @@ python embed_corpus.py
 That edition changes 38 articles, 9 of which appear in the golden set, so the
 labels are re-verified before any number is republished.
 
+## Acts the Code delegates to
+
+The Code often states a principle and points elsewhere for the rule. Average pay
+is the clearest case: article 139 delegates to **Government Resolution No. 496**,
+which is where severance and holiday pay are actually calculated.
+
+That resolution is ingested as a second source: 251 chunks, chunked by the act's
+own numbered points, cited as `Nutarimas Nr. 496, 5 p.`, and embedded in a
+separate index. The Labour Code index is untouched.
+
+The two are not peers, and the ranking says so. The Code is returned first and
+decides whether there is an answer at all; delegated provisions are appended as
+corroboration (at most two). Mixing them into one ranking was measured and
+rejected: an off-topic question pulled a resolution chunk at 0.70 and looked
+answerable, dropping correct refusal from 0.800 to 0.600. With the roles
+separated, every published number is unchanged: 0.920 top-1, 0.960 in top 3,
+0.800 correct refusal.
+
 ## Use it from your own AI (MCP)
 
 The same retriever is an **MCP server**, so Claude, ChatGPT, OpenCode or any MCP
@@ -550,7 +568,7 @@ retriever returned -- the model cannot introduce one.
 | Tool | Returns |
 |---|---|
 | `corpus_info()` | edition window, article count, models, threshold, known gaps, disclaimer |
-| `search_labour_code(query, k=5, as_of_date)` | ranked articles with both scores, `above_gate`, citable parts, and the edition searched |
+| `search_labour_code(query, k=5, as_of_date)` | ranked articles plus the delegated provisions they point to, with scores, `above_gate`, citable parts, and the edition searched |
 | `get_article("72-1", as_of_date)` | the article as it stood on that date, with numbered parts, or a typed error |
 | `ask_labour_code(question, lang, as_of_date)` | grounded answer + sources + confidence, or an explicit refusal |
 
