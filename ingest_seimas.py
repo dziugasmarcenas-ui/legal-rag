@@ -21,6 +21,8 @@ from pathlib import Path
 
 import pymupdf
 
+import refresh_corpus
+
 ROOT = Path(__file__).parent
 RAW = ROOT / "data" / "seimas_raw"
 OUT = ROOT / "data" / "seimas.json"
@@ -52,9 +54,15 @@ def page_text(path):
 
 
 def is_index_line(text):
-    """Table-of-contents lines are dots and page numbers, not debate."""
+    """Table-of-contents lines have dot leaders; debate text does not.
+
+    Counting dots failed: a normal paragraph can contain thirty full stops.
+    What only a table of contents has is a run of five or more.
+    """
+    if re.search(r"\.{5,}", text):
+        return True
     dots = text.count(".")
-    return dots > 20 or dots > len(text) / 5
+    return dots > 100 and dots > len(text) / 10
 
 
 def looks_clean(text):
@@ -119,8 +127,42 @@ def chunks(blocks):
     return out
 
 
-def records():
+def records_docx():
+    """e-seimas serves per-sitting transcripts as DOCX, which extract cleanly."""
     out = []
+    for path in sorted(RAW.glob("tak-*.docx")):
+        text = refresh_corpus.docx_text(path.read_bytes())
+        lines = [re.sub(r"\s+", " ", line).strip() for line in text.splitlines()]
+        lines = [line for line in lines if line]
+
+        number = re.search(r"posėdžio\s+Nr\.?\s*(\d+)", text[:2000], re.I)
+        sitting = number.group(1) if number else path.stem[-6:]
+
+        found = chunks(relevant(lines))
+        for part, chunk in enumerate(found, start=1):
+            out.append({
+                "id": f"seimas-{sitting}-{part}",
+                "source": "Seimo stenogramos",
+                "act_id": f"seimas-{sitting}",
+                "act_title": f"Seimo posėdžio Nr. {sitting} stenograma",
+                "authority": "Lietuvos Respublikos Seimas",
+                "act_date": "",
+                "url": "https://e-seimas.lrs.lt/portal/legalActSearch/lt",
+                "annex": "",
+                "chapter": "",
+                "ref": str(part),
+                "valid_from": "2026-10-30",
+                "valid_to": "9999-12-31",
+                "citation": f"Seimo posėdžio Nr. {sitting} stenograma, {part} fragmentas",
+                "title": f"Seimo posėdžio Nr. {sitting} stenograma — {chunk[:90]}",
+                "text": chunk,
+            })
+        print(f"  {path.name}: {len(found)} fragments")
+    return out
+
+
+def records():
+    out = records_docx()
     for index, path in enumerate(sorted(RAW.glob("*.pdf")), start=1):
         text = page_text(path)
         lines = [re.sub(r"\s+", " ", line).strip() for line in text.splitlines()]

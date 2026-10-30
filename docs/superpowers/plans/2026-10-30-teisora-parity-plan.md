@@ -132,8 +132,8 @@ judgments quoting the Labour Code, 266 employment-related fragments; 6
 article-level case edges, all 9 judgments indexed as metadata nodes). SADM's FAQ and Sodra's benefit pages add two more institutions (299 and 236
 answers). The citation graph now covers cases as links-only metadata
 (2 ECHR edges; no judgment text needed for the graph). Seimas draft acts are ingested via the
-e-seimas TAP route (3 drafts, 9 chunks, clean DOCX). Seimas plenary transcripts are ingested (2 sittings, 134 labour-related
-fragments) after identifying soft hyphens as the cause of the "syllable-split"
+e-seimas TAP route (3 drafts, 9 chunks, clean DOCX). Seimas plenary transcripts are ingested (22 sittings, 363 labour-related
+fragments; 20 via the e-seimas "Stenograma" type as DOCX, 2 from lrs.lt PDFs) after identifying soft hyphens as the cause of the "syllable-split"
 text; PyMuPDF plus stripping U+00AD recovers readable text. Committee
 transcripts are not published on lrs.lt (the committee page lists agendas), so
 the draft-act and plenary-transcript halves of the criterion are met. The parser is ready for a clean export. EU law is ingested (five directives via the Cellar endpoint). The public status page is the endpoint, not yet a UI.

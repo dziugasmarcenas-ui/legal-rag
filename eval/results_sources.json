@@ -406,7 +406,8 @@
    "expected": "Seimo projektas",
    "delegated": [
     "Seimo projektas",
-    "Seimo projektas"
+    "Seimo projektas",
+    "Seimo stenogramos"
    ],
    "top": "Seimo projektas be numerio, 1 str.",
    "hit": true,
@@ -450,7 +451,7 @@
     "Seimo stenogramos",
     "Seimo stenogramos"
    ],
-   "top": "Seimo stenogramos Nr. 34, 117 fragmentas",
+   "top": "Seimo stenogramos Nr. 34, 110 fragmentas",
    "hit": true,
    "expect": "pensij",
    "term_hit": true

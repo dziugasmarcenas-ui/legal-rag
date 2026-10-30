@@ -640,11 +640,16 @@ never lets a draft decide an answer.
 Transcripts were reported as unusable because the PDF text layer looked
 syllable-split. The cause was **soft hyphens (U+00AD) inside words**: pypdf
 exposed them as separate fragments, PyMuPDF plus a strip of U+00AD turns
-`pa-tai-sa` into `pataisa`. Two sittings are now ingested as **134
-labour-related fragments** (`Seimo stenogramos Nr. 34, 12 fragmentas`).
+`pa-tai-sa` into `pataisa`. Two PDF sittings are ingested that way.
 
-Committee transcripts appear not to be published: the committee page lists
-agendas, not transcripts.
+Better still, e-seimas indexes **"Stenograma"** as a document type and serves
+per-sitting transcripts as DOCX: **20 sittings, 363 labour-related fragments**,
+cited as `Seimo posėdžio Nr. 195 stenograma, 3 fragmentas`.
+
+Committee transcripts appear not to be published at all: the document-type list
+offers a single "Stenograma" type, and querying it returns only
+"Seimo posėdžio Nr. N stenograma" (plenary). The committee page lists agendas,
+not transcripts.
 
 ## Citation graph and status
 
@@ -669,7 +674,7 @@ an article leads to the provisions that actually apply it.
   "eu_law": {"directives": 5, "chunks": 95},
   "echr": {"judgments": 9, "chunks": 266},
   "seimas_drafts": {"drafts": 3, "chunks": 9},
-  "seimas_transcripts": {"documents": 2, "chunks": 134},
+  "seimas_transcripts": {"documents": 22, "chunks": 363},
   "history": {"editions": 41, "from": "2017-07-01"},
   "links": {"articles_linked": 119, "edges": 326, "case_edges": 6, "cases": 9},
   "evals": {"code_served": {"served_hit1": 0.92}, "delegated": {"term_rate": 0.955}}
