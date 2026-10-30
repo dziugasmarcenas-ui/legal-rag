@@ -103,8 +103,10 @@ def build_prompt(question, results, lang="lt", edition=None):
     )
     return (
         "Tu esi Lietuvos darbo teisės asistentas. Atsakyk į klausimą remdamasis "
-        "TIK žemiau pateiktais Darbo kodekso straipsniais. Jei straipsniuose "
-        "atsakymo nėra, pasakyk, kad nežinai.\n\n"
+        "TIK žemiau pateiktais šaltiniais. Šaltiniai gali būti Darbo kodekso "
+        "straipsniai, kiti teisės aktai, institucijų paaiškinimai ar teismų "
+        "sprendimai; kiekvienas pažymėtas laužtiniuose skliaustuose. Jei "
+        "šaltiniuose atsakymo nėra, pasakyk, kad nežinai.\n\n"
         f"{_edition_note(edition, lang)}"
         f"Straipsniai:\n{articles}\n\n"
         f"Klausimas: {question}\n\n"
