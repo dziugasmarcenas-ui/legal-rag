@@ -12,11 +12,11 @@
   "answered": 26
  },
  "delegated": {
-  "hits": 27,
-  "total": 29,
-  "hit_rate": 0.931,
-  "term_hits": 26,
-  "term_total": 27,
-  "term_rate": 0.963
+  "hits": 29,
+  "total": 31,
+  "hit_rate": 0.935,
+  "term_hits": 28,
+  "term_total": 29,
+  "term_rate": 0.966
  }
 }

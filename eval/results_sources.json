@@ -1,11 +1,11 @@
 {
  "summary": {
-  "hits": 27,
-  "total": 29,
-  "hit_rate": 0.931,
-  "term_hits": 26,
-  "term_total": 27,
-  "term_rate": 0.963
+  "hits": 29,
+  "total": 31,
+  "hit_rate": 0.935,
+  "term_hits": 28,
+  "term_total": 29,
+  "term_rate": 0.966
  },
  "rows": [
   {
@@ -29,7 +29,7 @@
    "delegated": [
     "Nutarimas Nr. 496",
     "Nutarimas Nr. 496",
-    "VDI paaiškinimas"
+    "Nutarimas Nr. 496"
    ],
    "top": "Nutarimas Nr. 496, 3 p.",
    "hit": true,
@@ -411,6 +411,34 @@
    "top": "Seimo projektas be numerio, 1 str.",
    "hit": true,
    "expect": "221",
+   "term_hit": true
+  },
+  {
+   "id": 31,
+   "question": "Kokios sąlygos gauti nedarbo išmoką?",
+   "expected": "Sodra paaiškinimas",
+   "delegated": [
+    "Sodra paaiškinimas",
+    "Sodra paaiškinimas",
+    "Sodra paaiškinimas"
+   ],
+   "top": "Sodra paaiškinimas: Gauti nedarbo išmoką (bedarbio statusas suteiktas iki 2026 m. birželio 30 d.), 12 fragmentas",
+   "hit": true,
+   "expect": "nedarbo išmok",
+   "term_hit": true
+  },
+  {
+   "id": 32,
+   "question": "Kaip kreiptis dėl nedarbo išmokos ir kokie dokumentai reikalingi?",
+   "expected": "Sodra paaiškinimas",
+   "delegated": [
+    "Sodra paaiškinimas",
+    "Sodra paaiškinimas",
+    "Sodra paaiškinimas"
+   ],
+   "top": "Sodra paaiškinimas: Gauti nedarbo išmoką (bedarbio statusas suteiktas 2026 m. liepos 1 d. ir vėliau), 22 fragmentas",
+   "hit": true,
+   "expect": "dokument",
    "term_hit": true
   }
  ]

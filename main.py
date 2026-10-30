@@ -237,7 +237,9 @@ def status_payload():
         else []
     )
     explanations = [
-        r for r in sources if r.get("act_id") in ("vdi-faq", "sadm-faq")
+        r for r in sources
+        if r.get("act_id") in ("vdi-faq", "sadm-faq")
+        or r["source"] == "Sodra paaiškinimas"
     ]
     eu = [r for r in sources if r["source"].startswith("Direktyva")]
     drafts = [r for r in sources if r["source"] == "Seimo projektas"]
@@ -247,7 +249,7 @@ def status_payload():
         if r.get("act_id") not in ("vdi-faq", "sadm-faq")
         and not r["source"].startswith("Direktyva")
         and not r["source"].startswith("EŽTT")
-        and r["source"] != "Seimo projektas"
+        and r["source"] not in ("Seimo projektas", "Sodra paaiškinimas")
     })
     stale = sorted({
         r["source"] for r in sources

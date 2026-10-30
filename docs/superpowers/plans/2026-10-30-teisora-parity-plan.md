@@ -129,8 +129,8 @@ export (DOCX/HTML) or an official feed.
 
 ECHR is ingested (9 Lithuanian
 judgments quoting the Labour Code, 266 employment-related fragments; 6
-article-level case edges, all 9 judgments indexed as metadata nodes). SADM's FAQ adds a second institution
-(299 answers). The citation graph now covers cases as links-only metadata
+article-level case edges, all 9 judgments indexed as metadata nodes). SADM's FAQ and Sodra's benefit pages add two more institutions (299 and 236
+answers). The citation graph now covers cases as links-only metadata
 (2 ECHR edges; no judgment text needed for the graph). Seimas draft acts are ingested via the
 e-seimas TAP route (3 drafts, 9 chunks, clean DOCX). Committee and plenary
 transcripts remain blocked: the PDF text layer is broken, committee pages carry

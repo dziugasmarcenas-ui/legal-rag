@@ -568,9 +568,11 @@ dead regulation is worse than a missing one.
 
 ### The inspectorate's own answers
 
-Two institutions publish answers to the questions employers and employees
-actually ask: VDI (**249 answers**) and the Social Security and Labour Ministry
-(**299 answers**, `SADM paaiškinimas Nr. 12`).
+Three institutions publish answers to the questions employers and employees
+actually ask: VDI (**249 answers**), the Social Security and Labour Ministry
+(**299 answers**, `SADM paaiškinimas Nr. 12`) and Sodra (**236 answers** on
+sickness, maternity and unemployment benefits, `Sodra paaiškinimas: ...`).
+**784 answers in total**, all in the same index.
 
 VDI publishes answers to the questions employers actually ask — "do I need a
 safety service if the company is one director and an accountant?", "does
@@ -660,7 +662,7 @@ an article leads to the provisions that actually apply it.
 {
   "code": {"articles": 257, "edition_to": "2026-10-31", "expired": false},
   "delegated_acts": {"acts": 7, "chunks": 633, "stale": []},
-  "explanations": {"items": 548, "chunks": 792, "institutions": 2},
+  "explanations": {"items": 784, "chunks": 1040, "institutions": 3},
   "eu_law": {"directives": 5, "chunks": 95},
   "echr": {"judgments": 9, "chunks": 266},
   "seimas_drafts": {"drafts": 3, "chunks": 9},

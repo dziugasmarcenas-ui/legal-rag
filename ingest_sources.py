@@ -33,6 +33,7 @@ import ingest_echr
 import ingest_eu
 import ingest_explanations
 import ingest_sadm
+import ingest_sodra
 import ingest_seimas_drafts
 import refresh_corpus
 
@@ -339,6 +340,10 @@ def main(argv=None):
     sadm = ingest_sadm.records()
     print(f"SADM paaiškinimai: {len(sadm)} chunks")
     records.extend(sadm)
+
+    sodra = ingest_sodra.records()
+    print(f"Sodra paaiškinimai: {len(sodra)} chunks")
+    records.extend(sodra)
 
     drafts = ingest_seimas_drafts.records()
     print(f"Seimo projektai: {len(drafts)} chunks")

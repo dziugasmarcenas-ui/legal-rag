@@ -123,3 +123,26 @@ def test_an_enacted_resolution_never_decides_alone():
 
     resolution = {"article": None, "source": "Nutarimas Nr. 496", "rerank_score": 0.99}
     assert gate.should_answer_any([resolution]) is False
+
+
+def test_sodra_navigation_and_cookies_are_not_content():
+    import ingest_sodra
+
+    assert not ingest_sodra.is_content(
+        "Gauti nedarbo išmoką – „Sodra“ Su darbo santykiais susijusios išmokos ..."
+    )
+    assert not ingest_sodra.is_content(
+        "Statistiniai (analitiniai) slapukai analizuoja svetainės lankytojų elgseną"
+    )
+    assert ingest_sodra.is_content(
+        "Nedarbo išmoka skiriama asmeniui, kuris yra įregistruotas bedarbiu "
+        "Užimtumo tarnyboje ir turi reikiamą nedarbo socialinio draudimo stažą."
+    )
+
+
+def test_sodra_sitemap_pages_are_ingested_with_a_citable_source():
+    records, _ = retrieval.source_index()
+    sodra = [r for r in records if r["source"] == "Sodra paaiškinimas"]
+    assert len(sodra) >= 200
+    assert all("Sodra paaiškinimas" in r["citation"] for r in sodra)
+    assert all(r["url"].startswith("https://sodra.lt/") for r in sodra)

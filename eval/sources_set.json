@@ -172,5 +172,17 @@
   "question": "Kokie pakeitimai siūlomi Darbo kodekso 221 straipsniui?",
   "expected": "Seimo projektas",
   "expect": "221"
+ },
+ {
+  "id": 31,
+  "question": "Kokios sąlygos gauti nedarbo išmoką?",
+  "expected": "Sodra paaiškinimas",
+  "expect": "nedarbo išmok"
+ },
+ {
+  "id": 32,
+  "question": "Kaip kreiptis dėl nedarbo išmokos ir kokie dokumentai reikalingi?",
+  "expected": "Sodra paaiškinimas",
+  "expect": "dokument"
  }
 ]
