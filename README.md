@@ -269,7 +269,28 @@ are measured separately here on purpose.
 | Recall@3 | 0.840 (21/25) | **0.920** (23/25) |
 | Recall@5 | 0.920 (23/25) | 0.920 (23/25) |
 
+### Explicit article references
+
+"126 straipsnis" is not a search problem. Embedding it returns articles about
+numbers and procedures — measured: `126 straipsnis` returned 26, 198, 247. A
+reference pattern now pulls the named article in directly and pins it first;
+the reranker still scores everything, so the confidence gate stays honest and
+the response says which article was named (`referenced`). None of the frozen
+questions names an article, so no published number depends on this.
+
+### What we tried and rejected
+
+**Hybrid lexical retrieval.** BM25 over the same text, fused with vector
+candidates, measured on the frozen set: recall@1 **0.88** against the served
+0.92, recall@3 0.92 against 0.96. Fusing displaced good semantic candidates.
+Unioning instead of fusing (all vector candidates plus five lexical extras) was
+neutral at 0.92/0.96 and cost five extra reranked documents, so it was not
+shipped. The code and the experiment are in `lexical.py` and
+`eval/hybrid_experiment.py`; the negative result is the reason it is not in the
+serving path.
+
 ### Served configuration
+
 
 The table above measures candidate generation over the top 5 by cosine
 similarity. The application does something a little different, and now does it

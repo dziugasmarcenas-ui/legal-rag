@@ -191,6 +191,9 @@ def search_labour_code(query: str, k: int = 5, as_of_date: str | None = None) ->
         "results": [_source(r) for r in results],
         "confidence": _confidence(results),
         "answerable": gate.should_answer(results),
+        # Articles the question named explicitly. They are pinned first, but
+        # the answerability gate still judges the evidence on its merits.
+        "referenced": retrieval.referenced_articles(query),
         "edition": _indexed_edition(),
         "corpus": _status(),
         "disclaimer": DISCLAIMER,

@@ -1,6 +1,7 @@
 import config
 import json
 import os
+import re
 import sys
 from pathlib import Path
 
@@ -102,6 +103,32 @@ def rerank(question, results, client):
 SERVED_CANDIDATES = 10
 SERVED_K = 3
 
+# "126 straipsnis", "DK 126 str.", "72-1 straipsnyje", "72¹ straipsnis".
+#
+# An explicit reference is not a search problem. Embedding "126 straipsnis"
+# returns articles about numbers and procedures, so the article the user named
+# is pulled in directly and ranked by the same reranker as everything else.
+# None of the frozen questions name an article, so this changes no measured
+# number -- it fixes a failure the benchmark never covered.
+ARTICLE_REFERENCE = re.compile(
+    r"(\d{1,3})(?:\s*[-\u2013]\s*(\d{1,2})|(\u00b9))?\s*(?:straipsn\w*|str\.?)\b",
+    re.IGNORECASE,
+)
+
+
+def referenced_articles(question):
+    """Article ids the question names explicitly, in the order named."""
+    found = []
+    for match in ARTICLE_REFERENCE.finditer(question):
+        identifier = match.group(1)
+        if match.group(2):
+            identifier += "-" + match.group(2)
+        elif match.group(3):
+            identifier += "-1"
+        if identifier not in found:
+            found.append(identifier)
+    return found
+
 
 def retrieve(question, k=SERVED_K, candidates=SERVED_CANDIDATES, use_rerank=True):
     """
@@ -141,9 +168,27 @@ def retrieve(question, k=SERVED_K, candidates=SERVED_CANDIDATES, use_rerank=True
 
     results = []
 
+    # An explicitly named article is taken directly, before similarity ranking.
+    by_id = {a["article"]: a for a in ARTICLES}
+    for identifier in referenced_articles(question):
+        article = by_id.get(identifier)
+        if article is None:
+            continue
+        results.append({
+            "article": article["article"],
+            "citation": article["citation"],
+            "title": article["title"],
+            "text": article["text"],
+            "parts": article.get("parts", []),
+            "cosine_score": float(scores[ARTICLES.index(article)]),
+            "rerank_score": None,
+        })
+
     # Get the best candidate rows; the reranker decides which k survive.
     for row in top_k(scores, max(candidates, k)):
         article = ARTICLES[row]
+        if any(r["article"] == article["article"] for r in results):
+            continue
 
         results.append({
             "article": article["article"],
@@ -159,6 +204,17 @@ def retrieve(question, k=SERVED_K, candidates=SERVED_CANDIDATES, use_rerank=True
 
     if use_rerank:
         results = rerank(question, results, client)
+
+        # A named article is pinned first. The reranker is judging relevance to
+        # the phrasing, and "Kas yra DK 126 straipsnyje?" scores the article
+        # about numbers higher than the one the user asked for. When the user
+        # names a provision, returning it first is the answer to the request.
+        referenced = set(referenced_articles(question))
+        if referenced:
+            results = (
+                [r for r in results if r["article"] in referenced]
+                + [r for r in results if r["article"] not in referenced]
+            )
 
     # Reranking returns all candidates in relevance order; the caller asked for
     # k of them, and the gate reads the best score across what is returned.

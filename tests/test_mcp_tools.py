@@ -126,3 +126,11 @@ def test_ask_survives_a_provider_outage(monkeypatch):
     assert out["error"] == "provider_unavailable"
     assert out["answer"] is None
     assert len(out["sources"]) == 1
+
+
+def test_search_reports_articles_the_question_named(monkeypatch):
+    monkeypatch.setattr(
+        mcp_server.retrieval, "retrieve", lambda *a, **k: [result("126", 0.9)]
+    )
+    found = mcp_server.search_labour_code("126 straipsnis", k=1)
+    assert found["referenced"] == ["126"]

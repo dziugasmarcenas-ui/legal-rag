@@ -64,3 +64,27 @@ def test_chat_does_not_override_the_served_configuration(captured):
 def test_the_served_configuration_reranks_more_than_it_shows():
     """Reranking what you then show is not reranking; it is reordering a shortlist."""
     assert retrieval.SERVED_CANDIDATES > retrieval.SERVED_K
+
+
+def test_article_references_are_recognised_in_the_forms_people_type():
+    assert retrieval.referenced_articles("126 straipsnis") == ["126"]
+    assert retrieval.referenced_articles("Kas yra DK 126 straipsnyje?") == ["126"]
+    assert retrieval.referenced_articles("72-1 straipsnis") == ["72-1"]
+    assert retrieval.referenced_articles("72¹ straipsnis") == ["72-1"]
+    assert retrieval.referenced_articles("kiek atostogų pagal 126 str.") == ["126"]
+
+
+def test_ordinary_questions_name_no_article_and_are_left_to_similarity():
+    assert retrieval.referenced_articles("Kiek dienų kasmetinių atostogų man priklauso?") == []
+    assert retrieval.referenced_articles("Darbdavys nemoka algos du mėnesius") == []
+
+
+def test_the_frozen_benchmark_does_not_name_articles():
+    """The reference shortcut must not be able to move a published number."""
+    import json
+
+    golden = json.loads(
+        (Path(__file__).parents[1] / "eval" / "golden_set.json").read_text(encoding="utf-8")
+    )
+    for entry in golden:
+        assert retrieval.referenced_articles(entry["question"]) == [], entry["id"]
