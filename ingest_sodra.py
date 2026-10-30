@@ -93,6 +93,12 @@ def crawl():
 
 
 def records(pages=None):
+    # Read the committed snapshot when there is one. A live crawl is the
+    # discovery path, not the build path: a transient network failure there
+    # silently deleted 248 Sodra chunks once, because the index is rebuilt from
+    # whatever this function returns.
+    if pages is None and OUT.exists():
+        return json.loads(OUT.read_text(encoding="utf-8"))
     pages = pages if pages is not None else crawl()
     out = []
     for index, (url, page) in enumerate(pages, start=1):

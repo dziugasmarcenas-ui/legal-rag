@@ -1,8 +1,8 @@
 {
  "summary": {
-  "hits": 21,
+  "hits": 22,
   "total": 32,
-  "hit_rate": 0.656,
+  "hit_rate": 0.688,
   "term_hits": 29,
   "term_total": 30,
   "term_rate": 0.967
@@ -97,11 +97,11 @@
    "question": "Kokie reikalavimai taikomi darbuotojų mokymui saugos ir sveikatos srityje?",
    "expected": "VDI įsakymas A1-276",
    "delegated": [
-    "Dėl Mokymo ir atestavimo darbuotojų saugos ir sveikatos klau",
-    "Dėl Darbdavių, jų įgaliotų asmenų bei darbuotojų saugos ir s",
+    "Dėl Darbdavio, darbdaviui atstovaujančio asmens mokymo darbu",
+    "Informacija apie saugos būklę",
     "Dėl Darbdavių, jų įgaliotų asmenų bei darbuotojų saugos ir s"
    ],
-   "top": "Dėl Mokymo ir atestavimo darbuotojų saugos ir sveikatos klau, 7 p.",
+   "top": "Dėl Darbdavio, darbdaviui atstovaujančio asmens mokymo darbu, 2 p.",
    "hit": false,
    "expect": "mokymo",
    "term_hit": true
@@ -113,7 +113,7 @@
    "delegated": [
     "Dėl darbuotojų saugos ir sveikatos instrukcijų patvirtinimo",
     "Dėl darbuotojų saugos ir sveikatos instrukcijų patvirtinimo",
-    "Dėl Darbdavio ar jo įgalioto asmens žinių iš darbuotojų saug"
+    "Dėl darbuotojų saugos ir sveikatos instrukcijų patvirtinimo"
    ],
    "top": "Dėl darbuotojų saugos ir sveikatos instrukcijų patvirtinimo, 2 p.",
    "hit": false,
@@ -181,11 +181,11 @@
    "question": "Ką darbdavys privalo daryti įvykus nelaimingam atsitikimui darbe?",
    "expected": "Nutarimas Nr. 1118",
    "delegated": [
+    "Cheminiai veiksniai",
     "Nutarimas Nr. 1118",
-    "Dėl nelaimingų atsitikimų darbe tyrimo ir apskaitos nuostatų",
     "Saugaus darbo organizavimo ir darbo vietų įrengimo reikalavi"
    ],
-   "top": "Nutarimas Nr. 1118, 8 p.",
+   "top": "Cheminiai veiksniai, 29 p.",
    "hit": true,
    "expect": "praneš",
    "term_hit": true
@@ -195,11 +195,11 @@
    "question": "Kas tiria nelaimingą atsitikimą darbe?",
    "expected": "Nutarimas Nr. 1118",
    "delegated": [
-    "Dėl nelaimingų atsitikimų darbe tyrimo ir apskaitos nuostatų",
-    "Dėl nelaimingų atsitikimų darbe tyrimo ir apskaitos nuostatų",
+    "Darbuotojų saugos ir sveikatos įstatymas",
+    "Darbuotojų saugos ir sveikatos įstatymas",
     "Darbuotojų saugos ir sveikatos įstatymas"
    ],
-   "top": "Dėl nelaimingų atsitikimų darbe tyrimo ir apskaitos nuostatų, 10 p.",
+   "top": "Darbuotojų saugos ir sveikatos įstatymas, 3 p.",
    "hit": false,
    "expect": "tiria",
    "term_hit": true
@@ -210,11 +210,11 @@
    "expected": "SADM įsakymas A1-344",
    "delegated": [
     "Seimo projektas",
-    "Dėl Darbo ginčų komisijos nuostatų, Darbo ginčų komisijos da",
-    "Dėl Darbo ginčų komisijos nuostatų, Darbo ginčų komisijos da"
+    "SADM įsakymas A1-344",
+    "VDI paaiškinimas"
    ],
    "top": "Seimo projektas be numerio, 1 str.",
-   "hit": false,
+   "hit": true,
    "expect": "komisij",
    "term_hit": true
   },
@@ -239,7 +239,7 @@
    "delegated": [
     "VDI paaiškinimas",
     "Darbuotojų saugos ir sveikatos įstatymas",
-    "VDI paaiškinimas"
+    "Darbuotojų saugos ir sveikatos įstatymas"
    ],
    "top": "VDI paaiškinimas Nr. 4",
    "hit": false,

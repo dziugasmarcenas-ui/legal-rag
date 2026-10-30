@@ -1,7 +1,7 @@
 {
  "generated_by": "link_graph.py",
  "articles_linked": 132,
- "edges": 373,
+ "edges": 372,
  "case_edges": 23,
  "cases": [
   {
@@ -175,13 +175,6 @@
     "citation": "Nutarimas Nr. 496, 4 p.",
     "act_id": "76731a705b4711e79198ffdb108a3753",
     "url": "https://www.e-tar.lt/portal/lt/legalAct/76731a705b4711e79198ffdb108a3753"
-   },
-   {
-    "kind": "provision",
-    "source": "Dėl Darbo ginčų komisijos nuostatų, Darbo ginčų komisijos da",
-    "citation": "Dėl Darbo ginčų komisijos nuostatų, Darbo ginčų komisijos da, įžanga",
-    "act_id": "TAIS.439090",
-    "url": "https://www.e-tar.lt/portal/lt/legalAct/TAIS.439090"
    }
   ],
   "113": [

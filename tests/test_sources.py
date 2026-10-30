@@ -165,3 +165,15 @@ def test_a_weak_parliamentary_fragment_does_not_decide():
     code_weak = {"article": "184", "source": "Darbo kodeksas", "rerank_score": 0.38}
     record = {"article": None, "source": "Seimo stenogramos", "rerank_score": 0.80}
     assert gate.should_answer_any([code_weak, record]) is False
+
+
+def test_no_repealed_act_is_being_served():
+    """e-seimas says NEGALIOJA for these; serving their text as current is wrong."""
+    import json
+
+    repealed = json.loads(
+        (Path(__file__).parents[1] / "data" / "repealed_ids.json").read_text(encoding="utf-8")
+    )
+    records, _ = retrieval.source_index()
+    serving = {r["act_id"] for r in records if r["act_id"] in repealed}
+    assert serving == set(), f"repealed acts still indexed: {sorted(serving)}"

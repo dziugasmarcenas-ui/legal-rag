@@ -546,7 +546,7 @@ The Code often states a principle and points elsewhere for the rule. Average pay
 is the clearest case: article 139 delegates to **Government Resolution No. 496**,
 which is where severance and holiday pay are actually calculated.
 
-**123 delegated acts** are ingested, chunked by their own numbered points and
+**98 delegated acts** are ingested, chunked by their own numbered points and
 cited the way the institution cites them: average pay and work time (Res. 496),
 accidents at work (1118), the labour disputes commission (A1-344), the safety
 service (A1-266/V-575), risk assessment (A1-457/V-961), training (A1-276),
@@ -554,7 +554,7 @@ safety committees (A1-502), workplace requirements, work equipment, PPE, safety
 signs, VDT work (HN 32:2004), manual handling, noise, vibration, chemicals,
 occupational disease, construction sites, and more.
 
-**7,276 chunks across 123 acts.** Ingestion refuses an act that is repealed or
+**5,612 chunks across 98 acts.** Ingestion refuses an act that is repealed or
 lacks a consolidated edition: a dead regulation is worse than a missing one.
 Three candidates were rejected that way, including one repealed in 2005.
 
@@ -665,7 +665,7 @@ not transcripts.
 
 The pipeline now consumes any list of act IDs: `data/extra_acts.json` is appended
 to the ingestion set, and the same download → validity guard → chunk → embed
-path runs. Coverage is now **123 acts**.
+path runs. Coverage is now **98 acts**.
 
 Discovery routes measured, with yields:
 
@@ -704,7 +704,7 @@ Discovery routes measured, with yields:
 | e-seimas title "darbuotojų saugos ir sveikatos komitetų" / "psichosocialinių veiksnių" / "kolektyvinių darbuotojų atstovų" | **0** — title search is exact-phrase; all three return "Nerasta" |
 | e-seimas title "motinystės" (141 docs) + "nelaimingų atsitikimų darbe" (146) + "profesinės reabilitacijos" (9) | **4** — accident investigation/accounting, accident insurance benefits, 1997 damages rules, prohibited work for pregnant workers |
 | e-seimas "darbuotojų saugos ir sveikatos mokym" / "asmeninės apsaugos priemon" / "darbo vietų įrengim" / "apsaugos priemon" / "darbo viet" | **0** — all five answer "Nerasta" (title search is exact-phrase) |
-| e-seimas "įrengimo" (84 docs, 15 matches) | **2** — sanitary and hygiene premises at work, designated smoking rooms |
+| e-seimas "įrengimo" (84 docs, 15 matches) | **0** — both candidates were repealed (see below) |
 | data.gov.lt | no dataset links in HTML |
 | data.e-tar.lt | explainer page, no API |
 | OAI-PMH | not offered |
@@ -750,6 +750,36 @@ That claim is measured, not asserted:
 Incremental ingest reuses a chunk's stored vector when its title and text hash
 is unchanged, so adding acts costs embeddings only for the new ones. Tests cover
 the reuse, the update path, deletion of repealed chunks, and signature recall.
+
+## A correction: 35 repealed acts were removed
+
+The e-seimas bridge fetched acts as DOCX and the validity guard could only read
+the document text. A repealed act's export still contains the old text and no
+"negalioja" marker, so the guard passed it. Checking the e-seimas page status for
+all 76 bridge-imported acts found **35 marked NEGALIOJA**, including all four
+added in the previous batch (accident investigation, accident benefits, the 1997
+damages rules, prohibited work for pregnant workers) and most of the training
+cluster:
+
+| Repealed since | Examples |
+|---|---|
+| 2001–2010 | smoking rooms (2004), training rules (2004), under-18 prohibited work (2002) |
+| 2011–2019 | VDI prevention, employer knowledge tests, safety services licensing |
+| 2020–2025 | benefit overpayment rules (2020), training programme rules (2017), sanitary premises (2024), prohibited work for pregnant workers (2025) |
+
+They were removed, and the corpus now reports what is actually in force:
+**98 acts, 5,612 chunks**. The published numbers are lower than last week's
+because last week's counted dead regulations.
+
+Two guards prevent a repeat:
+
+- `data/repealed_ids.json` records each act's status date, and `ingest_sources`
+  refuses any act listed there before it reads the document;
+- `tests/test_sources.py` fails if a repealed act is ever served again.
+
+The other bug this exposed: `ingest_sodra` crawled the live site on every build,
+and a transient failure returned 0 chunks and silently deleted 248 Sodra answers.
+It now reads the committed snapshot, like every other explanation source.
 
 ## Access required
 
@@ -797,7 +827,7 @@ an article leads to the provisions that actually apply it.
 ```json
 {
   "code": {"articles": 257, "edition_to": "2026-10-31", "expired": false},
-  "delegated_acts": {"acts": 123, "chunks": 7276, "stale": []},
+  "delegated_acts": {"acts": 98, "chunks": 5612, "stale": []},
   "explanations": {"items": 784, "chunks": 1040, "institutions": 3},
   "eu_law": {"directives": 5, "chunks": 95},
   "echr": {"judgments": 9, "chunks": 266},

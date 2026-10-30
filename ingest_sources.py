@@ -455,8 +455,21 @@ def adoption_date(text):
     return f"{year:04d}-{month:02d}-{day:02d}"
 
 
+# Acts whose e-seimas page says "NEGALIOJA", with the date it stopped applying.
+# The DOCX export of a repealed act still contains the old text and no marker, so
+# the text alone cannot tell; this list is the recorded page status.
+REPEALED_FILE = ROOT / "data" / "repealed_ids.json"
+REPEALED = (
+    json.loads(REPEALED_FILE.read_text(encoding="utf-8"))
+    if REPEALED_FILE.exists()
+    else {}
+)
+
+
 def validity(act, text):
     """Refuse to ingest repealed acts. A dead regulation is worse than none."""
+    if act["id"] in REPEALED:
+        return None
     window = refresh_corpus.WINDOW.search(text)
     if not window:
         # A single published order has no consolidated-edition header. Its
