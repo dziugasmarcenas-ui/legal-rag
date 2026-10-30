@@ -242,7 +242,7 @@ def search_labour_code(query: str, k: int = 5, as_of_date: str | None = None) ->
         "query": query,
         "results": [_source(r) for r in results],
         "confidence": _confidence(code_results),
-        "answerable": gate.should_answer(code_results),
+        "answerable": gate.should_answer_any(results),
         # Articles the question named explicitly. They are pinned first, but
         # the answerability gate still judges the evidence on its merits.
         "referenced": retrieval.referenced_articles(query),
@@ -357,7 +357,7 @@ def ask_labour_code(question: str, lang: Literal["lt", "en"] = "lt",
     confidence = _confidence(code_results)
     status = _status()
 
-    if not gate.should_answer(code_results):
+    if not gate.should_answer_any(results):
         return {
             "answer": answer.REFUSAL[lang],
             "refused": True,

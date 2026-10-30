@@ -384,6 +384,13 @@ def chat(request: ChatRequest, http: Request):
     code_results = [r for r in results if r.get("article")]
     # report the same quantity the gate decides on, never a different one
     confidence = max((r[gate.SIGNAL] for r in code_results), default=0.0)
+    if not gate.should_answer(code_results):
+        # A refusal that is actually an institution answer must report that
+        # number, or the meter shows 0.41 while the answer is well supported.
+        confidence = max(
+            (r[gate.SIGNAL] for r in results if r.get("source") in gate.EXPLANATION_SOURCES),
+            default=confidence,
+        )
 
     # Sources are attached whether or not we answer, so a refusal still shows
     # what was considered and at what score. Refusing invisibly is not honest.
@@ -399,7 +406,7 @@ def chat(request: ChatRequest, http: Request):
         for r in results
     ]
 
-    if not gate.should_answer(code_results):
+    if not gate.should_answer_any(results):
         log.info("refused q_len=%d confidence=%.4f", len(request.question), confidence)
         return {
             "answer": REFUSAL[request.lang],

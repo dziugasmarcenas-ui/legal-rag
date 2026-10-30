@@ -14,6 +14,25 @@ SIGNAL = "rerank_score"
 THRESHOLD = 0.54
 
 
+# Institution answers are not the Code, but they are the institution's own
+# reading of it. A question about a social benefit is not in the Code at all, so
+# gating only on the Code refuses questions the ministry has answered.
+EXPLANATION_SOURCES = ("VDI paaiškinimas", "SADM paaiškinimas")
+EXPLANATION_THRESHOLD = 0.85
+
+
+def should_answer_any(results):
+    """Code first, then institution answers; enacted resolutions never decide alone."""
+    code = [r for r in results if r.get("article")]
+    if should_answer(code):
+        return True
+    explanations = [
+        r for r in results
+        if not r.get("article") and r.get("source") in EXPLANATION_SOURCES
+    ]
+    return any((r.get(SIGNAL) or 0.0) >= EXPLANATION_THRESHOLD for r in explanations)
+
+
 def should_answer(results):
     """True if the best cross-encoder relevance clears the threshold.
 

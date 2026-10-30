@@ -600,6 +600,14 @@ the text is English, because that is how the Court publishes it.
 Coverage is thin on purpose: Lithuania has few labour cases, and the query is
 narrowed to employment terms rather than ingesting 10,000 unrelated judgments.
 
+An institution answer can carry a question the Code does not cover, but only at
+a high bar: **0.85** on the reranker, against 0.54 for the Code. That number is
+measured, not chosen: unrelated questions reached 0.79 on explanations, while
+real ministry answers scored 0.91–0.96. Enacted resolutions never decide alone.
+With the bar at 0.85 the Code benchmark is unchanged (0.800 correct refusal,
+0.000 false refusals), and "koks socialinės pašalpos dydis" is answered instead
+of refused.
+
 The two families are not peers, and the ranking says so. The Code is returned
 first and decides whether there is an answer at all; delegated provisions are
 appended as corroboration (at most two). Mixing them into one ranking was

@@ -99,3 +99,27 @@ def test_stale_delegated_acts_fail_the_freshness_check(monkeypatch):
     )
     assert check_freshness.check_source_editions(date(2026, 10, 30)) == 1
     monkeypatch.setattr(check_freshness, "source_acts", lambda: healthy)
+
+
+def test_an_institution_answer_can_unblock_a_question_the_code_does_not_cover():
+    import gate
+
+    code_weak = {"article": "48", "source": "Darbo kodeksas", "rerank_score": 0.41}
+    explanation = {"article": None, "source": "SADM paaiškinimas", "rerank_score": 0.91}
+    assert gate.should_answer_any([code_weak, explanation]) is True
+
+
+def test_a_merely_relevant_explanation_does_not_bypass_the_gate():
+    """Measured: unrelated questions reached 0.79 on explanations; 0.85 separates."""
+    import gate
+
+    code_weak = {"article": "48", "source": "Darbo kodeksas", "rerank_score": 0.41}
+    explanation = {"article": None, "source": "VDI paaiškinimas", "rerank_score": 0.79}
+    assert gate.should_answer_any([code_weak, explanation]) is False
+
+
+def test_an_enacted_resolution_never_decides_alone():
+    import gate
+
+    resolution = {"article": None, "source": "Nutarimas Nr. 496", "rerank_score": 0.99}
+    assert gate.should_answer_any([resolution]) is False

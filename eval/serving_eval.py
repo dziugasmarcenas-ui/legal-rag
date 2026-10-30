@@ -68,7 +68,11 @@ def measure(entries):
                 "citations": [r["citation"] for r in results],
                 "scores": [r["rerank_score"] for r in results if r.get("article")],
                 "cosine": [r["cosine_score"] for r in results],
-                "refused": not gate.should_answer(results),
+                "refused": not gate.should_answer_any(results),
+                "explanation_hits": [
+                    r["source"] for r in results
+                    if not r.get("article") and r.get("source") in gate.EXPLANATION_SOURCES
+                ],
             }
         )
         mark = "hit " if metrics.hit_at_k(rows[-1], retrieval.SERVED_K) else "MISS"
@@ -82,9 +86,14 @@ def report(rows):
 
     hit1 = metrics.recall_at_k(answerable, 1)
     hit_k = metrics.recall_at_k(answerable, retrieval.SERVED_K)
-    false_refusal = metrics.false_refusal_rate(answerable, gate.THRESHOLD, key="scores")
-    correct_refusal = metrics.correct_refusal_rate(
-        unanswerable, gate.THRESHOLD, key="scores"
+    # Use the decision the service actually made, not a threshold replay: the
+    # gate now also considers institution answers, and a metric that ignores
+    # that would describe a product we do not ship.
+    false_refusal = (
+        sum(1 for r in answerable if r["refused"]) / len(answerable) if answerable else 0.0
+    )
+    correct_refusal = (
+        sum(1 for r in unanswerable if r["refused"]) / len(unanswerable) if unanswerable else 0.0
     )
 
     served = [r for r in rows if not r["refused"]]

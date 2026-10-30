@@ -9,7 +9,7 @@
   "served_hit_rate": 0.96,
   "false_refusal_rate": 0.0,
   "correct_refusal_rate": 0.8,
-  "answered": 27
+  "answered": 26
  },
  "delegated": {
   "hits": 26,
