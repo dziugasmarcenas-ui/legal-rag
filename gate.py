@@ -17,7 +17,10 @@ THRESHOLD = 0.54
 # Institution answers are not the Code, but they are the institution's own
 # reading of it. A question about a social benefit is not in the Code at all, so
 # gating only on the Code refuses questions the ministry has answered.
-EXPLANATION_SOURCES = ("VDI paaiškinimas", "SADM paaiškinimas")
+EXPLANATION_SOURCES = ("VDI paaiškinimas", "SADM paaiškinimas",
+                       "Sodra paaiškinimas")
+# Parliamentary record: authoritative for "what was debated", not for the law.
+RECORD_SOURCES = ("Seimo stenogramos",)
 EXPLANATION_THRESHOLD = 0.85
 
 
@@ -28,7 +31,8 @@ def should_answer_any(results):
         return True
     explanations = [
         r for r in results
-        if not r.get("article") and r.get("source") in EXPLANATION_SOURCES
+        if not r.get("article")
+        and r.get("source") in EXPLANATION_SOURCES + RECORD_SOURCES
     ]
     return any((r.get(SIGNAL) or 0.0) >= EXPLANATION_THRESHOLD for r in explanations)
 

@@ -146,3 +146,19 @@ def test_sodra_sitemap_pages_are_ingested_with_a_citable_source():
     assert len(sodra) >= 200
     assert all("Sodra paaiškinimas" in r["citation"] for r in sodra)
     assert all(r["url"].startswith("https://sodra.lt/") for r in sodra)
+
+
+def test_a_parliamentary_record_can_answer_what_was_debated():
+    import gate
+
+    code_weak = {"article": "184", "source": "Darbo kodeksas", "rerank_score": 0.38}
+    record = {"article": None, "source": "Seimo stenogramos", "rerank_score": 0.86}
+    assert gate.should_answer_any([code_weak, record]) is True
+
+
+def test_a_weak_parliamentary_fragment_does_not_decide():
+    import gate
+
+    code_weak = {"article": "184", "source": "Darbo kodeksas", "rerank_score": 0.38}
+    record = {"article": None, "source": "Seimo stenogramos", "rerank_score": 0.80}
+    assert gate.should_answer_any([code_weak, record]) is False
