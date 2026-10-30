@@ -184,5 +184,11 @@
   "question": "Kaip kreiptis dėl nedarbo išmokos ir kokie dokumentai reikalingi?",
   "expected": "Sodra paaiškinimas",
   "expect": "dokument"
+ },
+ {
+  "id": 33,
+  "question": "Ką Seimas svarstė dėl socialinio draudimo pensijų įstatymo pakeitimo?",
+  "expected": "Seimo stenogramos",
+  "expect": "pensij"
  }
 ]

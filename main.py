@@ -243,13 +243,15 @@ def status_payload():
     ]
     eu = [r for r in sources if r["source"].startswith("Direktyva")]
     drafts = [r for r in sources if r["source"] == "Seimo projektas"]
+    transcripts = [r for r in sources if r["source"] == "Seimo stenogramos"]
     echr = [r for r in sources if r["source"].startswith("EŽTT")]
     acts = sorted({
         r["source"] for r in sources
         if r.get("act_id") not in ("vdi-faq", "sadm-faq")
         and not r["source"].startswith("Direktyva")
         and not r["source"].startswith("EŽTT")
-        and r["source"] not in ("Seimo projektas", "Sodra paaiškinimas")
+        and r["source"] not in ("Seimo projektas", "Sodra paaiškinimas",
+                                "Seimo stenogramos")
     })
     stale = sorted({
         r["source"] for r in sources
@@ -275,7 +277,10 @@ def status_payload():
         },
         "delegated_acts": {
             "acts": len(acts),
-            "chunks": len(sources) - len(explanations) - len(eu) - len(echr) - len(drafts),
+            "chunks": (
+                len(sources) - len(explanations) - len(eu) - len(echr)
+                - len(drafts) - len(transcripts)
+            ),
             "stale": stale,
             "titles": acts,
         },
@@ -291,6 +296,10 @@ def status_payload():
         "echr": {
             "judgments": len({r["act_id"] for r in echr}),
             "chunks": len(echr),
+        },
+        "seimas_transcripts": {
+            "documents": len({r["act_id"] for r in transcripts}),
+            "chunks": len(transcripts),
         },
         "seimas_drafts": {
             "drafts": len({r["act_id"] for r in drafts}),
@@ -341,6 +350,8 @@ def status_page():
         row("EU directives", f"{data['eu_law']['directives']} directives", f"{data['eu_law']['chunks']} chunks"),
         row("ECHR judgments", f"{data['echr']['judgments']} judgments", f"{data['echr']['chunks']} chunks"),
         row("Seimas drafts", f"{data['seimas_drafts']['drafts']} drafts", f"{data['seimas_drafts']['chunks']} chunks, not adopted"),
+        row("Seimas transcripts", f"{data['seimas_transcripts']['documents']} sittings",
+            f"{data['seimas_transcripts']['chunks']} chunks"),
         row("Edition archive", f"{data['history']['editions']} editions", f"from {data['history']['from']}"),
         row("Citation links", f"{data['links']['edges']} edges",
             f"across {data['links']['articles_linked']} articles, {data['links']['cases']} cases indexed"),

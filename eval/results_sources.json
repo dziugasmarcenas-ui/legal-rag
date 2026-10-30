@@ -1,11 +1,11 @@
 {
  "summary": {
-  "hits": 29,
-  "total": 31,
-  "hit_rate": 0.935,
-  "term_hits": 28,
-  "term_total": 29,
-  "term_rate": 0.966
+  "hits": 30,
+  "total": 32,
+  "hit_rate": 0.938,
+  "term_hits": 29,
+  "term_total": 30,
+  "term_rate": 0.967
  },
  "rows": [
   {
@@ -29,7 +29,7 @@
    "delegated": [
     "Nutarimas Nr. 496",
     "Nutarimas Nr. 496",
-    "Nutarimas Nr. 496"
+    "VDI paaiškinimas"
    ],
    "top": "Nutarimas Nr. 496, 3 p.",
    "hit": true,
@@ -439,6 +439,20 @@
    "top": "Sodra paaiškinimas: Gauti nedarbo išmoką (bedarbio statusas suteiktas 2026 m. liepos 1 d. ir vėliau), 22 fragmentas",
    "hit": true,
    "expect": "dokument",
+   "term_hit": true
+  },
+  {
+   "id": 33,
+   "question": "Ką Seimas svarstė dėl socialinio draudimo pensijų įstatymo pakeitimo?",
+   "expected": "Seimo stenogramos",
+   "delegated": [
+    "Seimo stenogramos",
+    "Seimo stenogramos",
+    "Seimo stenogramos"
+   ],
+   "top": "Seimo stenogramos Nr. 34, 117 fragmentas",
+   "hit": true,
+   "expect": "pensij",
    "term_hit": true
   }
  ]

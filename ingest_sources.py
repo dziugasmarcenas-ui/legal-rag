@@ -34,6 +34,7 @@ import ingest_eu
 import ingest_explanations
 import ingest_sadm
 import ingest_sodra
+import ingest_seimas
 import ingest_seimas_drafts
 import refresh_corpus
 
@@ -344,6 +345,10 @@ def main(argv=None):
     sodra = ingest_sodra.records()
     print(f"Sodra paaiškinimai: {len(sodra)} chunks")
     records.extend(sodra)
+
+    transcripts = ingest_seimas.records()
+    print(f"Seimo stenogramos: {len(transcripts)} chunks")
+    records.extend(transcripts)
 
     drafts = ingest_seimas_drafts.records()
     print(f"Seimo projektai: {len(drafts)} chunks")

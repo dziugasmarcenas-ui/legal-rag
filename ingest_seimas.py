@@ -19,7 +19,7 @@ import sys
 
 from pathlib import Path
 
-from pypdf import PdfReader
+import pymupdf
 
 ROOT = Path(__file__).parent
 RAW = ROOT / "data" / "seimas_raw"
@@ -37,8 +37,18 @@ DATE = re.compile(r"(\d{4}) m\. ([a-ząčęėįšųūž]+) (\d{1,2}) d\.")
 
 
 def page_text(path):
-    reader = PdfReader(path)
-    return "\n".join((page.extract_text() or "") for page in reader.pages)
+    """Extract text and repair the layer that looked broken.
+
+    pypdf reported this as syllable-split text; PyMuPDF shows the real cause:
+    soft hyphens (U+00AD) inside words. Stripping them and joining hyphenated
+    line breaks turns "pa\xadtai\xadsa" into "pataisa".
+    """
+    document = pymupdf.open(path)
+    raw = "\n".join(page.get_text() for page in document)
+    raw = raw.replace("\xad", "").replace("\u200b", "")
+    raw = re.sub(r"(\w)-\s*\n\s*(\w)", r"\1\2", raw)
+    raw = re.sub(r"[ \t]+", " ", raw)
+    return raw
 
 
 def is_index_line(text):
@@ -60,7 +70,7 @@ def looks_clean(text):
     # Two-letter syllables are the signature of the split text layer; ordinary
     # Lithuanian prose has few tokens that short.
     short = sum(1 for token in tokens if len(token) <= 2)
-    return short / len(tokens) < 0.30
+    return short / len(tokens) < 0.25
 
 
 def relevant(lines):

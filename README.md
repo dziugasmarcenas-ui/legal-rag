@@ -630,19 +630,21 @@ while the deployed answer for one question was "I don't know".
 Freshness covers them too: the daily check fails if any ingested act is repealed
 or has a newer edition on e-TAR.
 
-## Seimas drafts
+## Seimas drafts and transcripts
 
-Draft acts are served by e-seimas as DOCX and extract cleanly, unlike the
-transcript PDFs. Three labour-related drafts are ingested by article (**9
-chunks**), cited as `Seimo projektas be numerio, 1 str.`, and labelled as drafts:
-the prompt must say a draft is not adopted law, and the gate never lets a draft
-decide an answer.
+Draft acts are served by e-seimas as DOCX and extract cleanly: three
+labour-related drafts (9 chunks), cited as `Seimo projektas be numerio, 1 str.`,
+labelled as drafts — the prompt must say a draft is not adopted and the gate
+never lets a draft decide an answer.
 
-Committee and plenary transcripts remain **blocked**: every PDF from lrs.lt
-splits words per syllable ("La bai ačiū už klau si mą"). Three collections and
-the per-sitting "e. leidiniai" editions were tested; the per-sitting PDF scored a
-0.354 two-letter-token ratio on its first twelve pages, the same defect. `ingest_seimas.py` and its tests wait for a clean
-export.
+Transcripts were reported as unusable because the PDF text layer looked
+syllable-split. The cause was **soft hyphens (U+00AD) inside words**: pypdf
+exposed them as separate fragments, PyMuPDF plus a strip of U+00AD turns
+`pa-tai-sa` into `pataisa`. Two sittings are now ingested as **134
+labour-related fragments** (`Seimo stenogramos Nr. 34, 12 fragmentas`).
+
+Committee transcripts appear not to be published: the committee page lists
+agendas, not transcripts.
 
 ## Citation graph and status
 
@@ -667,6 +669,7 @@ an article leads to the provisions that actually apply it.
   "eu_law": {"directives": 5, "chunks": 95},
   "echr": {"judgments": 9, "chunks": 266},
   "seimas_drafts": {"drafts": 3, "chunks": 9},
+  "seimas_transcripts": {"documents": 2, "chunks": 134},
   "history": {"editions": 41, "from": "2017-07-01"},
   "links": {"articles_linked": 119, "edges": 326, "case_edges": 6, "cases": 9},
   "evals": {"code_served": {"served_hit1": 0.92}, "delegated": {"term_rate": 0.955}}
