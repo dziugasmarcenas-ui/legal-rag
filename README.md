@@ -525,6 +525,10 @@ versions that were in force that day, one row per article so a much-amended
 article cannot fill the list with its own past. The response carries the edition
 window it searched, so a 2019 answer cannot be mistaken for today's.
 
+`ask_labour_code` takes the same date. The prompt is told which edition it is
+answering from and instructed to say so, because a model handed 2019 text and no
+date will happily describe it as current law.
+
 Staging the edition that takes effect tomorrow is one command:
 
 ```bash
@@ -548,7 +552,7 @@ retriever returned -- the model cannot introduce one.
 | `corpus_info()` | edition window, article count, models, threshold, known gaps, disclaimer |
 | `search_labour_code(query, k=5, as_of_date)` | ranked articles with both scores, `above_gate`, citable parts, and the edition searched |
 | `get_article("72-1", as_of_date)` | the article as it stood on that date, with numbered parts, or a typed error |
-| `ask_labour_code(question, lang)` | grounded answer + sources + confidence, or an explicit refusal |
+| `ask_labour_code(question, lang, as_of_date)` | grounded answer + sources + confidence, or an explicit refusal |
 
 Every result carries the edition it came from. When the edition expires,
 `corpus.edition_expired` is true and `corpus.warning` explains what that means,

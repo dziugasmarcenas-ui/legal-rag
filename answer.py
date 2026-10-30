@@ -72,7 +72,22 @@ CITATION_CLOSING = {
 }
 
 
-def build_prompt(question, results, lang="lt"):
+def _edition_note(edition, lang):
+    """A historical answer must say which edition it is answering from."""
+    if not edition:
+        return ""
+    if lang == "en":
+        return (
+            f"These articles were in force from {edition['valid_from']} to "
+            f"{edition['valid_to']}. Answer according to that edition and say so.\n\n"
+        )
+    return (
+        f"Šie straipsniai galiojo nuo {edition['valid_from']} iki "
+        f"{edition['valid_to']}. Atsakyk pagal tą redakciją ir tai nurodyk.\n\n"
+    )
+
+
+def build_prompt(question, results, lang="lt", edition=None):
     """Give the model only the retrieved articles, and require a citation.
 
     The citation format stays "[X straipsnis]" in both languages, because the
@@ -86,6 +101,7 @@ def build_prompt(question, results, lang="lt"):
         "Tu esi Lietuvos darbo teisės asistentas. Atsakyk į klausimą remdamasis "
         "TIK žemiau pateiktais Darbo kodekso straipsniais. Jei straipsniuose "
         "atsakymo nėra, pasakyk, kad nežinai.\n\n"
+        f"{_edition_note(edition, lang)}"
         f"Straipsniai:\n{articles}\n\n"
         f"Klausimas: {question}\n\n"
         f"{ANSWER_LANGUAGE[lang]} {CITATION_CLOSING[lang]}"
@@ -96,6 +112,6 @@ def generate_answer(question, results, lang="lt"):
     return llm.generate(build_prompt(question, results, lang))
 
 
-def generate(question, results, lang="lt"):
+def generate(question, results, lang="lt", edition=None):
     """The grounded answer, or ProviderUnavailable. Callers handle the refusal."""
-    return llm.generate(build_prompt(question, results, lang))
+    return llm.generate(build_prompt(question, results, lang, edition=edition))

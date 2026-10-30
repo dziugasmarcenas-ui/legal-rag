@@ -299,7 +299,8 @@ def get_article(article: str, as_of_date: str | None = None) -> dict:
 
 
 @mcp.tool()
-def ask_labour_code(question: str, lang: Literal["lt", "en"] = "lt") -> dict:
+def ask_labour_code(question: str, lang: Literal["lt", "en"] = "lt",
+                    as_of_date: str | None = None) -> dict:
     """Answer a Lithuanian employment-law question from retrieved articles only.
 
     The prose comes from a language model, but the `sources` are the articles
@@ -307,7 +308,18 @@ def ask_labour_code(question: str, lang: Literal["lt", "en"] = "lt") -> dict:
     model cannot introduce one. Below the confidence gate the tool refuses
     instead of guessing, and still returns what it looked at.
     """
-    results = retrieval.retrieve(question)
+    if as_of_date:
+        edition_window = history.in_force(as_of_date) if history.available() else None
+        if edition_window is None:
+            return {
+                "error": "out_of_range",
+                "message": f"no archived edition covers {as_of_date}",
+                "covered": history.coverage() if history.available() else None,
+            }
+    else:
+        edition_window = None
+
+    results = retrieval.retrieve(question, as_of_date=as_of_date)
     sources = [_source(r) for r in results]
     confidence = _confidence(results)
     status = _status()
@@ -316,6 +328,7 @@ def ask_labour_code(question: str, lang: Literal["lt", "en"] = "lt") -> dict:
         return {
             "answer": answer.REFUSAL[lang],
             "refused": True,
+            "as_of_date": as_of_date,
             "refusal_reason": "below_confidence_threshold",
             "confidence": confidence,
             "sources": sources,
@@ -324,7 +337,11 @@ def ask_labour_code(question: str, lang: Literal["lt", "en"] = "lt") -> dict:
         }
 
     try:
-        text = answer.generate(question, results, lang)
+        text = answer.generate(
+            question, results, lang,
+            edition=(results[0].get("edition") if results else edition_window)
+            if as_of_date else None,
+        )
     except llm.ProviderUnavailable as error:
         return {
             "answer": None,
@@ -340,6 +357,11 @@ def ask_labour_code(question: str, lang: Literal["lt", "en"] = "lt") -> dict:
     return {
         "answer": text,
         "refused": False,
+        "as_of_date": as_of_date,
+        "edition": (
+            (results[0].get("edition") if results else edition_window)
+            if as_of_date else _indexed_edition()
+        ),
         "confidence": confidence,
         "confidence_signal": "max_" + gate.SIGNAL,
         "sources": sources,

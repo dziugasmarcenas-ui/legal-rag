@@ -134,3 +134,45 @@ def test_search_passes_the_date_to_retrieval(monkeypatch):
     assert seen["as_of_date"] == "2019-01-01"
     assert out["edition"]["valid_from"] == "2017-07-01"
     assert out["as_of_date"] == "2019-01-01"
+
+
+def test_a_historical_answer_is_told_which_edition_it_is_answering_from():
+    import answer
+
+    prompt = answer.build_prompt(
+        "Kiek atostogų?", [{"citation": "126", "title": "T", "text": "x"}],
+        edition={"valid_from": "2017-07-01", "valid_to": "2022-07-31"},
+    )
+    assert "2017-07-01" in prompt and "2022-07-31" in prompt
+    assert "galiojo" in prompt
+
+    current = answer.build_prompt(
+        "Kiek atostogų?", [{"citation": "126", "title": "T", "text": "x"}]
+    )
+    assert "galiojo" not in current
+
+
+def test_ask_passes_the_edition_to_generation(monkeypatch):
+    seen = {}
+
+    def fake_retrieve(*args, **kwargs):
+        return [{
+            "article": "126", "citation": "126", "title": "t", "text": "1. x",
+            "parts": [], "cosine_score": 0.5, "rerank_score": 0.9,
+            "edition": {"valid_from": "2017-07-01", "valid_to": "2022-07-31"},
+        }]
+
+    monkeypatch.setattr(mcp_server.retrieval, "retrieve", fake_retrieve)
+    monkeypatch.setattr(
+        mcp_server.answer, "generate",
+        lambda q, r, lang, edition=None: seen.update(edition=edition) or "atsakymas",
+    )
+    out = mcp_server.ask_labour_code("Kiek atostogų?", as_of_date="2019-01-01")
+    assert seen["edition"]["valid_from"] == "2017-07-01"
+    assert out["as_of_date"] == "2019-01-01"
+    assert out["edition"]["valid_to"] == "2022-07-31"
+
+
+def test_ask_refuses_a_date_outside_the_archive():
+    out = mcp_server.ask_labour_code("Kiek atostogų?", as_of_date="2010-01-01")
+    assert out["error"] == "out_of_range"
