@@ -531,6 +531,13 @@ def main(argv=None):
     print(f"ECHR judgments: {len(echr)} chunks")
     records.extend(echr)
 
+    # The store's primary key is the chunk id: a generator that emits the same
+    # id twice would silently lose a chunk, so uniqueness is enforced here for
+    # every source, not only the one that collided.
+    records, repaired = vector_store.unique_ids(records)
+    if repaired:
+        print(f"repaired {repaired} duplicate chunk ids")
+
     DATA.write_text(json.dumps(records, ensure_ascii=False, indent=1), encoding="utf-8")
     texts = [embedding_input(r) for r in records]
     expected = fingerprint(texts)

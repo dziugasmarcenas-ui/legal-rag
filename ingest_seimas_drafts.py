@@ -95,7 +95,9 @@ def records():
         for index, (article, body) in enumerate(article_chunks(text), start=1):
             reference = f"{article} str." if article else f"{index} fragmentas"
             out.append({
-                "id": f"tap-{path.stem[-12:]}-{index}",
+                # The full stem: the last twelve characters of two different
+                # TAP files can coincide (both ended "...e3dbc2261ee42a").
+                "id": f"tap-{path.stem}-{index}",
                 "source": "Seimo projektas",
                 "act_id": path.stem,
                 "act_title": title,

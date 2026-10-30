@@ -29,7 +29,7 @@
    "delegated": [
     "Nutarimas Nr. 496",
     "Nutarimas Nr. 496",
-    "VDI paaiškinimas"
+    "Nutarimas Nr. 496"
    ],
    "top": "Nutarimas Nr. 496, 3 p.",
    "hit": true,
@@ -181,11 +181,11 @@
    "question": "Ką darbdavys privalo daryti įvykus nelaimingam atsitikimui darbe?",
    "expected": "Nutarimas Nr. 1118",
    "delegated": [
-    "Cheminiai veiksniai",
     "Nutarimas Nr. 1118",
+    "Dėl nelaimingų atsitikimų darbe tyrimo ir apskaitos nuostatų",
     "Saugaus darbo organizavimo ir darbo vietų įrengimo reikalavi"
    ],
-   "top": "Cheminiai veiksniai, 29 p.",
+   "top": "Nutarimas Nr. 1118, 8 p.",
    "hit": true,
    "expect": "praneš",
    "term_hit": true
@@ -196,8 +196,8 @@
    "expected": "Nutarimas Nr. 1118",
    "delegated": [
     "Darbuotojų saugos ir sveikatos įstatymas",
-    "Darbuotojų saugos ir sveikatos įstatymas",
-    "Darbuotojų saugos ir sveikatos įstatymas"
+    "Dėl nelaimingų atsitikimų darbe tyrimo ir apskaitos nuostatų",
+    "Dėl nelaimingų atsitikimų darbe tyrimo ir apskaitos nuostatų"
    ],
    "top": "Darbuotojų saugos ir sveikatos įstatymas, 3 p.",
    "hit": false,
@@ -280,7 +280,7 @@
    "expected": "SADM ir SAM įsakymas A1-457/V-961",
    "delegated": [
     "Darbuotojų saugos ir sveikatos įstatymas",
-    "Dėl 2022–2027 m. darbuotojų saugos ir sveikatos veiksmų plan",
+    "2022–2027 m. darbuotojų saugos ir sveikatos veiksmų planas",
     "Saugaus darbo organizavimo ir darbo vietų įrengimo reikalavi"
    ],
    "top": "Darbuotojų saugos ir sveikatos įstatymas, 3 p.",

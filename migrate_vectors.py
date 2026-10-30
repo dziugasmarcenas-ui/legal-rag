@@ -32,36 +32,6 @@ def load():
     return records, matrix
 
 
-def unique_ids(records):
-    """Make chunk ids unique without touching their text.
-
-    The old act id was truncated to eight characters, so TAIS.403977 and
-    TAIS.403469 produced the same chunk ids. Row-based retrieval never noticed;
-    a keyed store would silently drop one of each colliding pair. The generator
-    is fixed; this repairs records that were written before it.
-    """
-    seen, changed = set(), 0
-    out = []
-    for record in records:
-        identifier = record["id"]
-        if identifier in seen:
-            n = 2
-            while f"{identifier}-{n}" in seen:
-                n += 1
-            record = {**record, "id": f"{identifier}-{n}"}
-            identifier = record["id"]
-            changed += 1
-        seen.add(identifier)
-        out.append(record)
-    return out, changed
-
-
-def brute_force(query, matrix, k):
-    query = query / max(np.linalg.norm(query), 1e-9)
-    scores = matrix @ query
-    return list(np.argsort(scores)[::-1][:k]), scores
-
-
 def check(store, records, matrix, questions, k=10):
     """Compare store.search() with exhaustive cosine over every chunk."""
     by_id = {r["id"]: i for i, r in enumerate(records)}
@@ -93,7 +63,7 @@ def check(store, records, matrix, questions, k=10):
 
 def main(argv=None):
     records, matrix = load()
-    records, repaired = unique_ids(records)
+    records, repaired = vector_store.unique_ids(records)
     if repaired:
         DATA.write_text(json.dumps(records, ensure_ascii=False, indent=1), encoding="utf-8")
         print(f"repaired {repaired} duplicate chunk ids in {DATA.name}")

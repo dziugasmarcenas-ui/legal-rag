@@ -103,9 +103,14 @@ def records():
             continue
         articles = parse(page, short)
         print(f"{short}: {len(articles)} articles")
+        seen_refs = {}
         for article in articles:
+            # EUR-Lex repeats some article headings (contents block, annexes);
+            # the second copy must not overwrite the first row.
+            seen_refs[article["ref"]] = seen_refs.get(article["ref"], 0) + 1
+            suffix = "" if seen_refs[article["ref"]] == 1 else f"-{seen_refs[article['ref']]}"
             out.append({
-                "id": f"{celex}-{article['ref']}",
+                "id": f"{celex}-{article['ref']}{suffix}",
                 "source": short,
                 "act_id": celex,
                 "act_title": title,

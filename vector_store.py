@@ -101,6 +101,28 @@ def synchronized(method):
     return wrapper
 
 
+def unique_ids(records):
+    """Return records with unique ids, suffixing collisions deterministically.
+
+    The primary key is the chunk id, so a generator that emits the same id twice
+    silently loses a chunk. Every ingest passes through this: a collision is
+    repaired and counted rather than dropped.
+    """
+    seen, out, changed = set(), [], 0
+    for record in records:
+        identifier = record["id"]
+        if identifier in seen:
+            n = 2
+            while f"{identifier}-{n}" in seen:
+                n += 1
+            record = {**record, "id": f"{identifier}-{n}"}
+            identifier = record["id"]
+            changed += 1
+        seen.add(identifier)
+        out.append(record)
+    return out, changed
+
+
 def _record_from_row(row):
     data = dict(zip(COLUMNS, row))
     data.pop("content_hash")
