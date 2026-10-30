@@ -25,6 +25,7 @@ import answer
 import config
 import edition
 import gate
+import history
 import llm
 import paragraphs
 import retrieval
@@ -97,6 +98,18 @@ def _confidence(results):
     return round(max((r["rerank_score"] or 0.0) for r in results), 4) if results else 0.0
 
 
+def _citation(identifier):
+    """How the Code writes the article: 72-1 is 72¹ on the page."""
+    return identifier.replace("-", "\u00b9", 1) if "-" in identifier else identifier
+
+
+def _indexed_edition():
+    return {
+        "valid_from": retrieval.SIDECAR["edition_from"],
+        "valid_to": retrieval.SIDECAR["edition_to"],
+    }
+
+
 def normalise_article(value):
     """Accept the forms a person or a model actually types.
 
@@ -123,6 +136,16 @@ def corpus_info() -> dict:
         "rerank_model": retrieval.RERANK_MODEL,
         "abstention_threshold": gate.THRESHOLD,
         "threshold_signal": gate.SIGNAL,
+        "history": (
+            {
+                "available": True,
+                **history.coverage(),
+                "note": "get_article accepts as_of_date within this range; "
+                        "retrieval is indexed on the edition in force today",
+            }
+            if history.available()
+            else {"available": False}
+        ),
         "known_gaps": [
             "one consolidated edition only; historical or future editions are not served",
             "articles 85-88 are repealed in this edition and are absent",
@@ -134,7 +157,7 @@ def corpus_info() -> dict:
 
 
 @mcp.tool()
-def search_labour_code(query: str, k: int = 5) -> dict:
+def search_labour_code(query: str, k: int = 5, as_of_date: str | None = None) -> dict:
     """Find Labour Code articles by meaning, ranked, with their relevance scores.
 
     Use this for questions about Lithuanian employment law: leave, working time,
@@ -146,6 +169,19 @@ def search_labour_code(query: str, k: int = 5) -> dict:
     is strong enough to answer from. If every result is false, say the Code does
     not appear to cover the question.
     """
+    if as_of_date:
+        indexed = _indexed_edition()
+        if not (indexed["valid_from"] <= as_of_date <= indexed["valid_to"]):
+            return {
+                "error": "out_of_range",
+                "message": (
+                    "retrieval is indexed on the edition currently loaded; "
+                    "use get_article(article, as_of_date) for historical text"
+                ),
+                "indexed_edition": indexed,
+                "history": history.coverage() if history.available() else None,
+            }
+
     k = max(1, min(int(k), MAX_K))
     results = retrieval.retrieve(
         query, k=k, candidates=max(k, retrieval.SERVED_CANDIDATES)
@@ -155,20 +191,56 @@ def search_labour_code(query: str, k: int = 5) -> dict:
         "results": [_source(r) for r in results],
         "confidence": _confidence(results),
         "answerable": gate.should_answer(results),
+        "edition": _indexed_edition(),
         "corpus": _status(),
         "disclaimer": DISCLAIMER,
     }
 
 
 @mcp.tool()
-def get_article(article: str) -> dict:
+def get_article(article: str, as_of_date: str | None = None) -> dict:
     """Read one article in full, by number -- "126", "72-1" or "72¹".
 
-    Use this after `search_labour_code` when an excerpt is not enough, or when
-    the user names an article directly. Returns the exact text of the loaded
-    edition, never a summary.
+    Pass `as_of_date` (YYYY-MM-DD) to read the article **as it stood then**.
+    Employment disputes are about the law when the event happened, and the text
+    of the same article changes over time. The archive covers 2017-07-01
+    onwards; dates outside it are refused rather than silently served today's
+    text.
     """
     wanted = normalise_article(article)
+
+    if as_of_date:
+        if not history.available():
+            return {"error": "history_unavailable",
+                    "message": "no edition archive on this deployment"}
+        edition = history.in_force(as_of_date)
+        if edition is None:
+            return {
+                "error": "out_of_range",
+                "message": f"no archived edition covers {as_of_date}",
+                "covered": history.coverage(),
+            }
+        version = history.article_as_of(wanted, as_of_date)
+        if version is None:
+            return {
+                "error": "not_in_force",
+                "message": f"article {wanted} was not in force on {as_of_date}",
+                "edition": edition,
+            }
+        return {
+            "article": wanted,
+            "citation": _citation(wanted),
+            "title": version["title"],
+            "text": version["text"],
+            "parts": paragraphs.parts_with_citations(
+                wanted, paragraphs.split_parts(version["text"])
+            ),
+            "as_of_date": as_of_date,
+            "edition": edition,
+            "corpus": _status(),
+            "disclaimer": DISCLAIMER,
+        }
+
     for record in retrieval.ARTICLES:
         if record["article"] == wanted:
             return {
@@ -177,6 +249,7 @@ def get_article(article: str) -> dict:
                 "title": record["title"],
                 "text": record["text"],
                 "parts": _parts(record),
+                "edition": _indexed_edition(),
                 "corpus": _status(),
                 "disclaimer": DISCLAIMER,
             }

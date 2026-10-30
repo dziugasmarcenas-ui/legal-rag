@@ -4,3 +4,6 @@ venv/
 __pycache__/
 *.pyc
 .worktrees/
+
+# Downloaded e-TAR DOCX cache; rebuild with build_history.py
+data/history_raw/

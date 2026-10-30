@@ -16,9 +16,11 @@ RUN pip install --no-cache-dir -r requirements.txt
 # against -- a container that re-embedded on startup would be serving numbers
 # nobody measured.
 COPY data/articles.json data/articles.json
+COPY data/history.json data/history.json
 COPY embeddings/ embeddings/
 COPY static/ static/
-COPY config.py retrieval.py gate.py edition.py ratelimit.py llm.py answer.py mcp_server.py main.py ./
+COPY config.py retrieval.py gate.py edition.py ratelimit.py llm.py answer.py \
+     paragraphs.py history.py mcp_server.py main.py ./
 
 # Fail the build rather than the first request if the corpus and the vectors
 # ever ship out of step with each other.

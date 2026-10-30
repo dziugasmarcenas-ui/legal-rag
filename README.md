@@ -49,6 +49,7 @@ The 0.72 → 0.88 Recall@1 result comes from **25 answerable questions** in a fr
 | Served pipeline | reranks 10 candidates, shows 3: **0.920** top-1, **0.960** in top 3 |
 | Abstention | Confidence gate returns an explicit refusal below 0.54 |
 | Citations | article **and part** (`126 str. 2 d.`), attached by the retriever, never written by the model |
+| Time travel | **41 archived editions** (2017-07-01 → present), `get_article(as_of_date)` |
 | Delivery | FastAPI, Docker, Railway, GitHub Actions, LT/EN interface |
 
 ## What I built
@@ -121,6 +122,7 @@ coverage—was the dominant measured problem.
 | Retrieved from | e-TAR, act id `f6d686707e7011e6b969d7ae07280e89`, retrieved 2026-08-20 |
 | Articles parsed | **257** |
 | Parts (dalis) parsed | **997**, cited as `126 str. 2 d.` |
+| Editions archived | **41** consolidated editions, 2017-07-01 → present |
 | Coverage | Complete Code, all four parts. Articles 1-260, less repealed 85-88, plus 72¹ |
 
 The system answers against **that specific consolidated edition**, not against
@@ -482,6 +484,36 @@ curl -s -X POST https://legal-rag-production-fac6.up.railway.app/chat \
 Deployed on Railway from this repository's Dockerfile. Credentials live in the
 platform's environment, never in the image or the repo.
 
+## Reading the law as of a date
+
+Labour disputes are about the law when the event happened, not the law today.
+e-TAR publishes 41 consolidated editions of this act; the archive holds all of
+them, folded into per-article versions rather than 41 copies of the code:
+**257 articles, 498 versions, ~1 MB**. 119 articles have changed at least once;
+article 59 has six versions.
+
+`get_article("126", as_of_date="2019-01-01")` returns the text in force that day,
+split into the same citable parts as the current edition. Boundaries are
+explicit and tested: 2026-10-31 resolves to the 2026-06-07 edition and
+2026-11-01 to its successor; a date before 2017-07-01, or an article that was not
+yet enacted, returns a typed error rather than today's text.
+
+**What this does not do.** Retrieval is indexed on one edition at a time, so
+searching history is refused (`out_of_range`) instead of answered from the wrong
+edition. Only article lookup is historical. The tool output states that limit
+rather than leaving it to the reader.
+
+Staging the edition that takes effect tomorrow is one command:
+
+```bash
+python build_history.py --materialise --on 2026-11-01
+python embed_corpus.py
+# then re-verify the golden-set labels and re-run eval/run_eval.py --refresh
+```
+
+That edition changes 38 articles, 9 of which appear in the golden set, so the
+labels are re-verified before any number is republished.
+
 ## Use it from your own AI (MCP)
 
 The same retriever is an **MCP server**, so Claude, ChatGPT, OpenCode or any MCP
@@ -493,7 +525,7 @@ retriever returned -- the model cannot introduce one.
 |---|---|
 | `corpus_info()` | edition window, article count, models, threshold, known gaps, disclaimer |
 | `search_labour_code(query, k=5)` | ranked articles with both scores, `above_gate` per article, and citable parts |
-| `get_article("72-1")` | the exact text of one article with its numbered parts, or a typed `not_found` |
+| `get_article("72-1", as_of_date)` | the article as it stood on that date, with numbered parts, or a typed error |
 | `ask_labour_code(question, lang)` | grounded answer + sources + confidence, or an explicit refusal |
 
 Every result carries the edition it came from. When the edition expires,

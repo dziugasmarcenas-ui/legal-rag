@@ -35,4 +35,4 @@ jobs:
         run: python check_goldenset.py
 
       - name: Verify the app imports without network access
-        run: python -c "import parse_corpus, retrieval, gate, metrics, llm, edition, answer, mcp_server"
+        run: python -c "import parse_corpus, retrieval, gate, metrics, llm, edition, answer, mcp_server, paragraphs, history, build_history"

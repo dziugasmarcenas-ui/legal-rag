@@ -148,6 +148,14 @@ unchanged, so the published numbers still describe the served pipeline.
 Re-chunking retrieval to paragraph level remains deliberately undone: it would
 invalidate the benchmark for a retrieval gain that has not been measured.
 
+**Time travel shipped for this act.** `build_history.py` discovers all 41
+consolidated editions on e-TAR, downloads each DOCX, and folds them into 498
+per-article versions (~1 MB). `history.py` answers "what was in force on date X"
+and `get_article(article, as_of_date)` returns that day's text with part-level
+citations. Retrieval stays indexed on one edition and refuses historical search
+instead of faking it. Tests cover boundary dates, articles not yet enacted, and
+the refusal paths.
+
 Freshness is now automated: `check_freshness.py --online` runs in a scheduled
 `freshness` workflow (not the PR gate), so a rolled-over edition turns a daily
 job red instead of making every pull request red.

@@ -52,7 +52,11 @@ USER_AGENT = "legal-rag corpus refresh (https://github.com/dziugasmarcenas-ui/le
 INLINE = re.compile(r"<w:t(?:\s[^>]*)?>(.*?)</w:t>|<w:(tab|br|cr)\b[^>]*/>", re.S)
 PARAGRAPH = re.compile(r"<w:p\b.*?</w:p>", re.S)
 ARTICLE = re.compile(r"^(\d+)(?:-(\d+))? straipsnis\.", re.M)
-WINDOW = re.compile(r"Suvestinė redakcija nuo (\d{4}-\d{2}-\d{2}) iki (\d{4}-\d{2}-\d{2})")
+# The newest edition is open-ended: "nuo 2027-01-01" with no end date yet.
+WINDOW = re.compile(
+    r"Suvestinė redakcija nuo (\d{4}-\d{2}-\d{2})(?: iki (\d{4}-\d{2}-\d{2}))?"
+)
+OPEN_ENDED = "9999-12-31"
 
 
 def fetch(url, timeout=60):
@@ -101,8 +105,8 @@ def docx_text(blob):
 def edition_window(text):
     match = WINDOW.search(text)
     if not match:
-        sys.exit("no 'Suvestinė redakcija nuo ... iki ...' header -- wrong document?")
-    return match.group(1), match.group(2)
+        sys.exit("no 'Suvestinė redakcija nuo ...' header -- wrong document?")
+    return match.group(1), match.group(2) or OPEN_ENDED
 
 
 def article_ids(text):
