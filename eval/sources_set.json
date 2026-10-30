@@ -148,5 +148,11 @@
   "question": "Kokį minimalų kasmetinių atostogų laikotarpį numato ES darbo laiko direktyva?",
   "expected": "Direktyva 2003/88/EB",
   "expect": "keturi"
+ },
+ {
+  "id": 27,
+  "question": "Ar profesinės sąjungos narių atleidimas gali būti pripažintas diskriminaciniu?",
+  "expected": "EŽTT sprendimas",
+  "expect": null
  }
 ]

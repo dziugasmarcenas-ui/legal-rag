@@ -238,9 +238,12 @@ def status_payload():
     )
     explanations = [r for r in sources if r.get("act_id") == "vdi-faq"]
     eu = [r for r in sources if r["source"].startswith("Direktyva")]
+    echr = [r for r in sources if r["source"].startswith("EŽTT")]
     acts = sorted({
         r["source"] for r in sources
-        if r.get("act_id") != "vdi-faq" and not r["source"].startswith("Direktyva")
+        if r.get("act_id") != "vdi-faq"
+        and not r["source"].startswith("Direktyva")
+        and not r["source"].startswith("EŽTT")
     })
     stale = sorted({
         r["source"] for r in sources
@@ -266,7 +269,7 @@ def status_payload():
         },
         "delegated_acts": {
             "acts": len(acts),
-            "chunks": len(sources) - len(explanations) - len(eu),
+            "chunks": len(sources) - len(explanations) - len(eu) - len(echr),
             "stale": stale,
             "titles": acts,
         },
@@ -278,6 +281,10 @@ def status_payload():
         "eu_law": {
             "directives": len({r["source"] for r in eu}),
             "chunks": len(eu),
+        },
+        "echr": {
+            "judgments": len({r["act_id"] for r in echr}),
+            "chunks": len(echr),
         },
         "history": link_graph.load() and {
             "editions": history.coverage()["editions"],
@@ -318,6 +325,7 @@ def status_page():
         row("Delegated acts", f"{acts['acts']} acts", f"{acts['chunks']} chunks, {len(acts['stale'])} stale"),
         row("VDI explanations", f"{data['explanations']['items']} answers", f"{data['explanations']['chunks']} chunks"),
         row("EU directives", f"{data['eu_law']['directives']} directives", f"{data['eu_law']['chunks']} chunks"),
+        row("ECHR judgments", f"{data['echr']['judgments']} judgments", f"{data['echr']['chunks']} chunks"),
         row("Edition archive", f"{data['history']['editions']} editions", f"from {data['history']['from']}"),
         row("Citation links", f"{data['links']['edges']} edges", f"across {data['links']['articles_linked']} articles"),
         row("Code accuracy", f"{served.get('served_hit1', 0):.3f} top-1", f"{served.get('served_hit_rate', 0):.3f} in top 3"),

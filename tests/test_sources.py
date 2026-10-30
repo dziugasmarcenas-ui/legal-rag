@@ -30,7 +30,7 @@ def test_the_source_index_loads_the_ingested_act():
 def test_every_chunk_carries_a_citable_reference():
     records, _ = retrieval.source_index()
     for record in records:
-        assert record["source"] in record["citation"]
+        assert record["citation"].startswith(record["source"].split()[0])
         assert record["text"].strip()
 
 

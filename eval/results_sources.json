@@ -1,8 +1,8 @@
 {
  "summary": {
-  "hits": 23,
-  "total": 25,
-  "hit_rate": 0.92,
+  "hits": 24,
+  "total": 26,
+  "hit_rate": 0.923,
   "term_hits": 23,
   "term_total": 24,
   "term_rate": 0.958
@@ -357,6 +357,20 @@
    "hit": true,
    "expect": "keturi",
    "term_hit": true
+  },
+  {
+   "id": 27,
+   "question": "Ar profesinės sąjungos narių atleidimas gali būti pripažintas diskriminaciniu?",
+   "expected": "EŽTT sprendimas",
+   "delegated": [
+    "EŽTT sprendimas",
+    "EŽTT sprendimas",
+    "EŽTT sprendimas"
+   ],
+   "top": "EŽTT, Hoppen p. Lietuvą (Nr. 976/20), 19 fragmentas",
+   "hit": true,
+   "expect": null,
+   "term_hit": null
   }
  ]
 }

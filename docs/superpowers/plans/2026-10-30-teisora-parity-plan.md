@@ -118,9 +118,9 @@ apply it, or start from a situation and find similar decisions.
 across 19 articles, extracted from the acts' own text), `GET /status` with
 coverage, freshness and measured quality, and the delegated-act evaluation at
 20 questions. VDI's published Q&A is ingested (249 answers, 442 chunks), so
-"institution explanations" is no longer empty. Remaining: explanations beyond
-VDI, Seimas drafts and committee transcripts, ECHR, and the citation graph
-extended to cases. EU law is ingested (five directives via the Cellar endpoint). The public status page is the endpoint, not yet a UI.
+"institution explanations" is no longer empty. ECHR is ingested (3 Lithuanian
+judgments, 130 fragments via HUDOC). Remaining: explanations beyond VDI, Seimas
+drafts and committee transcripts, and the citation graph extended to cases. EU law is ingested (five directives via the Cellar endpoint). The public status page is the endpoint, not yet a UI.
 
 
 - Institution explanations beyond VDI; Seimas drafts and committee transcripts;

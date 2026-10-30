@@ -586,6 +586,16 @@ workers, collective redundancies, equal treatment. The Lithuanian text comes
 from the Cellar resource endpoint, which returns a document; the public
 `legal-content` URL answers automated clients with an empty shell.
 
+### ECHR case law
+
+Three Strasbourg judgments against Lithuania on employment matters are ingested
+from HUDOC (130 fragments, cited as `EŽTT, Hoppen p. Lietuvą (Nr. 10092/16), 3
+fragmentas`). The HUDOC JSON query API and document-body endpoint are public;
+the text is English, because that is how the Court publishes it.
+
+Coverage is thin on purpose: Lithuania has few labour cases, and the query is
+narrowed to employment terms rather than ingesting 10,000 unrelated judgments.
+
 The two families are not peers, and the ranking says so. The Code is returned
 first and decides whether there is an answer at all; delegated provisions are
 appended as corroboration (at most two). Mixing them into one ranking was
@@ -622,6 +632,7 @@ an article leads to the provisions that actually apply it.
   "delegated_acts": {"acts": 7, "chunks": 633, "stale": []},
   "explanations": {"items": 249, "chunks": 442},
   "eu_law": {"directives": 5, "chunks": 95},
+  "echr": {"judgments": 3, "chunks": 130},
   "history": {"editions": 41, "from": "2017-07-01"},
   "links": {"articles_linked": 19, "edges": 25},
   "evals": {"code_served": {"served_hit1": 0.92}, "delegated": {"term_rate": 0.955}}

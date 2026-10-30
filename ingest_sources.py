@@ -29,6 +29,7 @@ import numpy as np
 import voyageai
 
 import config
+import ingest_echr
 import ingest_eu
 import ingest_explanations
 import refresh_corpus
@@ -336,6 +337,10 @@ def main(argv=None):
     eu = ingest_eu.records()
     print(f"EU directives: {len(eu)} chunks")
     records.extend(eu)
+
+    echr = ingest_echr.records()
+    print(f"ECHR judgments: {len(echr)} chunks")
+    records.extend(echr)
 
     DATA.write_text(json.dumps(records, ensure_ascii=False, indent=1), encoding="utf-8")
     texts = [embedding_input(r) for r in records]
