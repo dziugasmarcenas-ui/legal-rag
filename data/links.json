@@ -1,7 +1,7 @@
 {
  "generated_by": "link_graph.py",
- "articles_linked": 132,
- "edges": 372,
+ "articles_linked": 137,
+ "edges": 399,
  "case_edges": 23,
  "cases": [
   {
@@ -270,6 +270,13 @@
     "citation": "VDI paaiškinimas Nr. 190",
     "act_id": "vdi-faq",
     "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "Seimo komiteto išvada",
+    "citation": "Seimo komiteto išvada Nr. 4, 1 fragmentas",
+    "act_id": "committee-1c655e94b27111f18155c97b51b36867",
+    "url": "https://e-seimas.lrs.lt/portal/documentSearch/lt"
    }
   ],
   "35": [
@@ -402,6 +409,48 @@
     "citation": "Sodra paaiškinimas: Gauti ilgalaikio darbo išmoką, 6 fragmentas",
     "act_id": "https://sodra.lt/ismokos/darbo-ismokos/gauti-ilgalaikio-darbo-ismoka",
     "url": "https://sodra.lt/ismokos/darbo-ismokos/gauti-ilgalaikio-darbo-ismoka"
+   },
+   {
+    "kind": "provision",
+    "source": "Seimo komiteto išvada",
+    "citation": "Seimo komiteto išvada Nr. 6, 1 fragmentas",
+    "act_id": "committee-380de630d65311f0948bfb5fa1e0c51b",
+    "url": "https://e-seimas.lrs.lt/portal/documentSearch/lt"
+   },
+   {
+    "kind": "provision",
+    "source": "Seimo komiteto išvada",
+    "citation": "Seimo komiteto išvada Nr. 6, 2 fragmentas",
+    "act_id": "committee-380de630d65311f0948bfb5fa1e0c51b",
+    "url": "https://e-seimas.lrs.lt/portal/documentSearch/lt"
+   },
+   {
+    "kind": "provision",
+    "source": "Seimo komiteto išvada",
+    "citation": "Seimo komiteto išvada Nr. 6, 3 fragmentas",
+    "act_id": "committee-380de630d65311f0948bfb5fa1e0c51b",
+    "url": "https://e-seimas.lrs.lt/portal/documentSearch/lt"
+   },
+   {
+    "kind": "provision",
+    "source": "Seimo komiteto išvada",
+    "citation": "Seimo komiteto išvada Nr. 6, 4 fragmentas",
+    "act_id": "committee-380de630d65311f0948bfb5fa1e0c51b",
+    "url": "https://e-seimas.lrs.lt/portal/documentSearch/lt"
+   },
+   {
+    "kind": "provision",
+    "source": "Seimo komiteto išvada",
+    "citation": "Seimo komiteto išvada Nr. 6, 5 fragmentas",
+    "act_id": "committee-380de630d65311f0948bfb5fa1e0c51b",
+    "url": "https://e-seimas.lrs.lt/portal/documentSearch/lt"
+   },
+   {
+    "kind": "provision",
+    "source": "Seimo komiteto išvada",
+    "citation": "Seimo komiteto išvada Nr. 6, 6 fragmentas",
+    "act_id": "committee-380de630d65311f0948bfb5fa1e0c51b",
+    "url": "https://e-seimas.lrs.lt/portal/documentSearch/lt"
    }
   ],
   "41": [
@@ -569,6 +618,27 @@
     "citation": "SADM paaiškinimas Nr. 260",
     "act_id": "sadm-faq",
     "url": "https://socmin.lrv.lt/lt/duk/"
+   },
+   {
+    "kind": "provision",
+    "source": "Seimo komiteto išvada",
+    "citation": "Seimo komiteto išvada Nr. 12, 1 fragmentas",
+    "act_id": "committee-531157c0993411f0bb51b0620d4bdb93",
+    "url": "https://e-seimas.lrs.lt/portal/documentSearch/lt"
+   },
+   {
+    "kind": "provision",
+    "source": "Seimo komiteto išvada",
+    "citation": "Seimo komiteto išvada Nr. 12, 2 fragmentas",
+    "act_id": "committee-531157c0993411f0bb51b0620d4bdb93",
+    "url": "https://e-seimas.lrs.lt/portal/documentSearch/lt"
+   },
+   {
+    "kind": "provision",
+    "source": "Seimo komiteto išvada",
+    "citation": "Seimo komiteto išvada Nr. 12, 7 fragmentas",
+    "act_id": "committee-531157c0993411f0bb51b0620d4bdb93",
+    "url": "https://e-seimas.lrs.lt/portal/documentSearch/lt"
    }
   ],
   "127": [
@@ -1775,6 +1845,20 @@
     "citation": "VDI paaiškinimas Nr. 210",
     "act_id": "vdi-faq",
     "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "Seimo komiteto išvada",
+    "citation": "Seimo komiteto išvada Nr. 6, 2 fragmentas",
+    "act_id": "committee-380de630d65311f0948bfb5fa1e0c51b",
+    "url": "https://e-seimas.lrs.lt/portal/documentSearch/lt"
+   },
+   {
+    "kind": "provision",
+    "source": "Seimo komiteto išvada",
+    "citation": "Seimo komiteto išvada Nr. 6, 6 fragmentas",
+    "act_id": "committee-380de630d65311f0948bfb5fa1e0c51b",
+    "url": "https://e-seimas.lrs.lt/portal/documentSearch/lt"
    }
   ],
   "42": [
@@ -1809,6 +1893,13 @@
     "citation": "VDI paaiškinimas Nr. 88",
     "act_id": "vdi-faq",
     "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "Seimo komiteto išvada",
+    "citation": "Seimo komiteto išvada Nr. 6, 5 fragmentas",
+    "act_id": "committee-380de630d65311f0948bfb5fa1e0c51b",
+    "url": "https://e-seimas.lrs.lt/portal/documentSearch/lt"
    },
    {
     "kind": "case",
@@ -1930,6 +2021,20 @@
     "citation": "VDI paaiškinimas Nr. 94",
     "act_id": "vdi-faq",
     "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "Seimo komiteto išvada",
+    "citation": "Seimo komiteto išvada Nr. 38, 5 fragmentas",
+    "act_id": "committee-f6c8f140395a11f1806d92b9b35aed3b",
+    "url": "https://e-seimas.lrs.lt/portal/documentSearch/lt"
+   },
+   {
+    "kind": "provision",
+    "source": "Seimo komiteto išvada",
+    "citation": "Seimo komiteto išvada Nr. 38, 7 fragmentas",
+    "act_id": "committee-f6c8f140395a11f1806d92b9b35aed3b",
+    "url": "https://e-seimas.lrs.lt/portal/documentSearch/lt"
    }
   ],
   "131": [
@@ -2227,6 +2332,13 @@
     "citation": "VDI paaiškinimas Nr. 216",
     "act_id": "vdi-faq",
     "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "Seimo komiteto išvada",
+    "citation": "Seimo komiteto išvada Nr. 29, 2 fragmentas",
+    "act_id": "committee-ab9644f0992f11f0bb51b0620d4bdb93",
+    "url": "https://e-seimas.lrs.lt/portal/documentSearch/lt"
    }
   ],
   "126": [
@@ -2581,6 +2693,27 @@
     "citation": "SADM paaiškinimas Nr. 260",
     "act_id": "sadm-faq",
     "url": "https://socmin.lrv.lt/lt/duk/"
+   },
+   {
+    "kind": "provision",
+    "source": "Seimo komiteto išvada",
+    "citation": "Seimo komiteto išvada Nr. 38, 4 fragmentas",
+    "act_id": "committee-f6c8f140395a11f1806d92b9b35aed3b",
+    "url": "https://e-seimas.lrs.lt/portal/documentSearch/lt"
+   },
+   {
+    "kind": "provision",
+    "source": "Seimo komiteto išvada",
+    "citation": "Seimo komiteto išvada Nr. 38, 9 fragmentas",
+    "act_id": "committee-f6c8f140395a11f1806d92b9b35aed3b",
+    "url": "https://e-seimas.lrs.lt/portal/documentSearch/lt"
+   },
+   {
+    "kind": "provision",
+    "source": "Seimo komiteto išvada",
+    "citation": "Seimo komiteto išvada Nr. 38, 10 fragmentas",
+    "act_id": "committee-f6c8f140395a11f1806d92b9b35aed3b",
+    "url": "https://e-seimas.lrs.lt/portal/documentSearch/lt"
    }
   ],
   "148": [
@@ -2590,6 +2723,13 @@
     "citation": "VDI paaiškinimas Nr. 194",
     "act_id": "vdi-faq",
     "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "Seimo komiteto išvada",
+    "citation": "Seimo komiteto išvada Nr. 19, 2 fragmentas",
+    "act_id": "committee-800d9312242111f199c6aa78b7fb0d96",
+    "url": "https://e-seimas.lrs.lt/portal/documentSearch/lt"
    }
   ],
   "132": [
@@ -2992,6 +3132,65 @@
     "date": "2013-03-05",
     "url": "https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/TAIS.444035",
     "act_id": "kt-73/2010-76/2010-81/2010-88/2010-89/2010-90/2010-95/2010-96/2010-97/2010-98/2010-99/2010-110/2010-111/2010-112/2010-113/2010-115/2010-117/2010-118/2010-120/2010-121/2010-122/2010-127/2010-130/2010-139/2010-141/2010-41/2011"
+   }
+  ],
+  "28": [
+   {
+    "kind": "provision",
+    "source": "Seimo komiteto išvada",
+    "citation": "Seimo komiteto išvada Nr. 12, 5 fragmentas",
+    "act_id": "committee-531157c0993411f0bb51b0620d4bdb93",
+    "url": "https://e-seimas.lrs.lt/portal/documentSearch/lt"
+   }
+  ],
+  "23": [
+   {
+    "kind": "provision",
+    "source": "Seimo komiteto išvada",
+    "citation": "Seimo komiteto išvada Nr. 38, 2 fragmentas",
+    "act_id": "committee-f6c8f140395a11f1806d92b9b35aed3b",
+    "url": "https://e-seimas.lrs.lt/portal/documentSearch/lt"
+   },
+   {
+    "kind": "provision",
+    "source": "Seimo komiteto išvada",
+    "citation": "Seimo komiteto išvada Nr. 38, 3 fragmentas",
+    "act_id": "committee-f6c8f140395a11f1806d92b9b35aed3b",
+    "url": "https://e-seimas.lrs.lt/portal/documentSearch/lt"
+   }
+  ],
+  "93": [
+   {
+    "kind": "provision",
+    "source": "Seimo komiteto išvada",
+    "citation": "Seimo komiteto išvada Nr. 38, 5 fragmentas",
+    "act_id": "committee-f6c8f140395a11f1806d92b9b35aed3b",
+    "url": "https://e-seimas.lrs.lt/portal/documentSearch/lt"
+   }
+  ],
+  "219": [
+   {
+    "kind": "provision",
+    "source": "Seimo komiteto išvada",
+    "citation": "Seimo komiteto išvada Nr. 38, 7 fragmentas",
+    "act_id": "committee-f6c8f140395a11f1806d92b9b35aed3b",
+    "url": "https://e-seimas.lrs.lt/portal/documentSearch/lt"
+   },
+   {
+    "kind": "provision",
+    "source": "Seimo komiteto išvada",
+    "citation": "Seimo komiteto išvada Nr. 38, 11 fragmentas",
+    "act_id": "committee-f6c8f140395a11f1806d92b9b35aed3b",
+    "url": "https://e-seimas.lrs.lt/portal/documentSearch/lt"
+   }
+  ],
+  "197": [
+   {
+    "kind": "provision",
+    "source": "Seimo komiteto išvada",
+    "citation": "Seimo komiteto išvada Nr. 38, 9 fragmentas",
+    "act_id": "committee-f6c8f140395a11f1806d92b9b35aed3b",
+    "url": "https://e-seimas.lrs.lt/portal/documentSearch/lt"
    }
   ],
   "50": [

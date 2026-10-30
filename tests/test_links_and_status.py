@@ -84,6 +84,8 @@ def test_status_reports_coverage_freshness_and_measured_quality():
     assert payload["echr"]["judgments"] >= 3
     assert payload["constitutional_court"]["rulings"] >= 10
     assert payload["seimas_drafts"]["drafts"] >= 3
+    assert payload["seimas_committee"]["documents"] >= 30
+    assert payload["seimas_committee"]["chunks"] >= 200
     assert payload["seimas_transcripts"]["documents"] >= 20
     assert payload["seimas_transcripts"]["chunks"] >= 300
     assert payload["seimas_drafts"]["chunks"] >= 9

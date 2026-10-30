@@ -30,6 +30,7 @@ import voyageai
 
 import config
 import ingest_echr
+import ingest_committee
 import ingest_eu
 import ingest_kt
 import ingest_explanations
@@ -536,6 +537,10 @@ def main(argv=None):
     drafts = ingest_seimas_drafts.records()
     print(f"Seimo projektai: {len(drafts)} chunks")
     records.extend(drafts)
+
+    committee = ingest_committee.records()
+    print(f"Seimo komiteto išvados: {len(committee)} chunks")
+    records.extend(committee)
 
     eu = ingest_eu.records()
     print(f"EU directives: {len(eu)} chunks")

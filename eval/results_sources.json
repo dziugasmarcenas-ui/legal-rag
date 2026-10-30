@@ -1,8 +1,8 @@
 {
  "summary": {
-  "hits": 22,
+  "hits": 23,
   "total": 32,
-  "hit_rate": 0.688,
+  "hit_rate": 0.719,
   "term_hits": 29,
   "term_total": 30,
   "term_rate": 0.967
@@ -197,10 +197,10 @@
    "delegated": [
     "Darbuotojų saugos ir sveikatos įstatymas",
     "Darbuotojų saugos ir sveikatos įstatymas",
-    "Darbuotojų saugos ir sveikatos įstatymas"
+    "Nutarimas Nr. 1118"
    ],
    "top": "Darbuotojų saugos ir sveikatos įstatymas, 3 p.",
-   "hit": false,
+   "hit": true,
    "expect": "tiria",
    "term_hit": true
   },
@@ -280,7 +280,7 @@
    "expected": "SADM ir SAM įsakymas A1-457/V-961",
    "delegated": [
     "Darbuotojų saugos ir sveikatos įstatymas",
-    "Dėl 2022–2027 m. darbuotojų saugos ir sveikatos veiksmų plan",
+    "2022–2027 m. darbuotojų saugos ir sveikatos veiksmų planas",
     "Saugaus darbo organizavimo ir darbo vietų įrengimo reikalavi"
    ],
    "top": "Darbuotojų saugos ir sveikatos įstatymas, 3 p.",
@@ -407,7 +407,7 @@
    "delegated": [
     "Seimo projektas",
     "Seimo projektas",
-    "Seimo stenogramos"
+    "Seimo komiteto išvada"
    ],
    "top": "Seimo projektas be numerio, 1 str.",
    "hit": true,

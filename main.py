@@ -242,6 +242,7 @@ def status_payload():
     eu = [r for r in sources if r["source"].startswith("Direktyva")]
     drafts = [r for r in sources if r["source"] == "Seimo projektas"]
     transcripts = [r for r in sources if r["source"] == "Seimo stenogramos"]
+    committee = [r for r in sources if r["source"] == "Seimo komiteto išvada"]
     echr = [r for r in sources if r["source"].startswith("EŽTT")]
     kt = [r for r in sources if r["source"] == "KT nutarimas"]
     acts = sorted({
@@ -251,7 +252,7 @@ def status_payload():
         and not r["source"].startswith("EŽTT")
         and r["source"] != "KT nutarimas"
         and r["source"] not in ("Seimo projektas", "Sodra paaiškinimas",
-                                "Seimo stenogramos")
+                                "Seimo stenogramos", "Seimo komiteto išvada")
     })
     stale = sorted({
         r["source"] for r in sources
@@ -279,7 +280,7 @@ def status_payload():
             "acts": len(acts),
             "chunks": (
                 len(sources) - len(explanations) - len(eu) - len(echr)
-                - len(drafts) - len(transcripts) - len(kt)
+                - len(drafts) - len(transcripts) - len(kt) - len(committee)
             ),
             "stale": stale,
             "titles": acts,
@@ -304,6 +305,11 @@ def status_payload():
         "seimas_transcripts": {
             "documents": len({r["act_id"] for r in transcripts}),
             "chunks": len(transcripts),
+        },
+        "seimas_committee": {
+            "documents": len({r["act_id"] for r in committee}),
+            "chunks": len(committee),
+            "note": "committee conclusions; transcripts are not published",
         },
         "seimas_drafts": {
             "drafts": len({r["act_id"] for r in drafts}),
@@ -365,6 +371,8 @@ def status_page():
         row("Seimas drafts", f"{data['seimas_drafts']['drafts']} drafts", f"{data['seimas_drafts']['chunks']} chunks, not adopted"),
         row("Seimas transcripts", f"{data['seimas_transcripts']['documents']} sittings",
             f"{data['seimas_transcripts']['chunks']} chunks"),
+        row("Committee conclusions", f"{data['seimas_committee']['documents']} documents",
+            f"{data['seimas_committee']['chunks']} chunks, no verbatim transcripts"),
         row("Edition archive", f"{data['history']['editions']} editions", f"from {data['history']['from']}"),
         row("Citation links", f"{data['links']['edges']} edges",
             f"across {data['links']['articles_linked']} articles, {data['links']['cases']} cases indexed"),

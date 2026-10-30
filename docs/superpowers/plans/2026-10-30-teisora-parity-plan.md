@@ -129,12 +129,13 @@ state of each half:
 |---|---|---|
 | Seimas draft acts | 3 drafts, 9 chunks, via the e-seimas TAP route as DOCX | ✅ |
 | Seimas plenary transcripts | 22 sittings, 363 labour-related fragments (20 via the "Stenograma" type as DOCX, 2 from lrs.lt PDFs) | ✅ (not in the original wording) |
-| **Seimas committee transcripts** | the only "Stenograma" type returns 220 plenary sittings and **0 committee** over 15 pages; committee pages carry agendas and video links, not transcripts | ❌ **unmet — source not published** |
+| **Seimas committee transcripts** | the only "Stenograma" type returns 220 plenary sittings and **0 committee** over 15 pages | ❌ **unmet — verbatim transcripts not published** |
+| Seimas committee record (published half) | 38 committee conclusions, 286 fragments, via the documentSearch "Komiteto išvada" type | ✅ conclusions; not transcripts |
 | Institution explanations beyond VDI | VDI 249, SADM 299, Sodra 236 answers (784 total) | ✅ |
 | EU law | 5 directives, 95 chunks, via the Cellar endpoint | ✅ |
 | ECHR | 9 judgments quoting the Labour Code, 266 fragments | ✅ |
 | Constitutional Court | 14 rulings, 497 fragments, 23 case nodes (9 ECHR + 14 KT), 23 case edges | ✅, national case law via e-seimas |
-| Citation graph | 132 articles, 373 edges (23 to cases) | ✅ |
+| Citation graph | 137 articles, 399 edges (23 to cases) | ✅ |
 | Status page and SLO reporting | `/status` JSON and `/status.html`, coverage, freshness and measured quality | ✅ |
 
 **The committee half is not satisfied, and the plan does not claim it is.** The

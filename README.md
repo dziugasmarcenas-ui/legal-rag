@@ -656,10 +656,13 @@ Better still, e-seimas indexes **"Stenograma"** as a document type and serves
 per-sitting transcripts as DOCX: **20 sittings, 363 labour-related fragments**,
 cited as `Seimo posėdžio Nr. 195 stenograma, 3 fragmentas`.
 
-Committee transcripts appear not to be published at all: the document-type list
-offers a single "Stenograma" type, and querying it returns only
-"Seimo posėdžio Nr. N stenograma" (plenary). The committee page lists agendas,
-not transcripts.
+Committee **transcripts** are not published: the only "Stenograma" type returns
+plenary sittings (220 documents, zero committee). Committee **conclusions** are
+published and ingested — **38 documents, 286 fragments**, cited as
+`Seimo komiteto išvada Nr. 12, 3 fragmentas`. A conclusion is where the committee
+states why it proposes an amendment, so it answers "what did the committee say
+about this bill"; it is not a verbatim record of the debate, and the prompt is
+told to call it a committee opinion.
 
 ## Full e-TAR corpus (Phase 2, started)
 
@@ -813,7 +816,7 @@ accepts case nodes by metadata alone.
 
 Every delegated act names the Code articles it implements ("parengtas
 vadovaujantis Darbo kodekso 139 straipsnio 4 dalimi"). `link_graph.py` extracts
-that: **373 edges across 132 articles**, built only where the text names the
+that: **399 edges across 137 articles**, built only where the text names the
 article. Twenty-three are case edges: ECHR judgments citing `Article 59 of the
 Labour Code` and Constitutional Court rulings citing `Darbo kodekso 59
 straipsnį`. Cases are carried as metadata only — title, court, case number, date,
@@ -833,9 +836,10 @@ an article leads to the provisions that actually apply it.
   "echr": {"judgments": 9, "chunks": 266},
   "constitutional_court": {"rulings": 14, "chunks": 497},
   "seimas_drafts": {"drafts": 3, "chunks": 9},
+  "seimas_committee": {"documents": 38, "chunks": 286},
   "seimas_transcripts": {"documents": 22, "chunks": 363},
   "history": {"editions": 41, "from": "2017-07-01"},
-  "links": {"articles_linked": 132, "edges": 373, "case_edges": 23, "cases": 23},
+  "links": {"articles_linked": 137, "edges": 399, "case_edges": 23, "cases": 23},
   "evals": {"code_served": {"served_hit1": 0.92}, "delegated": {"term_rate": 0.955}}
 }
 ```

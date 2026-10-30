@@ -19,3 +19,6 @@ data/acts_raw/
 
 # Constitutional Court DOCX exports (browser bridge), parsed to data/kt.json
 data/kt_raw/
+
+# Seimas committee conclusion DOCX exports (browser bridge)
+data/committee_raw/
