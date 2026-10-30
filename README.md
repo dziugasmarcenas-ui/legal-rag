@@ -587,6 +587,21 @@ workers, collective redundancies, equal treatment. The Lithuanian text comes
 from the Cellar resource endpoint, which returns a document; the public
 `legal-content` URL answers automated clients with an empty shell.
 
+### Constitutional Court rulings
+
+The Constitutional Court is the other court whose decisions change what the
+labour statutes mean, and its rulings are registered in e-seimas as DOCX:
+**14 rulings, 497 labour-related fragments**, cited as `KT nutarimas, byla
+Nr. 19/2017, 3 fragmentas`. They decide social-insurance benefits, accident
+insurance, dismissals and the pay of state officials, and they are the reason the
+case graph is no longer ECHR-only (**23 case nodes: 9 ECHR + 14 KT, 23 case
+edges**).
+
+Decisions are parsed for the case number and the **decision** date — the heading
+is full of statute dates, which is the obvious way to get this wrong, so the date
+is taken only when it precedes "Vilnius" and the case number is recovered from
+the body when the header renders "Byla" as "By1a".
+
 ### ECHR case law
 
 Nine Strasbourg judgments that quote the Lithuanian Labour Code are ingested
@@ -756,22 +771,23 @@ field is answered with a 302 back to the form and a byte-identical GET — the
 search never runs without a solved captcha. eTeismai renders its results
 client-side, so no static HTML carries them either.
 
-The case graph therefore contains ECHR judgments only (9 nodes, 6 article-level
-edges). A links-only LITEKO corpus needs either a working search endpoint or a
-data export; the parser and the graph schema already accept case nodes by
-metadata alone.
+The case graph therefore has no LITEKO decisions. It is not empty of national
+case law: the Constitutional Court's rulings are ingested from e-seimas
+(**14 rulings, 23 case nodes including ECHR**). A LITEKO corpus still needs
+either a working search endpoint or a data export; the graph schema already
+accepts case nodes by metadata alone.
 
 ## Citation graph and status
 
 Every delegated act names the Code articles it implements ("parengtas
 vadovaujantis Darbo kodekso 139 straipsnio 4 dalimi"). `link_graph.py` extracts
-that: **320 edges across 118 articles**, built only where the text names the
-article. Six of them are case edges from ECHR judgments that cite the Code
-(`Article 59 of the Labour Code`), carried as metadata only — title, court,
-application number, date, URL. The reference parser accepts the three shapes
-judgments actually use, not just one. The graph also indexes nine judgment nodes even
-where the judgment does not cite a Code article, so case coverage does not
-depend on an edge existing. `get_article("139")` now returns `implemented_by`, so starting from
+that: **373 edges across 132 articles**, built only where the text names the
+article. Twenty-three are case edges: ECHR judgments citing `Article 59 of the
+Labour Code` and Constitutional Court rulings citing `Darbo kodekso 59
+straipsnį`. Cases are carried as metadata only — title, court, case number, date,
+URL. The graph indexes **23 case nodes** (9 ECHR, 14 KT) even where a decision
+does not cite a Code article, so case coverage does not depend on an edge
+existing. `get_article("139")` now returns `implemented_by`, so starting from
 an article leads to the provisions that actually apply it.
 
 `GET /status` reports what the service covers and how well it scores:
@@ -783,10 +799,11 @@ an article leads to the provisions that actually apply it.
   "explanations": {"items": 784, "chunks": 1040, "institutions": 3},
   "eu_law": {"directives": 5, "chunks": 95},
   "echr": {"judgments": 9, "chunks": 266},
+  "constitutional_court": {"rulings": 14, "chunks": 497},
   "seimas_drafts": {"drafts": 3, "chunks": 9},
   "seimas_transcripts": {"documents": 22, "chunks": 363},
   "history": {"editions": 41, "from": "2017-07-01"},
-  "links": {"articles_linked": 119, "edges": 326, "case_edges": 6, "cases": 9},
+  "links": {"articles_linked": 132, "edges": 373, "case_edges": 23, "cases": 23},
   "evals": {"code_served": {"served_hit1": 0.92}, "delegated": {"term_rate": 0.955}}
 }
 ```

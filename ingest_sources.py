@@ -31,6 +31,7 @@ import voyageai
 import config
 import ingest_echr
 import ingest_eu
+import ingest_kt
 import ingest_explanations
 import ingest_sadm
 import ingest_sodra
@@ -530,6 +531,10 @@ def main(argv=None):
     echr = ingest_echr.records()
     print(f"ECHR judgments: {len(echr)} chunks")
     records.extend(echr)
+
+    kt = ingest_kt.records()
+    print(f"KT nutarimai: {len(kt)} chunks")
+    records.extend(kt)
 
     # The store's primary key is the chunk id: a generator that emits the same
     # id twice would silently lose a chunk, so uniqueness is enforced here for

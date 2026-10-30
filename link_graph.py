@@ -50,7 +50,9 @@ CASE_REFERENCES = (
     ),
 )
 
-CASE_SOURCES = ("EŽTT sprendimas",)
+# Courts whose decisions are in the corpus. Both are linked by metadata: the
+# graph does not depend on redistributing judgment text.
+CASE_SOURCES = {"EŽTT sprendimas": "EŽTT", "KT nutarimas": "LR KT"}
 
 
 def build(articles=None, records=None):
@@ -69,27 +71,40 @@ def build(articles=None, records=None):
             # Cases are linked by metadata only: title, court, date, URL. The
             # graph does not depend on redistributing judgment text.
             application = re.search(r"\(Nr\. ([^)]+)\)", record["citation"])
-            appno = application.group(1) if application else ""
+            case_number = re.search(r"byla Nr\. ([^,]+)", record["citation"])
+            reference = (
+                application.group(1) if application
+                else case_number.group(1).strip() if case_number
+                else ""
+            )
+            court = CASE_SOURCES[record["source"]]
+            label = (
+                f"KT nutarimas, byla Nr. {reference}"
+                if court == "LR KT" and reference
+                else record["act_title"]
+            )
             cases.setdefault(record["act_id"], {
-                "case": record["act_title"],
-                "court": "EŽTT",
-                "application": application.group(1) if application else "",
+                "case": label,
+                "court": court,
+                "application": reference,
                 "date": record.get("act_date", ""),
                 "url": record["url"],
             })
-            for pattern in CASE_REFERENCES:
+            # ECHR judgments cite in English, the Constitutional Court in
+            # Lithuanian; both are evidence for an edge to a Code article.
+            for pattern in CASE_REFERENCES + (REFERENCE,):
                 for match in pattern.finditer(record["text"]):
                     identifier = match.group(1)
                     if identifier not in known:
                         continue
                     entry = links.setdefault(identifier, [])
-                    if any(e.get("citation") == record["act_title"] for e in entry):
+                    if any(e.get("citation") == label for e in entry):
                         continue
                     entry.append({
                         "kind": "case",
-                        "source": "EŽTT",
-                        "citation": record["act_title"],
-                        "application": appno,
+                        "source": court,
+                        "citation": label,
+                        "application": reference,
                         "date": record.get("act_date", ""),
                         "url": record["url"],
                         "act_id": record["act_id"],

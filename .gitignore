@@ -16,3 +16,6 @@ data/seimas_raw/
 
 # e-seimas DOCX exports fetched through the browser bridge
 data/acts_raw/
+
+# Constitutional Court DOCX exports (browser bridge), parsed to data/kt.json
+data/kt_raw/

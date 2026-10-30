@@ -29,7 +29,7 @@
    "delegated": [
     "Nutarimas Nr. 496",
     "Nutarimas Nr. 496",
-    "Nutarimas Nr. 496"
+    "VDI paaiškinimas"
    ],
    "top": "Nutarimas Nr. 496, 3 p.",
    "hit": true,
@@ -195,13 +195,13 @@
    "question": "Kas tiria nelaimingą atsitikimą darbe?",
    "expected": "Nutarimas Nr. 1118",
    "delegated": [
-    "Darbuotojų saugos ir sveikatos įstatymas",
     "Dėl nelaimingų atsitikimų darbe tyrimo ir apskaitos nuostatų",
-    "Dėl nelaimingų atsitikimų darbe tyrimo ir apskaitos nuostatų"
+    "Dėl nelaimingų atsitikimų darbe tyrimo ir apskaitos nuostatų",
+    "Darbuotojų saugos ir sveikatos įstatymas"
    ],
-   "top": "Darbuotojų saugos ir sveikatos įstatymas, 3 p.",
+   "top": "Dėl nelaimingų atsitikimų darbe tyrimo ir apskaitos nuostatų, 10 p.",
    "hit": false,
-   "expect": "tyrim",
+   "expect": "tiria",
    "term_hit": true
   },
   {
@@ -280,7 +280,7 @@
    "expected": "SADM ir SAM įsakymas A1-457/V-961",
    "delegated": [
     "Darbuotojų saugos ir sveikatos įstatymas",
-    "2022–2027 m. darbuotojų saugos ir sveikatos veiksmų planas",
+    "Dėl 2022–2027 m. darbuotojų saugos ir sveikatos veiksmų plan",
     "Saugaus darbo organizavimo ir darbo vietų įrengimo reikalavi"
    ],
    "top": "Darbuotojų saugos ir sveikatos įstatymas, 3 p.",
@@ -350,8 +350,8 @@
    "expected": "Direktyva 2003/88/EB",
    "delegated": [
     "Direktyva 2003/88/EB",
-    "VDI paaiškinimas",
-    "Direktyva 2003/88/EB"
+    "KT nutarimas",
+    "VDI paaiškinimas"
    ],
    "top": "Direktyva 2003/88/EB, 7 str.",
    "hit": true,

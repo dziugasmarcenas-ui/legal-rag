@@ -132,8 +132,9 @@ state of each half:
 | **Seimas committee transcripts** | the only "Stenograma" type returns 220 plenary sittings and **0 committee** over 15 pages; committee pages carry agendas and video links, not transcripts | ❌ **unmet — source not published** |
 | Institution explanations beyond VDI | VDI 249, SADM 299, Sodra 236 answers (784 total) | ✅ |
 | EU law | 5 directives, 95 chunks, via the Cellar endpoint | ✅ |
-| ECHR | 9 judgments quoting the Labour Code, 266 fragments, 6 article-level case edges, 9 metadata nodes | ✅ |
-| Citation graph | 119 articles, 326 edges (6 to cases) | ✅, ECHR-only |
+| ECHR | 9 judgments quoting the Labour Code, 266 fragments | ✅ |
+| Constitutional Court | 14 rulings, 497 fragments, 23 case nodes (9 ECHR + 14 KT), 23 case edges | ✅, national case law via e-seimas |
+| Citation graph | 132 articles, 373 edges (23 to cases) | ✅ |
 | Status page and SLO reporting | `/status` JSON and `/status.html`, coverage, freshness and measured quality | ✅ |
 
 **The committee half is not satisfied, and the plan does not claim it is.** The
@@ -148,7 +149,7 @@ real browser session and a loopback bridge; the PDF "syllable split" was in fact
 soft hyphens (U+00AD), repaired with PyMuPDF.
 
 **Exit:** source coverage matches Teisora's published list. Not met — Phase 2
-coverage is 121 of ~95,000 acts, Phase 3 has no LITEKO corpus, and committee
+coverage is 121 of ~95,000 acts, Phase 3 has no LITEKO corpus (Constitutional Court rulings are ingested), and committee
 transcripts do not exist publicly.
 
 ### Phase 5 — Commercial shell (weeks 15–20, parallel)

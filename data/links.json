@@ -1,8 +1,8 @@
 {
  "generated_by": "link_graph.py",
- "articles_linked": 119,
- "edges": 326,
- "case_edges": 6,
+ "articles_linked": 132,
+ "edges": 373,
+ "case_edges": 23,
  "cases": [
   {
    "case": "Hoppen p. Lietuvą",
@@ -10,6 +10,20 @@
    "application": "976/20",
    "date": "",
    "url": "https://hudoc.echr.coe.int/eng?i=001-207824"
+  },
+  {
+   "case": "Ispiryan p. Lietuvą",
+   "court": "EŽTT",
+   "application": "11643/20",
+   "date": "",
+   "url": "https://hudoc.echr.coe.int/eng?i=001-225444"
+  },
+  {
+   "case": "Cudak p. Lietuvą",
+   "court": "EŽTT",
+   "application": "77265/12",
+   "date": "",
+   "url": "https://hudoc.echr.coe.int/eng?i=001-170087"
   },
   {
    "case": "Hoppen p. Lietuvą",
@@ -26,18 +40,11 @@
    "url": "https://hudoc.echr.coe.int/eng?i=001-168382"
   },
   {
-   "case": "Cudak p. Lietuvą",
+   "case": "Černius p. Lietuvą",
    "court": "EŽTT",
-   "application": "77265/12",
+   "application": "73579/17;14620/18",
    "date": "",
-   "url": "https://hudoc.echr.coe.int/eng?i=001-170087"
-  },
-  {
-   "case": "Rainys p. Lietuvą",
-   "court": "EŽTT",
-   "application": "70665/01;74345/01",
-   "date": "",
-   "url": "https://hudoc.echr.coe.int/eng?i=001-68749"
+   "url": "https://hudoc.echr.coe.int/eng?i=001-184565"
   },
   {
    "case": "Sidabras p. Lietuvą",
@@ -47,28 +54,119 @@
    "url": "https://hudoc.echr.coe.int/eng?i=001-155358"
   },
   {
-   "case": "Paslavičius p. Lietuvą",
+   "case": "Buterlevičiūtė p. Lietuvą",
    "court": "EŽTT",
-   "application": "15152/18",
+   "application": "42139/08",
    "date": "",
-   "url": "https://hudoc.echr.coe.int/eng?i=001-225881"
+   "url": "https://hudoc.echr.coe.int/eng?i=001-159885"
   },
   {
-   "case": "Žičkus p. Lietuvą",
+   "case": "Anželika Šimaitienė p. Lietuvą",
    "court": "EŽTT",
-   "application": "26652/02",
+   "application": "36093/13",
    "date": "",
-   "url": "https://hudoc.echr.coe.int/eng?i=001-92069"
+   "url": "https://hudoc.echr.coe.int/eng?i=001-202360"
   },
   {
-   "case": "Sidabras p. Lietuvą",
-   "court": "EŽTT",
-   "application": "55480/00;59330/00",
-   "date": "",
-   "url": "https://hudoc.echr.coe.int/eng?i=001-61942"
+   "case": "KT nutarimas, byla Nr. 7/2015",
+   "court": "LR KT",
+   "application": "7/2015",
+   "date": "2016-03-15",
+   "url": "https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/1c82d670eaf211e5820eec7ea316d20a"
+  },
+  {
+   "case": "KT nutarimas, byla Nr. 19/2017",
+   "court": "LR KT",
+   "application": "19/2017",
+   "date": "2018-12-19",
+   "url": "https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/2d39fb1003d611e98a758703636ea610"
+  },
+  {
+   "case": "KT nutarimas, byla Nr. 6/2023",
+   "court": "LR KT",
+   "application": "6/2023",
+   "date": "2024-02-13",
+   "url": "https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/35dd1ed2cab111ee9269b566387cfecb"
+  },
+  {
+   "case": "KT nutarimas, byla Nr. 2/2018",
+   "court": "LR KT",
+   "application": "2/2018",
+   "date": "2019-05-29",
+   "url": "https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/4e3274a02d2911ea8f0dfdc2b5879561"
+  },
+  {
+   "case": "KT nutarimas, byla Nr. 17/2014",
+   "court": "LR KT",
+   "application": "17/2014",
+   "date": "2016-03-15",
+   "url": "https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/723e6e01d0b911e6a476d5908abd2210"
+  },
+  {
+   "case": "KT nutarimas, byla Nr. 4/2017",
+   "court": "LR KT",
+   "application": "4/2017",
+   "date": "2018-01-24",
+   "url": "https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/7f2810e2014a11e8a2469c61d7bb0a92"
+  },
+  {
+   "case": "KT nutarimas, byla Nr. 9/02",
+   "court": "LR KT",
+   "application": "9/02",
+   "date": "2005-02-07",
+   "url": "https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/TAIS.250058"
+  },
+  {
+   "case": "KT nutarimas, byla Nr. 56/06",
+   "court": "LR KT",
+   "application": "56/06",
+   "date": "2008-04-29",
+   "url": "https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/TAIS.319205"
+  },
+  {
+   "case": "KT nutarimas, byla Nr. 15/2008-19/2010-25/2010-106/2010-27/2011-36/2011",
+   "court": "LR KT",
+   "application": "15/2008-19/2010-25/2010-106/2010-27/2011-36/2011",
+   "date": "2012-02-27",
+   "url": "https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/TAIS.419061"
+  },
+  {
+   "case": "KT nutarimas, byla Nr. 21/2009-32/2009",
+   "court": "LR KT",
+   "application": "21/2009-32/2009",
+   "date": "2012-10-31",
+   "url": "https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/TAIS.436357"
+  },
+  {
+   "case": "KT nutarimas, byla Nr. 73/2010-76/2010-81/2010-88/2010-89/2010-90/2010-95/2010-96/2010-97/2010-98/2010-99/2010-110/2010-111/2010-112/2010-113/2010-115/2010-117/2010-118/2010-120/2010-121/2010-122/2010-127/2010-130/2010-139/2010-141/2010-41/2011",
+   "court": "LR KT",
+   "application": "73/2010-76/2010-81/2010-88/2010-89/2010-90/2010-95/2010-96/2010-97/2010-98/2010-99/2010-110/2010-111/2010-112/2010-113/2010-115/2010-117/2010-118/2010-120/2010-121/2010-122/2010-127/2010-130/2010-139/2010-141/2010-41/2011",
+   "date": "2013-03-05",
+   "url": "https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/TAIS.444035"
+  },
+  {
+   "case": "KT nutarimas, byla Nr. 50/2010",
+   "court": "LR KT",
+   "application": "50/2010",
+   "date": "2013-04-30",
+   "url": "https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/TAIS.447596"
+  },
+  {
+   "case": "KT nutarimas, byla Nr. 44/2009",
+   "court": "LR KT",
+   "application": "44/2009",
+   "date": "2013-05-09",
+   "url": "https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/TAIS.448531"
+  },
+  {
+   "case": "KT nutarimas, byla Nr. 138/2010",
+   "court": "LR KT",
+   "application": "138/2010",
+   "date": "2013-12-11",
+   "url": "https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/TAIS.462199"
   }
  ],
- "case_count": 9,
+ "case_count": 23,
  "links": {
   "204": [
    {
@@ -77,6 +175,13 @@
     "citation": "Nutarimas Nr. 496, 4 p.",
     "act_id": "76731a705b4711e79198ffdb108a3753",
     "url": "https://www.e-tar.lt/portal/lt/legalAct/76731a705b4711e79198ffdb108a3753"
+   },
+   {
+    "kind": "provision",
+    "source": "Dėl Darbo ginčų komisijos nuostatų, Darbo ginčų komisijos da",
+    "citation": "Dėl Darbo ginčų komisijos nuostatų, Darbo ginčų komisijos da, įžanga",
+    "act_id": "TAIS.439090",
+    "url": "https://www.e-tar.lt/portal/lt/legalAct/TAIS.439090"
    }
   ],
   "113": [
@@ -283,6 +388,27 @@
     "citation": "SADM paaiškinimas Nr. 112",
     "act_id": "sadm-faq",
     "url": "https://socmin.lrv.lt/lt/duk/"
+   },
+   {
+    "kind": "provision",
+    "source": "Sodra paaiškinimas",
+    "citation": "Sodra paaiškinimas: Gauti ilgalaikio darbo išmoką, 3 fragmentas",
+    "act_id": "https://sodra.lt/ismokos/darbo-ismokos/gauti-ilgalaikio-darbo-ismoka",
+    "url": "https://sodra.lt/ismokos/darbo-ismokos/gauti-ilgalaikio-darbo-ismoka"
+   },
+   {
+    "kind": "provision",
+    "source": "Sodra paaiškinimas",
+    "citation": "Sodra paaiškinimas: Gauti ilgalaikio darbo išmoką, 4 fragmentas",
+    "act_id": "https://sodra.lt/ismokos/darbo-ismokos/gauti-ilgalaikio-darbo-ismoka",
+    "url": "https://sodra.lt/ismokos/darbo-ismokos/gauti-ilgalaikio-darbo-ismoka"
+   },
+   {
+    "kind": "provision",
+    "source": "Sodra paaiškinimas",
+    "citation": "Sodra paaiškinimas: Gauti ilgalaikio darbo išmoką, 6 fragmentas",
+    "act_id": "https://sodra.lt/ismokos/darbo-ismokos/gauti-ilgalaikio-darbo-ismoka",
+    "url": "https://sodra.lt/ismokos/darbo-ismokos/gauti-ilgalaikio-darbo-ismoka"
    }
   ],
   "41": [
@@ -682,6 +808,166 @@
     "url": "https://e-seimas.lrs.lt/portal/legalActProjectSearch/lt"
    }
   ],
+  "21": [
+   {
+    "kind": "provision",
+    "source": "Darbuotojų saugos ir sveikatos įstatymas",
+    "citation": "Darbuotojų saugos ir sveikatos įstatymas, 2 p.",
+    "act_id": "TAR.95C79D036AA4",
+    "url": "https://www.e-tar.lt/portal/lt/legalAct/TAR.95C79D036AA4"
+   },
+   {
+    "kind": "provision",
+    "source": "Darbuotojų saugos ir sveikatos įstatymas",
+    "citation": "Darbuotojų saugos ir sveikatos įstatymas, 9 p.",
+    "act_id": "TAR.95C79D036AA4",
+    "url": "https://www.e-tar.lt/portal/lt/legalAct/TAR.95C79D036AA4"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 73",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   }
+  ],
+  "165": [
+   {
+    "kind": "provision",
+    "source": "Darbuotojų saugos ir sveikatos įstatymas",
+    "citation": "Darbuotojų saugos ir sveikatos įstatymas, 10 p.",
+    "act_id": "TAR.95C79D036AA4",
+    "url": "https://www.e-tar.lt/portal/lt/legalAct/TAR.95C79D036AA4"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 59",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   }
+  ],
+  "22": [
+   {
+    "kind": "provision",
+    "source": "Darbuotojų saugos ir sveikatos įstatymas",
+    "citation": "Darbuotojų saugos ir sveikatos įstatymas, 2 p.",
+    "act_id": "TAR.95C79D036AA4",
+    "url": "https://www.e-tar.lt/portal/lt/legalAct/TAR.95C79D036AA4"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 73",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   }
+  ],
+  "168": [
+   {
+    "kind": "provision",
+    "source": "Darbuotojų saugos ir sveikatos įstatymas",
+    "citation": "Darbuotojų saugos ir sveikatos įstatymas, 9 p.",
+    "act_id": "TAR.95C79D036AA4",
+    "url": "https://www.e-tar.lt/portal/lt/legalAct/TAR.95C79D036AA4"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 55",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "case",
+    "source": "EŽTT",
+    "citation": "Hoppen p. Lietuvą",
+    "application": "976/20",
+    "date": "",
+    "url": "https://hudoc.echr.coe.int/eng?i=001-207824",
+    "act_id": "001-207824"
+   }
+  ],
+  "108": [
+   {
+    "kind": "provision",
+    "source": "Valstybinės darbo inspekcijos įstatymas",
+    "citation": "Valstybinės darbo inspekcijos įstatymas, 3 p.",
+    "act_id": "TAR.1FD5C3A4D10A",
+    "url": "https://www.e-tar.lt/portal/lt/legalAct/TAR.1FD5C3A4D10A"
+   }
+  ],
+  "141": [
+   {
+    "kind": "provision",
+    "source": "Dėl 2027 metais taikomo minimaliojo darbo užmokesčio",
+    "citation": "Dėl 2027 metais taikomo minimaliojo darbo užmokesčio, įžanga",
+    "act_id": "db628dc0753d11f1b53dfa020e517810",
+    "url": "https://www.e-tar.lt/portal/lt/legalAct/db628dc0753d11f1b53dfa020e517810"
+   },
+   {
+    "kind": "provision",
+    "source": "Dėl 2026 metais taikomo minimaliojo darbo užmokesčio",
+    "citation": "Dėl 2026 metais taikomo minimaliojo darbo užmokesčio, įžanga",
+    "act_id": "2d7df1c2aab011f0a34db2fbd35a03b2",
+    "url": "https://www.e-tar.lt/portal/lt/legalAct/2d7df1c2aab011f0a34db2fbd35a03b2"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 171",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 172",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 191",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "VDI paaiškinimas",
+    "citation": "VDI paaiškinimas Nr. 196",
+    "act_id": "vdi-faq",
+    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "case",
+    "source": "LR KT",
+    "citation": "KT nutarimas, byla Nr. 15/2008-19/2010-25/2010-106/2010-27/2011-36/2011",
+    "application": "15/2008-19/2010-25/2010-106/2010-27/2011-36/2011",
+    "date": "2012-02-27",
+    "url": "https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/TAIS.419061",
+    "act_id": "kt-15/2008-19/2010-25/2010-106/2010-27/2011-36/2011"
+   }
+  ],
+  "158": [
+   {
+    "kind": "provision",
+    "source": "Dėl darbuotojų saugos ir sveikatos darbo vietų instrukcijų p",
+    "citation": "Dėl darbuotojų saugos ir sveikatos darbo vietų instrukcijų p, įžanga",
+    "act_id": "807eecb0a6fa11ed924fd817f8fa798e",
+    "url": "https://www.e-tar.lt/portal/lt/legalAct/807eecb0a6fa11ed924fd817f8fa798e"
+   }
+  ],
+  "43": [
+   {
+    "kind": "provision",
+    "source": "Dėl Pavyzdinės darbo sutarties su jūrininku formos patvirtin",
+    "citation": "Dėl Pavyzdinės darbo sutarties su jūrininku formos patvirtin, įžanga",
+    "act_id": "23be81a2e46911eda305cb3bdf2af4d8",
+    "url": "https://www.e-tar.lt/portal/lt/legalAct/23be81a2e46911eda305cb3bdf2af4d8"
+   }
+  ],
   "170": [
    {
     "kind": "provision",
@@ -751,24 +1037,15 @@
     "citation": "VDI paaiškinimas Nr. 55",
     "act_id": "vdi-faq",
     "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
-   }
-  ],
-  "168": [
-   {
-    "kind": "provision",
-    "source": "VDI paaiškinimas",
-    "citation": "VDI paaiškinimas Nr. 55",
-    "act_id": "vdi-faq",
-    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
    },
    {
     "kind": "case",
-    "source": "EŽTT",
-    "citation": "Hoppen p. Lietuvą",
-    "application": "976/20",
-    "date": "",
-    "url": "https://hudoc.echr.coe.int/eng?i=001-207824",
-    "act_id": "001-207824"
+    "source": "LR KT",
+    "citation": "KT nutarimas, byla Nr. 44/2009",
+    "application": "44/2009",
+    "date": "2013-05-09",
+    "url": "https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/TAIS.448531",
+    "act_id": "kt-44/2009"
    }
   ],
   "188": [
@@ -806,15 +1083,6 @@
    }
   ],
   "210": [
-   {
-    "kind": "provision",
-    "source": "VDI paaiškinimas",
-    "citation": "VDI paaiškinimas Nr. 59",
-    "act_id": "vdi-faq",
-    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
-   }
-  ],
-  "165": [
    {
     "kind": "provision",
     "source": "VDI paaiškinimas",
@@ -1263,6 +1531,20 @@
     "citation": "SADM paaiškinimas Nr. 112",
     "act_id": "sadm-faq",
     "url": "https://socmin.lrv.lt/lt/duk/"
+   },
+   {
+    "kind": "provision",
+    "source": "Sodra paaiškinimas",
+    "citation": "Sodra paaiškinimas: Gauti ilgalaikio darbo išmoką, 3 fragmentas",
+    "act_id": "https://sodra.lt/ismokos/darbo-ismokos/gauti-ilgalaikio-darbo-ismoka",
+    "url": "https://sodra.lt/ismokos/darbo-ismokos/gauti-ilgalaikio-darbo-ismoka"
+   },
+   {
+    "kind": "provision",
+    "source": "Sodra paaiškinimas",
+    "citation": "Sodra paaiškinimas: Gauti ilgalaikio darbo išmoką, 4 fragmentas",
+    "act_id": "https://sodra.lt/ismokos/darbo-ismokos/gauti-ilgalaikio-darbo-ismoka",
+    "url": "https://sodra.lt/ismokos/darbo-ismokos/gauti-ilgalaikio-darbo-ismoka"
    }
   ],
   "65": [
@@ -1293,24 +1575,6 @@
     "kind": "provision",
     "source": "VDI paaiškinimas",
     "citation": "VDI paaiškinimas Nr. 193",
-    "act_id": "vdi-faq",
-    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
-   }
-  ],
-  "21": [
-   {
-    "kind": "provision",
-    "source": "VDI paaiškinimas",
-    "citation": "VDI paaiškinimas Nr. 73",
-    "act_id": "vdi-faq",
-    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
-   }
-  ],
-  "22": [
-   {
-    "kind": "provision",
-    "source": "VDI paaiškinimas",
-    "citation": "VDI paaiškinimas Nr. 73",
     "act_id": "vdi-faq",
     "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
    }
@@ -1463,6 +1727,20 @@
     "citation": "VDI paaiškinimas Nr. 248",
     "act_id": "vdi-faq",
     "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "Sodra paaiškinimas",
+    "citation": "Sodra paaiškinimas: Gauti nedarbo išmoką (bedarbio statusas suteiktas iki 2026 m. birželio 30 d.), 35 fragmentas",
+    "act_id": "https://sodra.lt/ismokos/darbo-ismokos/gauti-nedarbo-ismoka",
+    "url": "https://sodra.lt/ismokos/darbo-ismokos/gauti-nedarbo-ismoka"
+   },
+   {
+    "kind": "provision",
+    "source": "Sodra paaiškinimas",
+    "citation": "Sodra paaiškinimas: Gauti nedarbo išmoką (bedarbio statusas suteiktas 2026 m. liepos 1 d. ir vėliau), 25 fragmentas",
+    "act_id": "https://sodra.lt/ismokos/darbo-ismokos/gauti-nedarbo-ismoka-bedarbio-statusas-suteiktas-2026-m-liepos-1-d-ir-veliau",
+    "url": "https://sodra.lt/ismokos/darbo-ismokos/gauti-nedarbo-ismoka-bedarbio-statusas-suteiktas-2026-m-liepos-1-d-ir-veliau"
    }
   ],
   "64": [
@@ -1538,6 +1816,24 @@
     "citation": "VDI paaiškinimas Nr. 88",
     "act_id": "vdi-faq",
     "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "case",
+    "source": "LR KT",
+    "citation": "KT nutarimas, byla Nr. 15/2008-19/2010-25/2010-106/2010-27/2011-36/2011",
+    "application": "15/2008-19/2010-25/2010-106/2010-27/2011-36/2011",
+    "date": "2012-02-27",
+    "url": "https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/TAIS.419061",
+    "act_id": "kt-15/2008-19/2010-25/2010-106/2010-27/2011-36/2011"
+   },
+   {
+    "kind": "case",
+    "source": "LR KT",
+    "citation": "KT nutarimas, byla Nr. 44/2009",
+    "application": "44/2009",
+    "date": "2013-05-09",
+    "url": "https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/TAIS.448531",
+    "act_id": "kt-44/2009"
    }
   ],
   "32": [
@@ -1547,6 +1843,13 @@
     "citation": "VDI paaiškinimas Nr. 88",
     "act_id": "vdi-faq",
     "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "Seimo stenogramos",
+    "citation": "Seimo posėdžio Nr. 190 stenograma, 3 fragmentas",
+    "act_id": "seimas-190",
+    "url": "https://e-seimas.lrs.lt/portal/legalActSearch/lt"
    }
   ],
   "54": [
@@ -2173,6 +2476,15 @@
     "citation": "SADM paaiškinimas Nr. 23",
     "act_id": "sadm-faq",
     "url": "https://socmin.lrv.lt/lt/duk/"
+   },
+   {
+    "kind": "case",
+    "source": "LR KT",
+    "citation": "KT nutarimas, byla Nr. 44/2009",
+    "application": "44/2009",
+    "date": "2013-05-09",
+    "url": "https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/TAIS.448531",
+    "act_id": "kt-44/2009"
    }
   ],
   "134": [
@@ -2246,36 +2558,6 @@
     "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
    }
   ],
-  "141": [
-   {
-    "kind": "provision",
-    "source": "VDI paaiškinimas",
-    "citation": "VDI paaiškinimas Nr. 171",
-    "act_id": "vdi-faq",
-    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
-   },
-   {
-    "kind": "provision",
-    "source": "VDI paaiškinimas",
-    "citation": "VDI paaiškinimas Nr. 172",
-    "act_id": "vdi-faq",
-    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
-   },
-   {
-    "kind": "provision",
-    "source": "VDI paaiškinimas",
-    "citation": "VDI paaiškinimas Nr. 191",
-    "act_id": "vdi-faq",
-    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
-   },
-   {
-    "kind": "provision",
-    "source": "VDI paaiškinimas",
-    "citation": "VDI paaiškinimas Nr. 196",
-    "act_id": "vdi-faq",
-    "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
-   }
-  ],
   "96": [
    {
     "kind": "provision",
@@ -2324,6 +2606,29 @@
     "citation": "VDI paaiškinimas Nr. 197",
     "act_id": "vdi-faq",
     "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "provision",
+    "source": "Sodra paaiškinimas",
+    "citation": "Sodra paaiškinimas: Įsivaikinau, 1 fragmentas",
+    "act_id": "https://sodra.lt/ismokos/seimos-ismokos/isivaikinau",
+    "url": "https://sodra.lt/ismokos/seimos-ismokos/isivaikinau"
+   },
+   {
+    "kind": "provision",
+    "source": "Sodra paaiškinimas",
+    "citation": "Sodra paaiškinimas: Įsivaikinau, 11 fragmentas",
+    "act_id": "https://sodra.lt/ismokos/seimos-ismokos/isivaikinau",
+    "url": "https://sodra.lt/ismokos/seimos-ismokos/isivaikinau"
+   },
+   {
+    "kind": "case",
+    "source": "LR KT",
+    "citation": "KT nutarimas, byla Nr. 19/2017",
+    "application": "19/2017",
+    "date": "2018-12-19",
+    "url": "https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/2d39fb1003d611e98a758703636ea610",
+    "act_id": "kt-19/2017"
    }
   ],
   "52": [
@@ -2356,6 +2661,15 @@
     "citation": "VDI paaiškinimas Nr. 203",
     "act_id": "vdi-faq",
     "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "case",
+    "source": "LR KT",
+    "citation": "KT nutarimas, byla Nr. 44/2009",
+    "application": "44/2009",
+    "date": "2013-05-09",
+    "url": "https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/TAIS.448531",
+    "act_id": "kt-44/2009"
    }
   ],
   "30": [
@@ -2434,6 +2748,15 @@
     "citation": "VDI paaiškinimas Nr. 244",
     "act_id": "vdi-faq",
     "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "case",
+    "source": "EŽTT",
+    "citation": "Ispiryan p. Lietuvą",
+    "application": "11643/20",
+    "date": "",
+    "url": "https://hudoc.echr.coe.int/eng?i=001-225444",
+    "act_id": "001-225444"
    }
   ],
   "37": [
@@ -2551,6 +2874,15 @@
     "citation": "SADM paaiškinimas Nr. 260",
     "act_id": "sadm-faq",
     "url": "https://socmin.lrv.lt/lt/duk/"
+   },
+   {
+    "kind": "case",
+    "source": "LR KT",
+    "citation": "KT nutarimas, byla Nr. 4/2017",
+    "application": "4/2017",
+    "date": "2018-01-24",
+    "url": "https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/7f2810e2014a11e8a2469c61d7bb0a92",
+    "act_id": "kt-4/2017"
    }
   ],
   "181": [
@@ -2580,6 +2912,95 @@
     "url": "https://socmin.lrv.lt/lt/duk/"
    }
   ],
+  "48": [
+   {
+    "kind": "provision",
+    "source": "Sodra paaiškinimas",
+    "citation": "Sodra paaiškinimas: Gauti dalinio darbo išmoką, 2 fragmentas",
+    "act_id": "https://sodra.lt/ismokos/darbo-ismokos/gauti-dalinio-darbo-ismoka",
+    "url": "https://sodra.lt/ismokos/darbo-ismokos/gauti-dalinio-darbo-ismoka"
+   }
+  ],
+  "164": [
+   {
+    "kind": "provision",
+    "source": "Seimo stenogramos",
+    "citation": "Seimo posėdžio Nr. 178 stenograma, 8 fragmentas",
+    "act_id": "seimas-178",
+    "url": "https://e-seimas.lrs.lt/portal/legalActSearch/lt"
+   }
+  ],
+  "82": [
+   {
+    "kind": "provision",
+    "source": "Seimo stenogramos",
+    "citation": "Seimo posėdžio Nr. 190 stenograma, 3 fragmentas",
+    "act_id": "seimas-190",
+    "url": "https://e-seimas.lrs.lt/portal/legalActSearch/lt"
+   },
+   {
+    "kind": "provision",
+    "source": "Seimo stenogramos",
+    "citation": "Seimo posėdžio Nr. 190 stenograma, 6 fragmentas",
+    "act_id": "seimas-190",
+    "url": "https://e-seimas.lrs.lt/portal/legalActSearch/lt"
+   },
+   {
+    "kind": "provision",
+    "source": "Seimo stenogramos",
+    "citation": "Seimo posėdžio Nr. 190 stenograma, 7 fragmentas",
+    "act_id": "seimas-190",
+    "url": "https://e-seimas.lrs.lt/portal/legalActSearch/lt"
+   }
+  ],
+  "179": [
+   {
+    "kind": "provision",
+    "source": "Seimo stenogramos",
+    "citation": "Seimo stenogramos Nr. 34, 16 fragmentas",
+    "act_id": "seimas-34",
+    "url": "https://www.lrs.lt/sip/portal.show?p_r=39771&p_k=1"
+   },
+   {
+    "kind": "provision",
+    "source": "Seimo stenogramos",
+    "citation": "Seimo stenogramos Nr. 34, 18 fragmentas",
+    "act_id": "seimas-34",
+    "url": "https://www.lrs.lt/sip/portal.show?p_r=39771&p_k=1"
+   },
+   {
+    "kind": "provision",
+    "source": "Seimo stenogramos",
+    "citation": "Seimo stenogramos Nr. 34, 55 fragmentas",
+    "act_id": "seimas-34",
+    "url": "https://www.lrs.lt/sip/portal.show?p_r=39771&p_k=1"
+   },
+   {
+    "kind": "provision",
+    "source": "Seimo stenogramos",
+    "citation": "Seimo stenogramos Nr. 34, 71 fragmentas",
+    "act_id": "seimas-34",
+    "url": "https://www.lrs.lt/sip/portal.show?p_r=39771&p_k=1"
+   },
+   {
+    "kind": "case",
+    "source": "LR KT",
+    "citation": "KT nutarimas, byla Nr. 17/2014",
+    "application": "17/2014",
+    "date": "2016-03-15",
+    "url": "https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/723e6e01d0b911e6a476d5908abd2210",
+    "act_id": "kt-17/2014"
+   },
+   {
+    "kind": "case",
+    "source": "LR KT",
+    "citation": "KT nutarimas, byla Nr. 73/2010-76/2010-81/2010-88/2010-89/2010-90/2010-95/2010-96/2010-97/2010-98/2010-99/2010-110/2010-111/2010-112/2010-113/2010-115/2010-117/2010-118/2010-120/2010-121/2010-122/2010-127/2010-130/2010-139/2010-141/2010-41/2011",
+    "application": "73/2010-76/2010-81/2010-88/2010-89/2010-90/2010-95/2010-96/2010-97/2010-98/2010-99/2010-110/2010-111/2010-112/2010-113/2010-115/2010-117/2010-118/2010-120/2010-121/2010-122/2010-127/2010-130/2010-139/2010-141/2010-41/2011",
+    "date": "2013-03-05",
+    "url": "https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/TAIS.444035",
+    "act_id": "kt-73/2010-76/2010-81/2010-88/2010-89/2010-90/2010-95/2010-96/2010-97/2010-98/2010-99/2010-110/2010-111/2010-112/2010-113/2010-115/2010-117/2010-118/2010-120/2010-121/2010-122/2010-127/2010-130/2010-139/2010-141/2010-41/2011"
+   }
+  ],
   "50": [
    {
     "kind": "case",
@@ -2600,6 +3021,72 @@
     "date": "",
     "url": "https://hudoc.echr.coe.int/eng?i=001-207824",
     "act_id": "001-207824"
+   }
+  ],
+  "123": [
+   {
+    "kind": "case",
+    "source": "EŽTT",
+    "citation": "Buterlevičiūtė p. Lietuvą",
+    "application": "42139/08",
+    "date": "",
+    "url": "https://hudoc.echr.coe.int/eng?i=001-159885",
+    "act_id": "001-159885"
+   }
+  ],
+  "145": [
+   {
+    "kind": "case",
+    "source": "LR KT",
+    "citation": "KT nutarimas, byla Nr. 44/2009",
+    "application": "44/2009",
+    "date": "2013-05-09",
+    "url": "https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/TAIS.448531",
+    "act_id": "kt-44/2009"
+   }
+  ],
+  "2": [
+   {
+    "kind": "case",
+    "source": "LR KT",
+    "citation": "KT nutarimas, byla Nr. 44/2009",
+    "application": "44/2009",
+    "date": "2013-05-09",
+    "url": "https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/TAIS.448531",
+    "act_id": "kt-44/2009"
+   }
+  ],
+  "166": [
+   {
+    "kind": "case",
+    "source": "LR KT",
+    "citation": "KT nutarimas, byla Nr. 44/2009",
+    "application": "44/2009",
+    "date": "2013-05-09",
+    "url": "https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/TAIS.448531",
+    "act_id": "kt-44/2009"
+   }
+  ],
+  "162": [
+   {
+    "kind": "case",
+    "source": "LR KT",
+    "citation": "KT nutarimas, byla Nr. 44/2009",
+    "application": "44/2009",
+    "date": "2013-05-09",
+    "url": "https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/TAIS.448531",
+    "act_id": "kt-44/2009"
+   }
+  ],
+  "4": [
+   {
+    "kind": "case",
+    "source": "LR KT",
+    "citation": "KT nutarimas, byla Nr. 44/2009",
+    "application": "44/2009",
+    "date": "2013-05-09",
+    "url": "https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/TAIS.448531",
+    "act_id": "kt-44/2009"
    }
   ]
  }

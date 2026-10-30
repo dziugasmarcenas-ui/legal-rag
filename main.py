@@ -243,11 +243,13 @@ def status_payload():
     drafts = [r for r in sources if r["source"] == "Seimo projektas"]
     transcripts = [r for r in sources if r["source"] == "Seimo stenogramos"]
     echr = [r for r in sources if r["source"].startswith("EŽTT")]
+    kt = [r for r in sources if r["source"] == "KT nutarimas"]
     acts = sorted({
         r["source"] for r in sources
         if r.get("act_id") not in ("vdi-faq", "sadm-faq")
         and not r["source"].startswith("Direktyva")
         and not r["source"].startswith("EŽTT")
+        and r["source"] != "KT nutarimas"
         and r["source"] not in ("Seimo projektas", "Sodra paaiškinimas",
                                 "Seimo stenogramos")
     })
@@ -277,7 +279,7 @@ def status_payload():
             "acts": len(acts),
             "chunks": (
                 len(sources) - len(explanations) - len(eu) - len(echr)
-                - len(drafts) - len(transcripts)
+                - len(drafts) - len(transcripts) - len(kt)
             ),
             "stale": stale,
             "titles": acts,
@@ -294,6 +296,10 @@ def status_payload():
         "echr": {
             "judgments": len({r["act_id"] for r in echr}),
             "chunks": len(echr),
+        },
+        "constitutional_court": {
+            "rulings": len({r["act_id"] for r in kt}),
+            "chunks": len(kt),
         },
         "seimas_transcripts": {
             "documents": len({r["act_id"] for r in transcripts}),
@@ -354,6 +360,8 @@ def status_page():
             f"{data['explanations']['chunks']} chunks, {len(data['explanations']['institutions'])} institutions"),
         row("EU directives", f"{data['eu_law']['directives']} directives", f"{data['eu_law']['chunks']} chunks"),
         row("ECHR judgments", f"{data['echr']['judgments']} judgments", f"{data['echr']['chunks']} chunks"),
+        row("Constitutional Court", f"{data['constitutional_court']['rulings']} rulings",
+            f"{data['constitutional_court']['chunks']} chunks"),
         row("Seimas drafts", f"{data['seimas_drafts']['drafts']} drafts", f"{data['seimas_drafts']['chunks']} chunks, not adopted"),
         row("Seimas transcripts", f"{data['seimas_transcripts']['documents']} sittings",
             f"{data['seimas_transcripts']['chunks']} chunks"),
