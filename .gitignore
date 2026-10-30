@@ -7,3 +7,6 @@ __pycache__/
 
 # Downloaded e-TAR DOCX cache; rebuild with build_history.py
 data/history_raw/
+
+# Downloaded act DOCX cache; rebuild with ingest_sources.py
+data/sources_raw/

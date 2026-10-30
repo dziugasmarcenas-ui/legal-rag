@@ -552,8 +552,16 @@ the way the institution cites them:
 | Act | Chunks | In force from |
 |---|---|---|
 | Government Resolution No. 496 (average pay, work time) | 251 | 2026-01-01 |
-| VDI order A1-276 (safety and health training) | 54 | 2023-03-11 |
-| VDI order A1-502 (safety and health committees) | 35 | 2024-10-01 |
+| Government Resolution No. 1118 (accidents at work) | 129 | 2021-01-01 |
+| SADM order A1-344 (labour disputes commission) | 54 | 2025-01-01 |
+| SADM/SAM order A1-266/V-575 (safety service) | 67 | 2026-05-05 |
+| SADM/SAM order A1-457/V-961 (risk assessment) | 43 | 2022-08-01 |
+| VDI order A1-276 (safety training) | 54 | 2023-03-11 |
+| VDI order A1-502 (safety committees) | 35 | 2024-10-01 |
+
+**633 chunks across 7 acts.** Ingestion refuses an act that is repealed or lacks
+a consolidated edition: a dead regulation is worse than a missing one. Two
+candidates from the search results were rejected that way.
 
 Ingestion refuses an act that is repealed or lacks a consolidated edition: a
 dead regulation is worse than a missing one.
@@ -567,7 +575,7 @@ roles separated, every Code number is unchanged.
 
 The delegated index has its own evaluation, because the frozen Code set cannot
 score rules the Code does not contain: 12 questions whose answers live in these
-acts. **12/12 find the right act** and **11/11 of the answerable ones return a
+acts. **20/20 find the right act** and **18/19 of the answerable ones return a
 chunk that actually contains the answer term** (`eval/run_sources_eval.py`).
 The second number exists because act-level hits flatter a system that finds the
 right law and the wrong provision — the first version of this eval scored 12/12
@@ -575,6 +583,30 @@ while the deployed answer for one question was "I don't know".
 
 Freshness covers them too: the daily check fails if any ingested act is repealed
 or has a newer edition on e-TAR.
+
+## Citation graph and status
+
+Every delegated act names the Code articles it implements ("parengtas
+vadovaujantis Darbo kodekso 139 straipsnio 4 dalimi"). `link_graph.py` extracts
+that: **25 edges across 19 articles**, built only where the act's own text names
+the article. `get_article("139")` now returns `implemented_by`, so starting from
+an article leads to the provisions that actually apply it.
+
+`GET /status` reports what the service covers and how well it scores:
+
+```json
+{
+  "code": {"articles": 257, "edition_to": "2026-10-31", "expired": false},
+  "delegated_acts": {"acts": 7, "chunks": 633, "stale": []},
+  "history": {"editions": 41, "from": "2017-07-01"},
+  "links": {"articles_linked": 19, "edges": 25},
+  "evals": {"code_served": {"served_hit1": 0.92}, "delegated": {"hit_rate": 1.0}}
+}
+```
+
+A status endpoint that only says "ok" cannot answer the question a user of a
+legal tool has: which sources are loaded, how current they are, and how well the
+thing scores.
 
 ## Use it from your own AI (MCP)
 

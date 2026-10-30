@@ -66,6 +66,38 @@ ACTS = [
         "date": "2013-09-09",
         "url": "https://www.e-tar.lt/portal/lt/legalAct/TAR.710F227A96C2",
     },
+    {
+        "id": "TAR.AF1B122D7145",
+        "short": "Nutarimas Nr. 1118",
+        "title": "Dėl Nelaimingų atsitikimų darbe tyrimo ir apskaitos nuostatų patvirtinimo",
+        "authority": "Lietuvos Respublikos Vyriausybė",
+        "date": "",
+        "url": "https://www.e-tar.lt/portal/lt/legalAct/TAR.AF1B122D7145",
+    },
+    {
+        "id": "935f0d105cdc11e79198ffdb108a3753",
+        "short": "SADM įsakymas A1-344",
+        "title": "Dėl Darbo ginčų komisijos nuostatų, darbo reglamento ir atlygio tvarkos",
+        "authority": "Socialinės apsaugos ir darbo ministerija",
+        "date": "2017-06-29",
+        "url": "https://www.e-tar.lt/portal/lt/legalAct/935f0d105cdc11e79198ffdb108a3753",
+    },
+    {
+        "id": "TAR.B2D4448A24C1",
+        "short": "SADM ir SAM įsakymas A1-266/V-575",
+        "title": "Dėl Įmonių darbuotojų saugos ir sveikatos tarnybų nuostatų",
+        "authority": "Socialinės apsaugos ir darbo ministerija, Sveikatos apsaugos ministerija",
+        "date": "",
+        "url": "https://www.e-tar.lt/portal/lt/legalAct/TAR.B2D4448A24C1",
+    },
+    {
+        "id": "TAR.5B121E9A63FD",
+        "short": "SADM ir SAM įsakymas A1-457/V-961",
+        "title": "Dėl Profesinės rizikos vertinimo bendrųjų nuostatų patvirtinimo",
+        "authority": "Socialinės apsaugos ir darbo ministerija, Sveikatos apsaugos ministerija",
+        "date": "2012-10-25",
+        "url": "https://www.e-tar.lt/portal/lt/legalAct/TAR.5B121E9A63FD",
+    },
 ]
 
 POINT = re.compile(r"^(\d+)\.\s")
@@ -242,6 +274,20 @@ def download(act):
     return blob
 
 
+MONTHS = {"sausio": 1, "vasario": 2, "kovo": 3, "balandžio": 4, "gegužės": 5,
+          "birželio": 6, "liepos": 7, "rugpjūčio": 8, "rugsėjo": 9, "spalio": 10,
+          "lapkričio": 11, "gruodžio": 12}
+
+
+def adoption_date(text):
+    """The act's own adoption date, read from its header rather than guessed."""
+    match = re.search(r"(\d{4}) m\. (\w+) (\d{1,2}) d\.", text[:3000])
+    if not match or match.group(2) not in MONTHS:
+        return ""
+    year, month, day = int(match.group(1)), MONTHS[match.group(2)], int(match.group(3))
+    return f"{year:04d}-{month:02d}-{day:02d}"
+
+
 def validity(act, text):
     """Refuse to ingest repealed acts. A dead regulation is worse than none."""
     window = refresh_corpus.WINDOW.search(text)
@@ -273,6 +319,8 @@ def main(argv=None):
         if window is None:
             print(f"{act['short']}: SKIPPED -- not in force (no consolidated edition or repealed)")
             continue
+        if not act.get("date"):
+            act["date"] = adoption_date(text)
         act_chunks = chunks(clean(text), act)
         for chunk in act_chunks:
             chunk["valid_from"], chunk["valid_to"] = window

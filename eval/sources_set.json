@@ -70,5 +70,53 @@
   "question": "Kokios yra darbuotojų saugos ir sveikatos komiteto funkcijos?",
   "expected": "VDI įsakymas A1-502",
   "expect": "funkcijas"
+ },
+ {
+  "id": 13,
+  "question": "Ką darbdavys privalo daryti įvykus nelaimingam atsitikimui darbe?",
+  "expected": "Nutarimas Nr. 1118",
+  "expect": "praneš"
+ },
+ {
+  "id": 15,
+  "question": "Kas tiria nelaimingą atsitikimą darbe?",
+  "expected": "Nutarimas Nr. 1118",
+  "expect": "tyrim"
+ },
+ {
+  "id": 16,
+  "question": "Kaip sudaroma darbo ginčų komisija?",
+  "expected": "SADM įsakymas A1-344",
+  "expect": "komisij"
+ },
+ {
+  "id": 17,
+  "question": "Per kiek laiko darbo ginčų komisija turi išnagrinėti ginčą?",
+  "expected": "SADM įsakymas A1-344",
+  "expect": "mėnes"
+ },
+ {
+  "id": 18,
+  "question": "Kada įmonėje privalo būti darbuotojų saugos ir sveikatos tarnyba?",
+  "expected": "SADM ir SAM įsakymas A1-266/V-575",
+  "expect": "tarnyb"
+ },
+ {
+  "id": 19,
+  "question": "Kas gali vykdyti darbuotojų saugos ir sveikatos tarnybos funkcijas?",
+  "expected": "SADM ir SAM įsakymas A1-266/V-575",
+  "expect": "vadovas"
+ },
+ {
+  "id": 20,
+  "question": "Kaip dažnai turi būti atliekamas profesinės rizikos vertinimas?",
+  "expected": "SADM ir SAM įsakymas A1-457/V-961",
+  "expect": "rizikos vertinim"
+ },
+ {
+  "id": 21,
+  "question": "Kas atlieka profesinės rizikos vertinimą įmonėje?",
+  "expected": "SADM ir SAM įsakymas A1-457/V-961",
+  "expect": "darbdav"
  }
 ]

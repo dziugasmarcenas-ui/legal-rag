@@ -1,0 +1,195 @@
+{
+ "generated_by": "link_graph.py",
+ "articles_linked": 19,
+ "edges": 25,
+ "links": {
+  "204": [
+   {
+    "source": "Nutarimas Nr. 496",
+    "citation": "Nutarimas Nr. 496, 4 p.",
+    "act_id": "76731a705b4711e79198ffdb108a3753",
+    "url": "https://www.e-tar.lt/portal/lt/legalAct/76731a705b4711e79198ffdb108a3753"
+   }
+  ],
+  "113": [
+   {
+    "source": "Nutarimas Nr. 496",
+    "citation": "Nutarimas Nr. 496, 1 p.",
+    "act_id": "76731a705b4711e79198ffdb108a3753",
+    "url": "https://www.e-tar.lt/portal/lt/legalAct/76731a705b4711e79198ffdb108a3753"
+   },
+   {
+    "source": "Nutarimas Nr. 496",
+    "citation": "Nutarimas Nr. 496, 4 p.",
+    "act_id": "76731a705b4711e79198ffdb108a3753",
+    "url": "https://www.e-tar.lt/portal/lt/legalAct/76731a705b4711e79198ffdb108a3753"
+   }
+  ],
+  "139": [
+   {
+    "source": "Nutarimas Nr. 496",
+    "citation": "Nutarimas Nr. 496, 1 p.",
+    "act_id": "76731a705b4711e79198ffdb108a3753",
+    "url": "https://www.e-tar.lt/portal/lt/legalAct/76731a705b4711e79198ffdb108a3753"
+   }
+  ],
+  "35": [
+   {
+    "source": "Nutarimas Nr. 496",
+    "citation": "Nutarimas Nr. 496, 8 p.",
+    "act_id": "76731a705b4711e79198ffdb108a3753",
+    "url": "https://www.e-tar.lt/portal/lt/legalAct/76731a705b4711e79198ffdb108a3753"
+   }
+  ],
+  "100": [
+   {
+    "source": "Nutarimas Nr. 496",
+    "citation": "Nutarimas Nr. 496, 1 p.",
+    "act_id": "76731a705b4711e79198ffdb108a3753",
+    "url": "https://www.e-tar.lt/portal/lt/legalAct/76731a705b4711e79198ffdb108a3753"
+   }
+  ],
+  "57": [
+   {
+    "source": "Nutarimas Nr. 496",
+    "citation": "Nutarimas Nr. 496, 4 p.",
+    "act_id": "76731a705b4711e79198ffdb108a3753",
+    "url": "https://www.e-tar.lt/portal/lt/legalAct/76731a705b4711e79198ffdb108a3753"
+   }
+  ],
+  "41": [
+   {
+    "source": "Nutarimas Nr. 496",
+    "citation": "Nutarimas Nr. 496, 1 p.",
+    "act_id": "76731a705b4711e79198ffdb108a3753",
+    "url": "https://www.e-tar.lt/portal/lt/legalAct/76731a705b4711e79198ffdb108a3753"
+   }
+  ],
+  "122": [
+   {
+    "source": "Nutarimas Nr. 496",
+    "citation": "Nutarimas Nr. 496, 1 p.",
+    "act_id": "76731a705b4711e79198ffdb108a3753",
+    "url": "https://www.e-tar.lt/portal/lt/legalAct/76731a705b4711e79198ffdb108a3753"
+   }
+  ],
+  "138": [
+   {
+    "source": "Nutarimas Nr. 496",
+    "citation": "Nutarimas Nr. 496, 1 p.",
+    "act_id": "76731a705b4711e79198ffdb108a3753",
+    "url": "https://www.e-tar.lt/portal/lt/legalAct/76731a705b4711e79198ffdb108a3753"
+   }
+  ],
+  "127": [
+   {
+    "source": "Nutarimas Nr. 496",
+    "citation": "Nutarimas Nr. 496, 2 p.",
+    "act_id": "76731a705b4711e79198ffdb108a3753",
+    "url": "https://www.e-tar.lt/portal/lt/legalAct/76731a705b4711e79198ffdb108a3753"
+   }
+  ],
+  "121": [
+   {
+    "source": "Nutarimas Nr. 496",
+    "citation": "Nutarimas Nr. 496, 1 p.",
+    "act_id": "76731a705b4711e79198ffdb108a3753",
+    "url": "https://www.e-tar.lt/portal/lt/legalAct/76731a705b4711e79198ffdb108a3753"
+   }
+  ],
+  "44": [
+   {
+    "source": "Nutarimas Nr. 496",
+    "citation": "Nutarimas Nr. 496, 16 p.",
+    "act_id": "76731a705b4711e79198ffdb108a3753",
+    "url": "https://www.e-tar.lt/portal/lt/legalAct/76731a705b4711e79198ffdb108a3753"
+   }
+  ],
+  "79": [
+   {
+    "source": "Nutarimas Nr. 496",
+    "citation": "Nutarimas Nr. 496, 6 p.",
+    "act_id": "76731a705b4711e79198ffdb108a3753",
+    "url": "https://www.e-tar.lt/portal/lt/legalAct/76731a705b4711e79198ffdb108a3753"
+   }
+  ],
+  "221": [
+   {
+    "source": "SADM įsakymas A1-344",
+    "citation": "SADM įsakymas A1-344, įžanga",
+    "act_id": "935f0d105cdc11e79198ffdb108a3753",
+    "url": "https://www.e-tar.lt/portal/lt/legalAct/935f0d105cdc11e79198ffdb108a3753"
+   }
+  ],
+  "226": [
+   {
+    "source": "SADM įsakymas A1-344",
+    "citation": "SADM įsakymas A1-344, 12 p.",
+    "act_id": "935f0d105cdc11e79198ffdb108a3753",
+    "url": "https://www.e-tar.lt/portal/lt/legalAct/935f0d105cdc11e79198ffdb108a3753"
+   },
+   {
+    "source": "SADM įsakymas A1-344",
+    "citation": "SADM įsakymas A1-344, 9 p.",
+    "act_id": "935f0d105cdc11e79198ffdb108a3753",
+    "url": "https://www.e-tar.lt/portal/lt/legalAct/935f0d105cdc11e79198ffdb108a3753"
+   },
+   {
+    "source": "SADM įsakymas A1-344",
+    "citation": "SADM įsakymas A1-344, 13 p.",
+    "act_id": "935f0d105cdc11e79198ffdb108a3753",
+    "url": "https://www.e-tar.lt/portal/lt/legalAct/935f0d105cdc11e79198ffdb108a3753"
+   }
+  ],
+  "228": [
+   {
+    "source": "SADM įsakymas A1-344",
+    "citation": "SADM įsakymas A1-344, 13 p.",
+    "act_id": "935f0d105cdc11e79198ffdb108a3753",
+    "url": "https://www.e-tar.lt/portal/lt/legalAct/935f0d105cdc11e79198ffdb108a3753"
+   },
+   {
+    "source": "SADM įsakymas A1-344",
+    "citation": "SADM įsakymas A1-344, 14 p.",
+    "act_id": "935f0d105cdc11e79198ffdb108a3753",
+    "url": "https://www.e-tar.lt/portal/lt/legalAct/935f0d105cdc11e79198ffdb108a3753"
+   },
+   {
+    "source": "SADM įsakymas A1-344",
+    "citation": "SADM įsakymas A1-344, 18 p.",
+    "act_id": "935f0d105cdc11e79198ffdb108a3753",
+    "url": "https://www.e-tar.lt/portal/lt/legalAct/935f0d105cdc11e79198ffdb108a3753"
+   },
+   {
+    "source": "SADM įsakymas A1-344",
+    "citation": "SADM įsakymas A1-344, 21 p.",
+    "act_id": "935f0d105cdc11e79198ffdb108a3753",
+    "url": "https://www.e-tar.lt/portal/lt/legalAct/935f0d105cdc11e79198ffdb108a3753"
+   }
+  ],
+  "215": [
+   {
+    "source": "SADM įsakymas A1-344",
+    "citation": "SADM įsakymas A1-344, 4 p.",
+    "act_id": "935f0d105cdc11e79198ffdb108a3753",
+    "url": "https://www.e-tar.lt/portal/lt/legalAct/935f0d105cdc11e79198ffdb108a3753"
+   }
+  ],
+  "224": [
+   {
+    "source": "SADM įsakymas A1-344",
+    "citation": "SADM įsakymas A1-344, 6 p.",
+    "act_id": "935f0d105cdc11e79198ffdb108a3753",
+    "url": "https://www.e-tar.lt/portal/lt/legalAct/935f0d105cdc11e79198ffdb108a3753"
+   }
+  ],
+  "223": [
+   {
+    "source": "SADM įsakymas A1-344",
+    "citation": "SADM įsakymas A1-344, 6 p.",
+    "act_id": "935f0d105cdc11e79198ffdb108a3753",
+    "url": "https://www.e-tar.lt/portal/lt/legalAct/935f0d105cdc11e79198ffdb108a3753"
+   }
+  ]
+ }
+}

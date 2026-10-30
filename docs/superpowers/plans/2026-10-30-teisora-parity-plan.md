@@ -114,6 +114,14 @@ apply it, or start from a situation and find similar decisions.
 
 ### Phase 4 — The rest of the platform (weeks 14–18)
 
+**Status 2026-10-30: entered, partially.** Shipped: the citation graph (25 edges
+across 19 articles, extracted from the acts' own text), `GET /status` with
+coverage, freshness and measured quality, and the delegated-act evaluation at
+20 questions. Remaining: institution explanations beyond VDI, Seimas drafts and
+committee transcripts, EU law and ECHR, and the citation graph extended to
+cases. The public status page is the endpoint, not yet a UI.
+
+
 - Institution explanations beyond VDI; Seimas drafts and committee transcripts;
   EU law and ECHR.
 - Citation graph across all sources.

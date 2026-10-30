@@ -32,6 +32,7 @@ import config
 import edition
 import gate
 import history
+import link_graph
 import llm
 import oauth
 import paragraphs
@@ -183,6 +184,11 @@ def corpus_info() -> dict:
         "rerank_model": retrieval.RERANK_MODEL,
         "abstention_threshold": gate.THRESHOLD,
         "threshold_signal": gate.SIGNAL,
+        "links": {
+            "articles_linked": link_graph.load()["articles_linked"],
+            "edges": link_graph.load()["edges"],
+            "note": "get_article reports the delegated provisions that cite it",
+        },
         "history": (
             {
                 "available": True,
@@ -301,6 +307,9 @@ def get_article(article: str, as_of_date: str | None = None) -> dict:
                 "title": record["title"],
                 "text": record["text"],
                 "parts": _parts(record),
+                # The acts that say "this article delegates to us". Extracted
+                # from their own text, never inferred.
+                "implemented_by": link_graph.load()["links"].get(wanted, [])[:10],
                 "edition": _indexed_edition(),
                 "corpus": _status(),
                 "disclaimer": DISCLAIMER,

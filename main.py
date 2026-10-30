@@ -9,10 +9,12 @@ IDs the retriever returned, attached to the response independently of anything
 the model writes.
 """
 
+import json
 import logging
 import os
 
 from contextlib import asynccontextmanager
+from datetime import date
 from pathlib import Path
 
 from fastapi import FastAPI, Request
@@ -24,6 +26,8 @@ from pydantic import BaseModel, Field
 import config
 import edition
 import gate
+import history
+import link_graph
 import llm
 import mcp_server
 import ratelimit
@@ -221,6 +225,57 @@ def health():
             ),
         },
         "usage": limiter.stats(),
+    }
+
+
+@app.get("/status")
+def status():
+    """Coverage, freshness and measured quality in one place.
+
+    A status endpoint that only says "ok" cannot answer the question a user of a
+    legal tool actually has: which sources are loaded, how current they are, and
+    how well the thing scores.
+    """
+    today = date.today().isoformat()
+    sources = (
+        json.loads((Path(__file__).parent / "data" / "sources.json").read_text(encoding="utf-8"))
+        if (Path(__file__).parent / "data" / "sources.json").exists()
+        else []
+    )
+    acts = sorted({r["source"] for r in sources})
+    stale = sorted({r["source"] for r in sources if r["valid_to"] < today})
+
+    def summary(name):
+        path = Path(__file__).parent / "eval" / name
+        if not path.exists():
+            return None
+        return json.loads(path.read_text(encoding="utf-8")).get("summary")
+
+    return {
+        "code": {
+            "articles": len(retrieval.ARTICLES),
+            "edition_from": retrieval.SIDECAR["edition_from"],
+            "edition_to": retrieval.SIDECAR["edition_to"],
+            "expired": edition.is_expired(retrieval.SIDECAR["edition_to"]),
+        },
+        "delegated_acts": {
+            "acts": len(acts),
+            "chunks": len(sources),
+            "stale": stale,
+            "titles": acts,
+        },
+        "history": link_graph.load() and {
+            "editions": history.coverage()["editions"],
+            "from": history.coverage()["from"],
+        },
+        "links": {
+            "articles_linked": link_graph.load()["articles_linked"],
+            "edges": link_graph.load()["edges"],
+        },
+        "evals": {
+            "code_served": summary("results_serving.json"),
+            "delegated": summary("results_sources.json"),
+        },
     }
 
 

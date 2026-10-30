@@ -1,11 +1,11 @@
 {
  "summary": {
-  "hits": 12,
-  "total": 12,
+  "hits": 20,
+  "total": 20,
   "hit_rate": 1.0,
-  "term_hits": 11,
-  "term_total": 11,
-  "term_rate": 1.0
+  "term_hits": 18,
+  "term_total": 19,
+  "term_rate": 0.947
  },
  "rows": [
   {
@@ -13,6 +13,7 @@
    "question": "Kaip skaičiuojamas vidutinis dieninis darbo užmokestis?",
    "expected": "Nutarimas Nr. 496",
    "delegated": [
+    "Nutarimas Nr. 496",
     "Nutarimas Nr. 496",
     "Nutarimas Nr. 496"
    ],
@@ -27,6 +28,7 @@
    "expected": "Nutarimas Nr. 496",
    "delegated": [
     "Nutarimas Nr. 496",
+    "Nutarimas Nr. 496",
     "Nutarimas Nr. 496"
    ],
    "top": "Nutarimas Nr. 496, 3 p.",
@@ -39,6 +41,7 @@
    "question": "Koks skaičiuojamasis laikotarpis vidutiniam darbo užmokesčiui apskaičiuoti?",
    "expected": "Nutarimas Nr. 496",
    "delegated": [
+    "Nutarimas Nr. 496",
     "Nutarimas Nr. 496",
     "Nutarimas Nr. 496"
    ],
@@ -53,6 +56,7 @@
    "expected": "Nutarimas Nr. 496",
    "delegated": [
     "Nutarimas Nr. 496",
+    "Nutarimas Nr. 496",
     "Nutarimas Nr. 496"
    ],
    "top": "Nutarimas Nr. 496, 3 p.",
@@ -65,6 +69,7 @@
    "question": "Kaip apskaičiuojamas vidutinis valandinis darbo užmokestis?",
    "expected": "Nutarimas Nr. 496",
    "delegated": [
+    "Nutarimas Nr. 496",
     "Nutarimas Nr. 496",
     "Nutarimas Nr. 496"
    ],
@@ -79,6 +84,7 @@
    "expected": "Nutarimas Nr. 496",
    "delegated": [
     "Nutarimas Nr. 496",
+    "Nutarimas Nr. 496",
     "Nutarimas Nr. 496"
    ],
    "top": "Nutarimas Nr. 496, 5 p.",
@@ -92,6 +98,7 @@
    "expected": "VDI įsakymas A1-276",
    "delegated": [
     "VDI įsakymas A1-502",
+    "VDI įsakymas A1-276",
     "VDI įsakymas A1-276"
    ],
    "top": "VDI įsakymas A1-502, 6 p.",
@@ -105,7 +112,8 @@
    "expected": "VDI įsakymas A1-276",
    "delegated": [
     "VDI įsakymas A1-276",
-    "VDI įsakymas A1-276"
+    "VDI įsakymas A1-276",
+    "VDI įsakymas A1-502"
    ],
    "top": "VDI įsakymas A1-276, 1 p.",
    "hit": true,
@@ -117,10 +125,11 @@
    "question": "Kas privalo instruktuoti darbuotojus saugos ir sveikatos klausimais?",
    "expected": "VDI įsakymas A1-276",
    "delegated": [
+    "SADM ir SAM įsakymas A1-266/V-575",
     "VDI įsakymas A1-502",
     "VDI įsakymas A1-276"
    ],
-   "top": "VDI įsakymas A1-502, 6 p.",
+   "top": "SADM ir SAM įsakymas A1-266/V-575, 10 p.",
    "hit": true,
    "expect": "instruktu",
    "term_hit": true
@@ -130,6 +139,7 @@
    "question": "Kada įmonėje turi būti sudarytas darbuotojų saugos ir sveikatos komitetas?",
    "expected": "VDI įsakymas A1-502",
    "delegated": [
+    "VDI įsakymas A1-502",
     "VDI įsakymas A1-502",
     "VDI įsakymas A1-502"
    ],
@@ -144,6 +154,7 @@
    "expected": "VDI įsakymas A1-502",
    "delegated": [
     "VDI įsakymas A1-502",
+    "VDI įsakymas A1-502",
     "VDI įsakymas A1-502"
    ],
    "top": "VDI įsakymas A1-502, 13 p.",
@@ -157,11 +168,124 @@
    "expected": "VDI įsakymas A1-502",
    "delegated": [
     "VDI įsakymas A1-502",
+    "VDI įsakymas A1-502",
     "VDI įsakymas A1-502"
    ],
    "top": "VDI įsakymas A1-502, 6 p.",
    "hit": true,
    "expect": "funkcijas",
+   "term_hit": true
+  },
+  {
+   "id": 13,
+   "question": "Ką darbdavys privalo daryti įvykus nelaimingam atsitikimui darbe?",
+   "expected": "Nutarimas Nr. 1118",
+   "delegated": [
+    "Nutarimas Nr. 1118",
+    "Nutarimas Nr. 1118",
+    "Nutarimas Nr. 1118"
+   ],
+   "top": "Nutarimas Nr. 1118, 8 p.",
+   "hit": true,
+   "expect": "praneš",
+   "term_hit": true
+  },
+  {
+   "id": 15,
+   "question": "Kas tiria nelaimingą atsitikimą darbe?",
+   "expected": "Nutarimas Nr. 1118",
+   "delegated": [
+    "Nutarimas Nr. 1118",
+    "Nutarimas Nr. 1118",
+    "Nutarimas Nr. 1118"
+   ],
+   "top": "Nutarimas Nr. 1118, 14 p.",
+   "hit": true,
+   "expect": "tyrim",
+   "term_hit": true
+  },
+  {
+   "id": 16,
+   "question": "Kaip sudaroma darbo ginčų komisija?",
+   "expected": "SADM įsakymas A1-344",
+   "delegated": [
+    "SADM įsakymas A1-344",
+    "SADM įsakymas A1-344",
+    "SADM įsakymas A1-344"
+   ],
+   "top": "SADM įsakymas A1-344, 1 p.",
+   "hit": true,
+   "expect": "komisij",
+   "term_hit": true
+  },
+  {
+   "id": 17,
+   "question": "Per kiek laiko darbo ginčų komisija turi išnagrinėti ginčą?",
+   "expected": "SADM įsakymas A1-344",
+   "delegated": [
+    "SADM įsakymas A1-344",
+    "Nutarimas Nr. 1118",
+    "SADM įsakymas A1-344"
+   ],
+   "top": "SADM įsakymas A1-344, 14 p.",
+   "hit": true,
+   "expect": "mėnes",
+   "term_hit": true
+  },
+  {
+   "id": 18,
+   "question": "Kada įmonėje privalo būti darbuotojų saugos ir sveikatos tarnyba?",
+   "expected": "SADM ir SAM įsakymas A1-266/V-575",
+   "delegated": [
+    "SADM ir SAM įsakymas A1-266/V-575",
+    "SADM ir SAM įsakymas A1-266/V-575",
+    "SADM ir SAM įsakymas A1-266/V-575"
+   ],
+   "top": "SADM ir SAM įsakymas A1-266/V-575, 8 p.",
+   "hit": true,
+   "expect": "tarnyb",
+   "term_hit": true
+  },
+  {
+   "id": 19,
+   "question": "Kas gali vykdyti darbuotojų saugos ir sveikatos tarnybos funkcijas?",
+   "expected": "SADM ir SAM įsakymas A1-266/V-575",
+   "delegated": [
+    "SADM ir SAM įsakymas A1-457/V-961",
+    "SADM ir SAM įsakymas A1-266/V-575",
+    "SADM ir SAM įsakymas A1-266/V-575"
+   ],
+   "top": "SADM ir SAM įsakymas A1-457/V-961, 3 p.",
+   "hit": true,
+   "expect": "vadovas",
+   "term_hit": false
+  },
+  {
+   "id": 20,
+   "question": "Kaip dažnai turi būti atliekamas profesinės rizikos vertinimas?",
+   "expected": "SADM ir SAM įsakymas A1-457/V-961",
+   "delegated": [
+    "SADM ir SAM įsakymas A1-457/V-961",
+    "SADM ir SAM įsakymas A1-457/V-961",
+    "SADM ir SAM įsakymas A1-457/V-961"
+   ],
+   "top": "SADM ir SAM įsakymas A1-457/V-961, įžanga",
+   "hit": true,
+   "expect": "rizikos vertinim",
+   "term_hit": true
+  },
+  {
+   "id": 21,
+   "question": "Kas atlieka profesinės rizikos vertinimą įmonėje?",
+   "expected": "SADM ir SAM įsakymas A1-457/V-961",
+   "delegated": [
+    "SADM ir SAM įsakymas A1-457/V-961",
+    "SADM ir SAM įsakymas A1-457/V-961",
+    "SADM ir SAM įsakymas A1-457/V-961"
+   ],
+   "top": "SADM ir SAM įsakymas A1-457/V-961, 6 p.",
+   "hit": true,
+   "expect": "darbdav",
    "term_hit": true
   }
  ]
