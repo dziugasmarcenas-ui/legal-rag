@@ -650,10 +650,19 @@ not transcripts.
 
 The pipeline now consumes any list of act IDs: `data/extra_acts.json` is appended
 to the ingestion set, and the same download → validity guard → chunk → embed
-path runs. A ministry's curated index and a browser harvest of the e-TAR search took
-coverage from 21 to **72 acts**. The last two batches yielded 2 substantive
-acts from 18 pages of results, which is the measured reason the search route
-will not reach the full corpus.
+path runs. Coverage is now **74 acts**.
+
+Discovery routes measured, with yields:
+
+| Route | Acts obtained |
+|---|---|
+| Ministry's safety-act index (curated) | 56 |
+| e-TAR search pagination (18 pages) | 2 |
+| Ministry's labour-law topic pages (12 pages) | 2 |
+| VDI legal-acts grid (20 pages, 197 rows) | **0** — every row is an amendment |
+| data.gov.lt | no dataset links in HTML |
+| data.e-tar.lt | explainer page, no API |
+| OAI-PMH | not offered |
 
 Full coverage is a different problem. e-TAR exposes no bulk endpoint: the search
 is a JSF form that ignores GET parameters, there is no OAI-PMH, and
