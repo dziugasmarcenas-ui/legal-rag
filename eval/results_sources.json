@@ -2,7 +2,10 @@
  "summary": {
   "hits": 12,
   "total": 12,
-  "hit_rate": 1.0
+  "hit_rate": 1.0,
+  "term_hits": 11,
+  "term_total": 11,
+  "term_rate": 1.0
  },
  "rows": [
   {
@@ -14,7 +17,9 @@
     "Nutarimas Nr. 496"
    ],
    "top": "Nutarimas Nr. 496, 5 p.",
-   "hit": true
+   "hit": true,
+   "expect": "vidutinis dieninis",
+   "term_hit": true
   },
   {
    "id": 2,
@@ -25,7 +30,9 @@
     "Nutarimas Nr. 496"
    ],
    "top": "Nutarimas Nr. 496, 3 p.",
-   "hit": true
+   "hit": true,
+   "expect": "bazinis",
+   "term_hit": true
   },
   {
    "id": 3,
@@ -36,7 +43,9 @@
     "Nutarimas Nr. 496"
    ],
    "top": "Nutarimas Nr. 496, 5 p.",
-   "hit": true
+   "hit": true,
+   "expect": "3 paskutiniai",
+   "term_hit": true
   },
   {
    "id": 4,
@@ -47,7 +56,9 @@
     "Nutarimas Nr. 496"
    ],
    "top": "Nutarimas Nr. 496, 3 p.",
-   "hit": true
+   "hit": true,
+   "expect": "premijos",
+   "term_hit": true
   },
   {
    "id": 5,
@@ -58,7 +69,9 @@
     "Nutarimas Nr. 496"
    ],
    "top": "Nutarimas Nr. 496, 5 p.",
-   "hit": true
+   "hit": true,
+   "expect": "vidutinis valandinis",
+   "term_hit": true
   },
   {
    "id": 6,
@@ -69,18 +82,22 @@
     "Nutarimas Nr. 496"
    ],
    "top": "Nutarimas Nr. 496, 5 p.",
-   "hit": true
+   "hit": true,
+   "expect": "skaičiuojamasis laikotarpis",
+   "term_hit": true
   },
   {
    "id": 7,
    "question": "Kokie reikalavimai taikomi darbuotojų mokymui saugos ir sveikatos srityje?",
    "expected": "VDI įsakymas A1-276",
    "delegated": [
-    "VDI įsakymas A1-276",
+    "VDI įsakymas A1-502",
     "VDI įsakymas A1-276"
    ],
-   "top": "VDI įsakymas A1-276, 12 p.",
-   "hit": true
+   "top": "VDI įsakymas A1-502, 6 p.",
+   "hit": true,
+   "expect": "mokymo",
+   "term_hit": true
   },
   {
    "id": 8,
@@ -91,7 +108,9 @@
     "VDI įsakymas A1-276"
    ],
    "top": "VDI įsakymas A1-276, 1 p.",
-   "hit": true
+   "hit": true,
+   "expect": null,
+   "term_hit": null
   },
   {
    "id": 9,
@@ -102,7 +121,9 @@
     "VDI įsakymas A1-276"
    ],
    "top": "VDI įsakymas A1-502, 6 p.",
-   "hit": true
+   "hit": true,
+   "expect": "instruktu",
+   "term_hit": true
   },
   {
    "id": 10,
@@ -113,7 +134,9 @@
     "VDI įsakymas A1-502"
    ],
    "top": "VDI įsakymas A1-502, 3 p.",
-   "hit": true
+   "hit": true,
+   "expect": "steigiamas",
+   "term_hit": true
   },
   {
    "id": 11,
@@ -124,7 +147,9 @@
     "VDI įsakymas A1-502"
    ],
    "top": "VDI įsakymas A1-502, 13 p.",
-   "hit": true
+   "hit": true,
+   "expect": "komiteto",
+   "term_hit": true
   },
   {
    "id": 12,
@@ -135,7 +160,9 @@
     "VDI įsakymas A1-502"
    ],
    "top": "VDI įsakymas A1-502, 6 p.",
-   "hit": true
+   "hit": true,
+   "expect": "funkcijas",
+   "term_hit": true
   }
  ]
 }

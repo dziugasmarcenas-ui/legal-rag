@@ -217,7 +217,7 @@ def referenced_articles(question):
     return found
 
 
-SOURCE_CANDIDATES = 5
+SOURCE_CANDIDATES = 8
 SOURCE_SHOWN = 2
 # A source chunk has to be genuinely close before it is allowed to compete with
 # the Code. Without a floor, every query drags five irrelevant provisions into

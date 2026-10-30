@@ -567,8 +567,11 @@ roles separated, every Code number is unchanged.
 
 The delegated index has its own evaluation, because the frozen Code set cannot
 score rules the Code does not contain: 12 questions whose answers live in these
-acts, **12/12 find the right act in the top two delegated results**
-(`eval/run_sources_eval.py`).
+acts. **12/12 find the right act** and **11/11 of the answerable ones return a
+chunk that actually contains the answer term** (`eval/run_sources_eval.py`).
+The second number exists because act-level hits flatter a system that finds the
+right law and the wrong provision — the first version of this eval scored 12/12
+while the deployed answer for one question was "I don't know".
 
 Freshness covers them too: the daily check fails if any ingested act is repealed
 or has a newer edition on e-TAR.
