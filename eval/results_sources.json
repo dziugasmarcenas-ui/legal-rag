@@ -97,11 +97,11 @@
    "question": "Kokie reikalavimai taikomi darbuotojų mokymui saugos ir sveikatos srityje?",
    "expected": "VDI įsakymas A1-276",
    "delegated": [
-    "Dėl Darbdavio, darbdaviui atstovaujančio asmens mokymo darbu",
-    "Dėl Darbdavio, darbdaviui atstovaujančio asmens mokymo darbu",
-    "Informacija apie saugos būklę"
+    "Dėl Mokymo ir atestavimo darbuotojų saugos ir sveikatos klau",
+    "Dėl Darbdavių, jų įgaliotų asmenų bei darbuotojų saugos ir s",
+    "Dėl Darbdavių, jų įgaliotų asmenų bei darbuotojų saugos ir s"
    ],
-   "top": "Dėl Darbdavio, darbdaviui atstovaujančio asmens mokymo darbu, 2 p.",
+   "top": "Dėl Mokymo ir atestavimo darbuotojų saugos ir sveikatos klau, 7 p.",
    "hit": false,
    "expect": "mokymo",
    "term_hit": true
