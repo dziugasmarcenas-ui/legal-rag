@@ -685,6 +685,7 @@ Discovery routes measured, with yields:
 | e-seimas type=Nutarimas "darbo sąlygų" (105 docs, 17 matches) | **4** — pregnant/nursing workers, under-18 prohibited work, special-conditions pay, posted foreign workers |
 | e-seimas type=Nutarimas "darbuotojų saugos" (51 docs, 7 matches) | **0** — the same resolutions already ingested |
 | e-seimas type=Nutarimas "nėščių" (5 docs, 3 matches) | **0** — the act and its two superseded predecessors |
+| e-seimas type=Nutarimas **paramContent** "darbuotojų saugos ir sveikatos" (257 docs, 6 matches) | **0** — budget laws, national agendas, energy accident rules; labour is incidental |
 | data.gov.lt | no dataset links in HTML |
 | data.e-tar.lt | explainer page, no API |
 | OAI-PMH | not offered |
