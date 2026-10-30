@@ -15,6 +15,7 @@ sys.path.insert(0, str(Path(__file__).parents[1]))
 
 import history
 import mcp_server
+import retrieval
 
 
 def test_the_archive_spans_every_edition_the_portal_publishes():
@@ -73,11 +74,11 @@ def test_get_article_refuses_an_article_that_was_not_in_force():
     assert out["error"] == "not_in_force"
 
 
-def test_search_refuses_a_date_it_cannot_search(monkeypatch):
-    """Retrieval is indexed on one edition; claiming otherwise would be a lie."""
-    out = mcp_server.search_labour_code("atostogos", as_of_date="2019-01-01")
+def test_search_refuses_a_date_outside_the_archive():
+    """Inside the archive history is searchable; outside it, say so."""
+    out = mcp_server.search_labour_code("atostogos", as_of_date="2010-01-01")
     assert out["error"] == "out_of_range"
-    assert out["indexed_edition"]["valid_from"] == "2026-06-07"
+    assert out["covered"]["from"] == "2017-07-01"
 
 
 def test_corpus_info_advertises_the_archive():
@@ -85,3 +86,51 @@ def test_corpus_info_advertises_the_archive():
     assert info["history"]["available"] is True
     assert info["history"]["editions"] == 41
     assert "as_of_date" in info["history"]["note"]
+
+
+VERSIONS = [
+    {"article": "126", "valid_from": "2017-07-01", "valid_to": "2022-07-31",
+     "title": "old", "text": "old text"},
+    {"article": "126", "valid_from": "2022-08-01", "valid_to": "9999-12-31",
+     "title": "new", "text": "new text"},
+    {"article": "127", "valid_from": "2017-07-01", "valid_to": "9999-12-31",
+     "title": "other", "text": "other text"},
+]
+
+
+def test_select_versions_returns_one_row_per_article():
+    """An article with five versions must not fill the candidate list."""
+    chosen = retrieval.select_versions([0.9, 0.95, 0.5], VERSIONS, "2019-01-01", 10)
+    assert [c["article"] for c in chosen] == ["126", "127"]
+    assert chosen[0]["text"] == "old text"
+
+
+def test_select_versions_skips_versions_not_in_force_then():
+    chosen = retrieval.select_versions([0.9, 0.95, 0.5], VERSIONS, "2026-10-30", 10)
+    assert [c["text"] for c in chosen if c["article"] == "126"] == ["new text"]
+
+
+def test_select_versions_is_respects_the_candidate_budget():
+    assert len(retrieval.select_versions([0.9, 0.9, 0.5], VERSIONS, "2019-01-01", 1)) == 1
+
+
+def test_select_versions_returns_nothing_outside_the_archive():
+    assert retrieval.select_versions([0.9, 0.9, 0.5], VERSIONS, "2010-01-01", 10) == []
+
+
+def test_search_passes_the_date_to_retrieval(monkeypatch):
+    seen = {}
+
+    def fake_retrieve(*args, **kwargs):
+        seen.update(kwargs)
+        return [{
+            "article": "126", "citation": "126", "title": "t", "text": "1. x",
+            "parts": [], "cosine_score": 0.5, "rerank_score": 0.9,
+            "edition": {"valid_from": "2017-07-01", "valid_to": "2022-07-31"},
+        }]
+
+    monkeypatch.setattr(mcp_server.retrieval, "retrieve", fake_retrieve)
+    out = mcp_server.search_labour_code("atostogos", k=1, as_of_date="2019-01-01")
+    assert seen["as_of_date"] == "2019-01-01"
+    assert out["edition"]["valid_from"] == "2017-07-01"
+    assert out["as_of_date"] == "2019-01-01"

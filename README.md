@@ -519,10 +519,11 @@ explicit and tested: 2026-10-31 resolves to the 2026-06-07 edition and
 2026-11-01 to its successor; a date before 2017-07-01, or an article that was not
 yet enacted, returns a typed error rather than today's text.
 
-**What this does not do.** Retrieval is indexed on one edition at a time, so
-searching history is refused (`out_of_range`) instead of answered from the wrong
-edition. Only article lookup is historical. The tool output states that limit
-rather than leaving it to the reader.
+Search works on history as well. Every archived version is embedded (498
+vectors in `embeddings/versions.npy`), and a dated query is restricted to the
+versions that were in force that day, one row per article so a much-amended
+article cannot fill the list with its own past. The response carries the edition
+window it searched, so a 2019 answer cannot be mistaken for today's.
 
 Staging the edition that takes effect tomorrow is one command:
 
@@ -545,7 +546,7 @@ retriever returned -- the model cannot introduce one.
 | Tool | Returns |
 |---|---|
 | `corpus_info()` | edition window, article count, models, threshold, known gaps, disclaimer |
-| `search_labour_code(query, k=5)` | ranked articles with both scores, `above_gate` per article, and citable parts |
+| `search_labour_code(query, k=5, as_of_date)` | ranked articles with both scores, `above_gate`, citable parts, and the edition searched |
 | `get_article("72-1", as_of_date)` | the article as it stood on that date, with numbered parts, or a typed error |
 | `ask_labour_code(question, lang)` | grounded answer + sources + confidence, or an explicit refusal |
 

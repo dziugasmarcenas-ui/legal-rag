@@ -152,9 +152,10 @@ invalidate the benchmark for a retrieval gain that has not been measured.
 consolidated editions on e-TAR, downloads each DOCX, and folds them into 498
 per-article versions (~1 MB). `history.py` answers "what was in force on date X"
 and `get_article(article, as_of_date)` returns that day's text with part-level
-citations. Retrieval stays indexed on one edition and refuses historical search
-instead of faking it. Tests cover boundary dates, articles not yet enacted, and
-the refusal paths.
+citations. Historical search is complete: all 498 versions are embedded in a separate
+index, dated queries are restricted to versions in force, and results carry the
+edition window. Tests cover boundary dates, articles not yet enacted, dedupe
+across an article's own versions, and dates outside the archive.
 
 Freshness is now automated: `check_freshness.py --online` runs in a scheduled
 `freshness` workflow (not the PR gate), so a rolled-over edition turns a daily

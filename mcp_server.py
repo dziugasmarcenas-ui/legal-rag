@@ -203,21 +203,18 @@ def search_labour_code(query: str, k: int = 5, as_of_date: str | None = None) ->
     not appear to cover the question.
     """
     if as_of_date:
-        indexed = _indexed_edition()
-        if not (indexed["valid_from"] <= as_of_date <= indexed["valid_to"]):
+        edition = history.in_force(as_of_date) if history.available() else None
+        if edition is None:
             return {
                 "error": "out_of_range",
-                "message": (
-                    "retrieval is indexed on the edition currently loaded; "
-                    "use get_article(article, as_of_date) for historical text"
-                ),
-                "indexed_edition": indexed,
-                "history": history.coverage() if history.available() else None,
+                "message": f"no archived edition covers {as_of_date}",
+                "covered": history.coverage() if history.available() else None,
             }
 
     k = max(1, min(int(k), MAX_K))
     results = retrieval.retrieve(
-        query, k=k, candidates=max(k, retrieval.SERVED_CANDIDATES)
+        query, k=k, candidates=max(k, retrieval.SERVED_CANDIDATES),
+        as_of_date=as_of_date,
     )
     return {
         "query": query,
@@ -227,7 +224,11 @@ def search_labour_code(query: str, k: int = 5, as_of_date: str | None = None) ->
         # Articles the question named explicitly. They are pinned first, but
         # the answerability gate still judges the evidence on its merits.
         "referenced": retrieval.referenced_articles(query),
-        "edition": _indexed_edition(),
+        "as_of_date": as_of_date,
+        "edition": (
+            results[0].get("edition") if results and results[0].get("edition")
+            else _indexed_edition()
+        ),
         "corpus": _status(),
         "disclaimer": DISCLAIMER,
     }

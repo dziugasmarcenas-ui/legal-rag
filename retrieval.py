@@ -62,7 +62,106 @@ def top_k(scores, k):
     return ordered[:k]
 
 
+# The served configuration, defined once.
+#
+# `candidates` is how many articles cosine search pulls in. `k` is how many the
+# caller sees. Reranking only reorders what it is given, so reranking 3 of them
+# is not the same product as reranking 10 and showing 3 -- and the second is what
+# the benchmark measured. The API and the eval both call `retrieve()` with no
+# arguments, so these two numbers cannot drift between them.
+#
+# Raising candidates costs one rerank call on a few more short documents, which
+# is noise next to the generation call.
+SERVED_CANDIDATES = 10
+SERVED_K = 3
+
 RERANK_MODEL = "rerank-2.5"
+
+_HISTORY = None
+
+
+def historical_index():
+    """The per-version matrix, loaded once and only if a dated query needs it."""
+    global _HISTORY
+    if _HISTORY is None:
+        sidecar = json.loads(
+            (ROOT / "embeddings" / "versions.json").read_text(encoding="utf-8")
+        )
+        _HISTORY = (
+            np.load(ROOT / "embeddings" / "versions.npy"),
+            sidecar["versions"],
+        )
+    return _HISTORY
+
+
+def select_versions(scores, versions, as_of_date, candidates):
+    """Best version of each article that was in force on `as_of_date`.
+
+    One row per article, not per version: an article that changed five times
+    must not fill the candidate list with its own history. The kept row is the
+    highest-scoring version valid on that date.
+    """
+    eligible = [
+        (float(scores[i]), i)
+        for i, version in enumerate(versions)
+        if version["valid_from"] <= as_of_date <= version["valid_to"]
+    ]
+    eligible.sort(reverse=True)
+
+    chosen, seen = [], set()
+    for score, index in eligible:
+        version = versions[index]
+        if version["article"] in seen:
+            continue
+        seen.add(version["article"])
+        chosen.append({**version, "cosine_score": score})
+        if len(chosen) >= candidates:
+            break
+    return chosen
+
+
+def retrieve_as_of(question, as_of_date, k=SERVED_K, candidates=SERVED_CANDIDATES):
+    """Search the law as it stood on `as_of_date`.
+
+    Same embedding model, same reranker, same gate; only the candidate set is
+    restricted to versions that were in force. The returned records carry the
+    edition window they came from, because a 2019 answer that does not say 2019
+    is the failure mode this feature exists to prevent.
+    """
+    matrix, versions = historical_index()
+    client = voyageai.Client(api_key=config.require("VOYAGE_API_KEY"))
+
+    embedded = client.embed([question], model="voyage-3", input_type="query")
+    query = np.array(embedded.embeddings[0], dtype=np.float32)
+    scores = cosine_similarities(query, matrix)
+
+    rows = select_versions(scores, versions, as_of_date, max(candidates, k))
+    if not rows:
+        return []
+
+    results = [
+        {
+            "article": r["article"],
+            "citation": r.get("citation") or r["article"],
+            "title": r["title"],
+            "text": r["text"],
+            "parts": [],
+            "cosine_score": r["cosine_score"],
+            "rerank_score": None,
+            "edition": {"valid_from": r["valid_from"], "valid_to": r["valid_to"]},
+        }
+        for r in rows
+    ]
+
+    results = rerank(question, results, client)
+
+    referenced = set(referenced_articles(question))
+    if referenced:
+        results = (
+            [r for r in results if r["article"] in referenced]
+            + [r for r in results if r["article"] not in referenced]
+        )
+    return results[:k]
 
 
 def rerank(question, results, client):
@@ -90,18 +189,6 @@ def rerank(question, results, client):
     return ordered
 
 
-# The served configuration, defined once.
-#
-# `candidates` is how many articles cosine search pulls in. `k` is how many the
-# caller sees. Reranking only reorders what it is given, so reranking 3 of them
-# is not the same product as reranking 10 and showing 3 -- and the second is what
-# the benchmark measured. The API and the eval both call `retrieve()` with no
-# arguments, so these two numbers cannot drift between them.
-#
-# Raising candidates costs one rerank call on a few more short documents, which
-# is noise next to the generation call.
-SERVED_CANDIDATES = 10
-SERVED_K = 3
 
 # "126 straipsnis", "DK 126 str.", "72-1 straipsnyje", "72¹ straipsnis".
 #
@@ -130,7 +217,14 @@ def referenced_articles(question):
     return found
 
 
-def retrieve(question, k=SERVED_K, candidates=SERVED_CANDIDATES, use_rerank=True):
+def retrieve(question, k=SERVED_K, candidates=SERVED_CANDIDATES, use_rerank=True,
+             as_of_date=None):
+    """The served retrieval, optionally as of a past date.
+
+    A date inside the loaded edition takes the normal path, so the measured
+    numbers and the served results stay identical. Only dates outside it use
+    the version index.
+    """
     """
     Turn a text question into an embedding,
     compare it against the corpus,
@@ -148,6 +242,11 @@ def retrieve(question, k=SERVED_K, candidates=SERVED_CANDIDATES, use_rerank=True
     They are different quantities on different scales. Collapsing them into one
     field would make it impossible to tell which one any threshold refers to.
     """
+
+    if as_of_date and not (
+        SIDECAR["edition_from"] <= as_of_date <= SIDECAR["edition_to"]
+    ):
+        return retrieve_as_of(question, as_of_date, k=k, candidates=candidates)
 
     client = voyageai.Client(api_key=config.require("VOYAGE_API_KEY"))
 
