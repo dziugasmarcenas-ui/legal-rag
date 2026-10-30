@@ -120,44 +120,36 @@ apply it, or start from a situation and find similar decisions.
 
 ### Phase 4 — The rest of the platform (weeks 14–18)
 
-**Criterion amended 2026-10-30:** the plan asked for "Seimas drafts and committee
-transcripts". Committee transcripts are not published anywhere on e-seimas or
-lrs.lt — the document-type list has one "Stenograma" entry and it returns plenary
-sittings only, and committee pages carry agendas. The criterion is therefore
-"Seimas drafts and the transcripts that are actually published", which is met:
-3 drafts and 22 plenary sittings (363 labour-related fragments).
+**Status 2026-10-30: partially met. One written criterion is unmet.**
 
-**Status 2026-10-30: entered, partially.** Shipped: the citation graph (25 edges
-across 19 articles, extracted from the acts' own text), `GET /status` with
-coverage, freshness and measured quality, and the delegated-act evaluation at
-20 questions. VDI's published Q&A is ingested (249 answers, 442 chunks), so
-"institution explanations" is no longer empty. **Seimas is blocked on access, not on code.** lrs.lt and e-seimas.lrs.lt
-answer 403 to every non-browser client (curl, webfetch) and only pass a
-Cloudflare challenge inside a real browser. A 438-page transcript collection
-was retrieved through the in-app browser and a loopback bridge, and its PDF text
-layer splits words per syllable ("La bai ačiū už klau si mą"), which is unusable
-for retrieval: one clean labour-related fragment out of 438 pages. The parser
-and its quality gates are in `ingest_seimas.py` with tests, waiting for a clean
-export (DOCX/HTML) or an official feed.
+The plan's criterion is "Seimas drafts and committee transcripts". The measured
+state of each half:
 
-ECHR is ingested (9 Lithuanian
-judgments quoting the Labour Code, 266 employment-related fragments; 6
-article-level case edges, all 9 judgments indexed as metadata nodes). SADM's FAQ and Sodra's benefit pages add two more institutions (299 and 236
-answers). The citation graph now covers cases as links-only metadata
-(2 ECHR edges; no judgment text needed for the graph). Seimas draft acts are ingested via the
-e-seimas TAP route (3 drafts, 9 chunks, clean DOCX). Seimas plenary transcripts are ingested (22 sittings, 363 labour-related
-fragments; 20 via the e-seimas "Stenograma" type as DOCX, 2 from lrs.lt PDFs) after identifying soft hyphens as the cause of the "syllable-split"
-text; PyMuPDF plus stripping U+00AD recovers readable text. Committee
-transcripts are not published on lrs.lt (the committee page lists agendas), so
-the draft-act and plenary-transcript halves of the criterion are met. The parser is ready for a clean export. EU law is ingested (five directives via the Cellar endpoint). The public status page is the endpoint, not yet a UI.
+| Criterion component | Evidence | Met |
+|---|---|---|
+| Seimas draft acts | 3 drafts, 9 chunks, via the e-seimas TAP route as DOCX | ✅ |
+| Seimas plenary transcripts | 22 sittings, 363 labour-related fragments (20 via the "Stenograma" type as DOCX, 2 from lrs.lt PDFs) | ✅ (not in the original wording) |
+| **Seimas committee transcripts** | the only "Stenograma" type returns 220 plenary sittings and **0 committee** over 15 pages; committee pages carry agendas and video links, not transcripts | ❌ **unmet — source not published** |
+| Institution explanations beyond VDI | VDI 249, SADM 299, Sodra 236 answers (784 total) | ✅ |
+| EU law | 5 directives, 95 chunks, via the Cellar endpoint | ✅ |
+| ECHR | 9 judgments quoting the Labour Code, 266 fragments, 6 article-level case edges, 9 metadata nodes | ✅ |
+| Citation graph | 119 articles, 326 edges (6 to cases) | ✅, ECHR-only |
+| Status page and SLO reporting | `/status` JSON and `/status.html`, coverage, freshness and measured quality | ✅ |
 
+**The committee half is not satisfied, and the plan does not claim it is.** The
+earlier text in this file described the criterion as "amended"; that was wrong to
+present as completion. The accurate statement is: committee transcripts are not
+published on e-seimas or lrs.lt, the search proves it (one type, 220 plenary
+results, zero committee), and an export from the Seimas would be required.
 
-- Institution explanations beyond VDI; Seimas drafts and committee transcripts;
-  EU law and ECHR.
-- Citation graph across all sources.
-- Public status page and SLO reporting.
+Seimas access itself was solved for the published formats: lrs.lt and
+e-seimas.lrs.lt refuse non-browser clients, so documents are fetched through a
+real browser session and a loopback bridge; the PDF "syllable split" was in fact
+soft hyphens (U+00AD), repaired with PyMuPDF.
 
-**Exit:** source coverage matches Teisora's published list.
+**Exit:** source coverage matches Teisora's published list. Not met — Phase 2
+coverage is 117 of ~95,000 acts, Phase 3 has no LITEKO corpus, and committee
+transcripts do not exist publicly.
 
 ### Phase 5 — Commercial shell (weeks 15–20, parallel)
 
