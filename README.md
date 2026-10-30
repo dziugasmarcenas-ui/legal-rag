@@ -663,6 +663,7 @@ Discovery routes measured, with yields:
 | e-seimas TAD via browser bridge (26 exported) | **9** net new |
 | e-seimas title batch "darbo apmokėjimo" (7 exported) | **2** net new; 5 exam-payment orders pruned |
 | e-seimas "darbo laiko" / "darbo sąlygų" (30 + 2 matches) | **1** net new after personal/institutional filtering |
+| e-seimas "socialinės apsaugos" (501 docs, 15 matches) | **0** — all technical corrections, funding calls, programme documents |
 | data.gov.lt | no dataset links in HTML |
 | data.e-tar.lt | explainer page, no API |
 | OAI-PMH | not offered |
@@ -683,7 +684,7 @@ attempt and the exact requirement.
 |---|---|---|
 | Full e-TAR corpus (~95,000 acts) | no bulk endpoint; search yields 1–2 substantive acts per cycle | registry export, or a TAR data-service key |
 | LITEKO court decisions | Google reCAPTCHA v2 on the search page; scripted postbacks are rejected | API key or a captcha-solved session |
-| Committee transcripts | not published on e-seimas or lrs.lt (one "Stenograma" type, plenary only) | DOCX/HTML export |
+| Committee transcripts | not published: the only "Stenograma" type returns 220 plenary sittings over 15 pages, **0 committee** | DOCX/HTML export |
 
 Everything else in Phases 1 and 4 is implemented and measured.
 
