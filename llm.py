@@ -61,6 +61,12 @@ def model_name(name=None):
     return os.environ.get(MODEL_ENV[name], DEFAULTS[name])
 
 
+def key_present(name=None):
+    """Whether a usable-looking key is configured. Never returns or logs the key."""
+    env = API_KEY_ENV[(name or provider()).lower()]
+    return bool(os.environ.get(env, "").strip())
+
+
 def max_tokens():
     return int(os.environ.get("ANSWER_MAX_TOKENS", "1500"))
 

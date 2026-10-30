@@ -200,6 +200,9 @@ def health():
         "embedding_model": retrieval.SIDECAR["model"],
         "answer_model": llm.model_name(),
         "answer_provider": llm.provider(),
+        # Deployment diagnosis without exposing the secret: an empty key is the
+        # difference between "model unavailable" and "not configured at all".
+        "answer_key_present": llm.key_present(),
         "edition_from": retrieval.SIDECAR["edition_from"],
         "edition_to": retrieval.SIDECAR["edition_to"],
         "edition_expired": edition.is_expired(retrieval.SIDECAR["edition_to"]),
