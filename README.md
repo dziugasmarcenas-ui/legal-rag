@@ -676,6 +676,8 @@ Discovery routes measured, with yields:
 | e-seimas "saugos ir sveikatos tarnybos" (48 docs, 7 matches) | **0** — already ingested or legacy identifiers |
 | e-seimas "darbo apmokėjimo sistemų" (82 docs, 4 matches) | **0** — institution-specific pay systems (ministry, clinic, orchestra) |
 | e-seimas "nelaimingų atsitikimų" (182 docs, 20 matches) | **2** — accident-investigation orders; the rest were EU funding notices |
+| e-seimas "darboviečių įrengimo" (9 docs) | **0** — one legacy TAIS copy of an act already ingested |
+| e-seimas "profesinės rizikos vertinimo" (8 docs) | **0** — one legacy TAIS copy of an act already ingested |
 | data.gov.lt | no dataset links in HTML |
 | data.e-tar.lt | explainer page, no API |
 | OAI-PMH | not offered |
