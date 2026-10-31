@@ -1,8 +1,8 @@
 {
  "generated_by": "link_graph.py",
- "articles_linked": 137,
- "edges": 412,
- "case_edges": 30,
+ "articles_linked": 141,
+ "edges": 424,
+ "case_edges": 42,
  "cases": [
   {
    "case": "Hoppen p. Lietuvą",
@@ -192,9 +192,219 @@
    "application": "15/2021",
    "date": "2022-07-07",
    "url": "https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/f9d5a912fe2f11ecbfe9c72e552dd5bd"
+  },
+  {
+   "case": "KT nutarimas, byla Nr. 06/2008-18/2008-24/2010",
+   "court": "LR KT",
+   "application": "06/2008-18/2008-24/2010",
+   "date": "2010-06-29",
+   "url": "https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/6_2008-18_2008-24_2010"
+  },
+  {
+   "case": "KT nutarimas, byla Nr. 08/2008-23/2009",
+   "court": "LR KT",
+   "application": "08/2008-23/2009",
+   "date": "2010-12-14",
+   "url": "https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/8_2008-23_2009"
+  },
+  {
+   "case": "KT nutarimas, byla Nr. 102/2010",
+   "court": "LR KT",
+   "application": "102/2010",
+   "date": "2013-02-22",
+   "url": "https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/02_2010"
+  },
+  {
+   "case": "KT nutarimas, byla Nr. 10/2012",
+   "court": "LR KT",
+   "application": "10/2012",
+   "date": "2014-12-19",
+   "url": "https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/0_2012"
+  },
+  {
+   "case": "KT nutarimas, byla Nr. 10/2018",
+   "court": "LR KT",
+   "application": "10/2018",
+   "date": "2019-11-08",
+   "url": "https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/0_2018"
+  },
+  {
+   "case": "KT nutarimas, byla Nr. 11/2013",
+   "court": "LR KT",
+   "application": "11/2013",
+   "date": "2015-04-16",
+   "url": "https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/1_2013"
+  },
+  {
+   "case": "KT nutarimas, byla Nr. 11/2021",
+   "court": "LR KT",
+   "application": "11/2021",
+   "date": "2022-10-06",
+   "url": "https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/1_2021"
+  },
+  {
+   "case": "KT nutarimas, byla Nr. 12/2013-21/2013-15/2014-1/2015",
+   "court": "LR KT",
+   "application": "12/2013-21/2013-15/2014-1/2015",
+   "date": "2015-05-14",
+   "url": "https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/2_2013-21_2013-15_2014-1_2015"
+  },
+  {
+   "case": "KT nutarimas, byla Nr. 14/2021",
+   "court": "LR KT",
+   "application": "14/2021",
+   "date": "2022-06-17",
+   "url": "https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/4_2021"
+  },
+  {
+   "case": "KT nutarimas, byla Nr. 15",
+   "court": "LR KT",
+   "application": "15",
+   "date": "2021-07-16",
+   "url": "https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/5"
+  },
+  {
+   "case": "KT nutarimas, byla Nr. 16/2018",
+   "court": "LR KT",
+   "application": "16/2018",
+   "date": "2020-02-10",
+   "url": "https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/6_2018"
+  },
+  {
+   "case": "KT nutarimas, byla Nr. 19/2012",
+   "court": "LR KT",
+   "application": "19/2012",
+   "date": "2014-02-14",
+   "url": "https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/9_2012"
+  },
+  {
+   "case": "KT nutarimas, byla Nr. 19/2013",
+   "court": "LR KT",
+   "application": "19/2013",
+   "date": "2015-09-29",
+   "url": "https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/9_2013"
+  },
+  {
+   "case": "KT nutarimas, byla Nr. 20/2011-14/2013-15/2013-16/2013",
+   "court": "LR KT",
+   "application": "20/2011-14/2013-15/2013-16/2013",
+   "date": "2014-05-08",
+   "url": "https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/0_2011-14_2013-15_2013-16_2013"
+  },
+  {
+   "case": "KT nutarimas, byla Nr. 26/2014-4/2015",
+   "court": "LR KT",
+   "application": "26/2014-4/2015",
+   "date": "2015-07-09",
+   "url": "https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/6_2014-4_2015"
+  },
+  {
+   "case": "KT nutarimas, byla Nr. 28/2009",
+   "court": "LR KT",
+   "application": "28/2009",
+   "date": "2013-02-15",
+   "url": "https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/8_2009"
+  },
+  {
+   "case": "KT nutarimas, byla Nr. 29/2010",
+   "court": "LR KT",
+   "application": "29/2010",
+   "date": "2013-11-20",
+   "url": "https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/9_2010"
+  },
+  {
+   "case": "KT nutarimas, byla Nr. 2/2019",
+   "court": "LR KT",
+   "application": "2/2019",
+   "date": "2020-06-03",
+   "url": "https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/_2019"
+  },
+  {
+   "case": "KT nutarimas, byla Nr. 37/2008-11/2009-7/2010-22/2010-34/2010-56/2010-116/2010-126/2010-10/2011-12/2011-13/2011-24/2011",
+   "court": "LR KT",
+   "application": "37/2008-11/2009-7/2010-22/2010-34/2010-56/2010-116/2010-126/2010-10/2011-12/2011-13/2011-24/2011",
+   "date": "2012-04-18",
+   "url": "https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/7_2008-11_2009-7_2010-22_2010-34_2010-56_2010-116_2010-126_2010-10_2011-12_2011-13_2011-24_2011"
+  },
+  {
+   "case": "KT nutarimas, byla Nr. 39/2009-40/2009-46/2009-48/2009-51/2009-10/2010-23/2010-137/2010-7/2011-38/2011",
+   "court": "LR KT",
+   "application": "39/2009-40/2009-46/2009-48/2009-51/2009-10/2010-23/2010-137/2010-7/2011-38/2011",
+   "date": "2012-06-29",
+   "url": "https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/9_2009-40_2009-46_2009-48_2009-51_2009-10_2010-23_2010-137_2010-7_2011-38_2011"
+  },
+  {
+   "case": "KT nutarimas, byla Nr. 39/2014-2/2015",
+   "court": "LR KT",
+   "application": "39/2014-2/2015",
+   "date": "2016-01-26",
+   "url": "https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/9_2014-2_2015"
+  },
+  {
+   "case": "KT nutarimas, byla Nr. 3/2016",
+   "court": "LR KT",
+   "application": "3/2016",
+   "date": "2017-01-25",
+   "url": "https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/_2016"
+  },
+  {
+   "case": "KT nutarimas, byla Nr. 3/2025",
+   "court": "LR KT",
+   "application": "3/2025",
+   "date": "2025-10-23",
+   "url": "https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/_2025"
+  },
+  {
+   "case": "KT nutarimas, byla Nr. 41/2014-42/2014-45/2014-46/2014-47/2014-48/2014-49/2014-50/2014-51/2014-52/2014",
+   "court": "LR KT",
+   "application": "41/2014-42/2014-45/2014-46/2014-47/2014-48/2014-49/2014-50/2014-51/2014-52/2014",
+   "date": "2015-11-19",
+   "url": "https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/1_2014-42_2014-45_2014-46_2014-47_2014-48_2014-49_2014-50_2014-51_2014-52_2014"
+  },
+  {
+   "case": "KT nutarimas, byla Nr. 42/2009",
+   "court": "LR KT",
+   "application": "42/2009",
+   "date": "2013-02-07",
+   "url": "https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/2_2009"
+  },
+  {
+   "case": "KT nutarimas, byla Nr. 44/2014",
+   "court": "LR KT",
+   "application": "44/2014",
+   "date": "2015-11-26",
+   "url": "https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/4_2014"
+  },
+  {
+   "case": "KT nutarimas, byla Nr. 46/2010-47/2010-48/2010-49/2010-51/2010-52/2010-70/2010-77",
+   "court": "LR KT",
+   "application": "46/2010-47/2010-48/2010-49/2010-51/2010-52/2010-70/2010-77",
+   "date": "2012-02-06",
+   "url": "https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/6_2010-47_2010-48_2010-49_2010-51_2010-52_2010-70_2010-77"
+  },
+  {
+   "case": "KT nutarimas, byla Nr. 47/2009-131/2010",
+   "court": "LR KT",
+   "application": "47/2009-131/2010",
+   "date": "2013-05-16",
+   "url": "https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/7_2009-131_2010"
+  },
+  {
+   "case": "KT nutarimas, byla Nr. 8/2023",
+   "court": "LR KT",
+   "application": "8/2023",
+   "date": "2024-03-07",
+   "url": "https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/_2023"
+  },
+  {
+   "case": "KT nutarimas, byla Nr. 9/2015",
+   "court": "LR KT",
+   "application": "9/2015",
+   "date": "2016-10-27",
+   "url": "https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/_2015"
   }
  ],
- "case_count": 27,
+ "case_count": 57,
  "links": {
   "204": [
    {
@@ -203,6 +413,15 @@
     "citation": "Nutarimas Nr. 496, 4 p.",
     "act_id": "76731a705b4711e79198ffdb108a3753",
     "url": "https://www.e-tar.lt/portal/lt/legalAct/76731a705b4711e79198ffdb108a3753"
+   },
+   {
+    "kind": "case",
+    "source": "LR KT",
+    "citation": "KT nutarimas, byla Nr. 3/2025",
+    "application": "3/2025",
+    "date": "2025-10-23",
+    "url": "https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/_2025",
+    "act_id": "kt-3/2025"
    }
   ],
   "113": [
@@ -810,6 +1029,15 @@
     "citation": "Seimo projektas be numerio, 5 str.",
     "act_id": "tap-91382ec0d47011f1a5e3dbc2261ee42a",
     "url": "https://e-seimas.lrs.lt/portal/legalActProjectSearch/lt"
+   },
+   {
+    "kind": "case",
+    "source": "LR KT",
+    "citation": "KT nutarimas, byla Nr. 3/2025",
+    "application": "3/2025",
+    "date": "2025-10-23",
+    "url": "https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/_2025",
+    "act_id": "kt-3/2025"
    }
   ],
   "226": [
@@ -1516,6 +1744,15 @@
     "citation": "VDI paaiškinimas Nr. 64",
     "act_id": "vdi-faq",
     "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "case",
+    "source": "LR KT",
+    "citation": "KT nutarimas, byla Nr. 3/2025",
+    "application": "3/2025",
+    "date": "2025-10-23",
+    "url": "https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/_2025",
+    "act_id": "kt-3/2025"
    }
   ],
   "202": [
@@ -2033,6 +2270,15 @@
     "date": "2013-05-09",
     "url": "https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/TAIS.448531",
     "act_id": "kt-44/2009"
+   },
+   {
+    "kind": "case",
+    "source": "LR KT",
+    "citation": "KT nutarimas, byla Nr. 3/2025",
+    "application": "3/2025",
+    "date": "2025-10-23",
+    "url": "https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/_2025",
+    "act_id": "kt-3/2025"
    }
   ],
   "32": [
@@ -2127,6 +2373,15 @@
     "citation": "VDI paaiškinimas Nr. 94",
     "act_id": "vdi-faq",
     "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "case",
+    "source": "LR KT",
+    "citation": "KT nutarimas, byla Nr. 3/2025",
+    "application": "3/2025",
+    "date": "2025-10-23",
+    "url": "https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/_2025",
+    "act_id": "kt-3/2025"
    }
   ],
   "217": [
@@ -2150,6 +2405,15 @@
     "citation": "Seimo komiteto išvada Nr. 38, 7 fragmentas",
     "act_id": "committee-f6c8f140395a11f1806d92b9b35aed3b",
     "url": "https://e-seimas.lrs.lt/portal/documentSearch/lt"
+   },
+   {
+    "kind": "case",
+    "source": "LR KT",
+    "citation": "KT nutarimas, byla Nr. 3/2025",
+    "application": "3/2025",
+    "date": "2025-10-23",
+    "url": "https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/_2025",
+    "act_id": "kt-3/2025"
    }
   ],
   "131": [
@@ -2566,6 +2830,15 @@
     "citation": "SADM paaiškinimas Nr. 25",
     "act_id": "sadm-faq",
     "url": "https://socmin.lrv.lt/lt/duk/"
+   },
+   {
+    "kind": "case",
+    "source": "LR KT",
+    "citation": "KT nutarimas, byla Nr. 3/2025",
+    "application": "3/2025",
+    "date": "2025-10-23",
+    "url": "https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/_2025",
+    "act_id": "kt-3/2025"
    }
   ],
   "107": [
@@ -3059,6 +3332,15 @@
     "citation": "VDI paaiškinimas Nr. 249",
     "act_id": "vdi-faq",
     "url": "https://vdi.lrv.lt/lt/dazniausiai-uzduodami-klausimai/"
+   },
+   {
+    "kind": "case",
+    "source": "LR KT",
+    "citation": "KT nutarimas, byla Nr. 3/2025",
+    "application": "3/2025",
+    "date": "2025-10-23",
+    "url": "https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/_2025",
+    "act_id": "kt-3/2025"
    }
   ],
   "200": [
@@ -3412,6 +3694,50 @@
     "date": "2013-05-09",
     "url": "https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/TAIS.448531",
     "act_id": "kt-44/2009"
+   }
+  ],
+  "27": [
+   {
+    "kind": "case",
+    "source": "LR KT",
+    "citation": "KT nutarimas, byla Nr. 20/2011-14/2013-15/2013-16/2013",
+    "application": "20/2011-14/2013-15/2013-16/2013",
+    "date": "2014-05-08",
+    "url": "https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/0_2011-14_2013-15_2013-16_2013",
+    "act_id": "kt-20/2011-14/2013-15/2013-16/2013"
+   }
+  ],
+  "214": [
+   {
+    "kind": "case",
+    "source": "LR KT",
+    "citation": "KT nutarimas, byla Nr. 3/2025",
+    "application": "3/2025",
+    "date": "2025-10-23",
+    "url": "https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/_2025",
+    "act_id": "kt-3/2025"
+   }
+  ],
+  "231": [
+   {
+    "kind": "case",
+    "source": "LR KT",
+    "citation": "KT nutarimas, byla Nr. 3/2025",
+    "application": "3/2025",
+    "date": "2025-10-23",
+    "url": "https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/_2025",
+    "act_id": "kt-3/2025"
+   }
+  ],
+  "91": [
+   {
+    "kind": "case",
+    "source": "LR KT",
+    "citation": "KT nutarimas, byla Nr. 42/2009",
+    "application": "42/2009",
+    "date": "2013-02-07",
+    "url": "https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/2_2009",
+    "act_id": "kt-42/2009"
    }
   ]
  }

@@ -134,8 +134,8 @@ state of each half:
 | Institution explanations beyond VDI | VDI 249, SADM 299, Sodra 236 answers (784 total) | ✅ |
 | EU law | 5 directives, 95 chunks, via the Cellar endpoint | ✅ |
 | ECHR | 9 judgments quoting the Labour Code, 266 fragments | ✅ |
-| Constitutional Court | 18 rulings, 532 fragments, 27 case nodes (9 ECHR + 18 KT), 30 case edges | ✅, national case law via e-seimas |
-| Citation graph | 137 articles, 412 edges (30 to cases) | ✅ |
+| Constitutional Court | 48 rulings, 828 fragments, 57 case nodes (9 ECHR + 48 KT), 42 case edges | ✅, national case law via e-seimas |
+| Citation graph | 141 articles, 424 edges (42 to cases) | ✅ |
 | Status page and SLO reporting | `/status` JSON and `/status.html`, coverage, freshness and measured quality | ✅ |
 
 **The committee half is not satisfied, and the plan does not claim it is.** The

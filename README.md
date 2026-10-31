@@ -591,10 +591,10 @@ from the Cellar resource endpoint, which returns a document; the public
 
 The Constitutional Court is the other court whose decisions change what the
 labour statutes mean, and its rulings are registered in e-seimas as DOCX:
-**18 rulings, 532 labour-related fragments**, cited as `KT nutarimas, byla
+**48 rulings, 828 labour-related fragments**, cited as `KT nutarimas, byla
 Nr. 19/2017, 3 fragmentas`. They decide social-insurance benefits, accident
 insurance, dismissals and the pay of state officials, and they are the reason the
-case graph is no longer ECHR-only (**27 case nodes: 9 ECHR + 18 KT, 30 case
+case graph is no longer ECHR-only (**57 case nodes: 9 ECHR + 48 KT, 42 case
 edges**).
 
 Decisions are parsed for the case number and the **decision** date — the heading
@@ -713,6 +713,7 @@ Discovery routes measured, with yields:
 | e-seimas state=Galioja + "darbo sutarties" / "kolektyvinių sutarčių" / "socialinių paslaugų" / "mokymo" / "darbuotojų" | **2** — wage-median disclosure in public procurement, compensation for health workers treating dangerous infections; the rest were collective-agreement mandates, quotas and property transfers |
 | e-seimas state=Galioja, title "darbo", 956 results scanned | **7** — minimum wage for every year 2021–2025 and 2027 (so "what was the minimum wage in 2023" is answerable), plus the rules assigning employers to accident-insurance tariff groups |
 | e-seimas "darbo aplinkos" / "rizikos veiksnių" / "pirmosios pagalbos" / "saugos tarnyb" | **0** — four results between them, all repealed predecessors or approval letters |
+| e-seimas title "atitikties Konstitucijai", state=Galioja (481 results) | **30 new KT rulings** — the whole Constitutional Court labour corpus, found by the phrase every ruling's title contains |
 | data.gov.lt | no dataset links in HTML |
 | data.e-tar.lt | explainer page, no API |
 | OAI-PMH | not offered |
@@ -821,11 +822,11 @@ accepts case nodes by metadata alone.
 
 Every delegated act names the Code articles it implements ("parengtas
 vadovaujantis Darbo kodekso 139 straipsnio 4 dalimi"). `link_graph.py` extracts
-that: **412 edges across 137 articles**, built only where the text names the
-article. Thirty are case edges: ECHR judgments citing `Article 59 of the
+that: **424 edges across 141 articles**, built only where the text names the
+article. Forty-two are case edges: ECHR judgments citing `Article 59 of the
 Labour Code` and Constitutional Court rulings citing `Darbo kodekso 59
 straipsnį`. Cases are carried as metadata only — title, court, case number, date,
-URL. The graph indexes **27 case nodes** (9 ECHR, 18 KT) even where a decision
+URL. The graph indexes **57 case nodes** (9 ECHR, 48 KT) even where a decision
 does not cite a Code article, so case coverage does not depend on an edge
 existing. `get_article("139")` now returns `implemented_by`, so starting from
 an article leads to the provisions that actually apply it.
@@ -839,12 +840,12 @@ an article leads to the provisions that actually apply it.
   "explanations": {"items": 784, "chunks": 1040, "institutions": 3},
   "eu_law": {"directives": 5, "chunks": 95},
   "echr": {"judgments": 9, "chunks": 266},
-  "constitutional_court": {"rulings": 18, "chunks": 532},
+  "constitutional_court": {"rulings": 48, "chunks": 828},
   "seimas_drafts": {"drafts": 3, "chunks": 9},
   "seimas_committee": {"documents": 38, "chunks": 286},
   "seimas_transcripts": {"documents": 22, "chunks": 363},
   "history": {"editions": 41, "from": "2017-07-01"},
-  "links": {"articles_linked": 137, "edges": 412, "case_edges": 30, "cases": 27},
+  "links": {"articles_linked": 141, "edges": 424, "case_edges": 42, "cases": 57},
   "evals": {"code_served": {"served_hit1": 0.92}, "delegated": {"term_rate": 0.955}}
 }
 ```

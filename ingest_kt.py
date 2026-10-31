@@ -101,6 +101,10 @@ def records():
     out = []
     for path in sorted(RAW.glob("*.docx")):
         text = clean(refresh_corpus.docx_text(path.read_bytes()))
+        head = text[:2000].upper()
+        if "KONSTITUCIN" not in head or "N U T A R I M A S" not in head and "NUTARIMAS" not in head:
+            print(f"  {path.name}: skipped (not a Constitutional Court ruling)")
+            continue
         case = case_of(text)
         decided = date_of(text)
         heading = title_of(text)

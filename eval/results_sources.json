@@ -1,8 +1,8 @@
 {
  "summary": {
-  "hits": 22,
+  "hits": 21,
   "total": 32,
-  "hit_rate": 0.688,
+  "hit_rate": 0.656,
   "term_hits": 29,
   "term_total": 30,
   "term_rate": 0.967
@@ -41,11 +41,11 @@
    "question": "Koks skaičiuojamasis laikotarpis vidutiniam darbo užmokesčiui apskaičiuoti?",
    "expected": "Nutarimas Nr. 496",
    "delegated": [
+    "KT nutarimas",
     "Nutarimas Nr. 496",
-    "VDI paaiškinimas",
-    "Nutarimas Nr. 496"
+    "KT nutarimas"
    ],
-   "top": "Nutarimas Nr. 496, 5 p.",
+   "top": "KT nutarimas, byla Nr. 11/2013, 12 fragmentas",
    "hit": true,
    "expect": "3 paskutiniai",
    "term_hit": true
@@ -85,7 +85,7 @@
    "delegated": [
     "Nutarimas Nr. 496",
     "Nutarimas Nr. 496",
-    "VDI paaiškinimas"
+    "KT nutarimas"
    ],
    "top": "Nutarimas Nr. 496, 5 p.",
    "hit": true,
@@ -210,8 +210,8 @@
    "expected": "SADM įsakymas A1-344",
    "delegated": [
     "Seimo projektas",
-    "SADM įsakymas A1-344",
-    "VDI paaiškinimas"
+    "KT nutarimas",
+    "SADM įsakymas A1-344"
    ],
    "top": "Seimo projektas be numerio, 1 str.",
    "hit": true,
@@ -225,10 +225,10 @@
    "delegated": [
     "Seimo projektas",
     "VDI paaiškinimas",
-    "SADM įsakymas A1-344"
+    "KT nutarimas"
    ],
    "top": "Seimo projektas be numerio, 3 str.",
-   "hit": true,
+   "hit": false,
    "expect": "mėnes",
    "term_hit": true
   },
@@ -280,7 +280,7 @@
    "expected": "SADM ir SAM įsakymas A1-457/V-961",
    "delegated": [
     "Darbuotojų saugos ir sveikatos įstatymas",
-    "2022–2027 m. darbuotojų saugos ir sveikatos veiksmų planas",
+    "Dėl 2022–2027 m. darbuotojų saugos ir sveikatos veiksmų plan",
     "Saugaus darbo organizavimo ir darbo vietų įrengimo reikalavi"
    ],
    "top": "Darbuotojų saugos ir sveikatos įstatymas, 3 p.",
