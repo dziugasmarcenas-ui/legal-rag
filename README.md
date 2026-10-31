@@ -760,6 +760,23 @@ Incremental ingest reuses a chunk's stored vector when its title and text hash
 is unchanged, so adding acts costs embeddings only for the new ones. Tests cover
 the reuse, the update path, deletion of repealed chunks, and signature recall.
 
+## Validity monitoring
+
+`data/act_status.json` records the e-seimas status of **every act the service
+serves** — today 129 acts, all in force, checked 2026-10-31. Refreshing it needs a
+browser (e-seimas refuses scripts), so it is a sweep; verifying it does not:
+
+    python check_act_status.py --max-age 30
+
+The check fails when an act being served has no recorded status, when any is
+marked `NEGALIOJA`, or when the snapshot is older than the limit. `/status`
+reports the same snapshot (`validity.checked_at`, `known`, `repealed`), so a
+stale sweep is visible rather than assumed.
+
+`/health` and `/status` also report the deployed `commit` and process
+`started_at`, because a build that never ran used to be indistinguishable from a
+healthy deploy.
+
 ## A correction: 35 repealed acts were removed
 
 The e-seimas bridge fetched acts as DOCX and the validity guard could only read

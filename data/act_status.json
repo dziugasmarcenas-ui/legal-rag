@@ -1,0 +1,521 @@
+{
+ "acts": {
+  "01386c9022ed11eabe008ea93139d588": {
+   "since": null,
+   "state": "in_force"
+  },
+  "09858190661c11e5b316b7e07d98304b": {
+   "since": null,
+   "state": "in_force"
+  },
+  "0aeb7d106c6511e5b316b7e07d98304b": {
+   "since": null,
+   "state": "in_force"
+  },
+  "0eccee1365fc11efad96fef38de4d94a": {
+   "since": null,
+   "state": "in_force"
+  },
+  "201d4db07e4611e5b7eba10a9b5a9c5f": {
+   "since": null,
+   "state": "in_force"
+  },
+  "23be81a2e46911eda305cb3bdf2af4d8": {
+   "since": null,
+   "state": "in_force"
+  },
+  "24254570cf4b11e9a56df936f065a619": {
+   "since": null,
+   "state": "in_force"
+  },
+  "24785ff060e511eea6ca94ca4bea2e65": {
+   "since": null,
+   "state": "in_force"
+  },
+  "2d7df1c2aab011f0a34db2fbd35a03b2": {
+   "since": null,
+   "state": "in_force"
+  },
+  "347343f00af611e5b0d3e1beb7dd5516": {
+   "since": null,
+   "state": "in_force"
+  },
+  "347e22900ab811e588da8908dfa91cac": {
+   "since": null,
+   "state": "in_force"
+  },
+  "38d675c0738c11f0a8bbd1e98310677d": {
+   "since": null,
+   "state": "in_force"
+  },
+  "3a200a5049eb11e7846ef01bfffb9b64": {
+   "since": null,
+   "state": "in_force"
+  },
+  "3cd7ef606c0c11e5906bc3a96c765ff4": {
+   "since": null,
+   "state": "in_force"
+  },
+  "3fa713b6958111f1958a9007e2f07e60": {
+   "since": null,
+   "state": "in_force"
+  },
+  "414029b0d0b911e6a476d5908abd2210": {
+   "since": null,
+   "state": "in_force"
+  },
+  "422540a031fe11e598499e1e1ba6e454": {
+   "since": null,
+   "state": "in_force"
+  },
+  "4671a8b0e9bf11e99681cd81dcdca52c": {
+   "since": null,
+   "state": "in_force"
+  },
+  "46a43c005cd411e79198ffdb108a3753": {
+   "since": null,
+   "state": "in_force"
+  },
+  "49442d71e64b11e7b4d1bdd5f1a9ff0e": {
+   "since": null,
+   "state": "in_force"
+  },
+  "4e3274a02d2911ea8f0dfdc2b5879561": {
+   "since": null,
+   "state": "in_force"
+  },
+  "536f26d265ff11e99684a7f33a9827ac": {
+   "since": null,
+   "state": "in_force"
+  },
+  "58e24041e99d11e89d4ad92e8434e309": {
+   "since": null,
+   "state": "in_force"
+  },
+  "5c671151173811eea9b3de7dd350a34e": {
+   "since": null,
+   "state": "in_force"
+  },
+  "5d05f5907fd411eea5a28c81c82193a8": {
+   "since": null,
+   "state": "in_force"
+  },
+  "5d81e420a50511e383c0832a9f635113": {
+   "since": null,
+   "state": "in_force"
+  },
+  "5ff7c220ceb211e39b2ab5bbcc4f49fb": {
+   "since": null,
+   "state": "in_force"
+  },
+  "690aab50330811e598499e1e1ba6e454": {
+   "since": null,
+   "state": "in_force"
+  },
+  "69269a90236811ea8f0dfdc2b5879561": {
+   "since": null,
+   "state": "in_force"
+  },
+  "6d383530aa4e11e69ad4c8713b612d0f": {
+   "since": null,
+   "state": "in_force"
+  },
+  "723a6910ced411e9929af1b9eea48566": {
+   "since": null,
+   "state": "in_force"
+  },
+  "74de4bd0ea5611e4a4809231b4b55019": {
+   "since": null,
+   "state": "in_force"
+  },
+  "76731a705b4711e79198ffdb108a3753": {
+   "since": null,
+   "state": "in_force"
+  },
+  "7ec0a6701f4311f08fdabd4950271e2c": {
+   "since": null,
+   "state": "in_force"
+  },
+  "7f02200296fe11ef955ff95815eb5ce5": {
+   "since": null,
+   "state": "in_force"
+  },
+  "807eecb0a6fa11ed924fd817f8fa798e": {
+   "since": null,
+   "state": "in_force"
+  },
+  "81574c22b51711ec9f0095b4d96fd400": {
+   "since": null,
+   "state": "in_force"
+  },
+  "8bc5b591ebdd11e89d4ad92e8434e309": {
+   "since": null,
+   "state": "in_force"
+  },
+  "8e8b988035c911e598499e1e1ba6e454": {
+   "since": null,
+   "state": "in_force"
+  },
+  "917cc7105cb111e79198ffdb108a3753": {
+   "since": null,
+   "state": "in_force"
+  },
+  "91febd40ebe111e88568e724760eeafa": {
+   "since": null,
+   "state": "in_force"
+  },
+  "9358907225ea11e88d2dc91c9285185a": {
+   "since": null,
+   "state": "in_force"
+  },
+  "935f0d105cdc11e79198ffdb108a3753": {
+   "since": null,
+   "state": "in_force"
+  },
+  "96322650efcd11e3abf5c17841df37a3": {
+   "since": null,
+   "state": "in_force"
+  },
+  "976cd9a035c911e598499e1e1ba6e454": {
+   "since": null,
+   "state": "in_force"
+  },
+  "98c182f3ced811ed9b3c9397e1236c2a": {
+   "since": null,
+   "state": "in_force"
+  },
+  "991e1e80348911e598499e1e1ba6e454": {
+   "since": null,
+   "state": "in_force"
+  },
+  "SAV.489412": {
+   "since": null,
+   "state": "in_force"
+  },
+  "TAIS.197799": {
+   "since": null,
+   "state": "in_force"
+  },
+  "TAIS.211443": {
+   "since": null,
+   "state": "in_force"
+  },
+  "TAIS.217897": {
+   "since": null,
+   "state": "in_force"
+  },
+  "TAIS.225186": {
+   "since": null,
+   "state": "in_force"
+  },
+  "TAIS.26198": {
+   "since": null,
+   "state": "in_force"
+  },
+  "TAIS.39596": {
+   "since": null,
+   "state": "in_force"
+  },
+  "TAIS.441285": {
+   "since": null,
+   "state": "in_force"
+  },
+  "TAR.01E049E561A8": {
+   "since": null,
+   "state": "in_force"
+  },
+  "TAR.02EABB5CF5CB": {
+   "since": null,
+   "state": "in_force"
+  },
+  "TAR.04551A50A76D": {
+   "since": null,
+   "state": "in_force"
+  },
+  "TAR.0630DF325F2F": {
+   "since": null,
+   "state": "in_force"
+  },
+  "TAR.1FD5C3A4D10A": {
+   "since": null,
+   "state": "in_force"
+  },
+  "TAR.21DD77CE42E0": {
+   "since": null,
+   "state": "in_force"
+  },
+  "TAR.278599D2FCE7": {
+   "since": null,
+   "state": "in_force"
+  },
+  "TAR.313208361D5D": {
+   "since": null,
+   "state": "in_force"
+  },
+  "TAR.35CB8AED30EB": {
+   "since": null,
+   "state": "in_force"
+  },
+  "TAR.36A1E8977BB9": {
+   "since": null,
+   "state": "in_force"
+  },
+  "TAR.3923E605202A": {
+   "since": null,
+   "state": "in_force"
+  },
+  "TAR.4035EFB0B583": {
+   "since": null,
+   "state": "in_force"
+  },
+  "TAR.40954BA5F904": {
+   "since": null,
+   "state": "in_force"
+  },
+  "TAR.4B5A66F395F3": {
+   "since": null,
+   "state": "in_force"
+  },
+  "TAR.53E93331203A": {
+   "since": null,
+   "state": "in_force"
+  },
+  "TAR.5B121E9A63FD": {
+   "since": null,
+   "state": "in_force"
+  },
+  "TAR.5ED52629C3C4": {
+   "since": null,
+   "state": "in_force"
+  },
+  "TAR.63FFB1A69855": {
+   "since": null,
+   "state": "in_force"
+  },
+  "TAR.64EB889A3B24": {
+   "since": null,
+   "state": "in_force"
+  },
+  "TAR.710F227A96C2": {
+   "since": null,
+   "state": "in_force"
+  },
+  "TAR.73FAFA28349E": {
+   "since": null,
+   "state": "in_force"
+  },
+  "TAR.78837B3C7443": {
+   "since": null,
+   "state": "in_force"
+  },
+  "TAR.7AB2F8B44BBF": {
+   "since": null,
+   "state": "in_force"
+  },
+  "TAR.8012ED3EA143": {
+   "since": null,
+   "state": "in_force"
+  },
+  "TAR.8385EE8971A7": {
+   "since": null,
+   "state": "in_force"
+  },
+  "TAR.868685006ED0": {
+   "since": null,
+   "state": "in_force"
+  },
+  "TAR.8A2026294697": {
+   "since": null,
+   "state": "in_force"
+  },
+  "TAR.95C79D036AA4": {
+   "since": null,
+   "state": "in_force"
+  },
+  "TAR.A2A6EDB0CC22": {
+   "since": null,
+   "state": "in_force"
+  },
+  "TAR.A84D671E68EB": {
+   "since": null,
+   "state": "in_force"
+  },
+  "TAR.A9012F002B6D": {
+   "since": null,
+   "state": "in_force"
+  },
+  "TAR.AF1B122D7145": {
+   "since": null,
+   "state": "in_force"
+  },
+  "TAR.B2D4448A24C1": {
+   "since": null,
+   "state": "in_force"
+  },
+  "TAR.C6AC13D104FD": {
+   "since": null,
+   "state": "in_force"
+  },
+  "TAR.C7FD0E53A3BA": {
+   "since": null,
+   "state": "in_force"
+  },
+  "TAR.D824490F33E3": {
+   "since": null,
+   "state": "in_force"
+  },
+  "TAR.E2B53281464E": {
+   "since": null,
+   "state": "in_force"
+  },
+  "TAR.E5C970D50036": {
+   "since": null,
+   "state": "in_force"
+  },
+  "TAR.E6A948376201": {
+   "since": null,
+   "state": "in_force"
+  },
+  "TAR.E7DF8688541D": {
+   "since": null,
+   "state": "in_force"
+  },
+  "TAR.EE88543E313F": {
+   "since": null,
+   "state": "in_force"
+  },
+  "TAR.F5D05E9675B0": {
+   "since": null,
+   "state": "in_force"
+  },
+  "TAR.F69EF012D841": {
+   "since": null,
+   "state": "in_force"
+  },
+  "TAR.FECF8EBD1AFF": {
+   "since": null,
+   "state": "in_force"
+  },
+  "a213f2c00ec311ebbedbd456d2fb030d": {
+   "since": null,
+   "state": "in_force"
+  },
+  "a2828152ce0c11e69185e773229ab2b2": {
+   "since": null,
+   "state": "in_force"
+  },
+  "a284529026f611e6acf89da936cb7409": {
+   "since": null,
+   "state": "in_force"
+  },
+  "a5239092ac6111ed924fd817f8fa798e": {
+   "since": null,
+   "state": "in_force"
+  },
+  "a53d0de0f12611e3bb22becb572235f5": {
+   "since": null,
+   "state": "in_force"
+  },
+  "a85c89b0015b11ea90d5d63c859a8aa7": {
+   "since": null,
+   "state": "in_force"
+  },
+  "a8f0ea00aaa711e68987e8320e9a5185": {
+   "since": null,
+   "state": "in_force"
+  },
+  "ab9343a0ea0211e99f05bdf72918ad4e": {
+   "since": null,
+   "state": "in_force"
+  },
+  "abf4a0a019df11ec93af8a5fb475d9bd": {
+   "since": null,
+   "state": "in_force"
+  },
+  "b4baf390c14111ee9269b566387cfecb": {
+   "since": null,
+   "state": "in_force"
+  },
+  "be209fe1753d11f1a305c23ba1643967": {
+   "since": null,
+   "state": "in_force"
+  },
+  "bf79097057e411e7846ef01bfffb9b64": {
+   "since": null,
+   "state": "in_force"
+  },
+  "c0fcec518e8f11eaa51db668f0092944": {
+   "since": null,
+   "state": "in_force"
+  },
+  "c311d6b065cf11e58e1ab2c84776483b": {
+   "since": null,
+   "state": "in_force"
+  },
+  "c79da150b4a611ec8d9390588bf2de65": {
+   "since": null,
+   "state": "in_force"
+  },
+  "cdd5bbb318d211ef8e4be9fad87afa59": {
+   "since": null,
+   "state": "in_force"
+  },
+  "d6830840ca7511eea5a28c81c82193a8": {
+   "since": null,
+   "state": "in_force"
+  },
+  "d7242890667711e48710f0162bf7b9c5": {
+   "since": null,
+   "state": "in_force"
+  },
+  "da298006815911efabdbb4a1fc8b0b63": {
+   "since": null,
+   "state": "in_force"
+  },
+  "da90faf6463c11edb7269d52b4d4fd38": {
+   "since": null,
+   "state": "in_force"
+  },
+  "db628dc0753d11f1b53dfa020e517810": {
+   "since": null,
+   "state": "in_force"
+  },
+  "e703d5a0b69311ee9269b566387cfecb": {
+   "since": null,
+   "state": "in_force"
+  },
+  "eb65c040574a11e7846ef01bfffb9b64": {
+   "since": null,
+   "state": "in_force"
+  },
+  "ed1273f0cd8511f1a660f4c5849bb525": {
+   "since": null,
+   "state": "in_force"
+  },
+  "edbda7c0659611e99676cb74c51fe1f4": {
+   "since": null,
+   "state": "in_force"
+  },
+  "ee384fc42cea11ec99bbc1b08701c7f8": {
+   "since": null,
+   "state": "in_force"
+  },
+  "f64bce0273c511f09f35d7a7964762ee": {
+   "since": null,
+   "state": "in_force"
+  },
+  "fa692445a0b611eda06e9a4a8dd92fc1": {
+   "since": null,
+   "state": "in_force"
+  },
+  "fae3ac50c8ec11e583a295d9366c7ab3": {
+   "since": null,
+   "state": "in_force"
+  },
+  "fe1dc9a0615a11eea182def3ac5c11d6": {
+   "since": null,
+   "state": "in_force"
+  }
+ },
+ "checked_at": "2026-10-31"
+}

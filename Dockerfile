@@ -25,6 +25,8 @@ COPY data/vectors.db data/vectors.db
 # Measured numbers for /status, published as data because eval/ is excluded
 # from the build context.
 COPY data/quality.json data/quality.json
+# The e-seimas status snapshot behind the repeal guard, reported by /status.
+COPY data/act_status.json data/act_status.json
 COPY embeddings/corpus.npy embeddings/corpus.npy
 COPY embeddings/corpus.json embeddings/corpus.json
 COPY embeddings/versions.npy embeddings/versions.npy

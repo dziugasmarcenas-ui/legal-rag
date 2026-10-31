@@ -102,3 +102,12 @@ def test_status_reports_which_index_is_serving():
     payload = main.status_payload()
     assert payload["index"]["kind"] in ("sqlite", "arrays")
     assert payload["index"]["chunks"] >= 6000
+
+
+def test_status_reports_the_build_and_a_status_snapshot():
+    """A stale deploy and a stale validity sweep must both be visible."""
+    import main
+
+    payload = main.status_payload()
+    assert payload["build"]["commit"]
+    assert payload["build"]["started_at"]

@@ -14,7 +14,7 @@ import logging
 import os
 
 from contextlib import asynccontextmanager
-from datetime import date
+from datetime import date, datetime, timezone
 from pathlib import Path
 
 from fastapi import FastAPI, Request
@@ -190,6 +190,21 @@ def generate_answer(question, results, lang="lt"):
     return answer.generate(question, results, lang)
 
 
+# A deploy that never ran serves the old numbers while every other field looks
+# healthy. Railway exposes the commit it built; started_at separates "old image"
+# from "process restarted".
+COMMIT = (
+    os.environ.get("RAILWAY_GIT_COMMIT_SHA")
+    or os.environ.get("GIT_COMMIT")
+    or "unknown"
+)
+STARTED_AT = datetime.now(timezone.utc).isoformat(timespec="seconds")
+
+
+def build_info():
+    return {"commit": COMMIT[:12], "started_at": STARTED_AT}
+
+
 @app.get("/health")
 def health():
     """Reports what is actually loaded, not just that the process is alive.
@@ -225,6 +240,25 @@ def health():
             ),
         },
         "usage": limiter.stats(),
+        "build": build_info(),
+    }
+
+
+def validity_summary():
+    """The recorded e-seimas status of every act being served.
+
+    A stale snapshot is not an error, but it is the difference between "checked
+    today" and "assumed"; the date is reported so a reader can judge.
+    """
+    path = Path(__file__).parent / "data" / "act_status.json"
+    if not path.exists():
+        return {"checked_at": None, "known": 0, "repealed": 0}
+    snapshot = json.loads(path.read_text(encoding="utf-8"))
+    acts = snapshot.get("acts", {})
+    return {
+        "checked_at": snapshot.get("checked_at"),
+        "known": len(acts),
+        "repealed": sum(1 for s in acts.values() if s.get("state") == "repealed"),
     }
 
 
@@ -320,6 +354,8 @@ def status_payload():
             "editions": history.coverage()["editions"],
             "from": history.coverage()["from"],
         },
+        "build": build_info(),
+        "validity": validity_summary(),
         "index": {
             # Which index is serving: the SQLite store, or the NPY fallback.
             # Without this, a deploy that quietly fell back to the arrays would
