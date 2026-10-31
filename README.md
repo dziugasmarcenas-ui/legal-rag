@@ -760,6 +760,18 @@ Incremental ingest reuses a chunk's stored vector when its title and text hash
 is unchanged, so adding acts costs embeddings only for the new ones. Tests cover
 the reuse, the update path, deletion of repealed chunks, and signature recall.
 
+## What MCP clients can see
+
+`corpus_sources` is an MCP tool that lists every family in the index with
+document and chunk counts: delegated acts (129 documents / 5,870 chunks),
+institution answers (1,040), EU directives (95), ECHR judgments (266),
+Constitutional Court (828), Seimas drafts (9), committee conclusions (286) and
+plenary transcripts (363) — 8,757 chunks, and a test asserts the families sum to
+the total with no gaps or overlaps.
+
+Without it an assistant connected over MCP only knows to search "the Labour
+Code", and will never ask for the regulation that actually contains the rule.
+
 ## Per-source evaluation
 
 The Code and delegated acts were measured; the other source families were not.

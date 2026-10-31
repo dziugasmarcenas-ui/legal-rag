@@ -1,0 +1,24 @@
+name: tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  pytest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install dependencies
+        run: pip install -r requirements.txt pytest
+      - name: Tests
+        run: python -m pytest tests/ -q
+      - name: Corpus and vector store agree
+        run: |
+          python -c "import retrieval, vector_store; s=retrieval.vector_index(); assert s is not None; assert s.count()==len(retrieval.source_index()[0]); print('store OK', s.count())"
+      - name: No repealed act is served
+        run: python check_act_status.py

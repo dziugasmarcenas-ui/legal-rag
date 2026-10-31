@@ -40,6 +40,10 @@ import retrieval
 
 config.load_env_file()
 
+ACT_NON_ACT_SOURCES = ("Seimo projektas", "Seimo komiteto išvada",
+                       "Seimo stenogramos", "Sodra paaiškinimas",
+                       "KT nutarimas")
+
 DISCLAIMER = (
     "Information retrieval over one consolidated edition of the Lithuanian "
     "Labour Code. Not legal advice; verify against e-TAR before relying on it."
@@ -208,6 +212,46 @@ def corpus_info() -> dict:
         ],
         "disclaimer": DISCLAIMER,
     }
+
+
+@mcp.tool()
+def corpus_sources() -> dict:
+    """Everything in the index besides the Code: acts, answers, EU, cases, Seimas.
+
+    An MCP client that only sees "search the Labour Code" will never ask for the
+    regulation that actually contains the rule, or the committee opinion on a
+    bill. This lists what exists, with counts, so the assistant can tell the
+    user what it can and cannot reach.
+    """
+    records = retrieval.source_index()[0]
+    families = {
+        "delegated_acts": lambda r: r["source"] not in ACT_NON_ACT_SOURCES
+        and not r["source"].startswith(("Direktyva", "EŽTT"))
+        and r.get("act_id") not in ("vdi-faq", "sadm-faq"),
+        "institution_answers": lambda r: r.get("act_id") in ("vdi-faq", "sadm-faq")
+        or r["source"] == "Sodra paaiškinimas",
+        "eu_directives": lambda r: r["source"].startswith("Direktyva"),
+        "echr_judgments": lambda r: r["source"].startswith("EŽTT"),
+        "constitutional_court": lambda r: r["source"] == "KT nutarimas",
+        "seimas_drafts": lambda r: r["source"] == "Seimo projektas",
+        "seimas_committee": lambda r: r["source"] == "Seimo komiteto išvada",
+        "seimas_transcripts": lambda r: r["source"] == "Seimo stenogramos",
+    }
+    out = {}
+    for name, predicate in families.items():
+        rows = [r for r in records if predicate(r)]
+        out[name] = {
+            "chunks": len(rows),
+            # Distinct acts/documents, not distinct labels: every KT ruling
+            # shares the source name "KT nutarimas".
+            "documents": len({r.get("act_id") or r["source"] for r in rows}),
+        }
+    out["total_chunks"] = len(records)
+    out["note"] = (
+        "search_labour_code returns Code articles first and these sources after "
+        "them; ask_labour_code cites whichever source actually answers"
+    )
+    return out
 
 
 @mcp.tool()

@@ -177,3 +177,14 @@ def test_no_repealed_act_is_being_served():
     records, _ = retrieval.source_index()
     serving = {r["act_id"] for r in records if r["act_id"] in repealed}
     assert serving == set(), f"repealed acts still indexed: {sorted(serving)}"
+
+
+def test_mcp_lists_every_source_family_without_gaps_or_overlaps():
+    """A client that only knows about the Code will never ask for the rest."""
+    out = mcp_server.corpus_sources()
+    families = {k: v for k, v in out.items() if isinstance(v, dict)}
+    assert sum(v["chunks"] for v in families.values()) == out["total_chunks"]
+    for name in ("delegated_acts", "institution_answers", "eu_directives",
+                 "echr_judgments", "constitutional_court", "seimas_drafts",
+                 "seimas_committee", "seimas_transcripts"):
+        assert families[name]["chunks"] > 0, name
