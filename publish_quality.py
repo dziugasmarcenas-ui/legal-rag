@@ -14,6 +14,7 @@ OUT = ROOT / "data" / "quality.json"
 SOURCES = {
     "code_served": ROOT / "eval" / "results_serving.json",
     "delegated": ROOT / "eval" / "results_sources.json",
+    "source_specific": ROOT / "eval" / "results_source_specific.json",
 }
 
 

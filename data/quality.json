@@ -18,5 +18,63 @@
   "term_hits": 29,
   "term_total": 30,
   "term_rate": 0.967
+ },
+ "source_specific": {
+  "hits": 14,
+  "total": 15,
+  "hit_rate": 0.933,
+  "term_hits": 14,
+  "term_total": 15,
+  "term_rate": 0.933,
+  "families": {
+   "ES": {
+    "hits": 3,
+    "total": 3,
+    "hit_rate": 1.0,
+    "term_hits": 3,
+    "term_scored": 3,
+    "term_rate": 1.0
+   },
+   "EŽTT": {
+    "hits": 2,
+    "total": 3,
+    "hit_rate": 0.667,
+    "term_hits": 2,
+    "term_scored": 3,
+    "term_rate": 0.667
+   },
+   "KT": {
+    "hits": 3,
+    "total": 3,
+    "hit_rate": 1.0,
+    "term_hits": 3,
+    "term_scored": 3,
+    "term_rate": 1.0
+   },
+   "komitetas": {
+    "hits": 2,
+    "total": 2,
+    "hit_rate": 1.0,
+    "term_hits": 2,
+    "term_scored": 2,
+    "term_rate": 1.0
+   },
+   "projektai": {
+    "hits": 2,
+    "total": 2,
+    "hit_rate": 1.0,
+    "term_hits": 2,
+    "term_scored": 2,
+    "term_rate": 1.0
+   },
+   "stenogramos": {
+    "hits": 2,
+    "total": 2,
+    "hit_rate": 1.0,
+    "term_hits": 2,
+    "term_scored": 2,
+    "term_rate": 1.0
+   }
+  }
  }
 }

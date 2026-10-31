@@ -1,0 +1,272 @@
+{
+ "summary": {
+  "hits": 14,
+  "total": 15,
+  "hit_rate": 0.933,
+  "term_hits": 14,
+  "term_total": 15,
+  "term_rate": 0.933,
+  "families": {
+   "ES": {
+    "hits": 3,
+    "total": 3,
+    "hit_rate": 1.0,
+    "term_hits": 3,
+    "term_scored": 3,
+    "term_rate": 1.0
+   },
+   "EŽTT": {
+    "hits": 2,
+    "total": 3,
+    "hit_rate": 0.667,
+    "term_hits": 2,
+    "term_scored": 3,
+    "term_rate": 0.667
+   },
+   "KT": {
+    "hits": 3,
+    "total": 3,
+    "hit_rate": 1.0,
+    "term_hits": 3,
+    "term_scored": 3,
+    "term_rate": 1.0
+   },
+   "komitetas": {
+    "hits": 2,
+    "total": 2,
+    "hit_rate": 1.0,
+    "term_hits": 2,
+    "term_scored": 2,
+    "term_rate": 1.0
+   },
+   "projektai": {
+    "hits": 2,
+    "total": 2,
+    "hit_rate": 1.0,
+    "term_hits": 2,
+    "term_scored": 2,
+    "term_rate": 1.0
+   },
+   "stenogramos": {
+    "hits": 2,
+    "total": 2,
+    "hit_rate": 1.0,
+    "term_hits": 2,
+    "term_scored": 2,
+    "term_rate": 1.0
+   }
+  }
+ },
+ "rows": [
+  {
+   "id": 1,
+   "family": "KT",
+   "question": "Ar Darbo kodekso 217 straipsnio 3 dalies nuostata atitiko Konstituciją?",
+   "expected": "KT nutarimas",
+   "sources": [
+    "KT nutarimas",
+    "KT nutarimas",
+    "KT nutarimas"
+   ],
+   "hit": true,
+   "expect": "Konstitucij",
+   "term_hit": true
+  },
+  {
+   "id": 2,
+   "family": "KT",
+   "question": "Ar valstybinio socialinio draudimo įstatymo nuostata dėl išmokų atitiko Konstituciją?",
+   "expected": "KT nutarimas",
+   "sources": [
+    "KT nutarimas",
+    "KT nutarimas",
+    "KT nutarimas"
+   ],
+   "hit": true,
+   "expect": "Konstitucij",
+   "term_hit": true
+  },
+  {
+   "id": 3,
+   "family": "KT",
+   "question": "Ką Konstitucinis Teismas nusprendė dėl motinystės pašalpos dydžio ribojimo?",
+   "expected": "KT nutarimas",
+   "sources": [
+    "KT nutarimas",
+    "KT nutarimas",
+    "KT nutarimas"
+   ],
+   "hit": true,
+   "expect": "motinyst",
+   "term_hit": true
+  },
+  {
+   "id": 4,
+   "family": "EŽTT",
+   "question": "Ką Europos Žmogaus Teisių Teismas nusprendė byloje Hoppen prieš Lietuvą?",
+   "expected": "EŽTT sprendimas",
+   "sources": [
+    "EŽTT sprendimas",
+    "EŽTT sprendimas",
+    "EŽTT sprendimas"
+   ],
+   "hit": true,
+   "expect": "Hoppen",
+   "term_hit": true
+  },
+  {
+   "id": 5,
+   "family": "EŽTT",
+   "question": "Ar atleidimas dėl profesinės sąjungos veiklos pažeidė asociacijų laisvę?",
+   "expected": "EŽTT sprendimas",
+   "sources": [
+    "EŽTT sprendimas",
+    "Seimo stenogramos",
+    "EŽTT sprendimas"
+   ],
+   "hit": true,
+   "expect": "association",
+   "term_hit": true
+  },
+  {
+   "id": 6,
+   "family": "EŽTT",
+   "question": "Ką Strasbūro teismas nustatė dėl teisės į privataus gyvenimo gerbimą darbe?",
+   "expected": "EŽTT sprendimas",
+   "sources": [
+    "Seimo komiteto išvada",
+    "Direktyva 2000/78/EB",
+    "KT nutarimas"
+   ],
+   "hit": false,
+   "expect": "private",
+   "term_hit": false
+  },
+  {
+   "id": 7,
+   "family": "komitetas",
+   "question": "Ką Socialinių reikalų ir darbo komitetas pasiūlė dėl Darbo kodekso 139 straipsnio pakeitimo?",
+   "expected": "Seimo komiteto išvada",
+   "sources": [
+    "Seimo komiteto išvada",
+    "Seimo komiteto išvada",
+    "Seimo komiteto išvada"
+   ],
+   "hit": true,
+   "expect": "komitet",
+   "term_hit": true
+  },
+  {
+   "id": 8,
+   "family": "komitetas",
+   "question": "Kokia komiteto išvada dėl Užimtumo įstatymo pakeitimo projekto?",
+   "expected": "Seimo komiteto išvada",
+   "sources": [
+    "Seimo komiteto išvada",
+    "Seimo komiteto išvada",
+    "Seimo komiteto išvada"
+   ],
+   "hit": true,
+   "expect": "komitet",
+   "term_hit": true
+  },
+  {
+   "id": 9,
+   "family": "ES",
+   "question": "Kiek valandų nepertraukiamo kasdienio poilsio per parą garantuoja ES darbo laiko direktyva?",
+   "expected": "Direktyva 2003/88/EB",
+   "sources": [
+    "Direktyva 2003/88/EB",
+    "Direktyva 2003/88/EB",
+    "Nutarimas Nr. 496"
+   ],
+   "hit": true,
+   "expect": "11 valand",
+   "term_hit": true
+  },
+  {
+   "id": 10,
+   "family": "ES",
+   "question": "Kokį minimalų kasmetinių atostogų laikotarpį numato ES darbo laiko direktyva?",
+   "expected": "Direktyva 2003/88/EB",
+   "sources": [
+    "Direktyva 2003/88/EB",
+    "KT nutarimas",
+    "VDI paaiškinimas"
+   ],
+   "hit": true,
+   "expect": "keturi",
+   "term_hit": true
+  },
+  {
+   "id": 11,
+   "family": "ES",
+   "question": "Ką numato ES direktyva dėl darbuotojų komandiravimo teikiant paslaugas?",
+   "expected": "Direktyva 96/71/EB",
+   "sources": [
+    "Direktyva 96/71/EB",
+    "Direktyva 96/71/EB",
+    "VDI paaiškinimas"
+   ],
+   "hit": true,
+   "expect": "komandiruot",
+   "term_hit": true
+  },
+  {
+   "id": 12,
+   "family": "stenogramos",
+   "question": "Ką Seimas svarstė dėl socialinio draudimo pensijų įstatymo pakeitimo?",
+   "expected": "Seimo stenogramos",
+   "sources": [
+    "Seimo stenogramos",
+    "Seimo stenogramos",
+    "Seimo stenogramos"
+   ],
+   "hit": true,
+   "expect": "pensij",
+   "term_hit": true
+  },
+  {
+   "id": 13,
+   "family": "stenogramos",
+   "question": "Kokie Seimo narių pasiūlymai buvo svarstomi dėl Darbo kodekso pakeitimų?",
+   "expected": "Seimo stenogramos",
+   "sources": [
+    "Seimo stenogramos",
+    "Seimo stenogramos",
+    "Seimo komiteto išvada"
+   ],
+   "hit": true,
+   "expect": "Darbo kodeks",
+   "term_hit": true
+  },
+  {
+   "id": 14,
+   "family": "projektai",
+   "question": "Kokie pakeitimai siūlomi Darbo kodekso 221 straipsniui?",
+   "expected": "Seimo projektas",
+   "sources": [
+    "Seimo projektas",
+    "Seimo projektas",
+    "Seimo komiteto išvada"
+   ],
+   "hit": true,
+   "expect": "221",
+   "term_hit": true
+  },
+  {
+   "id": 15,
+   "family": "projektai",
+   "question": "Ką siūlo Seimo projektas dėl Darbo kodekso patvirtinimo įstatymo pakeitimo?",
+   "expected": "Seimo projektas",
+   "sources": [
+    "Seimo komiteto išvada",
+    "Seimo projektas",
+    "Seimo komiteto išvada"
+   ],
+   "hit": true,
+   "expect": "projekt",
+   "term_hit": true
+  }
+ ]
+}

@@ -760,6 +760,28 @@ Incremental ingest reuses a chunk's stored vector when its title and text hash
 is unchanged, so adding acts costs embeddings only for the new ones. Tests cover
 the reuse, the update path, deletion of repealed chunks, and signature recall.
 
+## Per-source evaluation
+
+The Code and delegated acts were measured; the other source families were not.
+`eval/run_source_specific_eval.py` asks 15 questions whose answers live in one
+family and reports whether that family reaches the served sources:
+
+| Family | Hit | Answer term |
+|---|---|---|
+| Constitutional Court | 3/3 | 3/3 |
+| EU directives | 3/3 | 3/3 |
+| Committee conclusions | 2/2 | 2/2 |
+| Seimas drafts | 2/2 | 2/2 |
+| Plenary transcripts | 2/2 | 2/2 |
+| ECHR judgments | **2/3** | **2/3** |
+
+**14/15 = 0.933** overall, published on `/status` as `evals.source_specific`.
+
+The one miss is honest coverage, not ranking: the ECHR corpus is built from
+judgments that quote the Labour Code, and the question asked about privacy at
+work, which those nine judgments do not decide. The gap is recorded rather than
+papered over by dropping the question.
+
 ## Citation checking
 
 The response's `sources` array is retriever-attached and cannot be invented by
@@ -877,7 +899,8 @@ an article leads to the provisions that actually apply it.
   "seimas_transcripts": {"documents": 22, "chunks": 363},
   "history": {"editions": 41, "from": "2017-07-01"},
   "links": {"articles_linked": 141, "edges": 424, "case_edges": 42, "cases": 57},
-  "evals": {"code_served": {"served_hit1": 0.92}, "delegated": {"term_rate": 0.955}}
+  "evals": {"code_served": {"served_hit1": 0.92}, "delegated": {"term_rate": 0.967},
+            "source_specific": {"hit_rate": 0.933}}
 }
 ```
 

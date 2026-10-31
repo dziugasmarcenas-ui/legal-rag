@@ -373,6 +373,7 @@ def status_payload():
         "evals": {
             "code_served": summary("code_served"),
             "delegated": summary("delegated"),
+            "source_specific": summary("source_specific"),
         },
     }
 
@@ -416,6 +417,8 @@ def status_page():
         row("Code accuracy", f"{served.get('served_hit1', 0):.3f} top-1", f"{served.get('served_hit_rate', 0):.3f} in top 3"),
         row("Refusals", f"{served.get('correct_refusal_rate', 0):.3f} correct", f"{served.get('false_refusal_rate', 0):.3f} false"),
         row("Delegated accuracy", f"{delegated.get('hit_rate', 0):.3f} right act", f"{delegated.get('term_rate', 0):.3f} with the answer"),
+        row("Per-source accuracy", f"{(evals['source_specific'] or {}).get('hit_rate', 0):.3f} right family",
+            f"{(evals['source_specific'] or {}).get('term_rate', 0):.3f} with the answer"),
     ])
 
     return HTMLResponse(f"""<!doctype html><html lang="en"><head><meta charset="utf-8">
