@@ -23,6 +23,7 @@ from typing import Literal
 
 from pydantic import BaseModel, Field
 
+import citations
 import config
 import edition
 import gate
@@ -511,6 +512,14 @@ def chat(request: ChatRequest, http: Request):
             "refused": False,
         }
 
+    check = citations.verify(answer, results)
+    if check["unsupported"]:
+        # The retrieval set is the evidence. An article number that is not in it
+        # came from the model, and the caller should be able to see that.
+        log.warning(
+            "answer cites provisions not retrieved: %s", check["unsupported"]
+        )
+
     log.info("answered q_len=%d confidence=%.4f", len(request.question), confidence)
     return {
         "answer": answer,
@@ -518,6 +527,7 @@ def chat(request: ChatRequest, http: Request):
         "confidence": round(confidence, 4),
         "confidence_signal": "max_" + gate.SIGNAL,
         "refused": False,
+        "citation_check": check,
     }
 
 

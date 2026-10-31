@@ -760,6 +760,20 @@ Incremental ingest reuses a chunk's stored vector when its title and text hash
 is unchanged, so adding acts costs embeddings only for the new ones. Tests cover
 the reuse, the update path, deletion of repealed chunks, and signature recall.
 
+## Citation checking
+
+The response's `sources` array is retriever-attached and cannot be invented by
+the model. The prose is different: a model can write "pagal 77 straipsnį" from
+memory. Every answered response now carries a `citation_check`:
+
+```json
+"citation_check": {"cited": ["59"], "supported": ["59"], "unsupported": []}
+```
+
+`unsupported` lists article numbers the answer names that the retriever did not
+supply, and the server logs a warning when it is non-empty. The answer is not
+rewritten — hiding the discrepancy would be worse than reporting it.
+
 ## Validity monitoring
 
 `data/act_status.json` records the e-seimas status of **every act the service

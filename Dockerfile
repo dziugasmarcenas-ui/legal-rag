@@ -33,7 +33,8 @@ COPY embeddings/versions.npy embeddings/versions.npy
 COPY embeddings/versions.json embeddings/versions.json
 COPY static/ static/
 COPY config.py retrieval.py gate.py edition.py ratelimit.py llm.py answer.py \
-     paragraphs.py history.py oauth.py link_graph.py vector_store.py mcp_server.py main.py ./
+     paragraphs.py history.py oauth.py link_graph.py vector_store.py citations.py \
+     mcp_server.py main.py ./
 
 # Fail the build rather than the first request if the corpus and the vectors
 # ever ship out of step with each other.
